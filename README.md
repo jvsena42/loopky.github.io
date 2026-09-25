@@ -68,10 +68,10 @@ then deploys `main` to Pages. It also asks the indexer the two questions the Dis
 section asks, and logs what came back. That one is a warning, never a failure: the
 network being down is not a reason to block a deploy.
 
-The deploy job uses `actions/deploy-pages`, so the repository's **Settings → Pages →
-Source** has to be set to **GitHub Actions**. If you would rather serve the branch
-directly, set Source to **Deploy from a branch** (`main`, `/`) and delete the `deploy`
-job. The `check` job is worth keeping either way.
+The deploy job turns Pages on itself the first time, via `enablement: true`, so the
+repository needs no click in Settings. If you would rather serve the branch directly,
+set **Settings → Pages → Source** to **Deploy from a branch** (`main`, `/`) and delete
+the `deploy` job. The `check` job is worth keeping either way.
 
 ## Colours
 
