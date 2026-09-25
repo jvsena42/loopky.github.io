@@ -134,6 +134,83 @@ function loadSubjects() {
 
 /* ---------------- the homeserver: what the deck actually is ---------------- */
 
+/* z-base-32, the alphabet a pubky is spelled in. */
+var PUBKY_RE = /^[ybndrfg8ejkmcpqxot1uwisza345h769]{52}$/;
+
+/* One path segment, the shape the app writes. `.` and `..` would climb out of the
+   deck directory, so they are refused even though the characters are allowed. */
+var DECK_ID_RE = /^(?!\.{1,2}$)[A-Za-z0-9._~-]{1,128}$/;
+
+/* The manifest as a deck, or null when it is not one. [pubky] is the account whose
+   homeserver answered, so a manifest naming someone else as its author is refused. */
+function deckFromManifest(pubky, id, d) {
+  if (!d || typeof d.title !== 'string' || !d.title.trim()) return null;
+  if (d.author_pubky && d.author_pubky !== pubky) return null;
+  var topics = (Array.isArray(d.tags) ? d.tags : []).filter(function (t) {
+    return typeof t === 'string' && !isReserved(t);
+  });
+  return {
+    /* Author-scoped, not the deck id alone: two authors can publish the same id. */
+    key: pubky + '/' + id,
+    id: id,
+    uri: 'pubky://' + pubky + '/pub/loopky/decks/' + id + '/manifest.json',
+    author: pubky,
+    title: d.title.trim(),
+    description: typeof d.description === 'string' ? d.description.trim() : '',
+    cards: typeof d.card_count === 'number' ? d.card_count : null,
+    emoji: coverEmoji(d.cover_emoji),
+    cover: webCover(d.cover_image_ref && d.cover_image_ref.url),
+    /* Off the manifest, which is the author's own list. The indexer's is cut at five
+       and can carry anything a stranger attached. */
+    allTopics: topics,
+    topics: topics.slice(0, 4),
+    follows: 0,
+    at: 0,
+  };
+}
+
+/**
+ * One deck straight off its author's homeserver. Resolves to null when the
+ * homeserver says there is no such deck and rejects when it could not be asked, so a
+ * caller can tell a deleted deck from a dropped connection.
+ */
+function fetchDeck(pubky, id) {
+  var url = HOMESERVER + '/pub/loopky/decks/' + encodeURIComponent(id) + '/manifest.json';
+  return fetch(url, { mode: 'cors', credentials: 'omit', headers: { 'pubky-host': pubky } })
+    .then(function (r) {
+      if (r.status === 404) return null;
+      if (!r.ok) throw new Error(url + ' -> ' + r.status);
+      return r.json().then(
+        function (d) { return deckFromManifest(pubky, id, d); },
+        function () { return null; });
+    });
+}
+
+/**
+ * The ids of the decks under one account, from a shallow directory listing. This is
+ * every deck the author has, including ones nobody tagged, which is what a profile
+ * wants and what the indexer cannot answer.
+ */
+function listDeckIds(pubky, limit) {
+  var url = HOMESERVER + '/pub/loopky/decks/?shallow=true&limit=' + (limit || 50);
+  return fetch(url, { mode: 'cors', credentials: 'omit', headers: { 'pubky-host': pubky } })
+    .then(function (r) {
+      if (r.status === 404) return [];
+      if (!r.ok) throw new Error(url + ' -> ' + r.status);
+      return r.text();
+    })
+    .then(function (text) {
+      if (!text) return [];
+      var prefix = 'pubky://' + pubky + '/pub/loopky/decks/';
+      return text.split('\n').map(function (line) {
+        line = line.trim();
+        if (line.indexOf(prefix) !== 0) return null;
+        var id = line.slice(prefix.length).replace(/\/$/, '');
+        return DECK_ID_RE.test(id) ? id : null;
+      }).filter(Boolean);
+    });
+}
+
 /**
  * One deck, read from its author's homeserver, or null for anything that fails a
  * check. This is `verifiedDeck` plus `fetchRemote`, in one step.
@@ -151,25 +228,11 @@ function verifiedDeck(subject) {
 
   return getJson(HOMESERVER + m[2], { 'pubky-host': pubky })
     .then(function (d) {
-      if (!d || typeof d.title !== 'string' || !d.title.trim()) return null;
-      if (d.author_pubky && d.author_pubky !== pubky) return null;
-      return {
-        /* Author-scoped, not the deck id alone: two authors can publish the same id. */
-        key: pubky + '/' + m[3],
-        uri: subject.uri,
-        author: pubky,
-        title: d.title.trim(),
-        cards: typeof d.card_count === 'number' ? d.card_count : null,
-        emoji: coverEmoji(d.cover_emoji),
-        cover: webCover(d.cover_image_ref && d.cover_image_ref.url),
-        /* Off the manifest, which is the author's own list. The indexer's is cut at
-           five and can carry anything a stranger attached. */
-        topics: (Array.isArray(d.tags) ? d.tags : []).filter(function (t) {
-          return typeof t === 'string' && !isReserved(t);
-        }).slice(0, 4),
-        follows: subject.follows,
-        at: subject.at,
-      };
+      var deck = deckFromManifest(pubky, m[3], d);
+      if (!deck) return null;
+      deck.follows = subject.follows;
+      deck.at = subject.at;
+      return deck;
     })
     .catch(function () { return null; });
 }
@@ -238,4 +301,23 @@ function resolveNames(pubkys, onEach) {
       })
       .catch(function () { /* an unresolved author is just an unnamed one */ });
   });
+}
+
+/* A pubky.app profile, or null when there is none to read. An unnamed profile
+   answers with the key itself as its name, which is not a name. */
+function fetchProfile(pubky) {
+  return getJson(NEXUS + '/v0/user/' + encodeURIComponent(pubky))
+    .then(function (u) {
+      var d = (u && u.details) || {};
+      var name = typeof d.name === 'string' && !PUBKY_RE.test(d.name) ? d.name.trim() : '';
+      var bio = typeof d.bio === 'string' ? d.bio.trim() : '';
+      return { name: name, bio: bio, hasImage: typeof d.image === 'string' && !!d.image };
+    })
+    .catch(function () { return null; });
+}
+
+/* Nexus serves every indexed profile picture as a web image, which the homeserver's
+   own pubky:// file record is not. */
+function avatarUrl(pubky) {
+  return NEXUS + '/static/avatar/' + encodeURIComponent(pubky);
 }

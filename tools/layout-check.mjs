@@ -18,6 +18,16 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const WIDTHS = [390, 600, 900, 1440];
+
+/* A real deck and its author, so the pages are measured with a title, a cover, a
+   description and a deck grid in them. If the deck is ever deleted the page shows
+   its not-found state instead, which is still worth measuring. */
+const AUTHOR = '3jubjyq4fkh4dq38exrpuo8we6xta8a6rhxnjjzyoo7j4r3f4rjo';
+const PAGES = [
+  'index.html',
+  `deck/?author=${AUTHOR}&id=viageming2026a`,
+  `profile/?pubky=${AUTHOR}`,
+];
 /* One chip of slack: a sub-pixel layout width rounds up and is not a broken page. */
 const TOLERANCE = 1;
 const PORT = 8899;
@@ -50,29 +60,35 @@ process.on('exit', cleanup);
 
 try {
   cpSync(join(root, 'index.html'), join(dir, 'index.html'));
-  cpSync(join(root, 'assets'), join(dir, 'assets'), { recursive: true });
+  for (const d of ['assets', 'deck', 'profile']) {
+    cpSync(join(root, d), join(dir, d), { recursive: true });
+  }
 
   writeFileSync(join(dir, 'probe.html'), `<!doctype html>
 <meta charset="utf-8">
 <body style="margin:0">
 <script>
 var WIDTHS = ${JSON.stringify(WIDTHS)};
-WIDTHS.forEach(function (w) {
-  var f = document.createElement('iframe');
-  f.src = 'index.html';
-  f.width = w; f.height = 900;
-  f.style.cssText = 'border:0;display:block';
-  f.dataset.w = w;
-  document.body.appendChild(f);
+var PAGES = ${JSON.stringify(PAGES)};
+PAGES.forEach(function (page) {
+  WIDTHS.forEach(function (w) {
+    var f = document.createElement('iframe');
+    f.src = page;
+    f.width = w; f.height = 900;
+    f.style.cssText = 'border:0;display:block';
+    f.dataset.w = w;
+    f.dataset.page = page.split('?')[0];
+    document.body.appendChild(f);
+  });
 });
 setTimeout(function () {
   var out = [];
   document.querySelectorAll('iframe').forEach(function (f) {
     try {
       var d = f.contentDocument.documentElement;
-      out.push({ width: Number(f.dataset.w), overflow: d.scrollWidth - d.clientWidth });
+      out.push({ page: f.dataset.page, width: Number(f.dataset.w), overflow: d.scrollWidth - d.clientWidth });
     } catch (e) {
-      out.push({ width: Number(f.dataset.w), error: String(e) });
+      out.push({ page: f.dataset.page, width: Number(f.dataset.w), error: String(e) });
     }
   });
   var el = document.createElement('div');
@@ -111,7 +127,7 @@ setTimeout(function () {
     const note = r.error ? `error: ${r.error}`
       : r.overflow > TOLERANCE ? `overflows by ${r.overflow}px`
         : 'ok';
-    console.log(`  ${String(r.width).padStart(5)}px  ${note}`);
+    console.log(`  ${r.page.padEnd(12)} ${String(r.width).padStart(5)}px  ${note}`);
   }
 
   if (bad.length) {
@@ -119,7 +135,7 @@ setTimeout(function () {
       'container is sizing to its content; the usual fix is min-width: 0 on the item.');
     process.exit(1);
   }
-  console.log(`\nOK. No horizontal overflow at ${WIDTHS.length} widths.`);
+  console.log(`\nOK. No horizontal overflow on ${PAGES.length} pages at ${WIDTHS.length} widths.`);
   process.exit(0);
 } catch (e) {
   console.error('FAIL: layout check could not run:', e.message);

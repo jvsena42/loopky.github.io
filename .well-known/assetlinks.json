@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.github.jvsena42.loopky",
+      "sha256_cert_fingerprints": [
+        "09:81:13:2B:6C:D5:DD:9B:5D:FF:A1:44:E9:F9:C3:AB:9E:77:ED:C7:61:8B:FB:09:EC:2F:5A:C8:7F:5D:80:48",
+        "FB:07:11:5C:45:5F:83:B1:2B:D6:7A:A0:4B:10:7B:A9:88:6E:26:B7:EE:3C:76:08:9A:F0:E6:B2:E4:7B:4F:7C"
+      ]
+    }
+  }
+]

@@ -88,6 +88,9 @@
     labelTheme();
     renderUses();
     renderDiscover();
+    /* The deck and profile pages build their copy from data, so they listen for this
+       and paint again rather than carrying data-i18n on nodes that change. */
+    document.dispatchEvent(new CustomEvent('loopky:lang'));
   }
 
   function renderUses() {
@@ -238,13 +241,18 @@
     return box;
   }
 
+  /* The same address the app shares, so a tile opens the deck in Loopky when the app
+     is installed and shows it on the web when it is not. `data-root` is the way back
+     to the site root from a page one directory down. */
+  function deckHref(d) {
+    var root = document.body.getAttribute('data-root') || '';
+    return root + 'deck/?author=' + encodeURIComponent(d.author) + '&id=' + encodeURIComponent(d.id);
+  }
+
   function deckCard(d) {
     var a = document.createElement('a');
     a.className = 'deck';
-    /* The app is the only place a deck opens, so that is where every tile goes. */
-    a.href = PLAY_URL;
-    a.target = '_blank';
-    a.rel = 'noopener';
+    a.href = deckHref(d);
 
     if (d.cover) {
       var img = document.createElement('img');
@@ -410,6 +418,13 @@
       renderDiscover();
     });
   }
+
+  /* ---------------- shared with the deck and profile pages ---------------- */
+
+  window.loopkyT = tf;
+  window.loopkyDeckCard = deckCard;
+  window.loopkyTint = tintClass;
+  window.loopkyPlayUrl = PLAY_URL;
 
   /* ---------------- wiring ---------------- */
 
