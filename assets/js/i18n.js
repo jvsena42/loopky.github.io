@@ -95,7 +95,20 @@ var I18N = {
   'how.s3.t': 'Start studying', 'how.s3.d': 'Make a deck, paste a list, import from Anki, or follow a deck you found.',
   'cta.title': SLOGAN, 'cta.sub': 'A few minutes a day is enough.',
   'foot.play': 'Google Play', 'foot.repo': 'Source code', 'foot.privacy': 'Privacy',
-  'foot.note': 'Built on Pubky. MIT licensed.'
+  'foot.note': 'Built on Pubky. MIT licensed.',
+  'link.deck.title': 'A shared deck · Loopky',
+  'link.profile.title': 'A profile on Loopky',
+  'link.deck.eyebrow': 'Shared deck',
+  'link.profile.eyebrow': 'Loopky profile',
+  'link.open': 'Open in Loopky',
+  'link.hint': 'Opens in the app if you have it, or takes you to Google Play if you do not.',
+  'link.elsewhere': 'Loopky is on Android for now. Open this link on an Android phone to see it in the app.',
+  'link.loading': 'Loading…',
+  'link.deck.gone': 'Deck not found',
+  'link.deck.missing': 'This deck is not there any more. Its author may have deleted it.',
+  'link.decks': 'Decks',
+  'link.decks.none': 'No published decks yet.',
+  'link.about': 'What is Loopky?'
 },
 
 'pt-BR': {
@@ -148,7 +161,20 @@ var I18N = {
   'how.s3.t': 'Comece a estudar', 'how.s3.d': 'Crie um baralho, cole uma lista, importe do Anki ou siga um baralho que você achou.',
   'cta.title': SLOGAN, 'cta.sub': 'Alguns minutos por dia já bastam.',
   'foot.play': 'Google Play', 'foot.repo': 'Código-fonte', 'foot.privacy': 'Privacidade',
-  'foot.note': 'Feito sobre o Pubky. Licença MIT.'
+  'foot.note': 'Feito sobre o Pubky. Licença MIT.',
+  'link.deck.title': 'Um baralho compartilhado · Loopky',
+  'link.profile.title': 'Um perfil no Loopky',
+  'link.deck.eyebrow': 'Baralho compartilhado',
+  'link.profile.eyebrow': 'Perfil no Loopky',
+  'link.open': 'Abrir no Loopky',
+  'link.hint': 'Abre no app se você tiver, ou leva ao Google Play se não tiver.',
+  'link.elsewhere': 'Por enquanto o Loopky é só para Android. Abra este link num celular Android para ver no app.',
+  'link.loading': 'Carregando…',
+  'link.deck.gone': 'Baralho não encontrado',
+  'link.deck.missing': 'Este baralho não está mais aqui. Quem criou pode ter apagado.',
+  'link.decks': 'Baralhos',
+  'link.decks.none': 'Nenhum baralho publicado ainda.',
+  'link.about': 'O que é o Loopky?'
 },
 
 'es': {
@@ -201,7 +227,20 @@ var I18N = {
   'how.s3.t': 'Empieza a estudiar', 'how.s3.d': 'Crea un mazo, pega una lista, importa de Anki o sigue un mazo que encontraste.',
   'cta.title': SLOGAN, 'cta.sub': 'Con unos minutos al día basta.',
   'foot.play': 'Google Play', 'foot.repo': 'Código fuente', 'foot.privacy': 'Privacidad',
-  'foot.note': 'Hecho sobre Pubky. Licencia MIT.'
+  'foot.note': 'Hecho sobre Pubky. Licencia MIT.',
+  'link.deck.title': 'Un mazo compartido · Loopky',
+  'link.profile.title': 'Un perfil en Loopky',
+  'link.deck.eyebrow': 'Mazo compartido',
+  'link.profile.eyebrow': 'Perfil de Loopky',
+  'link.open': 'Abrir en Loopky',
+  'link.hint': 'Se abre en la app si la tienes, o te lleva a Google Play si no.',
+  'link.elsewhere': 'Por ahora Loopky está en Android. Abre este enlace en un teléfono Android para verlo en la app.',
+  'link.loading': 'Cargando…',
+  'link.deck.gone': 'Mazo no encontrado',
+  'link.deck.missing': 'Este mazo ya no está. Puede que su autor lo haya borrado.',
+  'link.decks': 'Mazos',
+  'link.decks.none': 'Todavía no hay mazos publicados.',
+  'link.about': '¿Qué es Loopky?'
 },
 
 'fr': {
@@ -254,7 +293,20 @@ var I18N = {
   'how.s3.t': 'Commence à réviser', 'how.s3.d': 'Crée un paquet, colle une liste, importe depuis Anki, ou suis un paquet trouvé.',
   'cta.title': SLOGAN, 'cta.sub': 'Quelques minutes par jour suffisent.',
   'foot.play': 'Google Play', 'foot.repo': 'Code source', 'foot.privacy': 'Confidentialité',
-  'foot.note': 'Construit sur Pubky. Licence MIT.'
+  'foot.note': 'Construit sur Pubky. Licence MIT.',
+  'link.deck.title': 'Un paquet partagé · Loopky',
+  'link.profile.title': 'Un profil sur Loopky',
+  'link.deck.eyebrow': 'Paquet partagé',
+  'link.profile.eyebrow': 'Profil Loopky',
+  'link.open': 'Ouvrir dans Loopky',
+  'link.hint': 'S’ouvre dans l’app si vous l’avez, sinon vous mène à Google Play.',
+  'link.elsewhere': 'Loopky est sur Android pour l’instant. Ouvrez ce lien sur un téléphone Android pour le voir dans l’app.',
+  'link.loading': 'Chargement…',
+  'link.deck.gone': 'Paquet introuvable',
+  'link.deck.missing': 'Ce paquet n’existe plus. Son auteur l’a peut-être supprimé.',
+  'link.decks': 'Paquets',
+  'link.decks.none': 'Aucun paquet publié pour l’instant.',
+  'link.about': 'Loopky, c’est quoi ?'
 },
 
 'de': {
@@ -307,7 +359,20 @@ var I18N = {
   'how.s3.t': 'Loslernen', 'how.s3.d': 'Stapel bauen, Liste einfügen, aus Anki importieren, oder einem gefundenen Stapel folgen.',
   'cta.title': SLOGAN, 'cta.sub': 'Ein paar Minuten am Tag reichen.',
   'foot.play': 'Google Play', 'foot.repo': 'Quellcode', 'foot.privacy': 'Datenschutz',
-  'foot.note': 'Gebaut auf Pubky. MIT-Lizenz.'
+  'foot.note': 'Gebaut auf Pubky. MIT-Lizenz.',
+  'link.deck.title': 'Ein geteiltes Deck · Loopky',
+  'link.profile.title': 'Ein Profil auf Loopky',
+  'link.deck.eyebrow': 'Geteiltes Deck',
+  'link.profile.eyebrow': 'Loopky-Profil',
+  'link.open': 'In Loopky öffnen',
+  'link.hint': 'Öffnet sich in der App, wenn du sie hast, sonst bei Google Play.',
+  'link.elsewhere': 'Loopky gibt es vorerst für Android. Öffne diesen Link auf einem Android-Handy, um ihn in der App zu sehen.',
+  'link.loading': 'Wird geladen…',
+  'link.deck.gone': 'Deck nicht gefunden',
+  'link.deck.missing': 'Dieses Deck gibt es nicht mehr. Vielleicht hat die Person es gelöscht.',
+  'link.decks': 'Decks',
+  'link.decks.none': 'Noch keine veröffentlichten Decks.',
+  'link.about': 'Was ist Loopky?'
 },
 
 'it': {
@@ -360,7 +425,20 @@ var I18N = {
   'how.s3.t': 'Inizia a studiare', 'how.s3.d': 'Crea un mazzo, incolla una lista, importa da Anki, o segui un mazzo che hai trovato.',
   'cta.title': SLOGAN, 'cta.sub': 'Bastano pochi minuti al giorno.',
   'foot.play': 'Google Play', 'foot.repo': 'Codice sorgente', 'foot.privacy': 'Privacy',
-  'foot.note': 'Costruita su Pubky. Licenza MIT.'
+  'foot.note': 'Costruita su Pubky. Licenza MIT.',
+  'link.deck.title': 'Un mazzo condiviso · Loopky',
+  'link.profile.title': 'Un profilo su Loopky',
+  'link.deck.eyebrow': 'Mazzo condiviso',
+  'link.profile.eyebrow': 'Profilo Loopky',
+  'link.open': 'Apri in Loopky',
+  'link.hint': 'Si apre nell’app se ce l’hai, altrimenti ti porta su Google Play.',
+  'link.elsewhere': 'Per ora Loopky è su Android. Apri questo link su un telefono Android per vederlo nell’app.',
+  'link.loading': 'Caricamento…',
+  'link.deck.gone': 'Mazzo non trovato',
+  'link.deck.missing': 'Questo mazzo non c’è più. L’autore potrebbe averlo eliminato.',
+  'link.decks': 'Mazzi',
+  'link.decks.none': 'Ancora nessun mazzo pubblicato.',
+  'link.about': 'Cos’è Loopky?'
 },
 
 'ja': {
@@ -413,7 +491,20 @@ var I18N = {
   'how.s3.t': '学びはじめる', 'how.s3.d': 'デッキを作る、リストを貼る、Anki から取り込む、見つけたデッキをフォローする。',
   'cta.title': SLOGAN, 'cta.sub': '1日数分で十分です。',
   'foot.play': 'Google Play', 'foot.repo': 'ソースコード', 'foot.privacy': 'プライバシー',
-  'foot.note': 'Pubky の上に構築。MIT ライセンス。'
+  'foot.note': 'Pubky の上に構築。MIT ライセンス。',
+  'link.deck.title': '共有されたデッキ · Loopky',
+  'link.profile.title': 'Loopky のプロフィール',
+  'link.deck.eyebrow': '共有されたデッキ',
+  'link.profile.eyebrow': 'Loopky プロフィール',
+  'link.open': 'Loopky で開く',
+  'link.hint': 'アプリがあればアプリで開き、なければ Google Play に移動します。',
+  'link.elsewhere': 'Loopky は現在 Android 版のみです。Android スマートフォンでこのリンクを開くとアプリで見られます。',
+  'link.loading': '読み込み中…',
+  'link.deck.gone': 'デッキが見つかりません',
+  'link.deck.missing': 'このデッキはもうありません。作成者が削除した可能性があります。',
+  'link.decks': 'デッキ',
+  'link.decks.none': '公開されたデッキはまだありません。',
+  'link.about': 'Loopky とは？'
 },
 
 'ko': {
@@ -466,7 +557,20 @@ var I18N = {
   'how.s3.t': '공부 시작', 'how.s3.d': '덱을 만들고, 목록을 붙여넣고, Anki에서 가져오고, 찾은 덱을 팔로우하세요.',
   'cta.title': SLOGAN, 'cta.sub': '하루 몇 분이면 충분합니다.',
   'foot.play': 'Google Play', 'foot.repo': '소스 코드', 'foot.privacy': '개인정보',
-  'foot.note': 'Pubky 위에 만들었습니다. MIT 라이선스.'
+  'foot.note': 'Pubky 위에 만들었습니다. MIT 라이선스.',
+  'link.deck.title': '공유된 덱 · Loopky',
+  'link.profile.title': 'Loopky 프로필',
+  'link.deck.eyebrow': '공유된 덱',
+  'link.profile.eyebrow': 'Loopky 프로필',
+  'link.open': 'Loopky에서 열기',
+  'link.hint': '앱이 있으면 앱에서 열리고, 없으면 Google Play로 이동합니다.',
+  'link.elsewhere': 'Loopky는 지금은 Android에서만 쓸 수 있어요. Android 휴대폰에서 이 링크를 열면 앱에서 볼 수 있어요.',
+  'link.loading': '불러오는 중…',
+  'link.deck.gone': '덱을 찾을 수 없음',
+  'link.deck.missing': '이 덱은 더 이상 없어요. 만든 사람이 삭제했을 수 있어요.',
+  'link.decks': '덱',
+  'link.decks.none': '아직 공개된 덱이 없어요.',
+  'link.about': 'Loopky란?'
 },
 
 'vi': {
@@ -519,7 +623,20 @@ var I18N = {
   'how.s3.t': 'Bắt đầu học', 'how.s3.d': 'Tạo bộ thẻ, dán danh sách, nhập từ Anki, hoặc theo dõi bộ thẻ bạn tìm được.',
   'cta.title': SLOGAN, 'cta.sub': 'Vài phút mỗi ngày là đủ.',
   'foot.play': 'Google Play', 'foot.repo': 'Mã nguồn', 'foot.privacy': 'Quyền riêng tư',
-  'foot.note': 'Xây trên Pubky. Giấy phép MIT.'
+  'foot.note': 'Xây trên Pubky. Giấy phép MIT.',
+  'link.deck.title': 'Bộ thẻ được chia sẻ · Loopky',
+  'link.profile.title': 'Hồ sơ trên Loopky',
+  'link.deck.eyebrow': 'Bộ thẻ được chia sẻ',
+  'link.profile.eyebrow': 'Hồ sơ Loopky',
+  'link.open': 'Mở trong Loopky',
+  'link.hint': 'Mở trong ứng dụng nếu bạn đã cài, nếu chưa thì chuyển đến Google Play.',
+  'link.elsewhere': 'Hiện Loopky mới có trên Android. Hãy mở liên kết này trên điện thoại Android để xem trong ứng dụng.',
+  'link.loading': 'Đang tải…',
+  'link.deck.gone': 'Không tìm thấy bộ thẻ',
+  'link.deck.missing': 'Bộ thẻ này không còn nữa. Có thể tác giả đã xóa nó.',
+  'link.decks': 'Bộ thẻ',
+  'link.decks.none': 'Chưa có bộ thẻ nào được đăng.',
+  'link.about': 'Loopky là gì?'
 },
 
 'zh-Hans': {
@@ -572,7 +689,20 @@ var I18N = {
   'how.s3.t': '开始学习', 'how.s3.d': '建卡组、粘贴列表、从 Anki 导入，或者关注你找到的卡组。',
   'cta.title': SLOGAN, 'cta.sub': '每天几分钟就够了。',
   'foot.play': 'Google Play', 'foot.repo': '源代码', 'foot.privacy': '隐私',
-  'foot.note': '基于 Pubky 构建。MIT 许可。'
+  'foot.note': '基于 Pubky 构建。MIT 许可。',
+  'link.deck.title': '分享的卡组 · Loopky',
+  'link.profile.title': 'Loopky 上的个人资料',
+  'link.deck.eyebrow': '分享的卡组',
+  'link.profile.eyebrow': 'Loopky 个人资料',
+  'link.open': '在 Loopky 中打开',
+  'link.hint': '已安装应用会直接打开，未安装则前往 Google Play。',
+  'link.elsewhere': 'Loopky 目前仅支持 Android。在 Android 手机上打开此链接即可在应用中查看。',
+  'link.loading': '加载中…',
+  'link.deck.gone': '找不到卡组',
+  'link.deck.missing': '这个卡组已经不在了，可能已被作者删除。',
+  'link.decks': '卡组',
+  'link.decks.none': '还没有发布的卡组。',
+  'link.about': 'Loopky 是什么？'
 },
 
 'zh-Hant': {
@@ -625,7 +755,20 @@ var I18N = {
   'how.s3.t': '開始學習', 'how.s3.d': '建牌組、貼上清單、從 Anki 匯入，或追蹤你找到的牌組。',
   'cta.title': SLOGAN, 'cta.sub': '每天幾分鐘就夠了。',
   'foot.play': 'Google Play', 'foot.repo': '原始碼', 'foot.privacy': '隱私',
-  'foot.note': '基於 Pubky 打造。MIT 授權。'
+  'foot.note': '基於 Pubky 打造。MIT 授權。',
+  'link.deck.title': '分享的卡組 · Loopky',
+  'link.profile.title': 'Loopky 上的個人檔案',
+  'link.deck.eyebrow': '分享的卡組',
+  'link.profile.eyebrow': 'Loopky 個人檔案',
+  'link.open': '在 Loopky 中開啟',
+  'link.hint': '已安裝 App 會直接開啟，未安裝則前往 Google Play。',
+  'link.elsewhere': 'Loopky 目前僅支援 Android。在 Android 手機上開啟此連結即可在 App 中查看。',
+  'link.loading': '載入中…',
+  'link.deck.gone': '找不到卡組',
+  'link.deck.missing': '這個卡組已經不在了，可能已被作者刪除。',
+  'link.decks': '卡組',
+  'link.decks.none': '還沒有發布的卡組。',
+  'link.about': 'Loopky 是什麼？'
 }
 
 };

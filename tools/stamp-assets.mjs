@@ -1,4 +1,4 @@
-/* Stamps a content hash onto every stylesheet and script index.html loads.
+/* Stamps a content hash onto every stylesheet and script the pages load.
  *
  *   node tools/stamp-assets.mjs
  *
@@ -17,7 +17,10 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 const root = new URL('../', import.meta.url);
-const htmlPath = new URL('index.html', root);
+
+/* Every page the site serves. The deck and profile pages sit one directory down and
+   reach the same files through `../`. */
+export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
 
 export function stampFor(file) {
   return createHash('sha256')
@@ -27,23 +30,32 @@ export function stampFor(file) {
 }
 
 /* href/src on a local .css or .js, with or without a stamp already on it. */
-export const ASSET_RE = /(?:href|src)="((?:assets\/[^"?]+\.(?:css|js)))(?:\?v=([0-9a-f]{8}))?"/g;
+export const ASSET_RE = /(?:href|src)="((?:\.\.\/)*assets\/[^"?]+\.(?:css|js))(?:\?v=([0-9a-f]{8}))?"/g;
+
+/* Every page lives at most one level down and every asset under assets/, so the
+   `../` only says how to get back to the root. */
+export const fromRoot = (file) => file.replace(/^(?:\.\.\/)+/, '');
 
 export function stamp(html) {
   return html.replace(ASSET_RE, (whole, file) => {
     const attr = whole.startsWith('href') ? 'href' : 'src';
-    return `${attr}="${file}?v=${stampFor(file)}"`;
+    return `${attr}="${file}?v=${stampFor(fromRoot(file))}"`;
   });
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const before = readFileSync(htmlPath, 'utf8');
-  const after = stamp(before);
-  if (after === before) {
-    console.log('Stamps already current.');
-  } else {
+  let changed = false;
+  for (const page of PAGES) {
+    const htmlPath = new URL(page, root);
+    const before = readFileSync(htmlPath, 'utf8');
+    const after = stamp(before);
+    if (after === before) continue;
+    changed = true;
     writeFileSync(htmlPath, after);
-    for (const [, file] of after.matchAll(ASSET_RE)) console.log(`  ${file}?v=${stampFor(file)}`);
-    console.log('\nStamped.');
+    console.log(page);
+    for (const [, file] of after.matchAll(ASSET_RE)) {
+      console.log(`  ${file}?v=${stampFor(fromRoot(file))}`);
+    }
   }
+  console.log(changed ? '\nStamped.' : 'Stamps already current.');
 }

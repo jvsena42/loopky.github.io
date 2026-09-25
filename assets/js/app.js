@@ -88,6 +88,9 @@
     labelTheme();
     renderUses();
     renderDiscover();
+    /* The deck and profile pages build their copy from data, so they listen for this
+       and paint again rather than carrying data-i18n on nodes that change. */
+    document.dispatchEvent(new CustomEvent('loopky:lang'));
   }
 
   function renderUses() {
@@ -410,6 +413,13 @@
       renderDiscover();
     });
   }
+
+  /* ---------------- shared with the deck and profile pages ---------------- */
+
+  window.loopkyT = tf;
+  window.loopkyDeckCard = deckCard;
+  window.loopkyTint = tintClass;
+  window.loopkyPlayUrl = PLAY_URL;
 
   /* ---------------- wiring ---------------- */
 

@@ -9,7 +9,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { stamp } from './stamp-assets.mjs';
+import { stamp, PAGES } from './stamp-assets.mjs';
 
 const problems = [];
 const notes = [];
@@ -18,10 +18,12 @@ const note = (m) => notes.push(m);
 
 const read = (p) => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const html = read('index.html');
+/* index.html plus the deck and profile pages a shared link lands on. */
+const pages = Object.fromEntries(PAGES.map((p) => [p, read(p)]));
 
 /* ---- 1. every script parses ---- */
 
-const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js'];
+const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js'];
 for (const f of scripts) {
   try {
     execFileSync(process.execPath, ['--check', new URL('../' + f, import.meta.url).pathname],
@@ -66,7 +68,7 @@ if (I18N) {
        seeing. The brand name and the store's own wording are the real exceptions. */
     // Some strings are the same word in another language, or are a brand name.
     const ALLOW_SAME = new Set([
-      'foot.play', 'disc.topics', 'it:foot.privacy', 'de:theme.system',
+      'foot.play', 'disc.topics', 'it:foot.privacy', 'de:theme.system', 'de:link.decks',
       ...BRAND_KEYS,
     ]);
     if (lang !== 'en') {
@@ -98,10 +100,11 @@ if (I18N) {
 
   /* ---- 3. the page and the dictionaries agree ---- */
 
-  const used = new Set([...html.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1]));
+  const used = new Set(Object.values(pages)
+    .flatMap((page) => [...page.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1])));
   /* Keys the scripts reach for directly, which never appear as an attribute. */
   const fromJs = new Set();
-  for (const f of ['assets/js/app.js']) {
+  for (const f of ['assets/js/app.js', 'assets/js/link.js']) {
     /* t(key) and tf(key, fallback) both count as a use. */
     for (const m of read(f).matchAll(/(?<![\w$])tf?\('([^']+)'\s*[,)]/g)) fromJs.add(m[1]);
   }
@@ -125,14 +128,17 @@ if (AI_PROMPT) {
 
 /* ---- 5. every local asset the page references exists ---- */
 
-const refs = new Set([
-  ...[...html.matchAll(/(?:src|href)="(?!https?:|#|mailto:|data:)([^"]+)"/g)].map((m) => m[1]),
-]);
-for (const ref of refs) {
-  const path = ref.split(/[?#]/)[0];
-  if (!path) continue;
-  if (!existsSync(new URL('../' + path, import.meta.url))) {
-    fail(`index.html points at ${path}, which is not in the repository`);
+for (const [page, src] of Object.entries(pages)) {
+  const base = new URL('../' + page, import.meta.url);
+  const refs = new Set([
+    ...[...src.matchAll(/(?:src|href)="(?!https?:|#|mailto:|data:)([^"]+)"/g)].map((m) => m[1]),
+  ]);
+  for (const ref of refs) {
+    const path = ref.split(/[?#]/)[0];
+    if (!path) continue;
+    if (!existsSync(new URL(path, base))) {
+      fail(`${page} points at ${path}, which is not in the repository`);
+    }
   }
 }
 
@@ -140,8 +146,10 @@ for (const ref of refs) {
 
 /* An unstamped or stale URL means a visitor can hold this markup next to a
    ten-minute-old script. Run `node tools/stamp-assets.mjs` to settle it. */
-if (stamp(html) !== html) {
-  fail('index.html has a stale or missing asset stamp. Run: node tools/stamp-assets.mjs');
+for (const [page, src] of Object.entries(pages)) {
+  if (stamp(src) !== src) {
+    fail(`${page} has a stale or missing asset stamp. Run: node tools/stamp-assets.mjs`);
+  }
 }
 
 /* ---- 5c. the two dark palettes hold the same declarations ---- */
@@ -197,7 +205,20 @@ const sitemap = read('sitemap.xml');
 for (const lang of SUPPORTED) {
   if (!sitemap.includes(`hreflang="${lang}"`)) fail(`sitemap.xml has no hreflang for "${lang}"`);
   if (!html.includes(`hreflang="${lang}"`)) fail(`index.html has no hreflang link for "${lang}"`);
-  if (!html.includes(`<option value="${lang}">`)) fail(`the language picker is missing "${lang}"`);
+  for (const [page, src] of Object.entries(pages)) {
+    if (!src.includes(`<option value="${lang}">`)) fail(`${page}'s language picker is missing "${lang}"`);
+  }
+}
+
+/* The deck and profile pages answer for every deck and every person through a query
+   string, so they stay out of the index and out of the sitemap. */
+for (const page of PAGES.filter((p) => p !== 'index.html')) {
+  if (!/<meta name="robots" content="noindex">/.test(pages[page])) {
+    fail(`${page} should carry <meta name="robots" content="noindex">`);
+  }
+  if (sitemap.includes(page.replace('index.html', ''))) {
+    fail(`sitemap.xml lists ${page}, which is a template rather than a page`);
+  }
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (locs.length !== SUPPORTED.length + 1) {
@@ -235,8 +256,10 @@ if (!canonical) {
 
 /* Em and en dashes read as machine-written, and the app's own strings avoid them.
    Only the parts a visitor reads are checked; source comments are free to use them. */
-const visible = html.replace(/<!--[\s\S]*?-->/g, '');
-if (/[—–]/.test(visible)) fail('index.html has an em or en dash in visible copy');
+for (const [page, src] of Object.entries(pages)) {
+  const visible = src.replace(/<!--[\s\S]*?-->/g, '');
+  if (/[—–]/.test(visible)) fail(`${page} has an em or en dash in visible copy`);
+}
 if (I18N) {
   for (const [lang, dict] of Object.entries(I18N)) {
     for (const [key, value] of Object.entries(dict)) {
@@ -248,7 +271,7 @@ if (I18N) {
 
 /* ---- 8. no network value may reach innerHTML ---- */
 
-for (const f of ['assets/js/discover.js', 'assets/js/app.js']) {
+for (const f of ['assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js']) {
   const src = read(f).replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
   if (/\.innerHTML\s*=/.test(src) || /insertAdjacentHTML/.test(src)) {
     fail(`${f} writes HTML from a string. Deck data comes from strangers, so it must not.`);

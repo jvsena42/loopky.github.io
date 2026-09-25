@@ -7,11 +7,14 @@ serves this repository as it is.
 ## What is here
 
 ```
-index.html            the whole page
+index.html            the landing page
+deck/index.html       where a shared deck link lands
+profile/index.html    where a shared profile link lands
 assets/css/style.css  the app's own palette, from LoopkyColors.kt
 assets/js/i18n.js     copy in the 11 languages the app ships
-assets/js/discover.js the live Discover feed
+assets/js/discover.js the live Discover feed, and the deck and profile reads
 assets/js/app.js      language switching, filtering, rendering
+assets/js/link.js     the deck and profile pages
 assets/img/           icon, screenshots, share image
 tools/check.mjs       the pre-flight CI runs
 tools/layout-check.mjs  fails if the page scrolls sideways
@@ -71,6 +74,45 @@ Every account on the network today is on the public homeserver; a deck hosted
 elsewhere is left out, the same as one that was deleted. If that stops being a
 rounding error, `HOMESERVER` in `assets/js/discover.js` is the line to fix.
 
+## Shared links
+
+The app shares a deck as `https://loopky.app/deck/?author={pubky}&id={deckId}` and a
+person as `https://loopky.app/profile/?pubky={pubky}`, rather than the bare
+`pubky://` address it used to. Nothing on the web linkifies `pubky://`, pubky.app's
+markdown included, so the old link was text a reader had to copy. An `https` link is
+clickable everywhere, and it does the right thing on both sides of the install:
+
+- **Loopky installed, on Android.** The app declares these paths as verified App
+  Links. Once the domain verifies, the tap opens the deck in the app and this site
+  is never loaded.
+- **Loopky not installed.** The link lands here, on the landing site with the deck
+  or the person on top: the same top bar, language picker and theme switch, the
+  deck's cover, title, card count, topics and description read live off the
+  author's homeserver, and the Google Play button. A profile lists that person's
+  decks, from a shallow listing of their deck directory, each tile linking to its
+  own deck page. A deck that has been deleted says so and keeps the whole landing
+  page under it, and a link with no usable pubky or deck id in it is sent straight
+  to the home page, since it names nothing to show.
+
+On an Android browser the page adds an **Open in Loopky** button. It is an
+`intent://` link wrapping the `pubky://` address with the package named and Google
+Play as the fallback, so one tap opens the app if it is there and the store if it
+is not. That button matters where App Links do not fire, which is mostly in-app
+browsers. Elsewhere there is no Loopky to open (the iOS app is not out and the
+desktop only has the CLI), so the button is not drawn and Google Play is the
+primary action.
+
+**Query parameters, not paths**, because Pages is static. `/deck/{pubky}/{id}`
+would exist only as a `404.html` fallback, served with a 404 status that link
+preview bots and crawlers take at its word. `/deck/` is a real file and answers
+200 whatever follows the `?`.
+
+**The preview card is generic, and cannot be anything else here.** A link preview
+reads the page's Open Graph tags without running its script, and on a static host
+every deck gets the same file. Per-deck titles and covers in a preview need
+something that renders at request time. Both pages carry `noindex` and stay out of
+the sitemap for the same reason: each is a template that answers for every deck.
+
 ## Caching
 
 Pages serves the page and its assets with the same `max-age=600` and no
@@ -86,7 +128,7 @@ contents, so new markup names a script the cache has never seen:
 node tools/stamp-assets.mjs
 ```
 
-Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
+It covers `index.html`, `deck/index.html` and `profile/index.html`. Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
 it is safe to run always, and `tools/check.mjs` fails when a stamp and its file
 disagree. And a key that resolves nowhere now leaves the markup's own English
 standing rather than painting its name, so the worst case is an untranslated card
@@ -151,13 +193,13 @@ node tools/check.mjs
 It parses every script, holds the eleven dictionaries against each other and against
 the page, confirms the AI prompt still names real CLI commands, checks that every
 asset and `hreflang` the page references exists, holds the two dark palettes in the
-stylesheet against each other, and refuses an em dash in anything a visitor reads.
+stylesheet against each other, and refuses an em dash in anything a visitor reads. It covers the deck and profile pages as well as the home page.
 
 ```shell
 node tools/layout-check.mjs
 ```
 
-That one loads the real page in headless Chrome at four widths and fails if it scrolls
+That one loads the real pages (home, a real deck, its author's profile) in headless Chrome at four widths and fails if it scrolls
 sideways. It exists because a wrapper around the topic chips once stretched that row
 to 1679px at every viewport and took the page's width with it, and no screenshot
 showed it: a cropped screenshot of an overflowing page looks exactly like a cropped
