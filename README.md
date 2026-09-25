@@ -41,6 +41,11 @@ Português, Español, Français, Deutsch, Italiano, 日本語, 한국어, Tiến
 The choice comes from `?lang=`, then `localStorage`, then the browser. Every language
 has its own `hreflang` and its own entry in `sitemap.xml`.
 
+The slogan is the exception and stays English everywhere. `strings.xml` declares
+`brand_tagline` as `translatable="false"` and the app shows the English line in every
+locale, so `hero.title` and `cta.title` are one `SLOGAN` constant rather than eleven
+strings. `tools/check.mjs` fails if any locale translates it.
+
 ## Working on it
 
 ```shell

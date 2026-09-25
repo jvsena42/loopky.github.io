@@ -1,5 +1,10 @@
 /* Translations. The languages here are the ones the app itself ships. */
 
+/* The slogan is a brand mark, not copy. The app declares it translatable="false"
+   in strings.xml and shows the English line in every locale, so the page does the
+   same. It is the one string here that is deliberately identical everywhere. */
+var SLOGAN = 'Learn anything, remember everything.';
+
 /* The prompt stays in English in every locale: it is read by an agent, and the
    commands it names are literal. */
 var AI_PROMPT = [
@@ -47,7 +52,7 @@ var I18N = {
   'a11y.skip': 'Skip to content', 'a11y.lang': 'Language',
   'nav.features': 'Features', 'nav.discover': 'Discover', 'nav.cli': 'For AI', 'nav.get': 'Get the app',
   'hero.eyebrow': 'Flashcards · Spaced repetition',
-  'hero.title': 'Learn anything, remember everything.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Make a deck, study a few minutes a day, and keep what you learn. Bring your Anki decks with you, or find decks other people made.',
   'hero.play': 'Get it on Google Play', 'hero.ios': 'iOS coming soon',
   'hero.free': 'Free. No ads. No account to create.',
@@ -85,7 +90,7 @@ var I18N = {
   'how.s1.t': 'Install Loopky', 'how.s1.d': 'Get it on Google Play. It is free.',
   'how.s2.t': 'Sign in with a key', 'how.s2.d': 'Scan a code with Pubky Ring. No email, no password.',
   'how.s3.t': 'Start studying', 'how.s3.d': 'Make a deck, paste a list, import from Anki, or follow a deck you found.',
-  'cta.title': 'Learn anything, remember everything.', 'cta.sub': 'A few minutes a day is enough.',
+  'cta.title': SLOGAN, 'cta.sub': 'A few minutes a day is enough.',
   'foot.play': 'Google Play', 'foot.repo': 'Source code', 'foot.privacy': 'Privacy',
   'foot.note': 'Built on Pubky. MIT licensed.'
 },
@@ -96,7 +101,7 @@ var I18N = {
   'a11y.skip': 'Ir para o conteúdo', 'a11y.lang': 'Idioma',
   'nav.features': 'Recursos', 'nav.discover': 'Descobrir', 'nav.cli': 'Para IA', 'nav.get': 'Baixar o app',
   'hero.eyebrow': 'Flashcards · Repetição espaçada',
-  'hero.title': 'Aprenda qualquer coisa, lembre de tudo.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Crie um baralho, estude alguns minutos por dia e guarde o que aprendeu. Traga seus baralhos do Anki ou encontre baralhos feitos por outras pessoas.',
   'hero.play': 'Baixar no Google Play', 'hero.ios': 'iOS em breve',
   'hero.free': 'Grátis. Sem anúncios. Sem criar conta.',
@@ -135,7 +140,7 @@ var I18N = {
   'how.s1.t': 'Instale o Loopky', 'how.s1.d': 'Baixe no Google Play. É grátis.',
   'how.s2.t': 'Entre com uma chave', 'how.s2.d': 'Escaneie um código no Pubky Ring. Sem e-mail, sem senha.',
   'how.s3.t': 'Comece a estudar', 'how.s3.d': 'Crie um baralho, cole uma lista, importe do Anki ou siga um baralho que você achou.',
-  'cta.title': 'Aprenda qualquer coisa, lembre de tudo.', 'cta.sub': 'Alguns minutos por dia já bastam.',
+  'cta.title': SLOGAN, 'cta.sub': 'Alguns minutos por dia já bastam.',
   'foot.play': 'Google Play', 'foot.repo': 'Código-fonte', 'foot.privacy': 'Privacidade',
   'foot.note': 'Feito sobre o Pubky. Licença MIT.'
 },
@@ -146,7 +151,7 @@ var I18N = {
   'a11y.skip': 'Ir al contenido', 'a11y.lang': 'Idioma',
   'nav.features': 'Funciones', 'nav.discover': 'Descubrir', 'nav.cli': 'Para IA', 'nav.get': 'Descargar',
   'hero.eyebrow': 'Flashcards · Repetición espaciada',
-  'hero.title': 'Aprende lo que sea, recuérdalo todo.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Crea un mazo, estudia unos minutos al día y conserva lo que aprendes. Trae tus mazos de Anki o encuentra mazos de otras personas.',
   'hero.play': 'Descargar en Google Play', 'hero.ios': 'iOS muy pronto',
   'hero.free': 'Gratis. Sin anuncios. Sin crear cuenta.',
@@ -185,7 +190,7 @@ var I18N = {
   'how.s1.t': 'Instala Loopky', 'how.s1.d': 'Descárgalo en Google Play. Es gratis.',
   'how.s2.t': 'Entra con una clave', 'how.s2.d': 'Escanea un código con Pubky Ring. Sin correo, sin contraseña.',
   'how.s3.t': 'Empieza a estudiar', 'how.s3.d': 'Crea un mazo, pega una lista, importa de Anki o sigue un mazo que encontraste.',
-  'cta.title': 'Aprende lo que sea, recuérdalo todo.', 'cta.sub': 'Con unos minutos al día basta.',
+  'cta.title': SLOGAN, 'cta.sub': 'Con unos minutos al día basta.',
   'foot.play': 'Google Play', 'foot.repo': 'Código fuente', 'foot.privacy': 'Privacidad',
   'foot.note': 'Hecho sobre Pubky. Licencia MIT.'
 },
@@ -196,7 +201,7 @@ var I18N = {
   'a11y.skip': 'Aller au contenu', 'a11y.lang': 'Langue',
   'nav.features': 'Fonctions', 'nav.discover': 'Découvrir', 'nav.cli': 'Pour l’IA', 'nav.get': 'Télécharger',
   'hero.eyebrow': 'Flashcards · Répétition espacée',
-  'hero.title': 'Apprends tout, retiens tout.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Crée un paquet, révise quelques minutes par jour et garde ce que tu apprends. Emporte tes paquets Anki ou trouve ceux des autres.',
   'hero.play': 'Télécharger sur Google Play', 'hero.ios': 'iOS bientôt',
   'hero.free': 'Gratuit. Sans pub. Sans compte à créer.',
@@ -235,7 +240,7 @@ var I18N = {
   'how.s1.t': 'Installe Loopky', 'how.s1.d': 'Télécharge-le sur Google Play. C’est gratuit.',
   'how.s2.t': 'Connecte-toi avec une clé', 'how.s2.d': 'Scanne un code avec Pubky Ring. Pas d’e-mail, pas de mot de passe.',
   'how.s3.t': 'Commence à réviser', 'how.s3.d': 'Crée un paquet, colle une liste, importe depuis Anki, ou suis un paquet trouvé.',
-  'cta.title': 'Apprends tout, retiens tout.', 'cta.sub': 'Quelques minutes par jour suffisent.',
+  'cta.title': SLOGAN, 'cta.sub': 'Quelques minutes par jour suffisent.',
   'foot.play': 'Google Play', 'foot.repo': 'Code source', 'foot.privacy': 'Confidentialité',
   'foot.note': 'Construit sur Pubky. Licence MIT.'
 },
@@ -246,7 +251,7 @@ var I18N = {
   'a11y.skip': 'Zum Inhalt springen', 'a11y.lang': 'Sprache',
   'nav.features': 'Funktionen', 'nav.discover': 'Entdecken', 'nav.cli': 'Für KI', 'nav.get': 'App holen',
   'hero.eyebrow': 'Karteikarten · Verteilte Wiederholung',
-  'hero.title': 'Lerne alles, behalte alles.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Bau dir einen Stapel, lerne ein paar Minuten am Tag und behalte, was du lernst. Nimm deine Anki-Stapel mit oder finde Stapel von anderen.',
   'hero.play': 'Bei Google Play holen', 'hero.ios': 'iOS folgt bald',
   'hero.free': 'Kostenlos. Keine Werbung. Kein Konto nötig.',
@@ -285,7 +290,7 @@ var I18N = {
   'how.s1.t': 'Loopky installieren', 'how.s1.d': 'Bei Google Play holen. Kostenlos.',
   'how.s2.t': 'Mit einem Schlüssel anmelden', 'how.s2.d': 'Scanne einen Code mit Pubky Ring. Keine E-Mail, kein Passwort.',
   'how.s3.t': 'Loslernen', 'how.s3.d': 'Stapel bauen, Liste einfügen, aus Anki importieren, oder einem gefundenen Stapel folgen.',
-  'cta.title': 'Lerne alles, behalte alles.', 'cta.sub': 'Ein paar Minuten am Tag reichen.',
+  'cta.title': SLOGAN, 'cta.sub': 'Ein paar Minuten am Tag reichen.',
   'foot.play': 'Google Play', 'foot.repo': 'Quellcode', 'foot.privacy': 'Datenschutz',
   'foot.note': 'Gebaut auf Pubky. MIT-Lizenz.'
 },
@@ -296,7 +301,7 @@ var I18N = {
   'a11y.skip': 'Vai al contenuto', 'a11y.lang': 'Lingua',
   'nav.features': 'Funzioni', 'nav.discover': 'Scopri', 'nav.cli': 'Per l’IA', 'nav.get': 'Scarica l’app',
   'hero.eyebrow': 'Flashcard · Ripetizione dilazionata',
-  'hero.title': 'Impara tutto, ricorda tutto.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Crea un mazzo, studia pochi minuti al giorno e tieni quello che impari. Porta con te i mazzi di Anki o trova quelli fatti da altri.',
   'hero.play': 'Scarica su Google Play', 'hero.ios': 'iOS in arrivo',
   'hero.free': 'Gratis. Senza pubblicità. Senza creare un account.',
@@ -335,7 +340,7 @@ var I18N = {
   'how.s1.t': 'Installa Loopky', 'how.s1.d': 'Scaricala su Google Play. È gratis.',
   'how.s2.t': 'Entra con una chiave', 'how.s2.d': 'Scansiona un codice con Pubky Ring. Niente email, niente password.',
   'how.s3.t': 'Inizia a studiare', 'how.s3.d': 'Crea un mazzo, incolla una lista, importa da Anki, o segui un mazzo che hai trovato.',
-  'cta.title': 'Impara tutto, ricorda tutto.', 'cta.sub': 'Bastano pochi minuti al giorno.',
+  'cta.title': SLOGAN, 'cta.sub': 'Bastano pochi minuti al giorno.',
   'foot.play': 'Google Play', 'foot.repo': 'Codice sorgente', 'foot.privacy': 'Privacy',
   'foot.note': 'Costruita su Pubky. Licenza MIT.'
 },
@@ -346,7 +351,7 @@ var I18N = {
   'a11y.skip': '本文へ移動', 'a11y.lang': '言語',
   'nav.features': '機能', 'nav.discover': '見つける', 'nav.cli': 'AI 向け', 'nav.get': 'アプリを入手',
   'hero.eyebrow': '単語カード · 間隔反復',
-  'hero.title': '何でも学び、すべて覚える。',
+  'hero.title': SLOGAN,
   'hero.sub': 'デッキを作って、1日数分だけ学ぶ。覚えたことはそのまま残ります。Anki のデッキも持ち込めますし、誰かが作ったデッキも見つかります。',
   'hero.play': 'Google Play で入手', 'hero.ios': 'iOS 版はまもなく',
   'hero.free': '無料。広告なし。アカウント登録も不要。',
@@ -385,7 +390,7 @@ var I18N = {
   'how.s1.t': 'Loopky を入れる', 'how.s1.d': 'Google Play から入手。無料です。',
   'how.s2.t': '鍵でサインイン', 'how.s2.d': 'Pubky Ring でコードを読み取るだけ。メールもパスワードも不要。',
   'how.s3.t': '学びはじめる', 'how.s3.d': 'デッキを作る、リストを貼る、Anki から取り込む、見つけたデッキをフォローする。',
-  'cta.title': '何でも学び、すべて覚える。', 'cta.sub': '1日数分で十分です。',
+  'cta.title': SLOGAN, 'cta.sub': '1日数分で十分です。',
   'foot.play': 'Google Play', 'foot.repo': 'ソースコード', 'foot.privacy': 'プライバシー',
   'foot.note': 'Pubky の上に構築。MIT ライセンス。'
 },
@@ -396,7 +401,7 @@ var I18N = {
   'a11y.skip': '본문으로 건너뛰기', 'a11y.lang': '언어',
   'nav.features': '기능', 'nav.discover': '탐색', 'nav.cli': 'AI용', 'nav.get': '앱 받기',
   'hero.eyebrow': '플래시카드 · 간격 반복',
-  'hero.title': '무엇이든 배우고, 전부 기억하세요.',
+  'hero.title': SLOGAN,
   'hero.sub': '덱을 만들고 하루 몇 분만 공부하면 배운 것이 남습니다. Anki 덱을 그대로 가져오거나 다른 사람이 만든 덱을 찾아보세요.',
   'hero.play': 'Google Play에서 받기', 'hero.ios': 'iOS 곧 출시',
   'hero.free': '무료. 광고 없음. 계정도 필요 없음.',
@@ -435,7 +440,7 @@ var I18N = {
   'how.s1.t': 'Loopky 설치', 'how.s1.d': 'Google Play에서 받으세요. 무료입니다.',
   'how.s2.t': '키로 로그인', 'how.s2.d': 'Pubky Ring으로 코드를 스캔하세요. 이메일도 비밀번호도 없습니다.',
   'how.s3.t': '공부 시작', 'how.s3.d': '덱을 만들고, 목록을 붙여넣고, Anki에서 가져오고, 찾은 덱을 팔로우하세요.',
-  'cta.title': '무엇이든 배우고, 전부 기억하세요.', 'cta.sub': '하루 몇 분이면 충분합니다.',
+  'cta.title': SLOGAN, 'cta.sub': '하루 몇 분이면 충분합니다.',
   'foot.play': 'Google Play', 'foot.repo': '소스 코드', 'foot.privacy': '개인정보',
   'foot.note': 'Pubky 위에 만들었습니다. MIT 라이선스.'
 },
@@ -446,7 +451,7 @@ var I18N = {
   'a11y.skip': 'Tới nội dung', 'a11y.lang': 'Ngôn ngữ',
   'nav.features': 'Tính năng', 'nav.discover': 'Khám phá', 'nav.cli': 'Cho AI', 'nav.get': 'Tải ứng dụng',
   'hero.eyebrow': 'Thẻ ghi nhớ · Lặp lại ngắt quãng',
-  'hero.title': 'Học mọi thứ, nhớ tất cả.',
+  'hero.title': SLOGAN,
   'hero.sub': 'Tạo một bộ thẻ, học vài phút mỗi ngày và giữ lại những gì bạn học. Mang theo bộ thẻ Anki của bạn, hoặc tìm bộ thẻ người khác đã làm.',
   'hero.play': 'Tải trên Google Play', 'hero.ios': 'iOS sắp có',
   'hero.free': 'Miễn phí. Không quảng cáo. Không cần tạo tài khoản.',
@@ -485,7 +490,7 @@ var I18N = {
   'how.s1.t': 'Cài Loopky', 'how.s1.d': 'Tải trên Google Play. Miễn phí.',
   'how.s2.t': 'Đăng nhập bằng khóa', 'how.s2.d': 'Quét mã bằng Pubky Ring. Không email, không mật khẩu.',
   'how.s3.t': 'Bắt đầu học', 'how.s3.d': 'Tạo bộ thẻ, dán danh sách, nhập từ Anki, hoặc theo dõi bộ thẻ bạn tìm được.',
-  'cta.title': 'Học mọi thứ, nhớ tất cả.', 'cta.sub': 'Vài phút mỗi ngày là đủ.',
+  'cta.title': SLOGAN, 'cta.sub': 'Vài phút mỗi ngày là đủ.',
   'foot.play': 'Google Play', 'foot.repo': 'Mã nguồn', 'foot.privacy': 'Quyền riêng tư',
   'foot.note': 'Xây trên Pubky. Giấy phép MIT.'
 },
@@ -496,7 +501,7 @@ var I18N = {
   'a11y.skip': '跳到正文', 'a11y.lang': '语言',
   'nav.features': '功能', 'nav.discover': '发现', 'nav.cli': '给 AI 用', 'nav.get': '获取应用',
   'hero.eyebrow': '记忆卡 · 间隔重复',
-  'hero.title': '学会一切，记住一切。',
+  'hero.title': SLOGAN,
   'hero.sub': '建一个卡组，每天学几分钟，学过的就留得住。把你的 Anki 卡组带过来，或者找别人做好的卡组。',
   'hero.play': '在 Google Play 获取', 'hero.ios': 'iOS 版即将推出',
   'hero.free': '免费。没有广告。不用注册账号。',
@@ -535,7 +540,7 @@ var I18N = {
   'how.s1.t': '装上 Loopky', 'how.s1.d': '在 Google Play 获取，免费。',
   'how.s2.t': '用密钥登录', 'how.s2.d': '用 Pubky Ring 扫一下码。不用邮箱，不用密码。',
   'how.s3.t': '开始学习', 'how.s3.d': '建卡组、粘贴列表、从 Anki 导入，或者关注你找到的卡组。',
-  'cta.title': '学会一切，记住一切。', 'cta.sub': '每天几分钟就够了。',
+  'cta.title': SLOGAN, 'cta.sub': '每天几分钟就够了。',
   'foot.play': 'Google Play', 'foot.repo': '源代码', 'foot.privacy': '隐私',
   'foot.note': '基于 Pubky 构建。MIT 许可。'
 },
@@ -546,7 +551,7 @@ var I18N = {
   'a11y.skip': '跳至內容', 'a11y.lang': '語言',
   'nav.features': '功能', 'nav.discover': '探索', 'nav.cli': '給 AI 用', 'nav.get': '取得應用',
   'hero.eyebrow': '記憶卡 · 間隔重複',
-  'hero.title': '學會一切，記住一切。',
+  'hero.title': SLOGAN,
   'hero.sub': '建一個牌組，每天學幾分鐘，學過的就留得住。把你的 Anki 牌組帶過來，或找別人做好的牌組。',
   'hero.play': '在 Google Play 取得', 'hero.ios': 'iOS 版即將推出',
   'hero.free': '免費。沒有廣告。不用註冊帳號。',
@@ -585,7 +590,7 @@ var I18N = {
   'how.s1.t': '安裝 Loopky', 'how.s1.d': '在 Google Play 取得，免費。',
   'how.s2.t': '用金鑰登入', 'how.s2.d': '用 Pubky Ring 掃一下碼。不用電子郵件，不用密碼。',
   'how.s3.t': '開始學習', 'how.s3.d': '建牌組、貼上清單、從 Anki 匯入，或追蹤你找到的牌組。',
-  'cta.title': '學會一切，記住一切。', 'cta.sub': '每天幾分鐘就夠了。',
+  'cta.title': SLOGAN, 'cta.sub': '每天幾分鐘就夠了。',
   'foot.play': 'Google Play', 'foot.repo': '原始碼', 'foot.privacy': '隱私',
   'foot.note': '基於 Pubky 打造。MIT 授權。'
 }

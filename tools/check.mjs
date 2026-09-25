@@ -43,6 +43,12 @@ try {
 
 const SUPPORTED = ['en', 'pt-BR', 'es', 'fr', 'de', 'it', 'ja', 'ko', 'vi', 'zh-Hans', 'zh-Hant'];
 
+/* The slogan is a brand mark. strings.xml declares it translatable="false" and the
+   app shows the English line in every locale, so these two must stay identical
+   across all eleven. Checked in both directions: they are exempt from the
+   untranslated-string note below, and translating one is an outright failure. */
+const BRAND_KEYS = ['hero.title', 'cta.title'];
+
 if (I18N) {
   const enKeys = Object.keys(I18N.en ?? {});
   if (!enKeys.length) fail('I18N.en is empty');
@@ -58,7 +64,10 @@ if (I18N) {
     /* A value copied across without translating is not an error, but it is worth
        seeing. The brand name and the store's own wording are the real exceptions. */
     // Some strings are the same word in another language, or are a brand name.
-    const ALLOW_SAME = new Set(['foot.play', 'disc.topics', 'it:foot.privacy']);
+    const ALLOW_SAME = new Set([
+      'foot.play', 'disc.topics', 'it:foot.privacy',
+      ...BRAND_KEYS,
+    ]);
     if (lang !== 'en') {
       const same = enKeys.filter((k) =>
         typeof I18N[lang][k] === 'string' &&
@@ -75,6 +84,15 @@ if (I18N) {
 
   for (const lang of Object.keys(I18N)) {
     if (!SUPPORTED.includes(lang)) fail(`I18N has an unsupported language: "${lang}"`);
+  }
+
+  for (const key of BRAND_KEYS) {
+    for (const lang of SUPPORTED) {
+      if (I18N[lang]?.[key] !== I18N.en?.[key]) {
+        fail(`${key} is the slogan and must not be translated, but "${lang}" differs: ` +
+          `${JSON.stringify(I18N[lang]?.[key])}`);
+      }
+    }
   }
 
   /* ---- 3. the page and the dictionaries agree ---- */
