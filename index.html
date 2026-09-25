@@ -6,8 +6,8 @@
 <title data-i18n="meta.title">Loopky · Free flashcards app with spaced repetition</title>
 <meta name="description" data-i18n-attr="content" data-i18n="meta.desc" content="Loopky is a free flashcards app with spaced repetition. Import your Anki decks, study languages, share decks with friends. Android now, iOS soon.">
 <meta name="keywords" content="flashcards, flashcard app, Anki, Anki alternative, Anki import, apkg, spaced repetition, SRS, study app, revision, exam prep, language learning, learn languages, vocabulary, memorization, quiz, Quizlet alternative, TinyCards, free flashcards, open source flashcards, Leitner, deck, study decks, Pubky">
-<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" id="tc-light" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" id="tc-dark" content="#0D0B11" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://loopky.app/">
 <link rel="icon" href="assets/img/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="assets/img/logo.png">
@@ -37,7 +37,19 @@
 <link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/?lang=zh-Hant">
 
 <link rel="preconnect" href="https://nexus.pubky.app" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=9b9621ff">
+<script>
+/* A stored choice has to be on <html> before the first paint, or the page draws the
+   system theme and then flips to the chosen one in front of the visitor. Nothing
+   stored means no attribute, and the stylesheet lets the system decide. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="assets/css/style.css?v=cc8733ea">
 
 <script type="application/ld+json">
 {
@@ -77,6 +89,21 @@
       <a href="#cli" data-i18n="nav.cli">For AI</a>
     </nav>
     <div class="topright">
+      <button class="themebtn" id="theme-toggle" type="button" data-state="system">
+        <svg class="ico-system" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path fill="currentColor" d="M12 3.5a8.5 8.5 0 0 0 0 17Z"/>
+        </svg>
+        <svg class="ico-light" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.4" fill="currentColor"/>
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+          </g>
+        </svg>
+        <svg class="ico-dark" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <path fill="currentColor" d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.8 8.8 0 1 0 11 11Z"/>
+        </svg>
+      </button>
       <label class="lang">
         <span class="sr-only" data-i18n="a11y.lang">Language</span>
         <select id="lang-select">
@@ -266,8 +293,8 @@
   </div>
 </footer>
 
-<script src="assets/js/i18n.js?v=9d87bf31"></script>
+<script src="assets/js/i18n.js?v=537c70ed"></script>
 <script src="assets/js/discover.js?v=4e7cf9f7"></script>
-<script src="assets/js/app.js?v=832cae1f"></script>
+<script src="assets/js/app.js?v=1966fe46"></script>
 </body>
 </html>

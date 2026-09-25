@@ -66,7 +66,7 @@ if (I18N) {
        seeing. The brand name and the store's own wording are the real exceptions. */
     // Some strings are the same word in another language, or are a brand name.
     const ALLOW_SAME = new Set([
-      'foot.play', 'disc.topics', 'it:foot.privacy',
+      'foot.play', 'disc.topics', 'it:foot.privacy', 'de:theme.system',
       ...BRAND_KEYS,
     ]);
     if (lang !== 'en') {
@@ -142,6 +142,49 @@ for (const ref of refs) {
    ten-minute-old script. Run `node tools/stamp-assets.mjs` to settle it. */
 if (stamp(html) !== html) {
   fail('index.html has a stale or missing asset stamp. Run: node tools/stamp-assets.mjs');
+}
+
+/* ---- 5c. the two dark palettes hold the same declarations ---- */
+
+/* The theme switch writes data-theme onto <html>, so dark has to be spelled twice:
+   once for the system's media query, once for the attribute. CSS has no way to share
+   one block between the two, so this compares them and fails when only one was
+   edited, which is the mistake that would leave the switch half a theme behind. */
+
+const css = read('assets/css/style.css');
+
+/* Both blocks are read the same way: from the selector to its closing brace, then
+   reduced to the declarations themselves, order and spacing set aside. */
+const decls = (selector) => {
+  const at = css.indexOf(selector + ' {');
+  if (at === -1) return null;
+  const end = css.indexOf('}', at);
+  return css.slice(at + selector.length + 2, end)
+    .split(';')
+    .map((d) => d.trim())
+    .filter(Boolean)
+    .sort();
+};
+
+const fromMedia = decls(':root:not([data-theme="light"])');
+const fromAttr = decls(':root[data-theme="dark"]');
+if (!fromMedia) fail('style.css has no :root:not([data-theme="light"]) dark palette');
+if (!fromAttr) fail('style.css has no :root[data-theme="dark"] palette');
+if (fromMedia && fromAttr) {
+  const only = (a, b) => a.filter((d) => !b.includes(d));
+  const strays = [
+    ...only(fromMedia, fromAttr).map((d) => `only under the media query: ${d}`),
+    ...only(fromAttr, fromMedia).map((d) => `only under [data-theme="dark"]: ${d}`),
+  ];
+  if (strays.length) {
+    fail('the two dark palettes in style.css have drifted apart:\n  ' + strays.join('\n  '));
+  }
+}
+
+/* The light palette is the default, so a visitor who picks light must land back on
+   it rather than on an attribute nothing styles. */
+if (!/:root:not\(\[data-theme="light"\]\)/.test(css)) {
+  fail('the dark media query does not exempt a visitor who picked light');
 }
 
 /* ---- 6. the things GitHub Pages and crawlers need ---- */

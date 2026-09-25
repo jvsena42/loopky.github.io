@@ -5,6 +5,11 @@
   var STORE_KEY = 'loopky.lang';
   var lang = 'en';
 
+  /* The same key the inline script in index.html reads before the first paint. */
+  var THEME_KEY = 'loopky.theme';
+  var THEMES = ['system', 'light', 'dark'];
+  var theme = 'system';
+
   /* ---------------- language ---------------- */
 
   /* Browser tags are messy: pt-pt, zh-TW, zh-Hans-CN. Script beats region for
@@ -80,6 +85,7 @@
     var sel = document.getElementById('lang-select');
     if (sel) sel.value = lang;
 
+    labelTheme();
     renderUses();
     renderDiscover();
   }
@@ -95,6 +101,63 @@
       li.textContent = item;
       ul.appendChild(li);
     });
+  }
+
+  /* ---------------- theme ---------------- */
+
+  /* Three states, not two. A visitor who has not chosen should keep following the
+     system, including when it turns dark at sunset, and a two-way switch has no way
+     back to that once it has been touched. */
+
+  function readTheme() {
+    try {
+      var saved = localStorage.getItem(THEME_KEY);
+      if (THEMES.indexOf(saved) !== -1) return saved;
+    } catch (e) { /* storage can be off */ }
+    return 'system';
+  }
+
+  /* The address bar and the task switcher take their colour from these, and the two
+     in the markup are keyed to the system. An explicit choice turns one on and the
+     other off; going back to system hands them to the media queries again. */
+  function paintThemeColor() {
+    var light = document.getElementById('tc-light');
+    var dark = document.getElementById('tc-dark');
+    if (!light || !dark) return;
+    if (theme === 'system') {
+      light.media = '(prefers-color-scheme: light)';
+      dark.media = '(prefers-color-scheme: dark)';
+    } else {
+      light.media = theme === 'light' ? 'all' : 'not all';
+      dark.media = theme === 'dark' ? 'all' : 'not all';
+    }
+  }
+
+  /* Spelled out rather than built from the state, so tools/check.mjs can see which
+     keys the page asks for. */
+  function themeName() {
+    if (theme === 'light') return tf('theme.light', 'Light');
+    if (theme === 'dark') return tf('theme.dark', 'Dark');
+    return tf('theme.system', 'System');
+  }
+
+  function labelTheme() {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var name = themeName();
+    btn.setAttribute('data-state', theme);
+    btn.setAttribute('aria-label', tf('a11y.theme', 'Theme') + ': ' + name);
+    btn.setAttribute('title', tf('a11y.theme', 'Theme') + ': ' + name);
+  }
+
+  function applyTheme(next) {
+    theme = THEMES.indexOf(next) === -1 ? 'system' : next;
+    var root = document.documentElement;
+    /* No attribute is the system state, which is what the stylesheet expects. */
+    if (theme === 'system') root.removeAttribute('data-theme');
+    else root.setAttribute('data-theme', theme);
+    paintThemeColor();
+    labelTheme();
   }
 
   /* ---------------- discover ---------------- */
@@ -383,6 +446,15 @@
       sel.addRange(range);
     }
 
+    var themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function () {
+        var next = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];
+        try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage can be off */ }
+        applyTheme(next);
+      });
+    }
+
     var sel = document.getElementById('lang-select');
     if (sel) {
       sel.addEventListener('change', function () {
@@ -403,6 +475,7 @@
       moreBtn.addEventListener('click', function () { shown += PAGE; renderDiscover(); });
     }
 
+    applyTheme(readTheme());
     applyLang(pickLang());
     startDiscover();
   });

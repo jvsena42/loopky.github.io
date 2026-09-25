@@ -106,6 +106,31 @@ The slogan is the exception and stays English everywhere. `strings.xml` declares
 locale, so `hero.title` and `cta.title` are one `SLOGAN` constant rather than eleven
 strings. `tools/check.mjs` fails if any locale translates it.
 
+## Light and dark
+
+The top bar carries a switch with three states: system, light, dark. It cycles in
+that order and the choice lives in `localStorage` under `loopky.theme`. No choice
+stored means no `data-theme` attribute on `<html>`, and the page follows the
+system, including when the system turns dark at sunset. A two-way switch has no way
+back to that once it has been touched, which is why there are three.
+
+An inline script in the `<head>` puts a stored choice on `<html>` before the first
+paint. Without it the page draws the system theme and then flips in front of the
+visitor.
+
+The dark palette is therefore spelled twice in `assets/css/style.css`: once under
+`@media (prefers-color-scheme: dark)` for the system, once under
+`:root[data-theme="dark"]` for the choice. CSS cannot share one block between a
+media query and an attribute, so `tools/check.mjs` compares the two and fails when
+only one was edited. The media query is scoped to
+`:root:not([data-theme="light"])`, so a visitor who picked light stays there on a
+machine set to dark.
+
+`color-scheme` follows along, which is what makes the native parts the browser
+paints itself, the language dropdown and the scrollbars, match the page. The two
+`theme-color` meta tags are keyed to the system in the markup; an explicit choice
+flips one to `all` and the other to `not all`, so the address bar follows too.
+
 ## Working on it
 
 ```shell
@@ -121,8 +146,8 @@ node tools/check.mjs
 
 It parses every script, holds the eleven dictionaries against each other and against
 the page, confirms the AI prompt still names real CLI commands, checks that every
-asset and `hreflang` the page references exists, and refuses an em dash in anything a
-visitor reads.
+asset and `hreflang` the page references exists, holds the two dark palettes in the
+stylesheet against each other, and refuses an em dash in anything a visitor reads.
 
 ```shell
 node tools/layout-check.mjs
@@ -184,4 +209,5 @@ the `deploy` job. The `check` job is worth keeping either way.
 
 Taken from `androidApp/.../ui/theme/LoopkyColors.kt` in the app repository, light
 palette and dark, as CSS custom properties. A change there wants the same change in
-`assets/css/style.css`.
+`assets/css/style.css`, and a change to a dark token wants it in both of the two dark
+blocks. See [Light and dark](#light-and-dark).

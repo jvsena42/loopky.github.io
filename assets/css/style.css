@@ -2,6 +2,10 @@
    Colours are the app's own tokens, from LoopkyColors.kt / LoopkyColor.swift. */
 
 :root {
+  /* Tells the browser which way the page leans, so native parts it paints itself,
+     the select popup, the form controls, the page scrollbar, follow along. */
+  color-scheme: light;
+
   --surface-primary: #FFFBF5;
   --surface-secondary: #FFF4EA;
   --surface-card: #FFFFFF;
@@ -30,8 +34,18 @@
   --maxw: 1140px;
 }
 
+/* Dark.
+   The switch in the top bar writes data-theme onto <html>; nothing there means the
+   visitor has not chosen and the system decides. So the palette is spelled twice: a
+   media query for the system, an attribute for the choice. A media query and an
+   attribute cannot share one selector, and the :not() keeps a visitor who picked
+   light out of the system's dark.
+
+   The two blocks must hold the same declarations. tools/check.mjs compares them. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
     --surface-primary: #0D0B11;
     --surface-secondary: #1E1A28;
     --surface-card: #2D2839;
@@ -49,6 +63,27 @@
     --shadow-high: 0 14px 40px rgba(0, 0, 0, .55);
     --glow: 0 10px 30px rgba(255, 107, 44, .22);
   }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --surface-primary: #0D0B11;
+  --surface-secondary: #1E1A28;
+  --surface-card: #2D2839;
+  --accent: #FF6B2C;
+  --accent-soft: #38221A;
+  --accent-2: #9B7BFF;
+  --accent-2-soft: #2B2443;
+  --fg: #EDEBF1;
+  --fg-2: #B5AEBD;
+  --fg-muted: #9C94A8;
+  --navbar: #262032;
+  --border: #3B3550;
+  --shadow-low: 0 1px 2px rgba(0, 0, 0, .35);
+  --shadow-mid: 0 4px 14px rgba(0, 0, 0, .45);
+  --shadow-high: 0 14px 40px rgba(0, 0, 0, .55);
+  --glow: 0 10px 30px rgba(255, 107, 44, .22);
 }
 
 * { box-sizing: border-box; }
@@ -135,6 +170,24 @@ img { max-width: 100%; height: auto; display: block; }
   border-radius: var(--r-pill); padding: 8px 30px 8px 14px;
   font: inherit; font-size: .88rem; font-weight: 600; cursor: pointer;
 }
+
+/* One button, three states, cycling system to light to dark. The icon says which
+   one is on, and the label next to it says so out loud for a screen reader. The
+   sun and the moon each stand for a choice the visitor made, so neither is drawn
+   while the system is still deciding. */
+.themebtn {
+  display: grid; place-items: center; flex: 0 0 auto;
+  width: 38px; height: 38px; padding: 0;
+  background: var(--surface-card); color: var(--fg-2);
+  border: 1.5px solid var(--border); border-radius: var(--r-pill);
+  cursor: pointer;
+  transition: color .12s ease, border-color .12s ease;
+}
+.themebtn:hover { color: var(--accent); border-color: var(--accent); }
+.themebtn svg { display: none; }
+.themebtn[data-state="system"] .ico-system,
+.themebtn[data-state="light"] .ico-light,
+.themebtn[data-state="dark"] .ico-dark { display: block; }
 
 @media (max-width: 860px) {
   .topnav { display: none; }
