@@ -31,7 +31,7 @@ if (!base.endsWith('/')) base += '/';
 
 const files = ['index.html', 'sitemap.xml', 'robots.txt', 'README.md'];
 /* Any absolute address that points at this site, whatever it is set to today. */
-const CURRENT = /https:\/\/(?:loopky\.github\.io|jvsena42\.github\.io\/loopky\.github\.io|[a-z0-9.-]+)\/(?=(?:\?lang=|assets\/img\/og\.png|sitemap\.xml|"|<|\s|$))/g;
+const CURRENT = /https:\/\/(?:loopky\.github\.io|jvsena42\.github\.io\/loopky\.github\.io|[a-z0-9.-]+)\/(?=(?:\?lang=|assets\/img\/og\.png|sitemap\.xml|"|<|>|\)|\s|$))/g;
 
 let changed = 0;
 for (const f of files) {

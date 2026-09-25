@@ -136,28 +136,37 @@ screenshot of a correct one. It skips with a note when no Chrome is installed. A
 forgetting one is the mistake this repo invites: the page falls back to English
 silently, so nothing looks broken. That is the check worth having.
 
-## Where this actually serves
+## Where this serves
 
-<https://jvsena42.github.io/loopky.github.io/>
+<https://loopky.app/>
 
-Not `loopky.github.io`. A repository named `<name>.github.io` only serves at the root
-of that name when the **account owning it is called `<name>`**. This one is owned by
-`jvsena42`, so it is an ordinary project page and the repository name is just a
-repository name. Moving it would mean a GitHub account or organisation named `loopky`
-owning a repository named `loopky.github.io`, or a custom domain.
+The domain is a custom one, set three places that have to agree:
 
-Everything the browser loads is a relative path, so the page works under any prefix
-untouched. What does care is the part search engines read: the canonical link, the
-Open Graph and Twitter cards, the eleven `hreflang` alternates, the JSON-LD, the
-sitemap and `robots.txt`. One command moves them together:
+- `CNAME` at the repository root, holding the bare domain and nothing else. It is
+  part of the published artifact, which is how GitHub learns the domain when the
+  deploy is a workflow rather than a branch.
+- DNS: four `A` and four `AAAA` records on the apex pointing at GitHub Pages, and
+  `www` as a `CNAME` to `jvsena42.github.io.` so GitHub can redirect it to the apex.
+  A `CAA` record narrows certificate issuance to Let's Encrypt, which is the CA Pages
+  uses.
+- Every absolute URL the page publishes about itself.
+
+Only that last one lives in these files, and everything the browser loads is a
+relative path, so the page itself works under any prefix untouched. What cares is the
+part search engines read: the canonical link, the Open Graph and Twitter cards, the
+eleven `hreflang` alternates, the JSON-LD, the sitemap and `robots.txt`. One command
+moves them together:
 
 ```shell
 node tools/set-site-url.mjs https://loopky.app/
 ```
 
-For a custom domain, that command plus a `CNAME` file holding the bare domain, plus
-the DNS records, is the whole of it. `tools/check.mjs` fails if any of those addresses
-drift apart, which is what a half-applied move looks like.
+`tools/check.mjs` fails if those addresses drift apart, which is what a half-applied
+move looks like.
+
+`.app` is on the HSTS preload list, so browsers refuse plain HTTP for it and there is
+no insecure fallback while a certificate is being issued. A domain change means the
+site is unreachable until Pages has one, usually minutes.
 
 ## CI and deploying
 
