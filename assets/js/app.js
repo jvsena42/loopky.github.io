@@ -146,8 +146,12 @@
     if (!btn) return;
     var name = themeName();
     btn.setAttribute('data-state', theme);
+    /* The label carries the state on its own. The aria-label puts the word "Theme"
+       in front of it, which the icon does for a sighted visitor. */
     btn.setAttribute('aria-label', tf('a11y.theme', 'Theme') + ': ' + name);
     btn.setAttribute('title', tf('a11y.theme', 'Theme') + ': ' + name);
+    var label = document.getElementById('theme-label');
+    if (label) label.textContent = name;
   }
 
   function applyTheme(next) {

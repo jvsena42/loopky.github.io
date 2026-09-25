@@ -171,23 +171,28 @@ img { max-width: 100%; height: auto; display: block; }
   font: inherit; font-size: .88rem; font-weight: 600; cursor: pointer;
 }
 
-/* One button, three states, cycling system to light to dark. The icon says which
-   one is on, and the label next to it says so out loud for a screen reader. The
-   sun and the moon each stand for a choice the visitor made, so neither is drawn
-   while the system is still deciding. */
+/* One button, three states, cycling system to light to dark. It carries the same
+   pill as the language picker beside it, because an icon on its own read as
+   decoration and people walked past it. The label says which state is on; the icon
+   agrees with it. The sun and the moon each stand for a choice the visitor made, so
+   neither is drawn while the system is still deciding. */
 .themebtn {
-  display: grid; place-items: center; flex: 0 0 auto;
-  width: 38px; height: 38px; padding: 0;
-  background: var(--surface-card); color: var(--fg-2);
+  display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto;
+  background: var(--surface-card); color: var(--fg);
   border: 1.5px solid var(--border); border-radius: var(--r-pill);
+  padding: 7px 15px 7px 12px;
+  font: inherit; font-size: .88rem; font-weight: 600;
   cursor: pointer;
   transition: color .12s ease, border-color .12s ease;
 }
 .themebtn:hover { color: var(--accent); border-color: var(--accent); }
-.themebtn svg { display: none; }
+.themebtn svg { display: none; flex: 0 0 auto; }
 .themebtn[data-state="system"] .ico-system,
 .themebtn[data-state="light"] .ico-light,
 .themebtn[data-state="dark"] .ico-dark { display: block; }
+/* The three words are different lengths, and without a floor the whole right side
+   of the bar nudges sideways on every click. */
+.themebtn-label { min-width: 3.4em; text-align: left; }
 
 @media (max-width: 860px) {
   .topnav { display: none; }
@@ -195,6 +200,10 @@ img { max-width: 100%; height: auto; display: block; }
 @media (max-width: 420px) {
   .lang select { padding: 8px 26px 8px 10px; max-width: 110px; }
   .topright .btn { display: none; }
+  /* Three pills and a logo do not fit a phone. The icon alone was never the problem
+     at this width: with the nav links gone it sits right next to the brand. */
+  .themebtn { padding: 8px; }
+  .themebtn-label { display: none; }
 }
 
 /* ---------- hero ---------- */

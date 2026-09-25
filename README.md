@@ -109,7 +109,11 @@ strings. `tools/check.mjs` fails if any locale translates it.
 ## Light and dark
 
 The top bar carries a switch with three states: system, light, dark. It cycles in
-that order and the choice lives in `localStorage` under `loopky.theme`. No choice
+that order and the choice lives in `localStorage` under `loopky.theme`. It wears the
+same pill as the language picker beside it and names the state it is in, because the
+first version was an icon on its own and people walked past it. Under 420px the
+label goes and the icon stands alone, which is where it was always easy to find: the
+nav links are gone at that width and it sits next to the brand. No choice
 stored means no `data-theme` attribute on `<html>`, and the page follows the
 system, including when the system turns dark at sunset. A two-way switch has no way
 back to that once it has been touched, which is why there are three.
