@@ -70,7 +70,9 @@ jobs:
         with:
           enablement: true
 
-      # The repository is the site. There is nothing to build.
+      # The repository is the site. There is nothing to build. v3 keeps dotfiles in
+      # the artifact, which is what publishes .well-known/assetlinks.json; v4 drops
+      # them unless the step sets include-hidden-files, and tools/check.mjs says so.
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .

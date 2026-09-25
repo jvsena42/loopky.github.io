@@ -220,6 +220,38 @@ for (const page of PAGES.filter((p) => p !== 'index.html')) {
     fail(`sitemap.xml lists ${page}, which is a template rather than a page`);
   }
 }
+
+/* Android verifies an App Link against this file before it will open loopky.app in
+   the app. A typo here does not fail anything visible: the link just opens the
+   browser, which is the web page, which looks like it works. */
+try {
+  const links = JSON.parse(read('.well-known/assetlinks.json'));
+  const android = Array.isArray(links) && links.find((s) =>
+    s?.target?.namespace === 'android_app' &&
+    s.target.package_name === 'com.github.jvsena42.loopky' &&
+    s.relation?.includes('delegate_permission/common.handle_all_urls'));
+  if (!android) {
+    fail('.well-known/assetlinks.json has no handle_all_urls statement for com.github.jvsena42.loopky');
+  } else {
+    const prints = android.target.sha256_cert_fingerprints ?? [];
+    if (!prints.length) fail('.well-known/assetlinks.json lists no certificate fingerprints');
+    for (const fp of prints) {
+      if (!/^([0-9A-F]{2}:){31}[0-9A-F]{2}$/.test(fp)) {
+        fail(`.well-known/assetlinks.json has a malformed fingerprint: ${fp}`);
+      }
+    }
+  }
+} catch (e) {
+  fail(`.well-known/assetlinks.json is missing or not JSON: ${e.message}`);
+}
+
+/* upload-pages-artifact@v4 leaves dotfiles out of the artifact unless told otherwise,
+   so bumping it would quietly stop publishing .well-known and every App Link with it. */
+const workflow = read('.github/workflows/pages.yml');
+const upload = /actions\/upload-pages-artifact@v(\d+)/.exec(workflow);
+if (upload && Number(upload[1]) >= 4 && !/include-hidden-files:\s*true/.test(workflow)) {
+  fail('upload-pages-artifact v4+ drops .well-known unless the step sets include-hidden-files: true');
+}
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 if (locs.length !== SUPPORTED.length + 1) {
   fail(`sitemap.xml lists ${locs.length} URLs, expected ${SUPPORTED.length + 1}`);

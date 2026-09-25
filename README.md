@@ -10,6 +10,7 @@ serves this repository as it is.
 index.html            the landing page
 deck/index.html       where a shared deck link lands
 profile/index.html    where a shared profile link lands
+.well-known/assetlinks.json  lets Android open those links in the app
 assets/css/style.css  the app's own palette, from LoopkyColors.kt
 assets/js/i18n.js     copy in the 11 languages the app ships
 assets/js/discover.js the live Discover feed, and the deck and profile reads
@@ -83,8 +84,8 @@ markdown included, so the old link was text a reader had to copy. An `https` lin
 clickable everywhere, and it does the right thing on both sides of the install:
 
 - **Loopky installed, on Android.** The app declares these paths as verified App
-  Links. Once the domain verifies, the tap opens the deck in the app and this site
-  is never loaded.
+  Links, and Android checks `.well-known/assetlinks.json` before it agrees. With
+  that in place the tap opens the deck in the app and this site is never loaded.
 - **Loopky not installed.** The link lands here, on the landing site with the deck
   or the person on top: the same top bar, language picker and theme switch, the
   deck's cover, title, card count, topics and description read live off the
@@ -112,6 +113,31 @@ reads the page's Open Graph tags without running its script, and on a static hos
 every deck gets the same file. Per-deck titles and covers in a preview need
 something that renders at request time. Both pages carry `noindex` and stay out of
 the sitemap for the same reason: each is a template that answers for every deck.
+
+### assetlinks.json
+
+It lists two certificates today: the upload key and the debug key. **The Play App
+Signing certificate still has to be added**, from Play Console under *Test and
+release › App integrity › App signing key certificate* (the *Deep links* page
+there shows the whole statement). A Play-installed app is signed with that key,
+not the upload key, so until its SHA-256 is in the list, Android will refuse to
+verify the domain for anyone who installed from the store and every link will
+open the browser. That failure is silent: the browser shows this web page, which
+looks like it works. On a device,
+`adb shell pm get-app-links com.github.jvsena42.loopky` shows whether `loopky.app`
+reads `verified`.
+
+The deploy uses `upload-pages-artifact@v3`, which keeps dot-directories in the
+artifact. v4 drops them unless the step sets `include-hidden-files: true`, and
+`tools/check.mjs` fails on that combination, because the result would be every App
+Link quietly turning back into a web page.
+
+**There is no `apple-app-site-association` yet.** Universal Links need the Apple
+Team ID in it, and the iOS project has none set
+(`iosApp/Configuration/Config.xcconfig` in the app repository leaves `TEAM_ID`
+empty). Once there is one, the file goes at
+`.well-known/apple-app-site-association` with an `applinks` entry for `/deck/*`
+and `/profile/*`, beside the app's associated-domains entitlement.
 
 ## Caching
 
@@ -193,7 +219,7 @@ node tools/check.mjs
 It parses every script, holds the eleven dictionaries against each other and against
 the page, confirms the AI prompt still names real CLI commands, checks that every
 asset and `hreflang` the page references exists, holds the two dark palettes in the
-stylesheet against each other, and refuses an em dash in anything a visitor reads. It covers the deck and profile pages as well as the home page.
+stylesheet against each other, validates `assetlinks.json`, and refuses an em dash in anything a visitor reads. It covers the deck and profile pages as well as the home page.
 
 ```shell
 node tools/layout-check.mjs
