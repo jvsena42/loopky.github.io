@@ -308,7 +308,10 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .deck-meta { font-size: .85rem; color: var(--fg-muted); margin: 0; }
 .deck-meta b { color: var(--accent-2); font-weight: 700; }
-.deck-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+/* Straight under the subtitle, not pushed to the floor of the card. Tags belong to
+   the deck, and a title that wraps to two lines should move them down with it rather
+   than leave a gap. */
+.deck-tags { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 2px; }
 .deck-tag {
   background: var(--accent-2-soft); color: var(--accent-2);
   border-radius: var(--r-pill); padding: 3px 9px; font-size: .74rem; font-weight: 700;
