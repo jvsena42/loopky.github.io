@@ -32,6 +32,12 @@ jobs:
       - name: Check
         run: node tools/check.mjs
 
+      # Loads the page in the runner's Chrome and fails if it scrolls sideways.
+      # A cropped screenshot of an overflowing page looks exactly like a cropped
+      # screenshot of a correct one, which is how one shipped.
+      - name: Layout
+        run: node tools/layout-check.mjs
+
       # The indexer is public and read-only, so this asks it the same two questions
       # the page does. A warning and not a failure: the network being down is not a
       # reason to block a deploy, but it is worth seeing in the log.

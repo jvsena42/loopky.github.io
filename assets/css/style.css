@@ -237,6 +237,9 @@ img { max-width: 100%; height: auto; display: block; }
 
 /* ---------- discover ---------- */
 .disc-controls { display: grid; gap: 16px; margin-bottom: 22px; }
+/* Grid items default to min-width: auto, which lets a wide child push the page
+   wider instead of shrinking. This is what the chip row fell into. */
+.disc-controls > * { min-width: 0; }
 .searchbox {
   display: flex; align-items: center; gap: 10px;
   background: var(--surface-card); border: 1.5px solid var(--border);
@@ -251,22 +254,18 @@ img { max-width: 100%; height: auto; display: block; }
 .searchbox input:focus { outline: none; }
 .searchbox input::-webkit-search-cancel-button { filter: grayscale(1) opacity(.5); }
 
-/* The app draws this rail with no scrollbar at all, and a chip row is a thing you
-   swipe or drag rather than aim at a 5px bar. Tab still reaches every chip and the
-   browser scrolls it into view, so nothing is lost to the keyboard. */
-.chips-rail { position: relative; }
-.chips-rail::after {
-  content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 48px;
-  pointer-events: none;
-  background: linear-gradient(to right, transparent, var(--surface-secondary));
-}
+/* Chips wrap. They used to be a horizontal rail, which is what the app draws, but
+   a rail has to be a scroll container and this one sat in a grid: a grid item's
+   min-width is auto, so the row sized itself to all fifteen chips, stretched to
+   1679px at every viewport, and took the whole page's width with it. Wrapping has
+   no overflow to contain and no scrollbar to hide, and every topic is visible at
+   once rather than behind a swipe. */
 .chips {
-  display: flex; gap: 9px; overflow-x: auto;
-  padding: 2px 34px 2px 0;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  display: flex; flex-wrap: wrap; gap: 9px;
+  min-width: 0;
+  padding: 2px 0;
 }
-.chips::-webkit-scrollbar { width: 0; height: 0; display: none; }
+
 .chip {
   flex: 0 0 auto; border: 0; cursor: pointer; font: inherit;
   background: var(--accent-2-soft); color: var(--accent-2);

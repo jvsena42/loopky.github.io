@@ -14,6 +14,7 @@ assets/js/discover.js the live Discover feed
 assets/js/app.js      language switching, filtering, rendering
 assets/img/           icon, screenshots, share image
 tools/check.mjs       the pre-flight CI runs
+tools/layout-check.mjs  fails if the page scrolls sideways
 tools/stamp-assets.mjs  content hashes on the asset URLs
 tools/set-site-url.mjs  moves every published URL at once
 ```
@@ -121,7 +122,17 @@ node tools/check.mjs
 It parses every script, holds the eleven dictionaries against each other and against
 the page, confirms the AI prompt still names real CLI commands, checks that every
 asset and `hreflang` the page references exists, and refuses an em dash in anything a
-visitor reads. Adding a string means adding it to all eleven dictionaries, and
+visitor reads.
+
+```shell
+node tools/layout-check.mjs
+```
+
+That one loads the real page in headless Chrome at four widths and fails if it scrolls
+sideways. It exists because a wrapper around the topic chips once stretched that row
+to 1679px at every viewport and took the page's width with it, and no screenshot
+showed it: a cropped screenshot of an overflowing page looks exactly like a cropped
+screenshot of a correct one. It skips with a note when no Chrome is installed. Adding a string means adding it to all eleven dictionaries, and
 forgetting one is the mistake this repo invites: the page falls back to English
 silently, so nothing looks broken. That is the check worth having.
 

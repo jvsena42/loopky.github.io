@@ -246,7 +246,11 @@
     all.addEventListener('click', function () { selected = []; shown = PAGE; renderDiscover(); });
     chipbox.appendChild(all);
 
-    topicCounts(decks).slice(0, 14).forEach(function (tag) {
+    /* Wrapped chips cost vertical space, and on a phone fourteen of them is eight
+       rows between the search box and the first deck. The busiest topics carry most
+       of the value and the search box covers the rest. */
+    var room = window.matchMedia('(max-width: 640px)').matches ? 6 : 14;
+    topicCounts(decks).slice(0, room).forEach(function (tag) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'chip';
