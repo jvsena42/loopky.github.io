@@ -44,11 +44,23 @@
     return 'en';
   }
 
+  /* Undefined for an unknown key, never the key itself. index.html and i18n.js are
+     separate requests with separate ten-minute caches, so a deploy that adds a
+     string can leave a returning visitor holding new markup and the old dictionary
+     for a few minutes, and the page used to paint "feat.cli.t" into the card. The
+     markup already ships the English, so the fix is to leave it standing. */
   function t(key) {
     var dict = I18N[lang] || I18N.en;
     var v = dict[key];
     if (v === undefined) v = I18N.en[key];
-    return v === undefined ? key : v;
+    return v;
+  }
+
+  /* For strings the scripts build rather than the markup carrying them: there is no
+     authored English to leave standing, so each names its own floor. */
+  function tf(key, fallback) {
+    var v = t(key);
+    return typeof v === 'string' ? v : fallback;
   }
 
   function applyLang(next) {
@@ -59,6 +71,7 @@
       var key = el.getAttribute('data-i18n');
       var attr = el.getAttribute('data-i18n-attr');
       var value = t(key);
+      /* Not a string means unknown: keep what the markup shipped with. */
       if (typeof value !== 'string') return;
       if (attr) el.setAttribute(attr, value);
       else el.textContent = value;
@@ -74,8 +87,10 @@
   function renderUses() {
     var ul = document.getElementById('uses-list');
     if (!ul) return;
+    var items = t('uses.list');
+    if (!Array.isArray(items)) return;
     ul.textContent = '';
-    (t('uses.list') || []).forEach(function (item) {
+    items.forEach(function (item) {
       var li = document.createElement('li');
       li.textContent = item;
       ul.appendChild(li);
@@ -84,6 +99,7 @@
 
   /* ---------------- discover ---------------- */
 
+  var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
   var PAGE = 8;
   var decks = null;
   var failed = false;
@@ -141,12 +157,27 @@
     return frag;
   }
 
+  /* Stable per deck, so a tint does not change under the reader between renders. */
+  function tintClass(key) {
+    var h = 0;
+    for (var i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) % 100000;
+    return 'tint-' + (h % 6);
+  }
+
+  function emojiCover(d) {
+    var box = document.createElement('div');
+    box.className = 'deck-cover-emoji ' + tintClass(d.key || d.uri);
+    box.textContent = d.emoji;
+    return box;
+  }
+
   function deckCard(d) {
     var a = document.createElement('a');
     a.className = 'deck';
-    a.href = d.postUrl || 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
+    /* The app is the only place a deck opens, so that is where every tile goes. */
+    a.href = PLAY_URL;
     a.target = '_blank';
-    a.rel = 'noopener nofollow';
+    a.rel = 'noopener';
 
     if (d.cover) {
       var img = document.createElement('img');
@@ -158,17 +189,11 @@
       img.referrerPolicy = 'no-referrer';
       /* A cover is a URL on someone else's host. When it 404s, fall back to the emoji. */
       img.onerror = function () {
-        var box = document.createElement('div');
-        box.className = 'deck-cover-emoji';
-        box.textContent = d.emoji;
-        if (img.parentNode) img.parentNode.replaceChild(box, img);
+        if (img.parentNode) img.parentNode.replaceChild(emojiCover(d), img);
       };
       a.appendChild(img);
     } else {
-      var box = document.createElement('div');
-      box.className = 'deck-cover-emoji';
-      box.textContent = d.emoji;
-      a.appendChild(box);
+      a.appendChild(emojiCover(d));
     }
 
     var body = document.createElement('div');
@@ -179,14 +204,18 @@
     h3.textContent = d.title;
     body.appendChild(h3);
 
+    /* "395 cards · Trícia", the same subtitle the app's own tile carries. */
     var meta = document.createElement('p');
     meta.className = 'deck-meta';
-    var who = document.createElement('b');
-    who.textContent = d.authorName || t('disc.anon');
-    meta.appendChild(who);
-    if (d.follows > 0) {
-      meta.appendChild(document.createTextNode(' · ' + d.follows + ' ' + t('disc.followers')));
+    if (typeof d.cards === 'number') {
+      var count = d.cards === 1
+        ? tf('disc.cards.one', '{n} card')
+        : tf('disc.cards.other', '{n} cards');
+      meta.appendChild(document.createTextNode(count.replace('{n}', d.cards) + ' · '));
     }
+    var who = document.createElement('b');
+    who.textContent = d.authorName || tf('disc.anon', 'Someone on Loopky');
+    meta.appendChild(who);
     body.appendChild(meta);
 
     if (d.topics.length) {
@@ -212,7 +241,7 @@
     var all = document.createElement('button');
     all.type = 'button';
     all.className = 'chip';
-    all.textContent = t('disc.all');
+    all.textContent = tf('disc.all', 'All');
     all.setAttribute('aria-pressed', selected.length === 0 ? 'true' : 'false');
     all.addEventListener('click', function () { selected = []; shown = PAGE; renderDiscover(); });
     chipbox.appendChild(all);
@@ -241,11 +270,11 @@
     if (failed) {
       grid.textContent = '';
       status.hidden = false;
-      status.textContent = t('disc.error') + ' ';
+      status.textContent = tf('disc.error', 'Could not reach the network right now.') + ' ';
       var again = document.createElement('button');
       again.type = 'button';
       again.className = 'chip chip-clear';
-      again.textContent = t('disc.retry');
+      again.textContent = tf('disc.retry', 'Try again');
       again.addEventListener('click', function () {
         failed = false;
         decks = null;
@@ -258,7 +287,7 @@
     }
     if (decks === null) {
       status.hidden = false;
-      status.textContent = t('disc.loading');
+      status.textContent = tf('disc.loading', 'Loading decks…');
       grid.textContent = '';
       grid.appendChild(skeleton());
       return;
@@ -271,15 +300,15 @@
 
     if (!hits.length) {
       status.hidden = false;
-      status.textContent = t('disc.empty');
+      status.textContent = tf('disc.empty', 'No deck matches that yet. Try another topic.');
       if (moreBtn) moreBtn.hidden = true;
       return;
     }
 
     status.hidden = false;
     status.textContent = hits.length === 1
-      ? t('disc.one')
-      : t('disc.count').replace('{n}', hits.length);
+      ? tf('disc.one', '1 deck')
+      : tf('disc.count', '{n} decks').replace('{n}', hits.length);
 
     hits.slice(0, shown).forEach(function (d) { grid.appendChild(deckCard(d)); });
     if (moreBtn) moreBtn.hidden = hits.length <= shown;
@@ -329,8 +358,8 @@
     if (copy) {
       copy.addEventListener('click', function () {
         var done = function () {
-          copy.textContent = t('cli.copied');
-          setTimeout(function () { copy.textContent = t('cli.copy'); }, 1800);
+          copy.textContent = tf('cli.copied', 'Copied');
+          setTimeout(function () { copy.textContent = tf('cli.copy', 'Copy'); }, 1800);
         };
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard.writeText(AI_PROMPT).then(done, selectPrompt);

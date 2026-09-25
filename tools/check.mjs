@@ -9,6 +9,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { stamp } from './stamp-assets.mjs';
 
 const problems = [];
 const notes = [];
@@ -101,7 +102,8 @@ if (I18N) {
   /* Keys the scripts reach for directly, which never appear as an attribute. */
   const fromJs = new Set();
   for (const f of ['assets/js/app.js']) {
-    for (const m of read(f).matchAll(/\bt\('([^']+)'\)/g)) fromJs.add(m[1]);
+    /* t(key) and tf(key, fallback) both count as a use. */
+    for (const m of read(f).matchAll(/(?<![\w$])tf?\('([^']+)'\s*[,)]/g)) fromJs.add(m[1]);
   }
 
   for (const key of [...used, ...fromJs]) {
@@ -132,6 +134,14 @@ for (const ref of refs) {
   if (!existsSync(new URL('../' + path, import.meta.url))) {
     fail(`index.html points at ${path}, which is not in the repository`);
   }
+}
+
+/* ---- 5b. every asset URL carries the stamp its file's bytes ask for ---- */
+
+/* An unstamped or stale URL means a visitor can hold this markup next to a
+   ten-minute-old script. Run `node tools/stamp-assets.mjs` to settle it. */
+if (stamp(html) !== html) {
+  fail('index.html has a stale or missing asset stamp. Run: node tools/stamp-assets.mjs');
 }
 
 /* ---- 6. the things GitHub Pages and crawlers need ---- */

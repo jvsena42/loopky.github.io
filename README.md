@@ -14,23 +14,82 @@ assets/js/discover.js the live Discover feed
 assets/js/app.js      language switching, filtering, rendering
 assets/img/           icon, screenshots, share image
 tools/check.mjs       the pre-flight CI runs
+tools/stamp-assets.mjs  content hashes on the asset URLs
+tools/set-site-url.mjs  moves every published URL at once
 ```
 
 ## The Discover section is live
 
-It reads the [Pubky Nexus](https://nexus.pubky.app) indexer straight from the browser,
-the same public API the app uses. Two endpoints, because neither is complete alone:
+It is a port of `DiscoveryRepositoryImpl.decksByTagGlobalPage`, the app's global
+browse, and it reads what that reads. Two public sources, both CORS-open and both
+unauthenticated:
 
-- `/v0/stream/resources?app=loopky&tags=loopky-deck` lists every published deck
-  manifest with its topics and its follower count.
-- `/v0/stream/posts?tags=loopky-deck` carries the announcement post, which is where a
-  deck's title and cover actually live. The manifest itself sits on a homeserver behind
-  a `pubky://` address, and a browser has no way to open one.
+- **[Pubky Nexus](https://nexus.pubky.app)** answers which URIs carry the
+  `loopky-deck` label, via `/v0/stream/resources`. That is all it answers: a deck
+  manifest is a generic resource to the indexer, so there is no title in there.
+- **The homeserver** serves the manifest itself over plain HTTPS. A deck's `pubky://`
+  address names a homeserver and a path, and the homeserver takes the pubky in a
+  `pubky-host` header rather than in the URL. Title, card count, topics and cover all
+  live here. This is the app's `deckRepository.fetchRemote`, and the reason the page
+  can show a real card count next to a real title.
 
-A deck appears only when both sources agree on it, so nothing ever renders untitled.
-Everything read back was written by a stranger, so no network value reaches `innerHTML`.
+Three details are carried over from the app because each one is load-bearing:
 
-If the indexer is unreachable the section says so and the rest of the page is unaffected.
+- **`skip` advances by the window asked for, never by what came back.** It is an
+  offset into the indexer's raw sorted set, and Nexus drops a subject whose details no
+  longer resolve, so a page is routinely shorter than the limit with more behind it.
+  Only an empty page means the end.
+- **Paging is sorted by timeline, not by tagger count.** The tagger-count ordering
+  shifts under paging.
+- **A label proves nothing.** Anyone may tag any URI `loopky-deck`, so the URI has to
+  parse as a deck manifest, the deck's own author has to be among that label's
+  taggers, and the manifest has to fetch and parse. A forged entry is then useless
+  rather than merely unlikely.
+
+That last check is also what keeps deleted decks out. The first version of this
+section read deck announcements from the post index instead, which was wrong three
+ways at once: it found 15 of the 37 published decks, it had covers for 7 of them, and
+five of the decks it showed had been deleted by their authors, because a post outlives
+the deck it announces. Reading manifests gives all 36 that resolve, 33 covers, and a
+card count for every one.
+
+Decks are fetched six at a time and the grid fills as they land. Everything read back
+was written by a stranger, so no network value reaches `innerHTML`. If the indexer is
+unreachable the section says so, offers a retry, and the rest of the page is
+unaffected.
+
+**A deck without a picture has none to find.** A cover reaches the web only when its
+author published one as an `https://` URL; an emoji cover, or a picture imported as a
+blob from an `.apkg`, never leaves the homeserver. Those decks get their emoji on a
+tint picked from the deck's own address, so a grid of them reads as a design rather
+than as images that failed to load.
+
+**One homeserver is hardcoded.** The app resolves each author's own through pkarr,
+which needs a signed-packet parse and a second resolution this page should not carry.
+Every account on the network today is on the public homeserver; a deck hosted
+elsewhere is left out, the same as one that was deleted. If that stops being a
+rounding error, `HOMESERVER` in `assets/js/discover.js` is the line to fix.
+
+## Caching
+
+Pages serves the page and its assets with the same `max-age=600` and no
+fingerprinting, and a browser expires each on its own clock. A deploy that adds a
+string can therefore leave a returning visitor holding the new markup next to a
+ten-minute-old `i18n.js`, which is how `feat.cli.t` once got painted into a card
+where its title belonged.
+
+Two things settle it, and both are wanted. The asset URLs carry a hash of their own
+contents, so new markup names a script the cache has never seen:
+
+```shell
+node tools/stamp-assets.mjs
+```
+
+Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
+it is safe to run always, and `tools/check.mjs` fails when a stamp and its file
+disagree. And a key that resolves nowhere now leaves the markup's own English
+standing rather than painting its name, so the worst case is an untranslated card
+rather than a broken one.
 
 ## Language
 

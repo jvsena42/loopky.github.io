@@ -285,8 +285,22 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .deck-cover-emoji {
   aspect-ratio: 16 / 11; display: grid; place-items: center; font-size: 46px;
-  background: linear-gradient(140deg, var(--accent-soft), var(--accent-2-soft));
+  background: linear-gradient(140deg, var(--tint-a, var(--accent-soft)), var(--tint-b, var(--accent-2-soft)));
 }
+
+/* A deck published without a web cover has no picture anywhere a browser can
+   reach, so the emoji is the cover. Six tints off the app's palette, picked from
+   the deck's own address, so a grid of them reads as a design and not as a row of
+   images that failed. */
+.tint-0 { --tint-a: var(--accent-soft); --tint-b: var(--accent-2-soft); }
+.tint-1 { --tint-a: var(--accent-2-soft); --tint-b: color-mix(in srgb, var(--easy) 18%, transparent); }
+.tint-2 { --tint-a: color-mix(in srgb, var(--good) 20%, transparent); --tint-b: var(--accent-soft); }
+.tint-3 { --tint-a: color-mix(in srgb, var(--hard) 22%, transparent); --tint-b: var(--accent-2-soft); }
+.tint-4 { --tint-a: color-mix(in srgb, var(--again) 16%, transparent); --tint-b: color-mix(in srgb, var(--hard) 18%, transparent); }
+.tint-5 { --tint-a: color-mix(in srgb, var(--easy) 18%, transparent); --tint-b: color-mix(in srgb, var(--good) 18%, transparent); }
+
+/* Holds the card's shape while the picture is on its way, instead of a white gap. */
+.deck-cover { background: var(--surface-secondary); }
 .deck-body { padding: 15px 16px 17px; display: flex; flex-direction: column; gap: 7px; flex: 1; }
 .deck-title {
   font-weight: 700; font-size: 1rem; line-height: 1.3; margin: 0;
