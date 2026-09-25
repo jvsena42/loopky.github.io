@@ -133,6 +133,33 @@ if (locs.length !== SUPPORTED.length + 1) {
   fail(`sitemap.xml lists ${locs.length} URLs, expected ${SUPPORTED.length + 1}`);
 }
 
+/* One site URL, agreed on by everything that publishes one. The canonical link is
+   the source of truth; tools/set-site-url.mjs moves them all together, and this is
+   what catches a move that only half landed. */
+const canonical = /<link rel="canonical" href="([^"]+)"/.exec(html)?.[1];
+if (!canonical) {
+  fail('index.html has no canonical link');
+} else {
+  if (!canonical.endsWith('/')) fail(`the canonical URL should end in a slash: ${canonical}`);
+  const elsewhere = [
+    ...[...html.matchAll(/<link rel="alternate" hreflang="[^"]+" href="([^"]+)"/g)]
+      .map((m) => ['index.html hreflang', m[1]]),
+    ...[...html.matchAll(/<meta property="og:(?:url|image)" content="([^"]+)"/g)]
+      .map((m) => ['index.html og', m[1]]),
+    ...[...html.matchAll(/<meta name="twitter:image" content="([^"]+)"/g)]
+      .map((m) => ['index.html twitter', m[1]]),
+    ...locs.map((l) => ['sitemap.xml', l]),
+    ...[...sitemap.matchAll(/<xhtml:link[^>]*href="([^"]+)"/g)].map((m) => ['sitemap.xml hreflang', m[1]]),
+    ...[...read('robots.txt').matchAll(/^Sitemap:\s*(\S+)/gm)].map((m) => ['robots.txt', m[1]]),
+  ];
+  const strays = [...new Set(elsewhere
+    .filter(([, url]) => !url.startsWith(canonical))
+    .map(([where, url]) => `${where}: ${url}`))];
+  if (strays.length) {
+    fail(`these do not sit under the canonical URL ${canonical}:\n  ` + strays.join('\n  '));
+  }
+}
+
 /* ---- 7. copy rules ---- */
 
 /* Em and en dashes read as machine-written, and the app's own strings avoid them.

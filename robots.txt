@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://loopky.github.io/sitemap.xml
+Sitemap: https://jvsena42.github.io/loopky.github.io/sitemap.xml

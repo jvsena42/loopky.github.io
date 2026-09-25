@@ -61,6 +61,29 @@ visitor reads. Adding a string means adding it to all eleven dictionaries, and
 forgetting one is the mistake this repo invites: the page falls back to English
 silently, so nothing looks broken. That is the check worth having.
 
+## Where this actually serves
+
+<https://jvsena42.github.io/loopky.github.io/>
+
+Not `loopky.github.io`. A repository named `<name>.github.io` only serves at the root
+of that name when the **account owning it is called `<name>`**. This one is owned by
+`jvsena42`, so it is an ordinary project page and the repository name is just a
+repository name. Moving it would mean a GitHub account or organisation named `loopky`
+owning a repository named `loopky.github.io`, or a custom domain.
+
+Everything the browser loads is a relative path, so the page works under any prefix
+untouched. What does care is the part search engines read: the canonical link, the
+Open Graph and Twitter cards, the eleven `hreflang` alternates, the JSON-LD, the
+sitemap and `robots.txt`. One command moves them together:
+
+```shell
+node tools/set-site-url.mjs https://loopky.app/
+```
+
+For a custom domain, that command plus a `CNAME` file holding the bare domain, plus
+the DNS records, is the whole of it. `tools/check.mjs` fails if any of those addresses
+drift apart, which is what a half-applied move looks like.
+
 ## CI and deploying
 
 `.github/workflows/pages.yml` runs `tools/check.mjs` on every push and pull request,
