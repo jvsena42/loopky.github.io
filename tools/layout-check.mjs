@@ -16,6 +16,7 @@ import { cpSync, mkdtempSync, writeFileSync, rmSync, existsSync } from 'node:fs'
 import { spawn, spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { GUIDES } from './stamp-assets.mjs';
 
 const WIDTHS = [390, 600, 900, 1440];
 
@@ -27,6 +28,7 @@ const PAGES = [
   'index.html',
   `deck/?author=${AUTHOR}&id=viageming2026a`,
   `profile/?pubky=${AUTHOR}`,
+  ...GUIDES.map((g) => g.replace('index.html', '')),
 ];
 /* One chip of slack: a sub-pixel layout width rounds up and is not a broken page. */
 const TOLERANCE = 1;
@@ -60,7 +62,7 @@ process.on('exit', cleanup);
 
 try {
   cpSync(join(root, 'index.html'), join(dir, 'index.html'));
-  for (const d of ['assets', 'deck', 'profile']) {
+  for (const d of ['assets', 'deck', 'profile', ...GUIDES.map((g) => g.split('/')[0])]) {
     cpSync(join(root, d), join(dir, d), { recursive: true });
   }
 
@@ -127,7 +129,7 @@ setTimeout(function () {
     const note = r.error ? `error: ${r.error}`
       : r.overflow > TOLERANCE ? `overflows by ${r.overflow}px`
         : 'ok';
-    console.log(`  ${r.page.padEnd(12)} ${String(r.width).padStart(5)}px  ${note}`);
+    console.log(`  ${r.page.padEnd(20)} ${String(r.width).padStart(5)}px  ${note}`);
   }
 
   if (bad.length) {

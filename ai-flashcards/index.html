@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky</title>
+<meta name="description" content="Let an AI agent write and publish your flashcard deck. Loopky has a command line tool with JSON output and dry runs, built for Claude, ChatGPT, Gemini and other agents.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/ai-flashcards/">
+<link rel="icon" href="../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://loopky.app/ai-flashcards/">
+<meta property="og:title" content="Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky">
+<meta property="og:description" content="Let an AI agent write and publish your flashcard deck. Loopky has a command line tool with JSON output and dry runs, built for Claude, ChatGPT, Gemini and other agents.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, a free flashcards app with spaced repetition">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky">
+<meta name="twitter:description" content="Let an AI agent write and publish your flashcard deck. Loopky has a command line tool with JSON output and dry runs, built for Claude, ChatGPT, Gemini and other agents.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, a free flashcards app with spaced repetition">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../assets/css/style.css?v=e55dd892">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/ai-flashcards/#page",
+      "headline": "Let your AI write the flashcards",
+      "name": "Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky",
+      "description": "Let an AI agent write and publish your flashcard deck. Loopky has a command line tool with JSON output and dry runs, built for Claude, ChatGPT, Gemini and other agents.",
+      "url": "https://loopky.app/ai-flashcards/",
+      "inLanguage": "en",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Flashcards made by AI",
+          "item": "https://loopky.app/ai-flashcards/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/ai-flashcards/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can ChatGPT or Claude make flashcards for me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Any AI agent that can run shell commands can use the Loopky CLI to write cards and publish a deck. Give it the prompt on this page and your topic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to know how to code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can the AI import my Anki decks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can the CLI not do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It cannot post, follow people or edit your profile. It only manages your decks and cards."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <nav class="topnav" aria-label="Guides">
+      <a href="../anki-alternative/">Anki import</a>
+      <a href="../language-learning/">Languages</a>
+      <a href="../medical-students/">Medicine</a>
+      <a href="../compare/">Compare</a>
+      <a href="../faq/">FAQ</a>
+    </nav>
+    <div class="topright">
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="guide-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../">Loopky</a></li>
+        <li aria-current="page">Flashcards made by AI</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">AI flashcard maker</p>
+    <h1>Let your AI write the flashcards</h1>
+    <p class="lead">Loopky has a command line tool made for AI agents. Tell Claude, ChatGPT, Gemini or any agent with a shell what you want to learn, and it writes the cards and publishes the deck to your phone.</p>
+    <div class="cta-row">
+      <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l9.3-9.7L3.6 2.3Zm10.6 8.1 2.9-3-9.8-5.5 6.9 8.5Zm0 3.2-6.9 8.5 9.8-5.5-2.9-3Zm1.4-1.5 3.1-3.2c.8-.5.8-1.9 0-2.4l-3.1 3.2 3.1 3.2c.8-.5.8-1.9 0-2.4l-3.1-3.2Z"/></svg>
+        <span>Get it on Google Play</span>
+      </a>
+      <span class="soon">iOS coming soon</span>
+    </div>
+    <p class="fineprint">Free. No ads. Open source.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <article class="prose">
+<p>Writing cards is the slow part of flashcards. An AI is good at it: it can turn a chapter, a word list, lecture slides or a TV episode into clean question and answer pairs in seconds. <strong>Loopky</strong> lets the AI go one step further and put the deck straight into the app.</p>
+
+<h2>What you can ask for</h2>
+<ul>
+  <li>"A Japanese deck with the vocabulary from the first season of Naruto."</li>
+  <li>"The 200 most common French verbs, with an example sentence each, French to English, with audio on."</li>
+  <li>"Cloze cards from these pharmacology lecture notes."</li>
+  <li>"Every country in Africa and its capital, with a flag image."</li>
+  <li>"Convert this Anki file to a Loopky deck."</li>
+</ul>
+
+<h2>The prompt</h2>
+<p>Copy this into your AI agent, fill in the topic, and let it run. It installs the tool if needed, logs in (you approve with a QR code in Pubky Ring), writes the cards, checks them, and publishes.</p>
+<pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+
+Topic: &lt;WHAT I WANT TO LEARN&gt;
+Cards: &lt;HOW MANY&gt;
+
+Steps:
+1. Install the CLI if it is missing:
+   curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
+   Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
+2. Read the command surface first: loopky commands --json
+3. Log in: loopky login
+4. Write the cards to cards.tsv, one card per line: front &lt;TAB&gt; back
+5. Check: loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
+6. Publish: loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
+   Language deck: add --front-lang en-US --back-lang es-ES --listen --speak</code></pre>
+<p>The full, always current version is on the <a href="../#cli">home page</a> with a copy button.</p>
+
+<h2>Why it is safe to hand to an agent</h2>
+<ul>
+  <li><strong>Every command speaks JSON</strong> with <code>--json</code>, so the agent reads results instead of guessing.</li>
+  <li><strong>Dry runs.</strong> <code>--dry-run</code> shows what would be written before anything is.</li>
+  <li><strong>Narrow permissions.</strong> The CLI manages decks and cards. It can never post, follow people, or edit your profile.</li>
+  <li><strong>You approve the login</strong> on your phone. The agent never sees your key.</li>
+</ul>
+
+<h2>Where it runs</h2>
+<p>One file, no Java, no setup. Linux (x86_64), macOS (Apple Silicon), Windows (x86_64), plus Homebrew, a <code>.deb</code> package and Docker. Commands cover decks (list, create, show, edit, delete), cards (list, add, edit, remove), <code>import</code> for TSV and Anki <code>.apkg</code> files, trending tags and batch operations. <a href="https://github.com/jvsena42/loopky/tree/main/cli">Read the CLI docs</a>.</p>
+
+<h2>Then study it on your phone</h2>
+<p>The deck shows up in the Loopky app, scheduled with <a href="../spaced-repetition/">spaced repetition</a>. Language decks can read cards aloud and check your pronunciation. Check AI written cards for mistakes, especially for medicine, law or anything you will be examined on.</p>
+
+    <section class="faq" id="questions">
+      <h2>Questions</h2>
+      <h3>Can ChatGPT or Claude make flashcards for me?</h3>
+      <p>Yes. Any AI agent that can run shell commands can use the Loopky CLI to write cards and publish a deck. Give it the prompt on this page and your topic.</p>
+      <h3>Do I need to know how to code?</h3>
+      <p>No. You paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands.</p>
+      <h3>Can the AI import my Anki decks?</h3>
+      <p>Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first.</p>
+      <h3>What can the CLI not do?</h3>
+      <p>It cannot post, follow people or edit your profile. It only manages your decks and cards.</p>
+    </section>
+      <p class="guide-cta"><a class="btn" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get Loopky on Google Play</a></p>
+      <p class="fineprint">Updated <time datetime="2026-09-26">September 2026</time>.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <h2>More about Loopky</h2>
+    <nav class="guide-links" aria-label="More guides">
+      <a class="card" href="../anki-alternative/">Coming from Anki<span>Import your .apkg decks and keep studying on your phone.</span></a>
+      <a class="card" href="../language-learning/">Language learners<span>Listen, speak and type your way through vocabulary in 35 voices.</span></a>
+      <a class="card" href="../medical-students/">Medical students<span>Bring your med school Anki decks, with images and cloze.</span></a>
+      <a class="card" href="../teachers/">Teachers and study groups<span>Publish a deck once and send one link to the whole class.</span></a>
+      <a class="card" href="../spaced-repetition/">What is spaced repetition?<span>How it works, how Loopky schedules, and how to write good cards.</span></a>
+      <a class="card" href="../compare/">Loopky, Anki or Quizlet?<span>Which flashcard app fits which learner, side by side.</span></a>
+      <a class="card" href="../faq/">Questions and answers<span>Price, platforms, privacy, Anki, sharing and sign in.</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../">Home</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">Source code</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">Privacy</a>
+      <a href="../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">Built on Pubky. MIT licensed.</p>
+  </div>
+</footer>
+
+</body>
+</html>

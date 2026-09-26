@@ -18,9 +18,19 @@ import { createHash } from 'node:crypto';
 
 const root = new URL('../', import.meta.url);
 
-/* Every page the site serves. The deck and profile pages sit one directory down and
-   reach the same files through `../`. */
+/* The pages that carry the language picker and the i18n dictionaries. The deck and
+   profile pages sit one directory down and reach the same files through `../`. */
 export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
+
+/* The English guide pages, one per kind of learner. They are plain HTML with no
+   script and no language picker, written for search engines and for people who
+   arrive from one. They load the same stylesheet, so they are stamped too. */
+export const GUIDES = [
+  'anki-alternative', 'language-learning', 'medical-students', 'teachers',
+  'ai-flashcards', 'spaced-repetition', 'compare', 'faq',
+].map((slug) => `${slug}/index.html`);
+
+export const ALL_PAGES = [...PAGES, ...GUIDES];
 
 export function stampFor(file) {
   return createHash('sha256')
@@ -45,7 +55,7 @@ export function stamp(html) {
 
 if (import.meta.url === `file://${process.argv[1]}`) {
   let changed = false;
-  for (const page of PAGES) {
+  for (const page of ALL_PAGES) {
     const htmlPath = new URL(page, root);
     const before = readFileSync(htmlPath, 'utf8');
     const after = stamp(before);

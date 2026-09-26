@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loopky FAQ: price, Anki import, privacy and sign in</title>
+<meta name="description" content="Answers about Loopky, the free flashcards app: price, Android and iOS, Anki import, spaced repetition, text to speech, sharing decks, privacy, sign in and the AI command line tool.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/faq/">
+<link rel="icon" href="../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://loopky.app/faq/">
+<meta property="og:title" content="Loopky FAQ: price, Anki import, privacy and sign in">
+<meta property="og:description" content="Answers about Loopky, the free flashcards app: price, Android and iOS, Anki import, spaced repetition, text to speech, sharing decks, privacy, sign in and the AI command line tool.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, a free flashcards app with spaced repetition">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Loopky FAQ: price, Anki import, privacy and sign in">
+<meta name="twitter:description" content="Answers about Loopky, the free flashcards app: price, Android and iOS, Anki import, spaced repetition, text to speech, sharing decks, privacy, sign in and the AI command line tool.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, a free flashcards app with spaced repetition">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../assets/css/style.css?v=e55dd892">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://loopky.app/faq/#page",
+      "headline": "Questions about Loopky",
+      "name": "Loopky FAQ: price, Anki import, privacy and sign in",
+      "description": "Answers about Loopky, the free flashcards app: price, Android and iOS, Anki import, spaced repetition, text to speech, sharing decks, privacy, sign in and the AI command line tool.",
+      "url": "https://loopky.app/faq/",
+      "inLanguage": "en",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQ",
+          "item": "https://loopky.app/faq/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/faq/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Loopky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Loopky is a free flashcards app with spaced repetition for Android, with iOS coming soon. You make or import decks, study a few minutes a day, and the app brings each card back right before you forget it. It is built on Pubky, an open protocol for identity and data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Loopky really free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. There is no price, no subscription, no ads and no in-app purchases. The source code is on GitHub under the MIT license."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which platforms does it run on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Android 10 and later, from Google Play. The iOS app is built and coming soon. Tablets get two-pane layouts built for big screens. On the desktop, a command line tool for Windows, macOS (Apple Silicon) and Linux manages decks and cards in bulk; studying happens in the app."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I import my Anki decks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Loopky imports .apkg packages with their text, images and cloze deletions, plus .txt and .csv files and pasted lists. Audio, LaTeX typesetting and Anki review history are not imported. Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which spaced repetition algorithm does it use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fixed intervals per grade button. Again brings a card back within 10 minutes; Hard, Good and Easy default to 1, 3 and 7 days, and each can be set from 1 to 365 days. How it works."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can it read cards aloud and check pronunciation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Language decks use your phone's text to speech in 35 languages and variants, and Speak mode grades what you say with the device's speech recognition. Details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I share decks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Publish a deck and share its link. Others can follow it or clone their own copy. The Discover tab lists published decks by topic. Sharing with a class."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my decks private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Loopky has no private decks: what you publish can be read by anyone and is indexed for search. Your review history and settings are stored under your own key and are not published to any index."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I sign in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by creating an account in the app with SMS, a Lightning payment or an invite code. There is no email and password."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data stored?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On your Pubky homeserver, under your key, not on a Loopky server. There is no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Loopky track me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is no analytics, no telemetry, no crash reporting and no ads. Privacy policy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it work offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Partly. Reviews you make offline are queued on the device and sent later, but decks live on your homeserver, so loading and syncing need a connection."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can an AI make decks for me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Loopky has a command line tool built for AI agents like Claude, ChatGPT and Gemini. It writes cards, checks them with a dry run and publishes the deck. How."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Loopky an Anki add-on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Loopky is a separate app that imports Anki decks. It includes several things people install Anki add-ons for, such as text to speech, pronunciation checks, image search and shared decks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who makes Loopky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Loopky is an open source project by João Victor Sena. Issues and contributions are welcome on GitHub."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <nav class="topnav" aria-label="Guides">
+      <a href="../anki-alternative/">Anki import</a>
+      <a href="../language-learning/">Languages</a>
+      <a href="../medical-students/">Medicine</a>
+      <a href="../compare/">Compare</a>
+      <a href="../faq/" aria-current="page">FAQ</a>
+    </nav>
+    <div class="topright">
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="guide-hero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <ol>
+        <li><a href="../">Loopky</a></li>
+        <li aria-current="page">FAQ</li>
+      </ol>
+    </nav>
+    <p class="eyebrow">FAQ</p>
+    <h1>Questions about Loopky</h1>
+    <p class="lead">Everything people ask before they install: what it costs, where it runs, what it imports, and where your data goes.</p>
+    <div class="cta-row">
+      <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l9.3-9.7L3.6 2.3Zm10.6 8.1 2.9-3-9.8-5.5 6.9 8.5Zm0 3.2-6.9 8.5 9.8-5.5-2.9-3Zm1.4-1.5 3.1-3.2c.8-.5.8-1.9 0-2.4l-3.1 3.2 3.1 3.2c.8-.5.8-1.9 0-2.4l-3.1-3.2Z"/></svg>
+        <span>Get it on Google Play</span>
+      </a>
+      <span class="soon">iOS coming soon</span>
+    </div>
+    <p class="fineprint">Free. No ads. Open source.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <article class="prose">
+<p>Loopky is a free, open source flashcards app with spaced repetition. It imports Anki decks, reads cards aloud, checks your pronunciation, and lets you share decks with other people. Short answers below; each links to a longer guide where there is one.</p>
+
+    <section class="faq" id="questions">
+      <h2>All questions</h2>
+      <h3>What is Loopky?</h3>
+      <p>Loopky is a free flashcards app with spaced repetition for Android, with iOS coming soon. You make or import decks, study a few minutes a day, and the app brings each card back right before you forget it. It is built on Pubky, an open protocol for identity and data.</p>
+      <h3>Is Loopky really free?</h3>
+      <p>Yes. There is no price, no subscription, no ads and no in-app purchases. The source code is on GitHub under the MIT license.</p>
+      <h3>Which platforms does it run on?</h3>
+      <p>Android 10 and later, from Google Play. The iOS app is built and coming soon. Tablets get two-pane layouts built for big screens. On the desktop, a command line tool for Windows, macOS (Apple Silicon) and Linux manages decks and cards in bulk; studying happens in the app.</p>
+      <h3>Can I import my Anki decks?</h3>
+      <p>Yes. Loopky imports .apkg packages with their text, images and cloze deletions, plus .txt and .csv files and pasted lists. Audio, LaTeX typesetting and Anki review history are not imported. <a href="../anki-alternative/">Details</a>.</p>
+      <h3>Which spaced repetition algorithm does it use?</h3>
+      <p>Fixed intervals per grade button. Again brings a card back within 10 minutes; Hard, Good and Easy default to 1, 3 and 7 days, and each can be set from 1 to 365 days. <a href="../spaced-repetition/">How it works</a>.</p>
+      <h3>Can it read cards aloud and check pronunciation?</h3>
+      <p>Yes. Language decks use your phone's text to speech in 35 languages and variants, and Speak mode grades what you say with the device's speech recognition. <a href="../language-learning/">Details</a>.</p>
+      <h3>Can I share decks?</h3>
+      <p>Yes. Publish a deck and share its link. Others can follow it or clone their own copy. The Discover tab lists published decks by topic. <a href="../teachers/">Sharing with a class</a>.</p>
+      <h3>Are my decks private?</h3>
+      <p>No. Loopky has no private decks: what you publish can be read by anyone and is indexed for search. Your review history and settings are stored under your own key and are not published to any index.</p>
+      <h3>How do I sign in?</h3>
+      <p>With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by creating an account in the app with SMS, a Lightning payment or an invite code. There is no email and password.</p>
+      <h3>Where is my data stored?</h3>
+      <p>On your Pubky homeserver, under your key, not on a Loopky server. There is no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own.</p>
+      <h3>Does Loopky track me?</h3>
+      <p>No. There is no analytics, no telemetry, no crash reporting and no ads. <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">Privacy policy</a>.</p>
+      <h3>Does it work offline?</h3>
+      <p>Partly. Reviews you make offline are queued on the device and sent later, but decks live on your homeserver, so loading and syncing need a connection.</p>
+      <h3>Can an AI make decks for me?</h3>
+      <p>Yes. Loopky has a command line tool built for AI agents like Claude, ChatGPT and Gemini. It writes cards, checks them with a dry run and publishes the deck. <a href="../ai-flashcards/">How</a>.</p>
+      <h3>Is Loopky an Anki add-on?</h3>
+      <p>No. Loopky is a separate app that imports Anki decks. It includes several things people install Anki add-ons for, such as text to speech, pronunciation checks, image search and shared decks.</p>
+      <h3>Who makes Loopky?</h3>
+      <p>Loopky is an open source project by João Victor Sena. Issues and contributions are welcome on <a href="https://github.com/jvsena42/loopky">GitHub</a>.</p>
+    </section>
+      <p class="guide-cta"><a class="btn" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get Loopky on Google Play</a></p>
+      <p class="fineprint">Updated <time datetime="2026-09-26">September 2026</time>.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap">
+    <h2>More about Loopky</h2>
+    <nav class="guide-links" aria-label="More guides">
+      <a class="card" href="../anki-alternative/">Coming from Anki<span>Import your .apkg decks and keep studying on your phone.</span></a>
+      <a class="card" href="../language-learning/">Language learners<span>Listen, speak and type your way through vocabulary in 35 voices.</span></a>
+      <a class="card" href="../medical-students/">Medical students<span>Bring your med school Anki decks, with images and cloze.</span></a>
+      <a class="card" href="../teachers/">Teachers and study groups<span>Publish a deck once and send one link to the whole class.</span></a>
+      <a class="card" href="../ai-flashcards/">Flashcards made by AI<span>Let Claude, ChatGPT or Gemini write and publish the deck.</span></a>
+      <a class="card" href="../spaced-repetition/">What is spaced repetition?<span>How it works, how Loopky schedules, and how to write good cards.</span></a>
+      <a class="card" href="../compare/">Loopky, Anki or Quizlet?<span>Which flashcard app fits which learner, side by side.</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../">Home</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">Source code</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">Privacy</a>
+      <a href="../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">Built on Pubky. MIT licensed.</p>
+  </div>
+</footer>
+
+</body>
+</html>

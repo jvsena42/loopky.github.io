@@ -1,4 +1,26 @@
+# Everything here is public. Search engines and AI assistants are welcome to read it.
 User-agent: *
 Allow: /
 
+# AI crawlers and assistants, named so there is no doubt they are allowed.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Bingbot
+User-agent: CCBot
+User-agent: meta-externalagent
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: cohere-ai
+Allow: /
+
+# A summary of the site written for language models: https://loopky.app/llms.txt
 Sitemap: https://loopky.app/sitemap.xml

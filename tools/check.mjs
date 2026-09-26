@@ -9,7 +9,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { stamp, PAGES } from './stamp-assets.mjs';
+import { stamp, PAGES, GUIDES, ALL_PAGES } from './stamp-assets.mjs';
 
 const problems = [];
 const notes = [];
@@ -20,6 +20,10 @@ const read = (p) => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const html = read('index.html');
 /* index.html plus the deck and profile pages a shared link lands on. */
 const pages = Object.fromEntries(PAGES.map((p) => [p, read(p)]));
+/* The English guide pages. No i18n, no script: they are held to the asset, stamp,
+   copy and URL rules below, not to the dictionary ones. */
+const guides = Object.fromEntries(GUIDES.map((p) => [p, read(p)]));
+const everyPage = { ...pages, ...guides };
 
 /* ---- 1. every script parses ---- */
 
@@ -128,7 +132,7 @@ if (AI_PROMPT) {
 
 /* ---- 5. every local asset the page references exists ---- */
 
-for (const [page, src] of Object.entries(pages)) {
+for (const [page, src] of Object.entries(everyPage)) {
   const base = new URL('../' + page, import.meta.url);
   const refs = new Set([
     ...[...src.matchAll(/(?:src|href)="(?!https?:|#|mailto:|data:)([^"]+)"/g)].map((m) => m[1]),
@@ -146,7 +150,7 @@ for (const [page, src] of Object.entries(pages)) {
 
 /* An unstamped or stale URL means a visitor can hold this markup next to a
    ten-minute-old script. Run `node tools/stamp-assets.mjs` to settle it. */
-for (const [page, src] of Object.entries(pages)) {
+for (const [page, src] of Object.entries(everyPage)) {
   if (stamp(src) !== src) {
     fail(`${page} has a stale or missing asset stamp. Run: node tools/stamp-assets.mjs`);
   }
@@ -197,7 +201,7 @@ if (!/:root:not\(\[data-theme="light"\]\)/.test(css)) {
 
 /* ---- 6. the things GitHub Pages and crawlers need ---- */
 
-for (const f of ['.nojekyll', 'robots.txt', 'sitemap.xml']) {
+for (const f of ['.nojekyll', 'robots.txt', 'sitemap.xml', 'llms.txt', 'llms-full.txt']) {
   if (!existsSync(new URL('../' + f, import.meta.url))) fail(`${f} is missing`);
 }
 
@@ -253,8 +257,9 @@ if (upload && Number(upload[1]) >= 4 && !/include-hidden-files:\s*true/.test(wor
   fail('upload-pages-artifact v4+ drops .well-known unless the step sets include-hidden-files: true');
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-if (locs.length !== SUPPORTED.length + 1) {
-  fail(`sitemap.xml lists ${locs.length} URLs, expected ${SUPPORTED.length + 1}`);
+const expected = SUPPORTED.length + 1 + GUIDES.length;
+if (locs.length !== expected) {
+  fail(`sitemap.xml lists ${locs.length} URLs, expected ${expected}`);
 }
 
 /* One site URL, agreed on by everything that publishes one. The canonical link is
@@ -275,6 +280,10 @@ if (!canonical) {
     ...locs.map((l) => ['sitemap.xml', l]),
     ...[...sitemap.matchAll(/<xhtml:link[^>]*href="([^"]+)"/g)].map((m) => ['sitemap.xml hreflang', m[1]]),
     ...[...read('robots.txt').matchAll(/^Sitemap:\s*(\S+)/gm)].map((m) => ['robots.txt', m[1]]),
+    ...Object.entries(guides).flatMap(([page, src]) => [
+      ...src.matchAll(/<link rel="canonical" href="([^"]+)"/g),
+      ...src.matchAll(/<meta property="og:(?:url|image)" content="([^"]+)"/g),
+    ].map((m) => [page, m[1]])),
   ];
   const strays = [...new Set(elsewhere
     .filter(([, url]) => !url.startsWith(canonical))
@@ -284,13 +293,80 @@ if (!canonical) {
   }
 }
 
+/* ---- 6b. the guide pages are indexable, listed, and say who they are ---- */
+
+/* The opposite of the deck and profile pages: each guide is one real page, so it
+   carries its own canonical, sits in the sitemap, and must not carry noindex. */
+for (const [page, src] of Object.entries(guides)) {
+  const url = canonical && canonical + page.replace('index.html', '');
+  const own = /<link rel="canonical" href="([^"]+)"/.exec(src)?.[1];
+  if (own !== url) fail(`${page} has canonical ${own}, expected ${url}`);
+  if (!locs.includes(url)) fail(`sitemap.xml does not list ${url}`);
+  if (/noindex/.test(src)) fail(`${page} is a guide and must not carry noindex`);
+  if (!/<title>[^<]{10,}<\/title>/.test(src)) fail(`${page} has no real <title>`);
+  if (!/<meta name="description" content="[^"]{50,}">/.test(src)) fail(`${page} has no meta description`);
+  if ((src.match(/<h1[\s>]/g) ?? []).length !== 1) fail(`${page} should have exactly one <h1>`);
+}
+
+/* Structured data that does not parse is ignored by every reader, silently. */
+for (const [page, src] of Object.entries(everyPage)) {
+  for (const m of src.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+    try { JSON.parse(m[1]); } catch (e) { fail(`${page} has JSON-LD that does not parse: ${e.message}`); }
+  }
+}
+
+/* llms.txt and llms-full.txt are what an assistant reads instead of the page. Every
+   address on this site they name has to exist, or the model is sent to a 404. */
+if (canonical) {
+  for (const f of ['llms.txt', 'llms-full.txt']) {
+    const text = read(f);
+    if (!text.startsWith('# ')) fail(`${f} should open with a "# " title`);
+    for (const [, found] of text.matchAll(/(https?:\/\/[^\s)"'<>`]+)/g)) {
+      /* A sentence may end right after an address. */
+      const url = found.replace(/[.,;:]+$/, '');
+      if (!url.startsWith(canonical)) continue;
+      const path = url.slice(canonical.length).split(/[?#]/)[0];
+      const file = !path ? 'index.html' : path.endsWith('/') ? path + 'index.html' : path;
+      if (!existsSync(new URL('../' + file, import.meta.url))) {
+        fail(`${f} links ${url}, which is not in the repository`);
+      }
+    }
+  }
+  for (const page of GUIDES) {
+    if (!read('llms.txt').includes(canonical + page.replace('index.html', ''))) {
+      fail(`llms.txt does not list the guide ${page}`);
+    }
+  }
+}
+
+/* The home page ships the English prompt and topic list in its markup, so a crawler
+   or an assistant that runs no script still reads them. app.js repaints both, so
+   the markup has to match what it would paint. */
+if (AI_PROMPT) {
+  const shipped = /<pre id="ai-prompt"><code>([\s\S]*?)<\/code><\/pre>/.exec(html)?.[1]
+    ?.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  if (shipped !== AI_PROMPT) {
+    fail('the AI prompt in index.html differs from AI_PROMPT in i18n.js; copy it across');
+  }
+}
+if (I18N) {
+  const shipped = [.../<ul class="pillrow" id="uses-list">([\s\S]*?)<\/ul>/.exec(html)?.[1]
+    ?.matchAll(/<li>([^<]*)<\/li>/g) ?? []].map((m) => m[1]);
+  if (JSON.stringify(shipped) !== JSON.stringify(I18N.en['uses.list'])) {
+    fail('the topic list in index.html differs from uses.list in i18n.js; copy it across');
+  }
+}
+
 /* ---- 7. copy rules ---- */
 
 /* Em and en dashes read as machine-written, and the app's own strings avoid them.
    Only the parts a visitor reads are checked; source comments are free to use them. */
-for (const [page, src] of Object.entries(pages)) {
+for (const [page, src] of Object.entries(everyPage)) {
   const visible = src.replace(/<!--[\s\S]*?-->/g, '');
   if (/[—–]/.test(visible)) fail(`${page} has an em or en dash in visible copy`);
+}
+for (const f of ['llms.txt', 'llms-full.txt']) {
+  if (/[—–]/.test(read(f))) fail(`${f} has an em or en dash`);
 }
 if (I18N) {
   for (const [lang, dict] of Object.entries(I18N)) {
