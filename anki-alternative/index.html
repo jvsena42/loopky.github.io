@@ -48,7 +48,7 @@
     {
       "@type": "Article",
       "@id": "https://loopky.app/anki-alternative/#page",
-      "headline": "A free Anki alternative that opens your .apkg decks",
+      "headline": "Switch from Anki to Loopky and keep your decks",
       "name": "Free Anki alternative that imports your .apkg decks · Loopky",
       "description": "Loopky is a free, open source Anki alternative for Android. Import .apkg decks with images and cloze, and get text to speech and deck sharing without add-ons.",
       "url": "https://loopky.app/anki-alternative/",
@@ -110,6 +110,22 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Yes. It imports .apkg packages, including images and cloze deletions, plus .txt and .csv files. Audio, LaTeX typesetting and Anki review history are not carried over."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Loopky fully replace Anki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most learners, yes. Import your decks once, study on your phone or tablet, and manage decks from your computer with the command line tool. Check first if you rely on audio files, LaTeX, custom card templates or FSRS scheduling, which Loopky does not have."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use Loopky on a tablet or a computer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Tablets get two-pane layouts built for big screens. On Windows, macOS and Linux the command line tool creates, edits, imports and bulk manages decks and cards; studying happens in the app."
           }
         },
         {
@@ -176,8 +192,8 @@
       </ol>
     </nav>
     <p class="eyebrow">For Anki users</p>
-    <h1>A free Anki alternative that opens your .apkg decks</h1>
-    <p class="lead">Keep the decks you already built. Loopky imports Anki packages on your phone, schedules them with spaced repetition, and adds the things Anki needs add-ons for: listening, speaking, sharing and AI written cards.</p>
+    <h1>Switch from Anki to Loopky and keep your decks</h1>
+    <p class="lead">Loopky is a free Anki alternative that opens the decks you already built. Study them on your phone or tablet with spaced repetition, manage them from your computer with the command line, and get listening, speaking, sharing and AI written cards without a single add-on.</p>
     <div class="cta-row">
       <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">
         <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l9.3-9.7L3.6 2.3Zm10.6 8.1 2.9-3-9.8-5.5 6.9 8.5Zm0 3.2-6.9 8.5 9.8-5.5-2.9-3Zm1.4-1.5 3.1-3.2c.8-.5.8-1.9 0-2.4l-3.1 3.2 3.1 3.2c.8-.5.8-1.9 0-2.4l-3.1-3.2Z"/></svg>
@@ -192,7 +208,7 @@
 <section class="section">
   <div class="wrap">
     <article class="prose">
-<p>Anki is the reference for spaced repetition, and it earned that. People still go looking for something else for a few common reasons: the phone app is not free on iPhone, the interface takes a while to learn, and the most wanted features live in add-ons that only run on the desktop. <strong>Loopky</strong> is a free flashcards app with spaced repetition that reads your Anki decks and covers those gaps out of the box.</p>
+<p>Anki is the reference for spaced repetition, and it earned that. People still go looking for something else for a few common reasons: the phone app is not free on iPhone, the interface takes a while to learn, and the most wanted features live in add-ons that only run on the desktop. <strong>Loopky</strong> is a free flashcards app with spaced repetition that reads your Anki decks and covers those gaps out of the box. Moving over is one export per deck.</p>
 
 <h2>What comes over from Anki</h2>
 <p>Loopky reads <code>.apkg</code> packages (the <code>collection.anki2</code> and <code>.anki21</code> formats) as well as <code>.txt</code> and <code>.csv</code> files. Here is exactly what happens to each part of a deck:</p>
@@ -233,15 +249,29 @@
   <li><strong>AI deck building.</strong> The Loopky command line tool lets Claude, ChatGPT, Gemini or any agent with a shell write cards and publish a deck for you, in the same spirit as AnkiConnect but with nothing to keep running. See <a href="../ai-flashcards/">flashcards made by AI</a>.</li>
 </ul>
 
-<h2>Where Anki is still the better tool</h2>
-<p>Honest trade offs, so you can pick the right one:</p>
+<h2>Big screens and the desktop</h2>
+<p>Loopky is not a stretched phone app. On a tablet it switches to real two-pane layouts with a navigation rail: today's queue beside your deck grid, a deck's details beside its full card list, and a library four columns wide. Android tablets are supported now, and the iPad gets the same layouts with the iOS app.</p>
+<p>On your computer, the <strong>Loopky command line tool</strong> does the heavy deck work that is tedious on any phone. It runs on Windows, macOS and Linux, and it lets you:</p>
 <ul>
-  <li><strong>Scheduling.</strong> Anki offers FSRS and SM-2, where intervals grow as you learn a card. Loopky uses fixed intervals you set per button (1, 3 and 7 days by default). They are predictable and the button always shows the real date, but a well known card does not drift out to months on its own. Read <a href="../spaced-repetition/">how Loopky schedules</a>.</li>
-  <li><strong>Add-on ecosystem and note types.</strong> Anki has thousands of add-ons and fully custom card templates. Loopky cards are a front and a back, with optional images.</li>
-  <li><strong>Audio files and math.</strong> Anki plays sound files and renders LaTeX. Loopky does neither yet.</li>
-  <li><strong>Offline and desktop.</strong> Anki works fully offline and has a desktop app. Loopky keeps your decks on a Pubky homeserver, so it needs a connection to sync, and on the desktop it has only its command line tool.</li>
+  <li>create, edit, sync and delete decks;</li>
+  <li>list, add, edit and remove cards in bulk;</li>
+  <li>import Anki <code>.apkg</code> files and TSV files straight from your disk;</li>
+  <li>run batch operations and script everything, since every command speaks JSON;</li>
+  <li>hand the whole job to an AI agent. See <a href="../ai-flashcards/">flashcards made by AI</a>.</li>
 </ul>
-<p>Plenty of people use both: Anki at the desk, Loopky on the phone for listening and speaking practice and for sharing decks with friends.</p>
+<p>You manage decks at the desk and study them on your phone or tablet, and everything syncs through your homeserver. <a href="https://github.com/jvsena42/loopky/tree/main/cli">CLI docs</a>.</p>
+
+<h2>Before you switch: what works differently</h2>
+<p>Most learners can move everything over. Check these first so nothing surprises you:</p>
+<ul>
+  <li><strong>Scheduling.</strong> Anki uses FSRS or SM-2, where intervals grow as you learn a card. Loopky uses fixed intervals you set per button (1, 3 and 7 days by default, up to 365). The button always shows the real date. If you want well known cards to come back rarely, set Easy to 30 days or more. Read <a href="../spaced-repetition/">how Loopky schedules</a>.</li>
+  <li><strong>Card templates.</strong> Loopky cards are a front and a back with optional images, reverse cards and cloze imported as one card per deletion. Heavily customised note types come across as their two main fields.</li>
+  <li><strong>Audio files and math.</strong> Sound files are not imported (language decks can use built in text to speech instead), and LaTeX shows as source.</li>
+  <li><strong>Review history.</strong> Cards start fresh in Loopky, so expect a few busy days while the schedule settles.</li>
+  <li><strong>Connection.</strong> Decks live on your Pubky homeserver. Reviews made offline are queued and sent later, but loading and syncing decks need a connection.</li>
+  <li><strong>Studying happens on phone and tablet.</strong> The desktop tool manages decks; it does not run study sessions.</li>
+</ul>
+<p>If none of those is a deal breaker, you can move your whole collection, deck by deck, and leave Anki behind.</p>
 
     <section class="faq" id="questions">
       <h2>Questions</h2>
@@ -249,6 +279,10 @@
       <p>Yes. Loopky is free, has no ads, and is open source under the MIT license.</p>
       <h3>Can Loopky import Anki decks?</h3>
       <p>Yes. It imports .apkg packages, including images and cloze deletions, plus .txt and .csv files. Audio, LaTeX typesetting and Anki review history are not carried over.</p>
+      <h3>Can Loopky fully replace Anki?</h3>
+      <p>For most learners, yes. Import your decks once, study on your phone or tablet, and manage decks from your computer with the command line tool. Check first if you rely on audio files, LaTeX, custom card templates or FSRS scheduling, which Loopky does not have.</p>
+      <h3>Can I use Loopky on a tablet or a computer?</h3>
+      <p>Yes. Tablets get two-pane layouts built for big screens. On Windows, macOS and Linux the command line tool creates, edits, imports and bulk manages decks and cards; studying happens in the app.</p>
       <h3>Does Loopky sync with AnkiWeb?</h3>
       <p>No. Loopky imports a deck once from a file. After that the deck lives in Loopky and syncs through your own Pubky homeserver, not AnkiWeb.</p>
       <h3>Does Loopky use FSRS or SM-2?</h3>
