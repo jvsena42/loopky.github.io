@@ -1,0 +1,615 @@
+{
+  "ui": {
+    "skip": "Zum Inhalt springen",
+    "lang": "Sprache",
+    "get": "App holen",
+    "play": "Bei Google Play holen",
+    "ios": "iOS folgt bald",
+    "free": "Kostenlos. Keine Werbung. Quelloffen.",
+    "faq": "Fragen",
+    "more": "Mehr über Loopky",
+    "ctaSub": "Ein paar Minuten am Tag reichen.",
+    "home": "Start",
+    "source": "Quellcode",
+    "privacy": "Datenschutz",
+    "note": "Gebaut auf Pubky. MIT-Lizenz.",
+    "ogAlt": "Loopky, eine kostenlose Karteikarten-App mit verteilter Wiederholung",
+    "yes": "Ja",
+    "no": "Nein",
+    "intervals": {
+      "head": [
+        "Button",
+        "Nächste Wiederholung",
+        "Einstellbar"
+      ],
+      "rows": [
+        [
+          "Nochmal",
+          "Unter 10 Minuten",
+          "Nein"
+        ],
+        [
+          "Schwer",
+          "1 Tag",
+          "1 bis 365 Tage"
+        ],
+        [
+          "Gut",
+          "3 Tage",
+          "1 bis 365 Tage"
+        ],
+        [
+          "Einfach",
+          "7 Tage",
+          "1 bis 365 Tage"
+        ]
+      ]
+    }
+  },
+  "pages": {
+    "anki-alternative": {
+      "title": "Kostenlose Anki-Alternative, die .apkg-Stapel importiert · Loopky",
+      "desc": "Wechsle von Anki zu Loopky, einer kostenlosen Karteikarten-App. Importiere .apkg-Stapel mit Bildern und Lückentext. Vorlesen, Aussprache und Teilen ohne Add-ons.",
+      "crumb": "Anki-Alternative",
+      "card": "Umstieg von Anki",
+      "blurb": "Bring deine .apkg-Stapel mit und lass die Add-ons hinter dir.",
+      "eyebrow": "Für Anki-Nutzer",
+      "h1": "Wechsle von Anki und behalte deine Stapel",
+      "lead": "Loopky öffnet deine .apkg-Dateien und bringt Hören, Sprechen, Teilen und KI-geschriebene Karten dazu. Ohne Add-ons, ohne Kosten.",
+      "heroAlt": "Loopkys Stapelbibliothek mit dem Button Aus Anki importieren",
+      "features": [
+        {
+          "t": "Deine Stapel kommen mit",
+          "d": "Text, Bilder und Lückentexte werden aus .apkg-, .txt- und .csv-Dateien importiert."
+        },
+        {
+          "t": "Keine Add-ons nötig",
+          "d": "Vorlesen und eine Aussprachekontrolle sind eingebaut, in 35 Sprachen."
+        },
+        {
+          "t": "Per Link teilen",
+          "d": "Veröffentliche einen Stapel, und alle können ihm folgen oder ihn klonen."
+        },
+        {
+          "t": "Tablet und Computer",
+          "d": "Zweispaltige Ansichten auf Tablets und ein Kommandozeilen-Tool, um viele Stapel auf einmal zu bearbeiten."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Gemacht für große Bildschirme",
+          "p": "Auf dem Tablet nutzt Loopky echte zweispaltige Ansichten: die heutige Warteschlange neben deinen Stapeln, ein Stapel neben seinen Karten. Jetzt auf Android-Tablets, auf dem iPad mit der iOS-App.",
+          "alt": "Loopkys Stapelbibliothek auf einem Tablet, vier Spalten breit"
+        },
+        {
+          "h": "Stapel vom Computer aus verwalten",
+          "p": "Das Kommandozeilen-Tool von Loopky läuft unter Windows, macOS und Linux.",
+          "points": [
+            "Stapel anlegen, bearbeiten und löschen",
+            "Karten in großer Menge hinzufügen, ändern und entfernen",
+            ".apkg- und TSV-Dateien von der Festplatte importieren",
+            "Per Skript steuern oder einem KI-Agenten überlassen"
+          ]
+        },
+        {
+          "h": "Ein Stapel in einer Minute umgezogen",
+          "p": "Exportiere den Stapel in Anki als .apkg mit Medien. Öffne ihn in Loopky und wähle die Felder für Vorder- und Rückseite. Du hast nur eine Liste? Füg sie ein.",
+          "alt": "Eine Wortliste wird in Loopky eingefügt, das Trennzeichen ist erkannt"
+        }
+      ],
+      "table": {
+        "h": "Was aus Anki mitkommt",
+        "head": [
+          "Aus Anki",
+          "In Loopky"
+        ],
+        "rows": [
+          [
+            "Text und Felder",
+            "Ja, du wählst Vorder- und Rückseite"
+          ],
+          [
+            "Bilder",
+            "Ja"
+          ],
+          [
+            "Lückentexte",
+            "Ja, eine Karte pro Lücke"
+          ],
+          [
+            "Umgekehrte Karten",
+            "Ja"
+          ],
+          [
+            "Audio",
+            "Nein, nutze die eingebaute Vorlesefunktion"
+          ],
+          [
+            "LaTeX",
+            "Als Quelltext angezeigt"
+          ],
+          [
+            "Lernverlauf",
+            "Nein, die Karten starten neu"
+          ]
+        ],
+        "note": "Neueste .anki21b-Dateien: erneut exportieren, mit Haken bei \"Support older Anki versions\" (ältere Anki-Versionen unterstützen)."
+      },
+      "faq": [
+        [
+          "Kann Loopky Anki ganz ersetzen?",
+          "Für die meisten Lernenden ja. Prüf vorher, ob du auf Audiodateien, LaTeX, eigene Kartenvorlagen oder FSRS angewiesen bist."
+        ],
+        [
+          "Nutzt Loopky FSRS?",
+          "Nein. Jeder Bewertungsbutton hat ein festes Intervall, das du einstellst, von 1 bis 365 Tagen."
+        ],
+        [
+          "Ist es kostenlos?",
+          "Ja. Keine Werbung, kein Abo, und quelloffen unter der MIT-Lizenz."
+        ],
+        [
+          "Gibt es eine iPhone-App?",
+          "Loopky gibt es jetzt für Android. Die iOS-App ist fertig und folgt bald."
+        ]
+      ]
+    },
+    "language-learning": {
+      "title": "Karteikarten zum Sprachenlernen mit Audio und Sprechen · Loopky",
+      "desc": "Kostenlose Sprach-Karteikarten, die jedes Wort vorlesen, deine Aussprache prüfen und per verteilter Wiederholung zurückkommen. 35 Sprachen, Anki-Import, Teilen.",
+      "crumb": "Sprachen lernen",
+      "card": "Sprachlernende",
+      "blurb": "Hör jedes Wort, sprich es nach, behalte es für immer.",
+      "eyebrow": "Für Sprachlernende",
+      "h1": "Karteikarten, die mit dir sprechen",
+      "lead": "Hör jedes Wort, sag es laut, und lass die verteilte Wiederholung es zurückbringen, kurz bevor du es vergisst.",
+      "heroAlt": "Eine Lernkarte mit den Buttons Hören und Sprechen",
+      "features": [
+        {
+          "t": "Hören",
+          "d": "Jede Karte wird in ihrer eigenen Sprache vorgelesen."
+        },
+        {
+          "t": "Sprechen",
+          "d": "Sag die Antwort, und Loopky prüft deine Aussprache."
+        },
+        {
+          "t": "Tippen",
+          "d": "Tipp die Antwort, um Rechtschreibung und Akzente zu üben."
+        },
+        {
+          "t": "In beide Richtungen",
+          "d": "Umgekehrte Karten trainieren dich aus der Sprache und in die Sprache."
+        }
+      ],
+      "sections": [
+        {
+          "h": "35 Sprachen und Varianten",
+          "p": "Jede Seite eines Stapels hat ihre eigene Sprache, von Japanisch bis brasilianischem Portugiesisch. Die Stimmen kommen von deinem Handy, und Aufnahmen werden nie gespeichert.",
+          "alt": "Eine Karte wird bewertet, jeder Button zeigt die nächste Wiederholung"
+        },
+        {
+          "h": "Ein Vokabelstapel in einer Minute",
+          "p": "Füg eine Wortliste aus deinen Notizen oder einer Tabelle ein. Loopky erkennt das Trennzeichen und baut die Karten. Oder lass eine KI den Stapel schreiben.",
+          "alt": "Eine Wortliste wird in Loopky eingefügt"
+        },
+        {
+          "h": "Stapel von anderen Lernenden",
+          "p": "Entdecken listet öffentliche Stapel nach Sprache und Thema. Folge einem, oder klone ihn und mach ihn zu deinem.",
+          "alt": "Der Entdecken-Tab auf einem Tablet"
+        }
+      ],
+      "faq": [
+        [
+          "Prüft Loopky meine Aussprache?",
+          "Ja. Der Sprechmodus nutzt die Spracherkennung deines Geräts, um die Antwort zu bewerten. Loopky speichert die Aufnahme nicht und lädt sie nicht hoch."
+        ],
+        [
+          "Eignet es sich für Japanisch, Chinesisch oder Koreanisch?",
+          "Ja. Alle drei werden beim Hören und Sprechen unterstützt, und der Tippmodus funktioniert mit der Tastatur deines Handys."
+        ],
+        [
+          "Was ist der Unterschied zu Duolingo?",
+          "Duolingo bietet einen festen Kurs. In Loopky wählst oder baust du die Stapel selbst, und die verteilte Wiederholung entscheidet, wann jede Karte zurückkommt."
+        ]
+      ]
+    },
+    "medical-students": {
+      "title": "Karteikarten fürs Medizinstudium · Loopky",
+      "desc": "Kostenlose Karteikarten mit verteilter Wiederholung fürs Medizinstudium. Importiere Anki-Stapel mit Bildern und Lückentext und teile sie mit deinem Semester.",
+      "crumb": "Medizinstudierende",
+      "card": "Medizinstudierende",
+      "blurb": "Deine Stapel fürs Medizinstudium, mit Bildern und Lückentext.",
+      "eyebrow": "Für Medizinstudierende",
+      "h1": "Karteikarten fürs Medizinstudium auf Handy und Tablet",
+      "lead": "Bring deine Anki-Stapel samt Bildern und Lückentext mit, wiederhole zwischen den Vorlesungen und verkürze vor Prüfungen jedes Intervall.",
+      "heroAlt": "Ein Stapel auf einem Tablet, die Statistik neben der vollständigen Kartenliste",
+      "features": [
+        {
+          "t": "Bilder und Lückentext",
+          "d": "Karten zu Anatomie, Histologie und EKG behalten ihre Bilder. Jede Lücke wird zu einer eigenen Karte."
+        },
+        {
+          "t": "Intervalle, die du festlegst",
+          "d": "Verkürze Gut und Einfach vor einer Prüfung, und der ganze Stapel zieht an."
+        },
+        {
+          "t": "Karten aus der Vorlesung",
+          "d": "Ein KI-Agent kann deine Notizen über die Kommandozeile in einen Stapel verwandeln."
+        },
+        {
+          "t": "Mit dem Semester teilen",
+          "d": "Schick einen Link. Deine Kommilitonen folgen ihm oder klonen sich eine eigene Kopie."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Jeder Button zeigt das echte Datum",
+          "p": "Nochmal, Schwer, Gut und Einfach zeigen jeweils, wann die Karte zurückkommt. Es gibt kein Limit für tägliche Wiederholungen.",
+          "alt": "Eine Karte wird bewertet, jeder Button zeigt die nächste Wiederholung",
+          "table": "intervals"
+        },
+        {
+          "h": "Große Karten auf großem Bildschirm",
+          "p": "Bildlastige Karten liest man am besten auf dem Tablet, mit den Bewertungsbuttons direkt neben der Karte.",
+          "alt": "Eine Karte wird auf einem Tablet bewertet"
+        }
+      ],
+      "faq": [
+        [
+          "Kann ich meine Anki-Stapel aus dem Studium nutzen?",
+          "Ja. Exportiere sie als .apkg mit Medien. Text, Bilder und Lückentext kommen mit, Audio und Lernverlauf nicht."
+        ],
+        [
+          "Nutzt Loopky FSRS?",
+          "Nein. Die Intervalle sind pro Button fest, und du stellst sie ein. Wenn du für jahrelanges Behalten auf FSRS setzt, ist Anki da stärker."
+        ],
+        [
+          "Sind meine Stapel privat?",
+          "Nein. Stapel auf Loopky sind öffentlich. Schreib nie Patientendaten auf eine Karte."
+        ],
+        [
+          "Ist es kostenlos?",
+          "Ja. Keine Werbung und kein Abo."
+        ]
+      ]
+    },
+    "teachers": {
+      "title": "Karteikarten für Lehrkräfte, Nachhilfe und Lerngruppen · Loopky",
+      "desc": "Bau einen Karteikarten-Stapel einmal und teile ihn mit einem Link mit deiner Klasse. Schüler folgen ihm oder klonen ihn. Kostenlos, ohne Werbung, ohne Tracking.",
+      "crumb": "Lehrkräfte und Lerngruppen",
+      "card": "Lehrkräfte und Lerngruppen",
+      "blurb": "Veröffentliche einen Stapel einmal und schick einen Link.",
+      "eyebrow": "Für Lehrkräfte und Lerngruppen",
+      "h1": "Ein Stapel, ein Link, die ganze Klasse",
+      "lead": "Veröffentliche einen Karteikarten-Stapel einmal. Die Schüler öffnen den Link und lernen ihn mit verteilter Wiederholung auf ihrem eigenen Handy.",
+      "heroAlt": "Ein geteilter Stapel mit seinen Karten, Statistiken und Themen",
+      "features": [
+        {
+          "t": "Einen Link teilen",
+          "d": "Jeder Stapel hat einen Weblink, der sich in der App öffnet."
+        },
+        {
+          "t": "Folgen oder klonen",
+          "d": "Wer folgt, bekommt deine Änderungen. Wer klont, hat eine eigene Kopie zum Bearbeiten."
+        },
+        {
+          "t": "Hören und Sprechen",
+          "d": "Sprachstapel lesen vor und prüfen die Aussprache."
+        },
+        {
+          "t": "Keine Werbung, kein Tracking",
+          "d": "Keine Analyse, und es werden keine Schülerdaten gesammelt."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Bau den Stapel, wie du willst",
+          "p": "Tipp die Karten ein, füg eine Liste aus einer Tabelle ein, importiere eine Anki-Datei, oder lass eine KI sie schreiben.",
+          "alt": "Eine Kartenliste wird in Loopky eingefügt"
+        },
+        {
+          "h": "Dein Profil ist dein Kurs",
+          "p": "Dein Profil listet jeden Stapel, den du veröffentlichst. So reicht ein Link für das ganze Halbjahr.",
+          "alt": "Ein Loopky-Profil auf einem Tablet"
+        }
+      ],
+      "faq": [
+        [
+          "Brauchen Schüler eine E-Mail-Adresse?",
+          "Nein. Sie melden sich mit einem Pubky-Schlüssel an oder legen ein Konto in der App an."
+        ],
+        [
+          "Kann ich den Fortschritt meiner Schüler sehen?",
+          "Nein. Der Fortschritt gehört allein den Schülern, und es gibt kein Dashboard für Lehrkräfte."
+        ],
+        [
+          "Können Schüler mit iPhone mitmachen?",
+          "Sie können die Stapelseite schon jetzt im Browser öffnen und damit lernen, sobald die iOS-App da ist."
+        ]
+      ]
+    },
+    "ai-flashcards": {
+      "title": "Karteikarten mit KI: Claude, ChatGPT und Gemini · Loopky",
+      "desc": "Lass einen KI-Agenten deinen Stapel schreiben und veröffentlichen. Loopkys Kommandozeilen-Tool (JSON, Testläufe) ist für Claude, ChatGPT, Gemini und Co. gebaut.",
+      "crumb": "Karteikarten von der KI",
+      "card": "Karteikarten von der KI",
+      "blurb": "Claude, ChatGPT oder Gemini schreiben den Stapel für dich.",
+      "eyebrow": "KI-Karteikarten",
+      "h1": "Lass deine KI die Karteikarten schreiben",
+      "lead": "Sag Claude, ChatGPT oder Gemini, was du lernen willst. Die KI schreibt die Karten und veröffentlicht den Stapel auf deinem Handy.",
+      "heroAlt": "",
+      "features": [
+        {
+          "t": "Jede Quelle",
+          "d": "Ein Kapitel, Vorlesungsnotizen, eine Wortliste oder eine Serienfolge."
+        },
+        {
+          "t": "Erst ein Testlauf",
+          "d": "Jede Karte wird geprüft, bevor irgendetwas geschrieben wird."
+        },
+        {
+          "t": "Enge Berechtigungen",
+          "d": "Das Tool verwaltet Stapel. Es kann nie posten, folgen oder dein Profil ändern."
+        },
+        {
+          "t": "Überall JSON",
+          "d": "Agenten lesen echte Ergebnisse, statt zu raten."
+        }
+      ],
+      "promptH": "Der Prompt",
+      "promptP": "Füg das in deinen KI-Agenten ein und trag das Thema ein. Die Anmeldung bestätigst du auf deinem Handy.",
+      "sections": [
+        {
+          "h": "Dann lern ihn auf deinem Handy",
+          "p": "Der Stapel erscheint in Loopky, bereit für verteilte Wiederholung, mit Audio bei Sprachstapeln. Prüf KI-geschriebene Karten auf Fehler.",
+          "alt": "Der fertige Stapel in Loopky"
+        },
+        {
+          "h": "Eine Datei, jeder Computer",
+          "p": "Windows, macOS und Linux, dazu Homebrew, ein .deb-Paket und Docker. Kein Java, keine Einrichtung.",
+          "link": "CLI-Doku lesen"
+        }
+      ],
+      "faq": [
+        [
+          "Muss ich programmieren können?",
+          "Nein. Füg den Prompt in einen KI-Agenten mit Terminal ein, etwa Claude Code, Codex oder Gemini CLI. Er führt die Befehle aus."
+        ],
+        [
+          "Kann die KI meine Anki-Stapel importieren?",
+          "Ja. loopky import deck.apkg importiert ein Anki-Paket, und --dry-run zeigt vorher das Ergebnis."
+        ],
+        [
+          "Was kann das Tool nicht?",
+          "Es kann nicht posten, Leuten folgen oder dein Profil ändern. Es verwaltet nur Stapel und Karten."
+        ]
+      ]
+    },
+    "spaced-repetition": {
+      "title": "Was ist verteilte Wiederholung? Einfach erklärt · Loopky",
+      "desc": "Verteilte Wiederholung einfach erklärt: die Vergessenskurve, warum Abfragen wirkt, wie Loopky Karten plant und wie du Karteikarten schreibst, die hängen bleiben.",
+      "crumb": "Verteilte Wiederholung",
+      "card": "Was ist verteilte Wiederholung?",
+      "blurb": "Wie sie funktioniert und wie Karten hängen bleiben.",
+      "eyebrow": "Anleitung",
+      "h1": "Was ist verteilte Wiederholung?",
+      "lead": "Wiederhole jede Karte kurz bevor du sie vergessen würdest, jedes Mal etwas später. Zehn Minuten am Tag reichen.",
+      "heroAlt": "Eine Karte wird bewertet, jeder Button zeigt die nächste Wiederholung",
+      "features": [
+        {
+          "t": "Die Vergessenskurve",
+          "d": "Nach dem Lernen verblasst das Gedächtnis schnell. Jede Wiederholung bremst das."
+        },
+        {
+          "t": "Der Verteilungseffekt",
+          "d": "Kurze Einheiten über viele Tage schlagen eine lange Pauksession."
+        },
+        {
+          "t": "Der Testeffekt",
+          "d": "Eine Antwort abzurufen festigt sie stärker als sie nochmal zu lesen."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Wie Loopky eine Karte plant",
+          "p": "Bewerte dich nach jeder Karte. Jeder Button zeigt genau, wann die Karte zurückkommt.",
+          "alt": "Loopkys Heute-Bildschirm mit der täglichen Warteschlange",
+          "table": "intervals"
+        },
+        {
+          "h": "Karten, die hängen bleiben",
+          "p": "Gute Karten sind klein und konkret.",
+          "points": [
+            "Ein Fakt pro Karte",
+            "Stell eine Frage, statt einen Fakt zu nennen",
+            "Füg einen Satz oder ein Bild hinzu",
+            "Bewerte dich ehrlich"
+          ],
+          "alt": "Die Karten eines Stapels, je ein Fakt"
+        }
+      ],
+      "faq": [
+        [
+          "Wie viele Karten sollte ich am Tag lernen?",
+          "Fang mit 10 bis 20 neuen Karten und allen fälligen Wiederholungen an. Das Standardziel in Loopky sind 20 neue Karten."
+        ],
+        [
+          "Ist das besser, als Notizen nochmal zu lesen?",
+          "Ja. Die Forschung zu Verteilung und Abfragen zeigt: Abrufen in verteilten Abständen schlägt erneutes Lesen und Pauken."
+        ],
+        [
+          "Welchen Algorithmus nutzt Loopky?",
+          "Feste Intervalle pro Button: unter 10 Minuten, dann standardmäßig 1, 3 und 7 Tage, jeweils einstellbar bis 365."
+        ]
+      ]
+    },
+    "compare": {
+      "title": "Loopky, Anki oder Quizlet: welche Karteikarten-App? · Loopky",
+      "desc": "Loopky, Anki und Quizlet im Vergleich: Preis, Planung, Anki-Import, Audio und Sprechübung, Teilen und Offline-Nutzung, mit einer Empfehlung für jeden Lerntyp.",
+      "crumb": "Vergleich",
+      "card": "Loopky, Anki oder Quizlet?",
+      "blurb": "Welche Karteikarten-App zu wem passt.",
+      "eyebrow": "Vergleich",
+      "h1": "Loopky, Anki oder Quizlet?",
+      "lead": "Was jede am besten kann und welche zu deiner Art zu lernen passt.",
+      "heroAlt": "Loopkys Heute-Bildschirm auf einem Tablet",
+      "features": [
+        {
+          "t": "Nimm Loopky",
+          "d": "Kostenlos ohne Werbung, Sprechübung, Teilen per Link, Stapel von der KI, und deine Anki-Stapel kommen mit."
+        },
+        {
+          "t": "Bleib bei Anki",
+          "d": "Wenn du auf FSRS, komplettes Offline-Lernen, Audiodateien, LaTeX oder eigene Vorlagen angewiesen bist."
+        },
+        {
+          "t": "Nimm Quizlet",
+          "d": "Wenn deine Klasse es schon nutzt und du lieber Spiele als verteilte Wiederholung willst."
+        }
+      ],
+      "table": {
+        "h": "Im direkten Vergleich",
+        "head": [
+          "",
+          "Loopky",
+          "Anki",
+          "Quizlet"
+        ],
+        "rows": [
+          [
+            "Preis",
+            "Kostenlos, keine Werbung",
+            "Kostenlos; App auf dem iPhone kostenpflichtig",
+            "Kostenlos mit Werbung; Bezahlabo"
+          ],
+          [
+            "Öffnet Anki-Stapel",
+            "Ja",
+            "Ja",
+            "Nein"
+          ],
+          [
+            "Planung",
+            "Feste Intervalle, die du einstellst",
+            "FSRS oder SM-2",
+            "Lernmodi"
+          ],
+          [
+            "Liest Karten vor",
+            "Ja, 35 Sprachen",
+            "Mit Einrichtung",
+            "Ja"
+          ],
+          [
+            "Aussprachekontrolle",
+            "Ja",
+            "Mit Add-ons",
+            "Keine Kernfunktion"
+          ],
+          [
+            "Per Link teilen",
+            "Ja",
+            "Geteilte Stapel auf AnkiWeb",
+            "Ja"
+          ],
+          [
+            "Komplett offline lernen",
+            "Nein",
+            "Ja",
+            "Eingeschränkt"
+          ],
+          [
+            "Quelloffen",
+            "Ja",
+            "Ja",
+            "Nein"
+          ]
+        ],
+        "note": "Andere Apps ändern sich mit der Zeit. Aktuelle Preise findest du auf ihren eigenen Websites."
+      },
+      "sections": [
+        {
+          "h": "Du wechselst von Anki?",
+          "p": "Exportiere jeden Stapel als .apkg und öffne ihn in Loopky. Text, Bilder und Lückentext kommen mit, und große Bildschirme bekommen zweispaltige Ansichten.",
+          "alt": "Loopkys Stapelbibliothek auf einem Tablet"
+        }
+      ],
+      "faq": [
+        [
+          "Ist Loopky besser als Anki?",
+          "Für viele Lernende ja. Es ist einfacher, auf dem Handy kostenlos, und hat Sprechübung und Teilen eingebaut. Anki hat FSRS, komplettes Offline-Lernen, Audio und LaTeX."
+        ],
+        [
+          "Was ist eine kostenlose Alternative zu Quizlet?",
+          "Loopky ist kostenlos, ohne Werbung und ohne Bezahlstufe, und nutzt verteilte Wiederholung."
+        ],
+        [
+          "Wie wechsle ich von Anki?",
+          "Exportiere jeden Stapel aus Anki als .apkg mit Medien und importiere ihn in Loopky. Der Lernverlauf beginnt neu."
+        ]
+      ]
+    },
+    "faq": {
+      "title": "Loopky FAQ: Preis, Anki-Import, Datenschutz und Anmeldung",
+      "desc": "Antworten zu Loopky, der kostenlosen Karteikarten-App: Preis, Android und iOS, Tablets, Anki-Import, verteilte Wiederholung, Vorlesen, Teilen, Datenschutz, Anmeldung.",
+      "crumb": "FAQ",
+      "card": "Fragen und Antworten",
+      "blurb": "Preis, Plattformen, Datenschutz, Anki und Anmeldung.",
+      "eyebrow": "FAQ",
+      "h1": "Fragen zu Loopky",
+      "lead": "Was es kostet, wo es läuft, was es importiert und wohin deine Daten gehen.",
+      "heroAlt": "Loopkys Heute-Bildschirm mit der täglichen Warteschlange",
+      "faq": [
+        [
+          "Was ist Loopky?",
+          "Eine kostenlose Karteikarten-App mit verteilter Wiederholung. Du baust oder importierst Stapel, lernst ein paar Minuten am Tag, und jede Karte kommt zurück, kurz bevor du sie vergisst."
+        ],
+        [
+          "Ist es wirklich kostenlos?",
+          "Ja. Kein Preis, kein Abo, keine Werbung und keine In-App-Käufe. Der Code ist quelloffen unter MIT."
+        ],
+        [
+          "Wo läuft es?",
+          "Ab Android 10, auf Handys und Tablets. Die iOS-App folgt bald. Auf dem Computer verwaltet ein Kommandozeilen-Tool die Stapel."
+        ],
+        [
+          "Kann ich Anki-Stapel importieren?",
+          "Ja: .apkg mit Text, Bildern und Lückentext, dazu .txt, .csv und eingefügte Listen. Audio, LaTeX und Lernverlauf werden nicht importiert."
+        ],
+        [
+          "Wie plant es die Karten?",
+          "Feste Intervalle pro Button: unter 10 Minuten für Nochmal, dann standardmäßig 1, 3 und 7 Tage, jeweils einstellbar bis 365."
+        ],
+        [
+          "Kann es Karten vorlesen?",
+          "Ja, in 35 Sprachen und Varianten, und der Sprechmodus prüft deine Aussprache."
+        ],
+        [
+          "Kann ich Stapel teilen?",
+          "Ja. Veröffentliche einen Stapel und teile seinen Link. Andere können ihm folgen oder ihn klonen."
+        ],
+        [
+          "Sind meine Stapel privat?",
+          "Nein. Veröffentlichte Stapel sind öffentlich und durchsuchbar. Dein Lernfortschritt bleibt unter deinem eigenen Schlüssel."
+        ],
+        [
+          "Wie melde ich mich an?",
+          "Mit einem Pubky-Schlüssel über die App Pubky Ring, oder indem du ein Konto in der App anlegst. Keine E-Mail, kein Passwort."
+        ],
+        [
+          "Trackt mich Loopky?",
+          "Nein. Keine Analyse, keine Telemetrie, keine Absturzberichte, keine Werbung."
+        ],
+        [
+          "Funktioniert es offline?",
+          "Teilweise. Offline-Wiederholungen werden gespeichert und später gesendet, aber zum Laden von Stapeln brauchst du eine Verbindung."
+        ],
+        [
+          "Kann eine KI Stapel für mich bauen?",
+          "Ja. Das Kommandozeilen-Tool ist für KI-Agenten wie Claude, ChatGPT und Gemini gebaut."
+        ]
+      ]
+    }
+  }
+}

@@ -10,6 +10,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { stamp, PAGES, GUIDES, ALL_PAGES } from './stamp-assets.mjs';
+import { SLUGS, LOCALES } from './guides.mjs';
 
 const problems = [];
 const notes = [];
@@ -20,8 +21,8 @@ const read = (p) => readFileSync(new URL('../' + p, import.meta.url), 'utf8');
 const html = read('index.html');
 /* index.html plus the deck and profile pages a shared link lands on. */
 const pages = Object.fromEntries(PAGES.map((p) => [p, read(p)]));
-/* The English guide pages. No i18n, no script: they are held to the asset, stamp,
-   copy and URL rules below, not to the dictionary ones. */
+/* The guide pages, every language. Built from tools/guides/*.json, so they are held
+   to the asset, stamp, copy and URL rules below, and the dictionaries to parity. */
 const guides = Object.fromEntries(GUIDES.map((p) => [p, read(p)]));
 const everyPage = { ...pages, ...guides };
 
@@ -304,7 +305,10 @@ for (const [page, src] of Object.entries(guides)) {
   if (!locs.includes(url)) fail(`sitemap.xml does not list ${url}`);
   if (/noindex/.test(src)) fail(`${page} is a guide and must not carry noindex`);
   if (!/<title>[^<]{10,}<\/title>/.test(src)) fail(`${page} has no real <title>`);
-  if (!/<meta name="description" content="[^"]{50,}">/.test(src)) fail(`${page} has no meta description`);
+  if (!/<meta name="description" content="[^"]{20,}">/.test(src)) fail(`${page} has no meta description`);
+  for (const l of LOCALES) {
+    if (!src.includes(`hreflang="${l.code}"`)) fail(`${page} has no hreflang for "${l.code}"`);
+  }
   if ((src.match(/<h1[\s>]/g) ?? []).length !== 1) fail(`${page} should have exactly one <h1>`);
 }
 
@@ -332,9 +336,9 @@ if (canonical) {
       }
     }
   }
-  for (const page of GUIDES) {
-    if (!read('llms.txt').includes(canonical + page.replace('index.html', ''))) {
-      fail(`llms.txt does not list the guide ${page}`);
+  for (const slug of SLUGS) {
+    if (!read('llms.txt').includes(canonical + slug + '/')) {
+      fail(`llms.txt does not list the guide ${slug}`);
     }
   }
 }
@@ -355,6 +359,38 @@ if (I18N) {
   if (JSON.stringify(shipped) !== JSON.stringify(I18N.en['uses.list'])) {
     fail('the topic list in index.html differs from uses.list in i18n.js; copy it across');
   }
+}
+
+/* ---- 6c. the guide dictionaries match, and the pages are built from them ---- */
+
+/* Every language has to hold the same keys and the same number of items as
+   English, or a page quietly loses a card or a question in one language. */
+const shape = (v, path = '') => Array.isArray(v)
+  ? [`${path}[${v.length}]`, ...v.flatMap((x, i) => shape(x, `${path}[${i}]`))]
+  : v && typeof v === 'object'
+    ? Object.keys(v).sort().flatMap((k) => shape(v[k], `${path}.${k}`))
+    : [`${path}:${typeof v}`];
+let enShape = null;
+for (const l of LOCALES) {
+  const file = `tools/guides/${l.code}.json`;
+  let dict;
+  try { dict = JSON.parse(read(file)); } catch (e) { fail(`${file} is missing or not JSON: ${e.message}`); continue; }
+  const s = shape(dict);
+  if (!enShape) { enShape = s; continue; }
+  const missing = enShape.filter((x) => !s.includes(x));
+  const extra = s.filter((x) => !enShape.includes(x));
+  if (missing.length || extra.length) {
+    fail(`${file} does not match en.json:\n  ` +
+      [...missing.map((x) => `missing ${x}`), ...extra.map((x) => `extra ${x}`)].slice(0, 12).join('\n  '));
+  }
+}
+
+/* The pages and the sitemap are output. A dictionary edit without a rebuild would
+   ship the old words, so the build runs in check mode here. */
+try {
+  execFileSync(process.execPath, [new URL('./build-guides.mjs', import.meta.url).pathname, '--check'], { stdio: 'pipe' });
+} catch (e) {
+  fail(`the guide pages are stale: ${e.stderr?.toString().trim()}`);
 }
 
 /* ---- 7. copy rules ---- */

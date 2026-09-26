@@ -15,6 +15,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
+import { GUIDE_FILES } from './guides.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -22,13 +23,9 @@ const root = new URL('../', import.meta.url);
    profile pages sit one directory down and reach the same files through `../`. */
 export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
 
-/* The English guide pages, one per kind of learner. They are plain HTML with no
-   script and no language picker, written for search engines and for people who
-   arrive from one. They load the same stylesheet, so they are stamped too. */
-export const GUIDES = [
-  'anki-alternative', 'language-learning', 'medical-students', 'teachers',
-  'ai-flashcards', 'spaced-repetition', 'compare', 'faq',
-].map((slug) => `${slug}/index.html`);
+/* The guide pages, every language. Built by tools/build-guides.mjs, which stamps
+   them itself; they are listed here so a stale stamp is caught the same way. */
+export const GUIDES = GUIDE_FILES;
 
 export const ALL_PAGES = [...PAGES, ...GUIDES];
 

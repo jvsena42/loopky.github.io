@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>간격 반복이란? 쉬운 가이드 · Loopky</title>
+<meta name="description" content="간격 반복을 쉽게 설명합니다. 망각 곡선, 스스로 시험하는 것이 효과적인 이유, Loopky가 카드 일정을 정하는 방법, 오래 기억하는 플래시카드 쓰는 법.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/ko/spaced-repetition/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:url" content="https://loopky.app/ko/spaced-repetition/">
+<meta property="og:title" content="간격 반복이란? 쉬운 가이드 · Loopky">
+<meta property="og:description" content="간격 반복을 쉽게 설명합니다. 망각 곡선, 스스로 시험하는 것이 효과적인 이유, Loopky가 카드 일정을 정하는 방법, 오래 기억하는 플래시카드 쓰는 법.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, 간격 반복으로 외우는 무료 플래시카드 앱">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="간격 반복이란? 쉬운 가이드 · Loopky">
+<meta name="twitter:description" content="간격 반복을 쉽게 설명합니다. 망각 곡선, 스스로 시험하는 것이 효과적인 이유, Loopky가 카드 일정을 정하는 방법, 오래 기억하는 플래시카드 쓰는 법.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, 간격 반복으로 외우는 무료 플래시카드 앱">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/ko/spaced-repetition/#page",
+      "headline": "간격 반복이란?",
+      "name": "간격 반복이란? 쉬운 가이드 · Loopky",
+      "description": "간격 반복을 쉽게 설명합니다. 망각 곡선, 스스로 시험하는 것이 효과적인 이유, Loopky가 카드 일정을 정하는 방법, 오래 기억하는 플래시카드 쓰는 법.",
+      "url": "https://loopky.app/ko/spaced-repetition/",
+      "inLanguage": "ko",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=ko"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "간격 반복",
+          "item": "https://loopky.app/ko/spaced-repetition/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/ko/spaced-repetition/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "하루에 카드를 몇 장 공부해야 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "새 카드 10~20장과 복습할 카드 전부로 시작하세요. Loopky의 기본 목표는 새 카드 20장입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "노트를 다시 읽는 것보다 나은가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "예. 간격과 시험에 관한 연구에 따르면, 간격을 두고 떠올리는 것이 다시 읽기나 벼락치기보다 낫습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Loopky는 어떤 알고리즘을 쓰나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "버튼마다 고정 간격입니다. 기본값은 10분 이내, 그다음 1일, 3일, 7일이고, 각각 365일까지 조정할 수 있습니다."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=ko">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">언어</span>
+        <select id="lang-select">
+          <option value="../../spaced-repetition/" data-lang="en">English</option>
+          <option value="../../pt-br/spaced-repetition/" data-lang="pt-BR">Português</option>
+          <option value="../../es/spaced-repetition/" data-lang="es">Español</option>
+          <option value="../../fr/spaced-repetition/" data-lang="fr">Français</option>
+          <option value="../../de/spaced-repetition/" data-lang="de">Deutsch</option>
+          <option value="../../it/spaced-repetition/" data-lang="it">Italiano</option>
+          <option value="../../ja/spaced-repetition/" data-lang="ja">日本語</option>
+          <option value="../../ko/spaced-repetition/" data-lang="ko" selected>한국어</option>
+          <option value="../../vi/spaced-repetition/" data-lang="vi">Tiếng Việt</option>
+          <option value="../../zh-hans/spaced-repetition/" data-lang="zh-Hans">简体中文</option>
+          <option value="../../zh-hant/spaced-repetition/" data-lang="zh-Hant">繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">앱 받기</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=ko">Loopky</a></li>
+          <li aria-current="page">간격 반복</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">가이드</p>
+      <h1>간격 반복이란?</h1>
+      <p class="lead">잊기 직전에 카드를 복습하고, 매번 조금씩 간격을 늘립니다. 하루 10분이면 충분합니다.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play에서 받기</a>
+        <span class="soon">iOS 곧 출시</span>
+      </div>
+      <p class="fineprint">무료. 광고 없음. 오픈소스.</p>
+    </div>
+    <div class="ghero-art">
+      <img class="shot" src="../../assets/img/guides/phone-answer.webp" width="540" height="1200" alt="카드를 평가하는 화면, 버튼마다 다음 복습이 표시됨" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📉</span>
+        <h2 class="h3">망각 곡선</h2>
+        <p>배운 직후부터 기억은 빠르게 흐려집니다. 복습할 때마다 그 속도가 느려집니다.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">📅</span>
+        <h2 class="h3">간격 효과</h2>
+        <p>하루에 몰아서 하는 것보다 여러 날에 나눈 짧은 공부가 낫습니다.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🧠</span>
+        <h2 class="h3">시험 효과</h2>
+        <p>답을 떠올리는 것이 다시 읽는 것보다 기억을 더 강하게 만듭니다.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Loopky가 카드 일정을 정하는 방법</h2>
+      <p>카드마다 스스로 평가하세요. 버튼마다 카드가 언제 다시 나오는지 정확히 보여 줍니다.</p>
+      <div class="card dtable-wrap">
+        <table class="dtable">
+          <thead><tr><th scope="col">버튼</th><th scope="col">다음 복습</th><th scope="col">직접 설정</th></tr></thead>
+          <tbody>
+          <tr><td>다시</td><td>10분 이내</td><td>불가</td></tr>
+          <tr><td>어려움</td><td>1일</td><td>1~365일</td></tr>
+          <tr><td>좋음</td><td>3일</td><td>1~365일</td></tr>
+          <tr><td>쉬움</td><td>7일</td><td>1~365일</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/shot-today.webp" width="540" height="1200" alt="하루 복습 대기열이 보이는 Loopky 오늘 화면" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-rev">
+    <div class="split-copy">
+      <h2>오래 남는 카드</h2>
+      <p>좋은 카드는 작고 구체적입니다.</p>
+      <ul class="ticks">
+        <li>카드 한 장에 사실 하나</li>
+        <li>사실을 적지 말고 질문하기</li>
+        <li>문장이나 그림 곁들이기</li>
+        <li>솔직하게 평가하기</li>
+      </ul>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-deck.webp" width="540" height="1200" alt="카드마다 사실 하나씩 담긴 덱" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <h2>자주 묻는 질문</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>하루에 카드를 몇 장 공부해야 하나요?</summary>
+        <p>새 카드 10~20장과 복습할 카드 전부로 시작하세요. Loopky의 기본 목표는 새 카드 20장입니다.</p>
+      </details>
+      <details class="card">
+        <summary>노트를 다시 읽는 것보다 나은가요?</summary>
+        <p>예. 간격과 시험에 관한 연구에 따르면, 간격을 두고 떠올리는 것이 다시 읽기나 벼락치기보다 낫습니다.</p>
+      </details>
+      <details class="card">
+        <summary>Loopky는 어떤 알고리즘을 쓰나요?</summary>
+        <p>버튼마다 고정 간격입니다. 기본값은 10분 이내, 그다음 1일, 3일, 7일이고, 각각 365일까지 조정할 수 있습니다.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>하루 몇 분이면 충분합니다.</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play에서 받기</a>
+      <span class="soon soon-invert">iOS 곧 출시</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Loopky 더 알아보기</h2>
+    <nav class="guide-links" aria-label="Loopky 더 알아보기">
+      <a class="card" href="../../ko/anki-alternative/">Anki에서 옮겨 오는 분<span>.apkg 덱은 가져오고 애드온은 두고 오세요.</span></a>
+      <a class="card" href="../../ko/language-learning/">언어 학습자<span>단어를 듣고, 따라 말하고, 오래 기억하세요.</span></a>
+      <a class="card" href="../../ko/medical-students/">의대생<span>의대 덱을 이미지와 빈칸 카드까지 그대로.</span></a>
+      <a class="card" href="../../ko/teachers/">선생님과 스터디 그룹<span>덱을 한 번 공개하고 링크 하나를 보내세요.</span></a>
+      <a class="card" href="../../ko/ai-flashcards/">AI가 만드는 플래시카드<span>Claude, ChatGPT, Gemini가 덱을 써 줍니다.</span></a>
+      <a class="card" href="../../ko/compare/">Loopky, Anki, Quizlet 중 무엇?<span>어떤 플래시카드 앱이 어떤 학습자에게 맞는지.</span></a>
+      <a class="card" href="../../ko/faq/">질문과 답변<span>가격, 플랫폼, 개인정보, Anki, 로그인.</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=ko">홈</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">소스 코드</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">개인정보</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">Pubky 위에 만들었습니다. MIT 라이선스.</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>

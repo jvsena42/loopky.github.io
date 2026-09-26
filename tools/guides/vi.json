@@ -1,0 +1,270 @@
+{
+  "ui": {
+    "skip": "Tới nội dung",
+    "lang": "Ngôn ngữ",
+    "get": "Tải ứng dụng",
+    "play": "Tải trên Google Play",
+    "ios": "iOS sắp có",
+    "free": "Miễn phí. Không quảng cáo. Mã nguồn mở.",
+    "faq": "Câu hỏi",
+    "more": "Thêm về Loopky",
+    "ctaSub": "Vài phút mỗi ngày là đủ.",
+    "home": "Trang chủ",
+    "source": "Mã nguồn",
+    "privacy": "Quyền riêng tư",
+    "note": "Xây trên Pubky. Giấy phép MIT.",
+    "ogAlt": "Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng",
+    "yes": "Có",
+    "no": "Không",
+    "intervals": {
+      "head": ["Nút", "Lần ôn tiếp theo", "Có thể tự đặt"],
+      "rows": [
+        ["Lại", "Dưới 10 phút", "Không"],
+        ["Khó", "1 ngày", "1 đến 365 ngày"],
+        ["Tốt", "3 ngày", "1 đến 365 ngày"],
+        ["Dễ", "7 ngày", "1 đến 365 ngày"]
+      ]
+    }
+  },
+  "pages": {
+    "anki-alternative": {
+      "title": "Thay thế Anki miễn phí, nhập bộ thẻ .apkg của bạn · Loopky",
+      "desc": "Chuyển từ Anki sang Loopky, ứng dụng thẻ ghi nhớ miễn phí. Nhập bộ thẻ .apkg có hình ảnh và điền chỗ trống, có đọc to, kiểm tra phát âm và chia sẻ, không cần add-on.",
+      "crumb": "Thay thế Anki",
+      "card": "Chuyển từ Anki",
+      "blurb": "Mang bộ thẻ .apkg theo, bỏ lại các add-on.",
+      "eyebrow": "Cho người dùng Anki",
+      "h1": "Chuyển từ Anki mà vẫn giữ bộ thẻ",
+      "lead": "Loopky mở tệp .apkg của bạn, rồi thêm nghe, nói, chia sẻ và thẻ do AI viết. Không add-on, không tốn tiền.",
+      "heroAlt": "Thư viện bộ thẻ của Loopky với nút Nhập từ Anki",
+      "features": [
+        { "t": "Bộ thẻ đi cùng bạn", "d": "Văn bản, hình ảnh và thẻ điền chỗ trống được nhập từ tệp .apkg, .txt và .csv." },
+        { "t": "Không cần add-on", "d": "Đọc to và kiểm tra phát âm có sẵn, cho 35 ngôn ngữ." },
+        { "t": "Chia sẻ bằng link", "d": "Đăng một bộ thẻ và ai cũng có thể theo dõi hoặc sao chép nó." },
+        { "t": "Máy tính bảng và máy tính", "d": "Bố cục hai khung trên máy tính bảng, và công cụ dòng lệnh để xử lý nhiều bộ thẻ cùng lúc." }
+      ],
+      "sections": [
+        { "h": "Làm cho màn hình lớn", "p": "Trên máy tính bảng, Loopky dùng bố cục hai khung thật sự: hàng đợi hôm nay cạnh các bộ thẻ, một bộ thẻ cạnh các thẻ của nó. Máy tính bảng Android ngay bây giờ, iPad khi có ứng dụng iOS.", "alt": "Thư viện bộ thẻ của Loopky trên máy tính bảng, rộng bốn cột" },
+        { "h": "Quản lý bộ thẻ từ máy tính", "p": "Công cụ dòng lệnh của Loopky chạy trên Windows, macOS và Linux.", "points": ["Tạo, sửa và xóa bộ thẻ", "Thêm, sửa và xóa nhiều thẻ cùng lúc", "Nhập tệp .apkg và TSV từ ổ đĩa", "Viết script, hoặc để một agent AI làm"] },
+        { "h": "Chuyển một bộ thẻ trong một phút", "p": "Trong Anki, xuất bộ thẻ thành .apkg kèm media. Mở nó trong Loopky và chọn trường mặt trước, mặt sau. Chỉ có một danh sách? Dán vào là được.", "alt": "Dán danh sách từ vào Loopky, dấu phân cách được tự nhận ra" }
+      ],
+      "table": {
+        "h": "Những gì mang sang được từ Anki",
+        "head": ["Từ Anki", "Trong Loopky"],
+        "rows": [
+          ["Văn bản và các trường", "Có, bạn chọn mặt trước và mặt sau"],
+          ["Hình ảnh", "Có"],
+          ["Thẻ điền chỗ trống", "Có, mỗi chỗ trống thành một thẻ"],
+          ["Thẻ đảo chiều", "Có"],
+          ["Âm thanh", "Không, dùng tính năng đọc to có sẵn"],
+          ["LaTeX", "Hiện dưới dạng mã nguồn"],
+          ["Lịch sử ôn tập", "Không, thẻ bắt đầu lại từ đầu"]
+        ],
+        "note": "Tệp .anki21b mới nhất: xuất lại và đánh dấu \"Support older Anki versions\" (hỗ trợ phiên bản Anki cũ)."
+      },
+      "faq": [
+        ["Loopky có thay thế hoàn toàn Anki được không?", "Với phần lớn người học, có. Hãy kiểm tra trước nếu bạn cần tệp âm thanh, LaTeX, mẫu thẻ tùy chỉnh hoặc FSRS."],
+        ["Loopky có dùng FSRS không?", "Không. Mỗi nút chấm điểm có một khoảng cách cố định do bạn đặt, từ 1 đến 365 ngày."],
+        ["Có miễn phí không?", "Có. Không quảng cáo, không thuê bao, và là mã nguồn mở theo giấy phép MIT."],
+        ["Có ứng dụng cho iPhone không?", "Hiện Loopky có trên Android. Ứng dụng iOS đã làm xong và sắp ra mắt."]
+      ]
+    },
+    "language-learning": {
+      "title": "Thẻ ghi nhớ học ngoại ngữ, có nghe và nói · Loopky",
+      "desc": "Thẻ ghi nhớ ngoại ngữ miễn phí: đọc to từng từ, kiểm tra phát âm và đưa thẻ quay lại bằng lặp lại ngắt quãng. 35 ngôn ngữ, nhập từ Anki, bộ thẻ chia sẻ.",
+      "crumb": "Học ngoại ngữ",
+      "card": "Người học ngoại ngữ",
+      "blurb": "Nghe từng từ, nói lại, nhớ mãi.",
+      "eyebrow": "Cho người học ngoại ngữ",
+      "h1": "Thẻ ghi nhớ biết nói",
+      "lead": "Nghe mọi từ, nói thành tiếng, và để lặp lại ngắt quãng đưa nó quay lại ngay trước khi bạn quên.",
+      "heroAlt": "Một thẻ học với nút Nghe và Nói",
+      "features": [
+        { "t": "Nghe", "d": "Mỗi thẻ được đọc to bằng đúng ngôn ngữ của nó." },
+        { "t": "Nói", "d": "Nói câu trả lời và Loopky kiểm tra phát âm của bạn." },
+        { "t": "Gõ", "d": "Gõ câu trả lời để luyện chính tả và dấu." },
+        { "t": "Cả hai chiều", "d": "Thẻ đảo chiều luyện bạn dịch từ ngôn ngữ đó và sang ngôn ngữ đó." }
+      ],
+      "sections": [
+        { "h": "35 ngôn ngữ và biến thể", "p": "Mỗi mặt của bộ thẻ có ngôn ngữ riêng, từ tiếng Nhật đến tiếng Bồ Đào Nha Brazil. Giọng đọc lấy từ điện thoại của bạn, và bản ghi âm không bao giờ được lưu.", "alt": "Chấm điểm một thẻ, mỗi nút hiện lần ôn tiếp theo" },
+        { "h": "Bộ thẻ từ vựng trong một phút", "p": "Dán danh sách từ từ ghi chú hoặc bảng tính. Loopky tìm dấu phân cách và tạo thẻ. Hoặc nhờ AI viết bộ thẻ.", "alt": "Dán danh sách từ vào Loopky" },
+        { "h": "Bộ thẻ người học khác đã làm", "p": "Khám phá liệt kê các bộ thẻ công khai theo ngôn ngữ và chủ đề. Theo dõi một bộ, hoặc sao chép rồi sửa theo ý bạn.", "alt": "Tab Khám phá trên máy tính bảng" }
+      ],
+      "faq": [
+        ["Loopky có kiểm tra phát âm của tôi không?", "Có. Chế độ Nói dùng tính năng nhận dạng giọng nói của thiết bị để chấm câu trả lời. Loopky không lưu hay tải bản ghi âm lên."],
+        ["Có hợp với tiếng Nhật, Trung hay Hàn không?", "Có. Cả ba đều được hỗ trợ nghe và nói, và chế độ Gõ dùng được với bàn phím điện thoại của bạn."],
+        ["Khác Duolingo thế nào?", "Duolingo dạy theo một khóa học cố định. Trong Loopky, bạn chọn hoặc tự làm bộ thẻ, và lặp lại ngắt quãng quyết định khi nào mỗi thẻ quay lại."]
+      ]
+    },
+    "medical-students": {
+      "title": "Thẻ ghi nhớ cho sinh viên y khoa · Loopky",
+      "desc": "Thẻ ghi nhớ lặp lại ngắt quãng miễn phí cho sinh viên y. Nhập bộ thẻ Anki có hình ảnh và điền chỗ trống, học trên điện thoại hoặc máy tính bảng, chia sẻ với cả lớp.",
+      "crumb": "Sinh viên y khoa",
+      "card": "Sinh viên y khoa",
+      "blurb": "Bộ thẻ ngành y của bạn, kèm hình ảnh và điền chỗ trống.",
+      "eyebrow": "Cho sinh viên y khoa",
+      "h1": "Thẻ ghi nhớ ngành y trên điện thoại và máy tính bảng",
+      "lead": "Mang bộ thẻ Anki kèm hình ảnh và thẻ điền chỗ trống, ôn giữa các buổi học, và rút ngắn mọi khoảng cách trước kỳ thi.",
+      "heroAlt": "Một bộ thẻ trên máy tính bảng, thống kê nằm cạnh danh sách thẻ đầy đủ",
+      "features": [
+        { "t": "Hình ảnh và điền chỗ trống", "d": "Thẻ giải phẫu, mô học và điện tâm đồ giữ nguyên hình. Mỗi chỗ trống thành một thẻ." },
+        { "t": "Khoảng cách do bạn đặt", "d": "Rút ngắn Tốt và Dễ trước kỳ thi, cả bộ thẻ sẽ được ôn dày hơn." },
+        { "t": "Thẻ từ ghi chú bài giảng", "d": "Một agent AI có thể biến ghi chú của bạn thành bộ thẻ qua dòng lệnh." },
+        { "t": "Chia sẻ với cả lớp", "d": "Gửi một link. Bạn cùng lớp theo dõi hoặc sao chép một bản riêng." }
+      ],
+      "sections": [
+        { "h": "Mỗi nút hiện đúng ngày thật", "p": "Lại, Khó, Tốt và Dễ đều cho biết khi nào thẻ quay lại. Không giới hạn số lượt ôn mỗi ngày.", "alt": "Chấm điểm một thẻ, mỗi nút hiện lần ôn tiếp theo", "table": "intervals" },
+        { "h": "Thẻ lớn trên màn hình lớn", "p": "Thẻ nhiều hình ảnh dễ đọc nhất trên máy tính bảng, với các nút chấm điểm ngay cạnh thẻ.", "alt": "Chấm điểm một thẻ trên máy tính bảng" }
+      ],
+      "faq": [
+        ["Tôi dùng được bộ thẻ Anki ngành y của mình không?", "Được. Xuất chúng thành .apkg kèm media. Văn bản, hình ảnh và điền chỗ trống sẽ sang được; âm thanh và lịch sử ôn tập thì không."],
+        ["Loopky có dùng FSRS không?", "Không. Khoảng cách cố định theo từng nút và do bạn đặt. Nếu bạn dựa vào FSRS để nhớ trong nhiều năm, Anki mạnh hơn ở điểm đó."],
+        ["Bộ thẻ của tôi có riêng tư không?", "Không. Bộ thẻ trên Loopky là công khai. Đừng bao giờ ghi thông tin bệnh nhân lên thẻ."],
+        ["Có miễn phí không?", "Có. Không quảng cáo và không thuê bao."]
+      ]
+    },
+    "teachers": {
+      "title": "Thẻ ghi nhớ cho giáo viên, gia sư và nhóm học · Loopky",
+      "desc": "Làm bộ thẻ một lần và chia sẻ với cả lớp bằng một link. Học sinh theo dõi hoặc sao chép và học bằng lặp lại ngắt quãng. Miễn phí, không quảng cáo, không theo dõi.",
+      "crumb": "Giáo viên và nhóm học",
+      "card": "Giáo viên và nhóm học",
+      "blurb": "Đăng bộ thẻ một lần và gửi một đường link.",
+      "eyebrow": "Cho giáo viên và nhóm học",
+      "h1": "Một bộ thẻ, một link, cả lớp",
+      "lead": "Đăng bộ thẻ ghi nhớ một lần. Học sinh mở link và học bằng lặp lại ngắt quãng trên điện thoại của mình.",
+      "heroAlt": "Một bộ thẻ được chia sẻ với các thẻ, thống kê và chủ đề",
+      "features": [
+        { "t": "Chia sẻ một link", "d": "Mỗi bộ thẻ có một link web mở thẳng trong ứng dụng." },
+        { "t": "Theo dõi hoặc sao chép", "d": "Theo dõi thì nhận được các chỉnh sửa của bạn. Sao chép thì học sinh có một bản để tự sửa." },
+        { "t": "Nghe và nói", "d": "Bộ thẻ ngoại ngữ đọc to và kiểm tra phát âm." },
+        { "t": "Không quảng cáo, không theo dõi", "d": "Không có công cụ phân tích, không thu thập dữ liệu học sinh." }
+      ],
+      "sections": [
+        { "h": "Làm bộ thẻ theo cách của bạn", "p": "Gõ từng thẻ, dán danh sách từ bảng tính, nhập tệp Anki, hoặc nhờ AI viết.", "alt": "Dán danh sách thẻ vào Loopky" },
+        { "h": "Hồ sơ của bạn là khóa học của bạn", "p": "Hồ sơ liệt kê mọi bộ thẻ bạn đăng, nên một link là đủ cho cả học kỳ.", "alt": "Hồ sơ Loopky trên máy tính bảng" }
+      ],
+      "faq": [
+        ["Học sinh có cần tài khoản email không?", "Không. Các em đăng nhập bằng khóa Pubky, hoặc tạo tài khoản trong ứng dụng."],
+        ["Tôi có xem được tiến độ của học sinh không?", "Không. Tiến độ thuộc về từng học sinh, và không có bảng điều khiển cho giáo viên."],
+        ["Học sinh dùng iPhone có tham gia được không?", "Các em có thể mở trang bộ thẻ trên trình duyệt ngay bây giờ, và học khi ứng dụng iOS ra mắt."]
+      ]
+    },
+    "ai-flashcards": {
+      "title": "Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky",
+      "desc": "Để một agent AI viết và đăng bộ thẻ cho bạn. Công cụ dòng lệnh của Loopky, với đầu ra JSON và chạy thử, được làm cho Claude, ChatGPT, Gemini và các agent khác.",
+      "crumb": "Thẻ ghi nhớ do AI tạo",
+      "card": "Thẻ ghi nhớ do AI tạo",
+      "blurb": "Claude, ChatGPT hoặc Gemini viết bộ thẻ giúp bạn.",
+      "eyebrow": "Tạo thẻ ghi nhớ bằng AI",
+      "h1": "Để AI của bạn viết thẻ ghi nhớ",
+      "lead": "Nói với Claude, ChatGPT hoặc Gemini bạn muốn học gì. Nó viết thẻ và đăng bộ thẻ lên điện thoại của bạn.",
+      "heroAlt": "",
+      "features": [
+        { "t": "Nguồn nào cũng được", "d": "Một chương sách, ghi chú bài giảng, một danh sách từ hay một tập phim." },
+        { "t": "Chạy thử trước", "d": "Mọi thẻ được kiểm tra trước khi ghi bất cứ thứ gì." },
+        { "t": "Quyền hạn hẹp", "d": "Nó quản lý bộ thẻ. Nó không bao giờ đăng bài, theo dõi hay sửa hồ sơ của bạn." },
+        { "t": "JSON ở khắp nơi", "d": "Agent đọc kết quả thật thay vì phải đoán." }
+      ],
+      "promptH": "Prompt",
+      "promptP": "Dán đoạn này vào agent AI của bạn và điền chủ đề. Bạn duyệt đăng nhập trên điện thoại.",
+      "sections": [
+        { "h": "Rồi học trên điện thoại", "p": "Bộ thẻ hiện trong Loopky, sẵn sàng cho lặp lại ngắt quãng, có âm thanh với bộ thẻ ngoại ngữ. Hãy kiểm tra lỗi trong các thẻ do AI viết.", "alt": "Bộ thẻ hoàn chỉnh trong Loopky" },
+        { "h": "Một tệp, mọi máy tính", "p": "Windows, macOS và Linux, cùng Homebrew, gói .deb và Docker. Không cần Java, không cần cài đặt gì.", "link": "Đọc tài liệu CLI" }
+      ],
+      "faq": [
+        ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào một agent AI có terminal, như Claude Code, Codex hoặc Gemini CLI. Nó sẽ chạy các lệnh."],
+        ["AI có nhập được bộ thẻ Anki của tôi không?", "Có. loopky import deck.apkg nhập một gói Anki, và --dry-run cho xem kết quả trước."],
+        ["Công cụ này không làm được gì?", "Nó không thể đăng bài, theo dõi người khác hay sửa hồ sơ của bạn. Nó chỉ quản lý bộ thẻ và thẻ."]
+      ]
+    },
+    "spaced-repetition": {
+      "title": "Lặp lại ngắt quãng là gì? Hướng dẫn dễ hiểu · Loopky",
+      "desc": "Lặp lại ngắt quãng giải thích đơn giản: đường cong quên lãng, vì sao tự kiểm tra hiệu quả, cách Loopky xếp lịch thẻ, và cách viết thẻ ghi nhớ bạn sẽ nhớ lâu.",
+      "crumb": "Lặp lại ngắt quãng",
+      "card": "Lặp lại ngắt quãng là gì?",
+      "blurb": "Cách nó hoạt động, và cách viết thẻ dễ nhớ.",
+      "eyebrow": "Hướng dẫn",
+      "h1": "Lặp lại ngắt quãng là gì?",
+      "lead": "Ôn mỗi thẻ ngay trước khi bạn sắp quên, mỗi lần muộn hơn một chút. Mười phút mỗi ngày là đủ.",
+      "heroAlt": "Chấm điểm một thẻ, mỗi nút hiện lần ôn tiếp theo",
+      "features": [
+        { "t": "Đường cong quên lãng", "d": "Trí nhớ phai rất nhanh sau khi học. Mỗi lần ôn làm nó chậm lại." },
+        { "t": "Hiệu ứng giãn cách", "d": "Các buổi ngắn trải qua nhiều ngày hiệu quả hơn một lần học dồn thật lâu." },
+        { "t": "Hiệu ứng kiểm tra", "d": "Tự nhớ lại câu trả lời giúp nhớ chắc hơn là đọc lại." }
+      ],
+      "sections": [
+        { "h": "Cách Loopky xếp lịch một thẻ", "p": "Tự chấm điểm sau mỗi thẻ. Mỗi nút cho biết chính xác khi nào thẻ quay lại.", "alt": "Màn hình Hôm nay của Loopky với hàng đợi trong ngày", "table": "intervals" },
+        { "h": "Thẻ dễ nhớ", "p": "Thẻ tốt thì nhỏ và cụ thể.", "points": ["Mỗi thẻ một ý", "Đặt câu hỏi, đừng chỉ nêu sự thật", "Thêm một câu hoặc một hình", "Tự chấm điểm trung thực"], "alt": "Các thẻ của một bộ thẻ, mỗi thẻ một ý" }
+      ],
+      "faq": [
+        ["Mỗi ngày nên học bao nhiêu thẻ?", "Bắt đầu với 10 đến 20 thẻ mới cùng tất cả các thẻ đến hạn ôn. Mục tiêu mặc định của Loopky là 20 thẻ mới."],
+        ["Có tốt hơn đọc lại ghi chú không?", "Có. Nghiên cứu về giãn cách và tự kiểm tra cho thấy nhớ lại theo các khoảng cách giãn ra hiệu quả hơn đọc lại và học dồn."],
+        ["Loopky dùng thuật toán gì?", "Khoảng cách cố định cho từng nút: dưới 10 phút, rồi mặc định 1, 3 và 7 ngày, mỗi mức chỉnh được tới 365."]
+      ]
+    },
+    "compare": {
+      "title": "Loopky, Anki hay Quizlet: nên dùng app thẻ ghi nhớ nào · Loopky",
+      "desc": "So sánh Loopky, Anki và Quizlet: giá, cách xếp lịch, nhập từ Anki, âm thanh và luyện nói, chia sẻ và dùng offline, kèm gợi ý cho từng kiểu người học.",
+      "crumb": "So sánh",
+      "card": "Loopky, Anki hay Quizlet?",
+      "blurb": "Ứng dụng thẻ ghi nhớ nào hợp với ai.",
+      "eyebrow": "So sánh",
+      "h1": "Loopky, Anki hay Quizlet?",
+      "lead": "Mỗi ứng dụng mạnh nhất ở đâu, và cái nào hợp với cách bạn học.",
+      "heroAlt": "Màn hình Hôm nay của Loopky trên máy tính bảng",
+      "features": [
+        { "t": "Chọn Loopky", "d": "Miễn phí, không quảng cáo, có luyện nói, chia sẻ bằng link, bộ thẻ do AI tạo, và bộ thẻ Anki của bạn đi cùng." },
+        { "t": "Ở lại với Anki", "d": "Nếu bạn cần FSRS, học hoàn toàn offline, tệp âm thanh, LaTeX hoặc mẫu thẻ tùy chỉnh." },
+        { "t": "Chọn Quizlet", "d": "Nếu lớp bạn đã dùng nó và bạn thích trò chơi hơn lặp lại ngắt quãng." }
+      ],
+      "table": {
+        "h": "Đặt cạnh nhau",
+        "head": ["", "Loopky", "Anki", "Quizlet"],
+        "rows": [
+          ["Giá", "Miễn phí, không quảng cáo", "Miễn phí; trả phí trên iPhone", "Miễn phí có quảng cáo; có gói trả phí"],
+          ["Mở bộ thẻ Anki", "Có", "Có", "Không"],
+          ["Xếp lịch", "Khoảng cách cố định do bạn đặt", "FSRS hoặc SM-2", "Các chế độ học"],
+          ["Đọc to thẻ", "Có, 35 ngôn ngữ", "Cần cài đặt thêm", "Có"],
+          ["Kiểm tra phát âm", "Có", "Cần add-on", "Không phải tính năng chính"],
+          ["Chia sẻ bằng link", "Có", "Bộ thẻ chia sẻ trên AnkiWeb", "Có"],
+          ["Học hoàn toàn offline", "Không", "Có", "Hạn chế"],
+          ["Mã nguồn mở", "Có", "Có", "Không"]
+        ],
+        "note": "Các ứng dụng khác thay đổi theo thời gian. Hãy xem trang của họ để biết giá hiện tại."
+      },
+      "sections": [
+        { "h": "Chuyển từ Anki?", "p": "Xuất từng bộ thẻ thành .apkg và mở trong Loopky. Văn bản, hình ảnh và điền chỗ trống sẽ sang được, và màn hình lớn có bố cục hai khung.", "alt": "Thư viện bộ thẻ của Loopky trên máy tính bảng" }
+      ],
+      "faq": [
+        ["Loopky có tốt hơn Anki không?", "Với nhiều người học, có. Nó đơn giản hơn, miễn phí trên điện thoại, và có sẵn luyện nói và chia sẻ. Anki có FSRS, học hoàn toàn offline, âm thanh và LaTeX."],
+        ["Có ứng dụng miễn phí nào thay Quizlet không?", "Loopky miễn phí, không quảng cáo, không có gói trả phí, và dùng lặp lại ngắt quãng."],
+        ["Làm sao chuyển từ Anki?", "Xuất từng bộ thẻ từ Anki thành .apkg kèm media rồi nhập vào Loopky. Lịch sử ôn tập bắt đầu lại từ đầu."]
+      ]
+    },
+    "faq": {
+      "title": "Loopky FAQ: giá, nhập từ Anki, quyền riêng tư và đăng nhập",
+      "desc": "Giải đáp về Loopky, ứng dụng thẻ ghi nhớ miễn phí: giá, Android và iOS, máy tính bảng, nhập từ Anki, lặp lại ngắt quãng, đọc to, chia sẻ, quyền riêng tư và đăng nhập.",
+      "crumb": "Câu hỏi thường gặp",
+      "card": "Hỏi và đáp",
+      "blurb": "Giá, nền tảng, quyền riêng tư, Anki và đăng nhập.",
+      "eyebrow": "Câu hỏi thường gặp",
+      "h1": "Câu hỏi về Loopky",
+      "lead": "Giá bao nhiêu, chạy trên đâu, nhập được gì, và dữ liệu của bạn đi đâu.",
+      "heroAlt": "Màn hình Hôm nay của Loopky với hàng đợi trong ngày",
+      "faq": [
+        ["Loopky là gì?", "Một ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng. Bạn tạo hoặc nhập bộ thẻ, học vài phút mỗi ngày, và mỗi thẻ quay lại ngay trước khi bạn quên."],
+        ["Có thật sự miễn phí không?", "Có. Không tốn tiền, không thuê bao, không quảng cáo và không mua trong ứng dụng. Mã nguồn mở theo giấy phép MIT."],
+        ["Chạy trên thiết bị nào?", "Android 10 trở lên, trên điện thoại và máy tính bảng. Ứng dụng iOS sắp có. Trên máy tính, một công cụ dòng lệnh quản lý bộ thẻ."],
+        ["Tôi có nhập được bộ thẻ Anki không?", "Có: .apkg với văn bản, hình ảnh và điền chỗ trống, cùng .txt, .csv và danh sách dán vào. Âm thanh, LaTeX và lịch sử ôn tập không được nhập."],
+        ["Thẻ được xếp lịch thế nào?", "Khoảng cách cố định cho từng nút: dưới 10 phút cho Lại, rồi mặc định 1, 3 và 7 ngày, mỗi mức chỉnh được tới 365."],
+        ["Có đọc to thẻ được không?", "Có, bằng 35 ngôn ngữ và biến thể, và chế độ Nói kiểm tra phát âm của bạn."],
+        ["Tôi có chia sẻ bộ thẻ được không?", "Có. Đăng một bộ thẻ và chia sẻ link của nó. Người khác có thể theo dõi hoặc sao chép nó."],
+        ["Bộ thẻ của tôi có riêng tư không?", "Không. Bộ thẻ đã đăng là công khai và tìm kiếm được. Tiến độ học của bạn nằm dưới khóa của riêng bạn."],
+        ["Đăng nhập thế nào?", "Bằng khóa Pubky qua ứng dụng Pubky Ring, hoặc tạo tài khoản trong ứng dụng. Không email, không mật khẩu."],
+        ["Loopky có theo dõi tôi không?", "Không. Không phân tích, không telemetry, không báo cáo lỗi, không quảng cáo."],
+        ["Có dùng offline được không?", "Một phần. Lượt ôn offline được lưu lại và gửi sau, nhưng cần kết nối để tải bộ thẻ."],
+        ["AI có tạo bộ thẻ cho tôi được không?", "Có. Công cụ dòng lệnh được làm cho các agent AI như Claude, ChatGPT và Gemini."]
+      ]
+    }
+  }
+}

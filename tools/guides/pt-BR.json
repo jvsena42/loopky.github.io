@@ -1,0 +1,270 @@
+{
+  "ui": {
+    "skip": "Ir para o conteúdo",
+    "lang": "Idioma",
+    "get": "Baixar o app",
+    "play": "Baixar no Google Play",
+    "ios": "iOS em breve",
+    "free": "Grátis. Sem anúncios. Open source.",
+    "faq": "Perguntas",
+    "more": "Mais sobre o Loopky",
+    "ctaSub": "Alguns minutos por dia já bastam.",
+    "home": "Início",
+    "source": "Código-fonte",
+    "privacy": "Privacidade",
+    "note": "Feito sobre o Pubky. Licença MIT.",
+    "ogAlt": "Loopky, um app de flashcards grátis com repetição espaçada",
+    "yes": "Sim",
+    "no": "Não",
+    "intervals": {
+      "head": ["Botão", "Próxima revisão", "Dá para ajustar"],
+      "rows": [
+        ["De novo", "Menos de 10 minutos", "Não"],
+        ["Difícil", "1 dia", "De 1 a 365 dias"],
+        ["Bom", "3 dias", "De 1 a 365 dias"],
+        ["Fácil", "7 dias", "De 1 a 365 dias"]
+      ]
+    }
+  },
+  "pages": {
+    "anki-alternative": {
+      "title": "Alternativa grátis ao Anki que importa seus .apkg · Loopky",
+      "desc": "Troque o Anki pelo Loopky, um app de flashcards grátis. Importe baralhos .apkg com imagens e cloze, e tenha voz, checagem de pronúncia e compartilhamento sem add-ons.",
+      "crumb": "Alternativa ao Anki",
+      "card": "Vindo do Anki",
+      "blurb": "Traga seus baralhos .apkg e deixe os add-ons para trás.",
+      "eyebrow": "Para quem usa Anki",
+      "h1": "Saia do Anki e fique com seus baralhos",
+      "lead": "O Loopky abre seus arquivos .apkg e ainda traz áudio, fala, compartilhamento e cartas escritas por IA. Sem add-ons, sem custo.",
+      "heroAlt": "A biblioteca de baralhos do Loopky com o botão Importar do Anki",
+      "features": [
+        { "t": "Seus baralhos vêm junto", "d": "Texto, imagens e cloze são importados de arquivos .apkg, .txt e .csv." },
+        { "t": "Sem add-ons", "d": "Leitura em voz alta e checagem de pronúncia já vêm no app, em 35 idiomas." },
+        { "t": "Compartilhe por link", "d": "Publique um baralho e qualquer pessoa pode seguir ou clonar." },
+        { "t": "Tablet e computador", "d": "Layout em dois painéis nos tablets e uma ferramenta de linha de comando para mexer em muitos baralhos." }
+      ],
+      "sections": [
+        { "h": "Feito para telas grandes", "p": "No tablet, o Loopky usa dois painéis de verdade: a fila de hoje ao lado dos baralhos, um baralho ao lado das cartas. Tablets Android agora, iPad com o app de iOS.", "alt": "A biblioteca de baralhos do Loopky num tablet, com quatro colunas" },
+        { "h": "Gerencie baralhos no computador", "p": "A ferramenta de linha de comando do Loopky roda em Windows, macOS e Linux.", "points": ["Crie, edite e apague baralhos", "Adicione, edite e remova cartas em massa", "Importe arquivos .apkg e TSV do disco", "Automatize com scripts ou deixe um agente de IA fazer"] },
+        { "h": "Mude um baralho em um minuto", "p": "No Anki, exporte o baralho como .apkg com mídia. Abra no Loopky e escolha os campos de frente e verso. Só tem uma lista? Cole.", "alt": "Colando uma lista de palavras no Loopky, com o separador detectado" }
+      ],
+      "table": {
+        "h": "O que vem do Anki",
+        "head": ["No Anki", "No Loopky"],
+        "rows": [
+          ["Texto e campos", "Sim, você escolhe frente e verso"],
+          ["Imagens", "Sim"],
+          ["Cloze", "Sim, uma carta por lacuna"],
+          ["Cartas invertidas", "Sim"],
+          ["Áudio", "Não, use a leitura em voz alta do app"],
+          ["LaTeX", "Aparece como código"],
+          ["Histórico de revisões", "Não, as cartas começam do zero"]
+        ],
+        "note": "Arquivos .anki21b mais novos: exporte de novo marcando \"Support older Anki versions\" (suporte a versões antigas do Anki)."
+      },
+      "faq": [
+        ["O Loopky substitui o Anki por completo?", "Para a maioria das pessoas, sim. Confira antes se você depende de arquivos de áudio, LaTeX, modelos de carta personalizados ou FSRS."],
+        ["O Loopky usa FSRS?", "Não. Cada botão de nota tem um intervalo fixo que você define, de 1 a 365 dias."],
+        ["É grátis?", "Sim. Sem anúncios, sem assinatura e open source com licença MIT."],
+        ["Tem app para iPhone?", "O Loopky está no Android agora. O app de iOS já está pronto e chega em breve."]
+      ]
+    },
+    "language-learning": {
+      "title": "Flashcards para idiomas com áudio e fala · Loopky",
+      "desc": "Flashcards de idiomas grátis que leem cada palavra em voz alta, conferem sua pronúncia e trazem as cartas de volta com repetição espaçada. 35 idiomas e Anki.",
+      "crumb": "Idiomas",
+      "card": "Quem aprende idiomas",
+      "blurb": "Ouça cada palavra, repita e guarde de vez.",
+      "eyebrow": "Para quem aprende idiomas",
+      "h1": "Flashcards que falam com você",
+      "lead": "Ouça cada palavra, fale em voz alta e deixe a repetição espaçada trazer tudo de volta pouco antes de você esquecer.",
+      "heroAlt": "Uma carta de estudo com os botões Ouvir e Falar",
+      "features": [
+        { "t": "Ouvir", "d": "Cada carta é lida em voz alta no próprio idioma." },
+        { "t": "Falar", "d": "Diga a resposta e o Loopky confere sua pronúncia." },
+        { "t": "Digitar", "d": "Digite a resposta para treinar ortografia e acentos." },
+        { "t": "Nos dois sentidos", "d": "Cartas invertidas treinam do idioma e para o idioma." }
+      ],
+      "sections": [
+        { "h": "35 idiomas e variantes", "p": "Cada lado do baralho tem seu próprio idioma, do japonês ao português do Brasil. As vozes vêm do seu celular, e as gravações nunca são guardadas.", "alt": "Dando nota a uma carta, cada botão mostrando a próxima revisão" },
+        { "h": "Um baralho de vocabulário em um minuto", "p": "Cole uma lista de palavras das suas anotações ou de uma planilha. O Loopky acha o separador e monta as cartas. Ou peça para uma IA escrever o baralho.", "alt": "Colando uma lista de palavras no Loopky" },
+        { "h": "Baralhos feitos por outros estudantes", "p": "A aba Descobrir lista baralhos públicos por idioma e tópico. Siga um, ou clone e deixe do seu jeito.", "alt": "A aba Descobrir num tablet" }
+      ],
+      "faq": [
+        ["O Loopky confere minha pronúncia?", "Sim. O modo Falar usa o reconhecimento de voz do aparelho para avaliar a resposta. O Loopky não guarda nem envia a gravação."],
+        ["Serve para japonês, chinês ou coreano?", "Sim. Os três têm suporte para ouvir e falar, e o modo Digitar funciona com o teclado do celular."],
+        ["Qual a diferença para o Duolingo?", "O Duolingo ensina um curso fixo. No Loopky você escolhe ou cria os baralhos, e a repetição espaçada decide quando cada carta volta."]
+      ]
+    },
+    "medical-students": {
+      "title": "Flashcards para estudantes de medicina · Loopky",
+      "desc": "Flashcards grátis com repetição espaçada para estudantes de medicina. Importe baralhos do Anki com imagens e cloze, estude no celular ou tablet e compartilhe.",
+      "crumb": "Estudantes de medicina",
+      "card": "Estudantes de medicina",
+      "blurb": "Seus baralhos da faculdade, com imagens e cloze.",
+      "eyebrow": "Para estudantes de medicina",
+      "h1": "Flashcards de medicina no celular e no tablet",
+      "lead": "Traga seus baralhos do Anki com imagens e cloze, revise entre as aulas e encurte todos os intervalos antes das provas.",
+      "heroAlt": "Um baralho num tablet, com as estatísticas ao lado da lista de cartas",
+      "features": [
+        { "t": "Imagens e cloze", "d": "Cartas de anatomia, histologia e ECG mantêm as imagens. Cada lacuna de cloze vira uma carta." },
+        { "t": "Intervalos que você define", "d": "Encurte Bom e Fácil antes de uma prova e o baralho inteiro fica mais apertado." },
+        { "t": "Cartas das anotações de aula", "d": "Um agente de IA pode transformar suas anotações em baralho pela linha de comando." },
+        { "t": "Compartilhe com a turma", "d": "Mande um link. Os colegas seguem ou clonam uma cópia só deles." }
+      ],
+      "sections": [
+        { "h": "Cada botão mostra a data real", "p": "De novo, Difícil, Bom e Fácil mostram quando a carta volta. Não há limite de revisões por dia.", "alt": "Dando nota a uma carta, cada botão mostrando a próxima revisão", "table": "intervals" },
+        { "h": "Cartas grandes em tela grande", "p": "Cartas cheias de imagens ficam melhores no tablet, com os botões de nota bem ao lado da carta.", "alt": "Dando nota a uma carta num tablet" }
+      ],
+      "faq": [
+        ["Posso usar meus baralhos do Anki da faculdade?", "Sim. Exporte como .apkg com mídia. Texto, imagens e cloze vêm junto; áudio e histórico de revisões, não."],
+        ["O Loopky usa FSRS?", "Não. Os intervalos são fixos por botão e você define. Se você depende do FSRS para reter por anos, o Anki é mais forte nisso."],
+        ["Meus baralhos são privados?", "Não. Os baralhos no Loopky são públicos. Nunca coloque dados de pacientes numa carta."],
+        ["É grátis?", "Sim. Sem anúncios e sem assinatura."]
+      ]
+    },
+    "teachers": {
+      "title": "Flashcards para professores e grupos de estudo · Loopky",
+      "desc": "Crie um baralho de flashcards uma vez e compartilhe com a turma por um link. Os alunos seguem ou clonam e estudam com repetição espaçada. Grátis, sem anúncios nem rastreio.",
+      "crumb": "Professores e grupos de estudo",
+      "card": "Professores e grupos de estudo",
+      "blurb": "Publique um baralho uma vez e mande um link.",
+      "eyebrow": "Para professores e grupos de estudo",
+      "h1": "Um baralho, um link, a turma toda",
+      "lead": "Publique um baralho de flashcards uma vez. Os alunos abrem o link e estudam com repetição espaçada no próprio celular.",
+      "heroAlt": "Um baralho compartilhado com suas cartas, estatísticas e tópicos",
+      "features": [
+        { "t": "Compartilhe um link", "d": "Todo baralho tem um link da web que abre no app." },
+        { "t": "Seguir ou clonar", "d": "Quem segue recebe suas edições. Quem clona ganha uma cópia que pode mudar." },
+        { "t": "Ouvir e falar", "d": "Baralhos de idiomas leem em voz alta e conferem a pronúncia." },
+        { "t": "Sem anúncios, sem rastreio", "d": "Sem analytics e sem coleta de dados dos alunos." }
+      ],
+      "sections": [
+        { "h": "Monte o baralho do seu jeito", "p": "Digite as cartas, cole uma lista de uma planilha, importe um arquivo do Anki ou peça para uma IA escrever.", "alt": "Colando uma lista de cartas no Loopky" },
+        { "h": "Seu perfil é o seu curso", "p": "Seu perfil lista todos os baralhos que você publica, então um link cobre o semestre inteiro.", "alt": "Um perfil do Loopky num tablet" }
+      ],
+      "faq": [
+        ["Os alunos precisam de e-mail?", "Não. Eles entram com uma chave Pubky ou criam uma conta no app."],
+        ["Consigo ver o progresso dos alunos?", "Não. O progresso é de cada aluno, e não existe painel do professor."],
+        ["Alunos com iPhone podem participar?", "Já podem abrir a página do baralho no navegador e vão poder estudar quando o app de iOS sair."]
+      ]
+    },
+    "ai-flashcards": {
+      "title": "Crie flashcards com IA: Claude, ChatGPT e Gemini · Loopky",
+      "desc": "Deixe uma IA escrever e publicar seu baralho de flashcards. A CLI do Loopky, com saída JSON e simulações, é feita para Claude, ChatGPT, Gemini e outros agentes.",
+      "crumb": "Flashcards feitos por IA",
+      "card": "Flashcards feitos por IA",
+      "blurb": "O Claude, o ChatGPT ou o Gemini escrevem o baralho para você.",
+      "eyebrow": "Criador de flashcards com IA",
+      "h1": "Deixe sua IA escrever os flashcards",
+      "lead": "Diga ao Claude, ChatGPT ou Gemini o que você quer aprender. Ele escreve as cartas e publica o baralho no seu celular.",
+      "heroAlt": "",
+      "features": [
+        { "t": "Qualquer fonte", "d": "Um capítulo, anotações de aula, uma lista de palavras ou um episódio de série." },
+        { "t": "Simulação primeiro", "d": "Cada carta é conferida antes de qualquer coisa ser gravada." },
+        { "t": "Permissões restritas", "d": "Ele gerencia baralhos. Nunca pode postar, seguir ou editar seu perfil." },
+        { "t": "JSON em tudo", "d": "Os agentes leem resultados reais em vez de adivinhar." }
+      ],
+      "promptH": "O prompt",
+      "promptP": "Cole isto no seu agente de IA e preencha o tema. Você aprova o login no celular.",
+      "sections": [
+        { "h": "Depois é só estudar no celular", "p": "O baralho aparece no Loopky, pronto para a repetição espaçada, com áudio nos baralhos de idiomas. Revise as cartas escritas por IA para achar erros.", "alt": "O baralho pronto no Loopky" },
+        { "h": "Um arquivo, qualquer computador", "p": "Windows, macOS e Linux, além de Homebrew, pacote .deb e Docker. Sem Java, sem configuração.", "link": "Ler a documentação da CLI" }
+      ],
+      "faq": [
+        ["Preciso saber programar?", "Não. Cole o prompt num agente de IA com terminal, como Claude Code, Codex ou Gemini CLI. Ele roda os comandos."],
+        ["A IA pode importar meus baralhos do Anki?", "Sim. loopky import deck.apkg importa um pacote do Anki, e --dry-run mostra o resultado antes."],
+        ["O que a ferramenta não faz?", "Ela não posta, não segue pessoas e não edita seu perfil. Só gerencia baralhos e cartas."]
+      ]
+    },
+    "spaced-repetition": {
+      "title": "O que é repetição espaçada? Um guia simples · Loopky",
+      "desc": "Repetição espaçada de forma simples: a curva do esquecimento, por que se testar funciona, como o Loopky agenda as cartas e como escrever flashcards que ficam.",
+      "crumb": "Repetição espaçada",
+      "card": "O que é repetição espaçada?",
+      "blurb": "Como funciona e como escrever cartas que ficam na memória.",
+      "eyebrow": "Guia",
+      "h1": "O que é repetição espaçada?",
+      "lead": "Revise cada carta pouco antes de esquecer, um pouco mais tarde a cada vez. Dez minutos por dia bastam.",
+      "heroAlt": "Dando nota a uma carta, cada botão mostrando a próxima revisão",
+      "features": [
+        { "t": "A curva do esquecimento", "d": "A memória some rápido depois que você aprende. Cada revisão desacelera isso." },
+        { "t": "O efeito do espaçamento", "d": "Sessões curtas ao longo de muitos dias rendem mais que uma maratona de estudo." },
+        { "t": "O efeito do teste", "d": "Lembrar uma resposta fixa mais do que reler." }
+      ],
+      "sections": [
+        { "h": "Como o Loopky agenda uma carta", "p": "Dê uma nota para você mesmo depois de cada carta. Cada botão mostra exatamente quando a carta volta.", "alt": "A tela Hoje do Loopky com a fila do dia", "table": "intervals" },
+        { "h": "Cartas que ficam na memória", "p": "Boas cartas são pequenas e específicas.", "points": ["Um fato por carta", "Faça uma pergunta, não afirme um fato", "Acrescente uma frase ou uma imagem", "Dê notas honestas"], "alt": "As cartas de um baralho, um fato em cada" }
+      ],
+      "faq": [
+        ["Quantas cartas devo estudar por dia?", "Comece com 10 a 20 cartas novas e todas as revisões pendentes. A meta padrão do Loopky é 20 cartas novas."],
+        ["É melhor que reler as anotações?", "Sim. Pesquisas sobre espaçamento e teste mostram que lembrar em intervalos espaçados ganha de reler e de estudar tudo na véspera."],
+        ["Que algoritmo o Loopky usa?", "Intervalos fixos por botão: menos de 10 minutos, depois 1, 3 e 7 dias por padrão, cada um ajustável até 365."]
+      ]
+    },
+    "compare": {
+      "title": "Loopky, Anki ou Quizlet: qual app de flashcards usar · Loopky",
+      "desc": "Loopky, Anki e Quizlet lado a lado: preço, agendamento, importação do Anki, áudio e fala, compartilhamento e uso offline, com uma escolha para cada tipo de estudante.",
+      "crumb": "Comparar",
+      "card": "Loopky, Anki ou Quizlet?",
+      "blurb": "Qual app de flashcards combina com cada estudante.",
+      "eyebrow": "Comparação",
+      "h1": "Loopky, Anki ou Quizlet?",
+      "lead": "O que cada um faz de melhor e qual combina com o seu jeito de aprender.",
+      "heroAlt": "A tela Hoje do Loopky num tablet",
+      "features": [
+        { "t": "Escolha o Loopky", "d": "Grátis e sem anúncios, com prática de fala, compartilhamento por link, baralhos feitos por IA, e seus baralhos do Anki vêm junto." },
+        { "t": "Fique no Anki", "d": "Se você depende de FSRS, estudo totalmente offline, arquivos de áudio, LaTeX ou modelos personalizados." },
+        { "t": "Escolha o Quizlet", "d": "Se sua turma já usa e você quer mais jogos do que repetição espaçada." }
+      ],
+      "table": {
+        "h": "Lado a lado",
+        "head": ["", "Loopky", "Anki", "Quizlet"],
+        "rows": [
+          ["Preço", "Grátis, sem anúncios", "Grátis; app pago no iPhone", "Grátis com anúncios; plano pago"],
+          ["Abre baralhos do Anki", "Sim", "Sim", "Não"],
+          ["Agendamento", "Intervalos fixos que você define", "FSRS ou SM-2", "Modos de estudo"],
+          ["Lê as cartas em voz alta", "Sim, 35 idiomas", "Com configuração", "Sim"],
+          ["Checagem de pronúncia", "Sim", "Com add-ons", "Não é o foco"],
+          ["Compartilhar por link", "Sim", "Baralhos compartilhados no AnkiWeb", "Sim"],
+          ["Estudo totalmente offline", "Não", "Sim", "Limitado"],
+          ["Open source", "Sim", "Sim", "Não"]
+        ],
+        "note": "Os outros apps mudam com o tempo. Confira os sites deles para ver os preços atuais."
+      },
+      "sections": [
+        { "h": "Vindo do Anki?", "p": "Exporte cada baralho como .apkg e abra no Loopky. Texto, imagens e cloze vêm junto, e telas grandes ganham layout em dois painéis.", "alt": "A biblioteca de baralhos do Loopky num tablet" }
+      ],
+      "faq": [
+        ["O Loopky é melhor que o Anki?", "Para muita gente, sim. É mais simples, grátis no celular e já traz prática de fala e compartilhamento. O Anki tem FSRS, estudo totalmente offline, áudio e LaTeX."],
+        ["Qual é uma alternativa grátis ao Quizlet?", "O Loopky é grátis, sem anúncios e sem plano pago, e usa repetição espaçada."],
+        ["Como sair do Anki?", "Exporte cada baralho do Anki como .apkg com mídia e importe no Loopky. O histórico de revisões começa do zero."]
+      ]
+    },
+    "faq": {
+      "title": "Loopky, perguntas frequentes: preço, Anki, privacidade e login",
+      "desc": "Respostas sobre o Loopky, app de flashcards grátis: preço, Android e iOS, tablets, importação do Anki, repetição espaçada, voz, compartilhamento, privacidade e login.",
+      "crumb": "Perguntas frequentes",
+      "card": "Perguntas e respostas",
+      "blurb": "Preço, plataformas, privacidade, Anki e login.",
+      "eyebrow": "Perguntas frequentes",
+      "h1": "Perguntas sobre o Loopky",
+      "lead": "Quanto custa, onde roda, o que importa e para onde vão seus dados.",
+      "heroAlt": "A tela Hoje do Loopky com a fila do dia",
+      "faq": [
+        ["O que é o Loopky?", "Um app de flashcards grátis com repetição espaçada. Você cria ou importa baralhos, estuda alguns minutos por dia, e cada carta volta pouco antes de você esquecer."],
+        ["É grátis mesmo?", "Sim. Sem preço, sem assinatura, sem anúncios e sem compras no app. O código é open source com licença MIT."],
+        ["Onde ele roda?", "Android 10 ou mais recente, em celulares e tablets. O app de iOS chega em breve. No computador, uma ferramenta de linha de comando gerencia os baralhos."],
+        ["Posso importar baralhos do Anki?", "Sim: .apkg com texto, imagens e cloze, além de .txt, .csv e listas coladas. Áudio, LaTeX e histórico de revisões não são importados."],
+        ["Como ele agenda as cartas?", "Intervalos fixos por botão: menos de 10 minutos para De novo, depois 1, 3 e 7 dias por padrão, cada um ajustável até 365."],
+        ["Ele lê as cartas em voz alta?", "Sim, em 35 idiomas e variantes, e o modo Falar confere sua pronúncia."],
+        ["Posso compartilhar baralhos?", "Sim. Publique um baralho e compartilhe o link. Outras pessoas podem seguir ou clonar."],
+        ["Meus baralhos são privados?", "Não. Baralhos publicados são públicos e aparecem na busca. Seu progresso de estudo fica sob a sua própria chave."],
+        ["Como eu entro?", "Com uma chave Pubky pelo app Pubky Ring, ou criando uma conta no app. Sem e-mail nem senha."],
+        ["O Loopky me rastreia?", "Não. Sem analytics, sem telemetria, sem relatórios de falha, sem anúncios."],
+        ["Funciona offline?", "Em parte. Revisões feitas offline são salvas e enviadas depois, mas carregar baralhos precisa de conexão."],
+        ["Uma IA pode criar baralhos para mim?", "Sim. A ferramenta de linha de comando é feita para agentes de IA como Claude, ChatGPT e Gemini."]
+      ]
+    }
+  }
+}

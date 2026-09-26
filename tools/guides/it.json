@@ -1,0 +1,270 @@
+{
+  "ui": {
+    "skip": "Vai al contenuto",
+    "lang": "Lingua",
+    "get": "Scarica l’app",
+    "play": "Scarica su Google Play",
+    "ios": "iOS in arrivo",
+    "free": "Gratis. Senza pubblicità. Open source.",
+    "faq": "Domande",
+    "more": "Altro su Loopky",
+    "ctaSub": "Bastano pochi minuti al giorno.",
+    "home": "Home",
+    "source": "Codice sorgente",
+    "privacy": "Privacy",
+    "note": "Costruita su Pubky. Licenza MIT.",
+    "ogAlt": "Loopky, un’app di flashcard gratuita con ripetizione dilazionata",
+    "yes": "Sì",
+    "no": "No",
+    "intervals": {
+      "head": ["Pulsante", "Prossimo ripasso", "Si può impostare"],
+      "rows": [
+        ["Ancora", "Meno di 10 minuti", "No"],
+        ["Difficile", "1 giorno", "Da 1 a 365 giorni"],
+        ["Bene", "3 giorni", "Da 1 a 365 giorni"],
+        ["Facile", "7 giorni", "Da 1 a 365 giorni"]
+      ]
+    }
+  },
+  "pages": {
+    "anki-alternative": {
+      "title": "Alternativa gratuita ad Anki che importa i mazzi .apkg · Loopky",
+      "desc": "Passa da Anki a Loopky, app di flashcard gratuita. Importa mazzi .apkg con immagini e cloze, con sintesi vocale, controllo della pronuncia e condivisione, senza add-on.",
+      "crumb": "Alternativa ad Anki",
+      "card": "Se arrivi da Anki",
+      "blurb": "Porta i tuoi mazzi .apkg e dimentica gli add-on.",
+      "eyebrow": "Per chi usa Anki",
+      "h1": "Passa da Anki e tieni i tuoi mazzi",
+      "lead": "Loopky apre i tuoi file .apkg e aggiunge ascolto, pronuncia, condivisione e carte scritte dall’IA. Niente add-on, niente costi.",
+      "heroAlt": "La libreria dei mazzi di Loopky con il pulsante Importa da Anki",
+      "features": [
+        { "t": "I tuoi mazzi vengono con te", "d": "Testo, immagini e cloze si importano da file .apkg, .txt e .csv." },
+        { "t": "Niente add-on", "d": "Sintesi vocale e controllo della pronuncia sono inclusi, in 35 lingue." },
+        { "t": "Condividi con un link", "d": "Pubblica un mazzo e chiunque può seguirlo o clonarlo." },
+        { "t": "Tablet e computer", "d": "Layout a due pannelli sui tablet e uno strumento da riga di comando per lavorare sui mazzi in blocco." }
+      ],
+      "sections": [
+        { "h": "Fatta per schermi grandi", "p": "Sul tablet Loopky usa veri layout a due pannelli: la coda di oggi accanto ai mazzi, un mazzo accanto alle sue carte. Tablet Android ora, iPad con l’app iOS.", "alt": "La libreria dei mazzi di Loopky su un tablet, larga quattro colonne" },
+        { "h": "Gestisci i mazzi dal computer", "p": "Lo strumento da riga di comando di Loopky funziona su Windows, macOS e Linux.", "points": ["Crea, modifica ed elimina mazzi", "Aggiungi, modifica e rimuovi carte in blocco", "Importa file .apkg e TSV dal disco", "Usalo in uno script, o lascia fare a un agente IA"] },
+        { "h": "Sposta un mazzo in un minuto", "p": "In Anki esporta il mazzo come .apkg con i media. Aprilo in Loopky e scegli i campi fronte e retro. Hai solo una lista? Incollala.", "alt": "Una lista di parole incollata in Loopky, con il separatore rilevato" }
+      ],
+      "table": {
+        "h": "Cosa arriva da Anki",
+        "head": ["Da Anki", "In Loopky"],
+        "rows": [
+          ["Testo e campi", "Sì, scegli tu fronte e retro"],
+          ["Immagini", "Sì"],
+          ["Cloze", "Sì, una carta per ogni cloze"],
+          ["Carte inverse", "Sì"],
+          ["Audio", "No, usa la sintesi vocale integrata"],
+          ["LaTeX", "Mostrato come sorgente"],
+          ["Cronologia dei ripassi", "No, le carte ripartono da zero"]
+        ],
+        "note": "File .anki21b più recenti: esporta di nuovo con \"Support older Anki versions\" (supporta versioni meno recenti di Anki) spuntato."
+      },
+      "faq": [
+        ["Loopky può sostituire del tutto Anki?", "Per la maggior parte di chi studia, sì. Controlla prima se ti servono file audio, LaTeX, modelli di carta personalizzati o FSRS."],
+        ["Loopky usa FSRS?", "No. Ogni pulsante di voto ha un intervallo fisso che imposti tu, da 1 a 365 giorni."],
+        ["È gratis?", "Sì. Senza pubblicità, senza abbonamento e open source con licenza MIT."],
+        ["C’è un’app per iPhone?", "Loopky è su Android ora. L’app iOS è pronta e arriva presto."]
+      ]
+    },
+    "language-learning": {
+      "title": "Flashcard per imparare le lingue, con audio e pronuncia · Loopky",
+      "desc": "Flashcard gratuite per le lingue: leggono ogni parola, controllano la pronuncia e usano la ripetizione dilazionata. 35 lingue, import da Anki, mazzi condivisi.",
+      "crumb": "Imparare le lingue",
+      "card": "Chi studia le lingue",
+      "blurb": "Ascolta ogni parola, ripetila, tienila per sempre.",
+      "eyebrow": "Per chi studia le lingue",
+      "h1": "Flashcard che ti rispondono",
+      "lead": "Ascolta ogni parola, dilla ad alta voce e lascia che la ripetizione dilazionata te la riproponga poco prima che tu la dimentichi.",
+      "heroAlt": "Una carta di studio con i pulsanti Ascolta e Parla",
+      "features": [
+        { "t": "Ascolta", "d": "Ogni carta viene letta ad alta voce nella sua lingua." },
+        { "t": "Parla", "d": "Di’ la risposta e Loopky controlla la pronuncia." },
+        { "t": "Scrivi", "d": "Scrivi la risposta per esercitare ortografia e accenti." },
+        { "t": "In entrambe le direzioni", "d": "Le carte inverse ti allenano dalla lingua e verso la lingua." }
+      ],
+      "sections": [
+        { "h": "35 lingue e varianti", "p": "Ogni lato di un mazzo ha la sua lingua, dal giapponese al portoghese brasiliano. Le voci sono quelle del telefono e le registrazioni non vengono mai salvate.", "alt": "Voto a una carta, ogni pulsante mostra il prossimo ripasso" },
+        { "h": "Un mazzo di vocaboli in un minuto", "p": "Incolla una lista di parole dai tuoi appunti o da un foglio di calcolo. Loopky trova il separatore e crea le carte. Oppure chiedi a un’IA di scrivere il mazzo.", "alt": "Una lista di parole incollata in Loopky" },
+        { "h": "Mazzi creati da altri studenti", "p": "Scopri elenca i mazzi pubblici per lingua e argomento. Seguine uno, o clonalo e rendilo tuo.", "alt": "La scheda Scopri su un tablet" }
+      ],
+      "faq": [
+        ["Loopky controlla la mia pronuncia?", "Sì. La modalità Parla usa il riconoscimento vocale del dispositivo per valutare la risposta. Loopky non salva né carica la registrazione."],
+        ["Va bene per giapponese, cinese o coreano?", "Sì. Tutte e tre sono supportate per ascolto e pronuncia, e la modalità Scrivi funziona con la tastiera del telefono."],
+        ["In cosa è diverso da Duolingo?", "Duolingo insegna un corso fisso. In Loopky scegli o crei tu i mazzi, e la ripetizione dilazionata decide quando torna ogni carta."]
+      ]
+    },
+    "medical-students": {
+      "title": "Flashcard per studenti di medicina · Loopky",
+      "desc": "Flashcard gratuite con ripetizione dilazionata per studenti di medicina. Importa i mazzi Anki con immagini e cloze, studia su telefono o tablet, condividi con il corso.",
+      "crumb": "Studenti di medicina",
+      "card": "Studenti di medicina",
+      "blurb": "I tuoi mazzi di medicina, con immagini e cloze.",
+      "eyebrow": "Per studenti di medicina",
+      "h1": "Flashcard di medicina su telefono e tablet",
+      "lead": "Porta i tuoi mazzi Anki con immagini e cloze, ripassa tra una lezione e l’altra e stringi ogni intervallo prima degli esami.",
+      "heroAlt": "Un mazzo su un tablet, con le statistiche accanto all’elenco completo delle carte",
+      "features": [
+        { "t": "Immagini e cloze", "d": "Le carte di anatomia, istologia ed ECG mantengono le immagini. Ogni cloze diventa una carta." },
+        { "t": "Intervalli decisi da te", "d": "Accorcia Bene e Facile prima di un esame e tutto il mazzo si stringe." },
+        { "t": "Carte dagli appunti", "d": "Un agente IA può trasformare i tuoi appunti in un mazzo tramite la riga di comando." },
+        { "t": "Condividi con il corso", "d": "Invia un link. I compagni lo seguono o clonano una copia tutta loro." }
+      ],
+      "sections": [
+        { "h": "Ogni pulsante mostra la data vera", "p": "Ancora, Difficile, Bene e Facile mostrano ciascuno quando torna la carta. Non c’è un limite ai ripassi giornalieri.", "alt": "Voto a una carta, ogni pulsante mostra il prossimo ripasso", "table": "intervals" },
+        { "h": "Carte grandi su uno schermo grande", "p": "Le carte piene di immagini si leggono meglio su un tablet, con i pulsanti di voto proprio accanto alla carta.", "alt": "Voto a una carta su un tablet" }
+      ],
+      "faq": [
+        ["Posso usare i miei mazzi Anki di medicina?", "Sì. Esportali come .apkg con i media. Testo, immagini e cloze arrivano; audio e cronologia dei ripassi no."],
+        ["Loopky usa FSRS?", "No. Gli intervalli sono fissi per pulsante e li imposti tu. Se ti affidi a FSRS per ricordare per anni, lì Anki è più forte."],
+        ["I miei mazzi sono privati?", "No. I mazzi su Loopky sono pubblici. Non mettere mai dati dei pazienti su una carta."],
+        ["È gratis?", "Sì. Senza pubblicità e senza abbonamento."]
+      ]
+    },
+    "teachers": {
+      "title": "Flashcard per insegnanti, tutor e gruppi di studio · Loopky",
+      "desc": "Crea un mazzo di flashcard una volta e condividilo con la classe con un solo link. Gli studenti lo seguono o lo clonano. Gratis, senza pubblicità, senza tracciamento.",
+      "crumb": "Insegnanti e gruppi di studio",
+      "card": "Insegnanti e gruppi di studio",
+      "blurb": "Pubblica un mazzo una volta e invia un solo link.",
+      "eyebrow": "Per insegnanti e gruppi di studio",
+      "h1": "Un mazzo, un link, tutta la classe",
+      "lead": "Pubblica un mazzo di flashcard una volta. Gli studenti aprono il link e lo studiano con la ripetizione dilazionata sul proprio telefono.",
+      "heroAlt": "Un mazzo condiviso con le sue carte, statistiche e argomenti",
+      "features": [
+        { "t": "Condividi un link", "d": "Ogni mazzo ha un link web che si apre nell’app." },
+        { "t": "Segui o clona", "d": "Chi segue riceve le tue modifiche. Chi clona ha una copia da modificare." },
+        { "t": "Ascolto e pronuncia", "d": "I mazzi di lingue leggono ad alta voce e controllano la pronuncia." },
+        { "t": "Senza pubblicità, senza tracciamento", "d": "Nessuna statistica di utilizzo e nessun dato degli studenti raccolto." }
+      ],
+      "sections": [
+        { "h": "Costruisci il mazzo come vuoi", "p": "Scrivi le carte, incolla una lista da un foglio di calcolo, importa un file Anki o falle scrivere a un’IA.", "alt": "Una lista di carte incollata in Loopky" },
+        { "h": "Il tuo profilo è il tuo corso", "p": "Il tuo profilo elenca ogni mazzo che pubblichi, così un solo link copre tutto il periodo.", "alt": "Un profilo Loopky su un tablet" }
+      ],
+      "faq": [
+        ["Gli studenti hanno bisogno di un account email?", "No. Entrano con una chiave Pubky, o creano un account nell’app."],
+        ["Posso vedere i progressi dei miei studenti?", "No. I progressi appartengono a ogni studente e non c’è un pannello per l’insegnante."],
+        ["Possono partecipare gli studenti con iPhone?", "Possono già aprire la pagina del mazzo nel browser, e studiarlo quando uscirà l’app iOS."]
+      ]
+    },
+    "ai-flashcards": {
+      "title": "Crea flashcard con l’IA: Claude, ChatGPT e Gemini · Loopky",
+      "desc": "Lascia che un agente IA scriva e pubblichi il tuo mazzo. La CLI di Loopky, con output JSON e prove a vuoto, è fatta per Claude, ChatGPT, Gemini e altri agenti.",
+      "crumb": "Flashcard create con l’IA",
+      "card": "Flashcard create con l’IA",
+      "blurb": "Claude, ChatGPT o Gemini scrivono il mazzo per te.",
+      "eyebrow": "Flashcard con l’IA",
+      "h1": "Lascia che la tua IA scriva le flashcard",
+      "lead": "Di’ a Claude, ChatGPT o Gemini cosa vuoi imparare. Scrive le carte e pubblica il mazzo sul tuo telefono.",
+      "heroAlt": "",
+      "features": [
+        { "t": "Qualsiasi fonte", "d": "Un capitolo, appunti di lezione, una lista di parole o un episodio di una serie." },
+        { "t": "Prima una prova a vuoto", "d": "Ogni carta viene controllata prima di scrivere qualsiasi cosa." },
+        { "t": "Permessi limitati", "d": "Gestisce i mazzi. Non può mai postare, seguire o modificare il tuo profilo." },
+        { "t": "JSON ovunque", "d": "Gli agenti leggono risultati veri invece di tirare a indovinare." }
+      ],
+      "promptH": "Il prompt",
+      "promptP": "Incollalo nel tuo agente IA e inserisci l’argomento. Approvi l’accesso dal telefono.",
+      "sections": [
+        { "h": "Poi studialo sul telefono", "p": "Il mazzo compare in Loopky, pronto per la ripetizione dilazionata, con l’audio per i mazzi di lingue. Controlla che le carte scritte dall’IA non abbiano errori.", "alt": "Il mazzo finito in Loopky" },
+        { "h": "Un solo file, ogni computer", "p": "Windows, macOS e Linux, più Homebrew, un pacchetto .deb e Docker. Niente Java, niente configurazione.", "link": "Leggi la documentazione della CLI" }
+      ],
+      "faq": [
+        ["Devo saper programmare?", "No. Incolla il prompt in un agente IA con un terminale, come Claude Code, Codex o Gemini CLI. È lui a eseguire i comandi."],
+        ["L’IA può importare i miei mazzi Anki?", "Sì. loopky import deck.apkg importa un pacchetto Anki, e --dry-run mostra prima il risultato."],
+        ["Cosa non può fare lo strumento?", "Non può postare, seguire persone o modificare il tuo profilo. Gestisce solo mazzi e carte."]
+      ]
+    },
+    "spaced-repetition": {
+      "title": "Cos’è la ripetizione dilazionata? Una guida semplice · Loopky",
+      "desc": "La ripetizione dilazionata spiegata in modo semplice: la curva dell’oblio, perché mettersi alla prova funziona, come Loopky pianifica le carte e come scriverle bene.",
+      "crumb": "Ripetizione dilazionata",
+      "card": "Cos’è la ripetizione dilazionata?",
+      "blurb": "Come funziona, e come scrivere carte che restano.",
+      "eyebrow": "Guida",
+      "h1": "Cos’è la ripetizione dilazionata?",
+      "lead": "Ripassa ogni carta poco prima di dimenticarla, ogni volta un po’ più tardi. Bastano dieci minuti al giorno.",
+      "heroAlt": "Voto a una carta, ogni pulsante mostra il prossimo ripasso",
+      "features": [
+        { "t": "La curva dell’oblio", "d": "Dopo aver imparato, la memoria svanisce in fretta. Ogni ripasso la rallenta." },
+        { "t": "L’effetto di spaziatura", "d": "Sessioni brevi distribuite su molti giorni battono una lunga maratona di studio." },
+        { "t": "L’effetto test", "d": "Richiamare una risposta la rafforza più che rileggerla." }
+      ],
+      "sections": [
+        { "h": "Come Loopky pianifica una carta", "p": "Datti un voto dopo ogni carta. Ogni pulsante mostra esattamente quando torna la carta.", "alt": "La schermata Oggi di Loopky con la coda del giorno", "table": "intervals" },
+        { "h": "Carte che restano", "p": "Le carte buone sono piccole e precise.", "points": ["Un fatto per carta", "Fai una domanda, non enunciare un fatto", "Aggiungi una frase o un’immagine", "Datti voti onesti"], "alt": "Le carte di un mazzo, un fatto ciascuna" }
+      ],
+      "faq": [
+        ["Quante carte dovrei studiare al giorno?", "Inizia con 10 o 20 carte nuove più tutti i ripassi in scadenza. L’obiettivo predefinito di Loopky è 20 carte nuove."],
+        ["È meglio che rileggere gli appunti?", "Sì. La ricerca su spaziatura e test mostra che richiamare a intervalli distanziati batte rileggere e studiare tutto all’ultimo."],
+        ["Che algoritmo usa Loopky?", "Intervalli fissi per pulsante: meno di 10 minuti, poi 1, 3 e 7 giorni per impostazione predefinita, ognuno regolabile fino a 365."]
+      ]
+    },
+    "compare": {
+      "title": "Loopky, Anki o Quizlet: quale app di flashcard usare · Loopky",
+      "desc": "Loopky, Anki e Quizlet a confronto: prezzo, pianificazione, import da Anki, audio e pronuncia, condivisione e uso offline, con una scelta per ogni tipo di studente.",
+      "crumb": "Confronto",
+      "card": "Loopky, Anki o Quizlet?",
+      "blurb": "Quale app di flashcard per quale studente.",
+      "eyebrow": "Confronto",
+      "h1": "Loopky, Anki o Quizlet?",
+      "lead": "In cosa è più forte ciascuna, e quale si adatta al tuo modo di imparare.",
+      "heroAlt": "La schermata Oggi di Loopky su un tablet",
+      "features": [
+        { "t": "Scegli Loopky", "d": "Gratis e senza pubblicità, pratica di pronuncia, condivisione con un link, mazzi creati con l’IA, e i tuoi mazzi Anki vengono con te." },
+        { "t": "Resta su Anki", "d": "Se dipendi da FSRS, dallo studio completamente offline, da file audio, LaTeX o modelli personalizzati." },
+        { "t": "Scegli Quizlet", "d": "Se la tua classe lo usa già e vuoi più giochi che ripetizione dilazionata." }
+      ],
+      "table": {
+        "h": "Fianco a fianco",
+        "head": ["", "Loopky", "Anki", "Quizlet"],
+        "rows": [
+          ["Prezzo", "Gratis, senza pubblicità", "Gratis; app a pagamento su iPhone", "Gratis con pubblicità; piano a pagamento"],
+          ["Apre i mazzi Anki", "Sì", "Sì", "No"],
+          ["Pianificazione", "Intervalli fissi decisi da te", "FSRS o SM-2", "Modalità di studio"],
+          ["Legge le carte ad alta voce", "Sì, 35 lingue", "Con configurazione", "Sì"],
+          ["Controllo della pronuncia", "Sì", "Con add-on", "Non è una funzione principale"],
+          ["Condivisione con un link", "Sì", "Mazzi condivisi su AnkiWeb", "Sì"],
+          ["Studio completamente offline", "No", "Sì", "Limitato"],
+          ["Open source", "Sì", "Sì", "No"]
+        ],
+        "note": "Le altre app cambiano nel tempo. Controlla i loro siti per i prezzi attuali."
+      },
+      "sections": [
+        { "h": "Passi da Anki?", "p": "Esporta ogni mazzo come .apkg e aprilo in Loopky. Testo, immagini e cloze arrivano, e sugli schermi grandi hai layout a due pannelli.", "alt": "La libreria dei mazzi di Loopky su un tablet" }
+      ],
+      "faq": [
+        ["Loopky è meglio di Anki?", "Per molti, sì. È più semplice, gratis sul telefono, e ha pratica di pronuncia e condivisione integrate. Anki ha FSRS, studio completamente offline, audio e LaTeX."],
+        ["Qual è un’alternativa gratuita a Quizlet?", "Loopky è gratis, senza pubblicità e senza piani a pagamento, e usa la ripetizione dilazionata."],
+        ["Come passo da Anki?", "Esporta ogni mazzo da Anki come .apkg con i media e importalo in Loopky. La cronologia dei ripassi riparte da zero."]
+      ]
+    },
+    "faq": {
+      "title": "Loopky FAQ: prezzo, import da Anki, privacy e accesso",
+      "desc": "Risposte su Loopky, l’app di flashcard gratuita: prezzo, Android e iOS, tablet, import da Anki, ripetizione dilazionata, sintesi vocale, condivisione, privacy e accesso.",
+      "crumb": "Domande frequenti",
+      "card": "Domande e risposte",
+      "blurb": "Prezzo, piattaforme, privacy, Anki e accesso.",
+      "eyebrow": "Domande frequenti",
+      "h1": "Domande su Loopky",
+      "lead": "Quanto costa, dove funziona, cosa importa e dove vanno i tuoi dati.",
+      "heroAlt": "La schermata Oggi di Loopky con la coda del giorno",
+      "faq": [
+        ["Cos’è Loopky?", "Un’app di flashcard gratuita con ripetizione dilazionata. Crei o importi mazzi, studi pochi minuti al giorno e ogni carta torna poco prima che tu la dimentichi."],
+        ["È davvero gratis?", "Sì. Nessun prezzo, nessun abbonamento, nessuna pubblicità e nessun acquisto in app. Il codice è open source con licenza MIT."],
+        ["Dove funziona?", "Android 10 e successivi, su telefoni e tablet. L’app iOS è in arrivo. Sul computer, uno strumento da riga di comando gestisce i mazzi."],
+        ["Posso importare mazzi Anki?", "Sì: .apkg con testo, immagini e cloze, più .txt, .csv e liste incollate. Audio, LaTeX e cronologia dei ripassi non vengono importati."],
+        ["Come pianifica le carte?", "Intervalli fissi per pulsante: meno di 10 minuti per Ancora, poi 1, 3 e 7 giorni per impostazione predefinita, ognuno regolabile fino a 365."],
+        ["Può leggere le carte ad alta voce?", "Sì, in 35 lingue e varianti, e la modalità Parla controlla la tua pronuncia."],
+        ["Posso condividere i mazzi?", "Sì. Pubblica un mazzo e condividi il suo link. Gli altri possono seguirlo o clonarlo."],
+        ["I miei mazzi sono privati?", "No. I mazzi pubblicati sono pubblici e ricercabili. I tuoi progressi di studio restano sotto la tua chiave."],
+        ["Come accedo?", "Con una chiave Pubky tramite l’app Pubky Ring, o creando un account nell’app. Niente email né password."],
+        ["Loopky mi traccia?", "No. Nessuna statistica di utilizzo, nessuna telemetria, nessun report sui crash, nessuna pubblicità."],
+        ["Funziona offline?", "In parte. I ripassi offline vengono salvati e inviati dopo, ma per caricare i mazzi serve una connessione."],
+        ["Un’IA può creare mazzi per me?", "Sì. Lo strumento da riga di comando è fatto per agenti IA come Claude, ChatGPT e Gemini."]
+      ]
+    }
+  }
+}

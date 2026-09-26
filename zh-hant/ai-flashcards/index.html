@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky</title>
+<meta name="description" content="讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/zh-hant/ai-flashcards/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://loopky.app/zh-hant/ai-flashcards/">
+<meta property="og:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky">
+<meta property="og:description" content="讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky">
+<meta name="twitter:description" content="讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/zh-hant/ai-flashcards/#page",
+      "headline": "讓你的 AI 來寫記憶卡",
+      "name": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky",
+      "description": "讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。",
+      "url": "https://loopky.app/zh-hant/ai-flashcards/",
+      "inLanguage": "zh-Hant",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=zh-Hant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI 製作的記憶卡",
+          "item": "https://loopky.app/zh-hant/ai-flashcards/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/zh-hant/ai-flashcards/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "我需要會寫程式嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不需要。把提示詞貼到能用終端機的 AI 代理裡，例如 Claude Code、Codex 或 Gemini CLI。指令由它來執行。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI 能匯入我的 Anki 牌組嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "能。loopky import deck.apkg 會匯入 Anki 牌組套件，加上 --dry-run 可以先看結果。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "這個工具不能做什麼？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "它不能發文、追蹤別人或修改你的個人資料。它只管理牌組和卡片。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳至內容</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=zh-Hant">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">語言</span>
+        <select id="lang-select">
+          <option value="../../ai-flashcards/" data-lang="en">English</option>
+          <option value="../../pt-br/ai-flashcards/" data-lang="pt-BR">Português</option>
+          <option value="../../es/ai-flashcards/" data-lang="es">Español</option>
+          <option value="../../fr/ai-flashcards/" data-lang="fr">Français</option>
+          <option value="../../de/ai-flashcards/" data-lang="de">Deutsch</option>
+          <option value="../../it/ai-flashcards/" data-lang="it">Italiano</option>
+          <option value="../../ja/ai-flashcards/" data-lang="ja">日本語</option>
+          <option value="../../ko/ai-flashcards/" data-lang="ko">한국어</option>
+          <option value="../../vi/ai-flashcards/" data-lang="vi">Tiếng Việt</option>
+          <option value="../../zh-hans/ai-flashcards/" data-lang="zh-Hans">简体中文</option>
+          <option value="../../zh-hant/ai-flashcards/" data-lang="zh-Hant" selected>繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">取得應用程式</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in ghero-wide">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=zh-Hant">Loopky</a></li>
+          <li aria-current="page">AI 製作的記憶卡</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">AI 記憶卡製作</p>
+      <h1>讓你的 AI 來寫記憶卡</h1>
+      <p class="lead">告訴 Claude、ChatGPT 或 Gemini 你想學什麼。它會寫好卡片，把牌組發布到你的手機上。</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 取得</a>
+        <span class="soon">iOS 版即將推出</span>
+      </div>
+      <p class="fineprint">免費。沒有廣告。開源。</p>
+    </div>
+    <div class="ghero-art">
+      <div class="cli-box cli-hero" aria-hidden="true"><div class="cli-bar"><span>loopky</span></div><pre><code><span class="c"># Your AI agent runs these for you</span>
+<span class="p">$</span> loopky login
+<span class="p">$</span> loopky deck create --title &quot;Spanish verbs&quot; \
+    --from-file cards.tsv --dry-run --json
+<span class="p">$</span> loopky deck create --title &quot;Spanish verbs&quot; \
+    --tag spanish --from-file cards.tsv \
+    --front-lang es-ES --back-lang en-US --listen --speak
+<span class="c"># Open Loopky on your phone and start studying</span></code></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat n4">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📝</span>
+        <h2 class="h3">任何素材</h2>
+        <p>一個章節、上課筆記、一份單字表，或一集影集。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">🧪</span>
+        <h2 class="h3">先試執行</h2>
+        <p>寫入任何內容前，每張卡片都會先檢查一遍。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🔒</span>
+        <h2 class="h3">權限很窄</h2>
+        <p>它只管理牌組，永遠無法發文、追蹤或修改你的個人資料。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-green" aria-hidden="true">🧾</span>
+        <h2 class="h3">全部是 JSON</h2>
+        <p>代理讀取真實結果，不用靠猜。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>提示詞</h2>
+      <p>把這段貼到你的 AI 代理裡，填上主題。登入由你在手機上確認。</p>
+    </div>
+    <div class="split-art">
+      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+
+Topic: &lt;WHAT I WANT TO LEARN&gt;
+Cards: &lt;HOW MANY&gt;
+
+Steps:
+1. Install the CLI if it is missing:
+   curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
+   Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
+2. Read the command surface first: loopky commands --json
+3. Log in: loopky login
+   It prints a QR code. I approve it in Pubky Ring on my phone.
+4. Write the cards to cards.tsv, one card per line:
+   front &lt;TAB&gt; back
+   Two more columns are optional: an https image URL for each side.
+5. Check before you write anything:
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
+6. Publish it:
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
+   Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
+7. Show me the result: loopky deck show &lt;deckId&gt; --json
+
+I already have an Anki file? Import it instead:
+   loopky import deck.apkg --dry-run --json
+   loopky import deck.apkg --title &quot;&lt;TITLE&gt;&quot;
+
+Rules:
+- Every command takes --json, and the result sits under &quot;data&quot;.
+- Always run --dry-run before a command that writes.
+- Image URLs must be https, and no SVG or TIFF. Those do not render.
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>然後在手機上學習</h2>
+      <p>牌組會出現在 Loopky 裡，可以直接用間隔重複學習，語言牌組還有語音。AI 寫的卡片請檢查一下有沒有錯誤。</p>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-deck.webp" width="540" height="1200" alt="Loopky 裡做好的牌組" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split split-solo">
+    <div class="split-copy">
+      <h2>一個檔案，所有電腦</h2>
+      <p>支援 Windows、macOS 和 Linux，還有 Homebrew、.deb 套件和 Docker。不用 Java，不用設定。</p>
+      <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">查看 CLI 文件</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="questions">
+  <div class="wrap">
+    <h2>常見問題</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>我需要會寫程式嗎？</summary>
+        <p>不需要。把提示詞貼到能用終端機的 AI 代理裡，例如 Claude Code、Codex 或 Gemini CLI。指令由它來執行。</p>
+      </details>
+      <details class="card">
+        <summary>AI 能匯入我的 Anki 牌組嗎？</summary>
+        <p>能。loopky import deck.apkg 會匯入 Anki 牌組套件，加上 --dry-run 可以先看結果。</p>
+      </details>
+      <details class="card">
+        <summary>這個工具不能做什麼？</summary>
+        <p>它不能發文、追蹤別人或修改你的個人資料。它只管理牌組和卡片。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>每天幾分鐘就夠了。</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 取得</a>
+      <span class="soon soon-invert">iOS 版即將推出</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>更多關於 Loopky</h2>
+    <nav class="guide-links" aria-label="更多關於 Loopky">
+      <a class="card" href="../../zh-hant/anki-alternative/">從 Anki 轉過來<span>帶上你的 .apkg 牌組，不再需要外掛。</span></a>
+      <a class="card" href="../../zh-hant/language-learning/">語言學習者<span>聽每個詞，跟著說，牢牢記住。</span></a>
+      <a class="card" href="../../zh-hant/medical-students/">醫學生<span>你的醫學院牌組，圖片和克漏字都在。</span></a>
+      <a class="card" href="../../zh-hant/teachers/">老師和讀書會<span>發布一次牌組，傳一個連結。</span></a>
+      <a class="card" href="../../zh-hant/spaced-repetition/">什麼是間隔重複？<span>原理是什麼，以及如何寫出記得住的卡片。</span></a>
+      <a class="card" href="../../zh-hant/compare/">Loopky、Anki 還是 Quizlet？<span>哪個記憶卡應用程式適合哪類學習者。</span></a>
+      <a class="card" href="../../zh-hant/faq/">問題與解答<span>價格、平台、隱私、Anki 和登入。</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=zh-Hant">首頁</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">原始碼</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">隱私</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">基於 Pubky 打造。MIT 授權。</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>

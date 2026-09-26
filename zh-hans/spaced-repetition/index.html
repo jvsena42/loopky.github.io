@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>什么是间隔重复？简明指南 · Loopky</title>
+<meta name="description" content="用简单的话讲清间隔重复：遗忘曲线、为什么自测有效、Loopky 如何安排卡片，以及如何写出记得住的记忆卡。">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/zh-hans/spaced-repetition/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:url" content="https://loopky.app/zh-hans/spaced-repetition/">
+<meta property="og:title" content="什么是间隔重复？简明指南 · Loopky">
+<meta property="og:description" content="用简单的话讲清间隔重复：遗忘曲线、为什么自测有效、Loopky 如何安排卡片，以及如何写出记得住的记忆卡。">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky，一款免费的间隔重复记忆卡应用">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="什么是间隔重复？简明指南 · Loopky">
+<meta name="twitter:description" content="用简单的话讲清间隔重复：遗忘曲线、为什么自测有效、Loopky 如何安排卡片，以及如何写出记得住的记忆卡。">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky，一款免费的间隔重复记忆卡应用">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/zh-hans/spaced-repetition/#page",
+      "headline": "什么是间隔重复？",
+      "name": "什么是间隔重复？简明指南 · Loopky",
+      "description": "用简单的话讲清间隔重复：遗忘曲线、为什么自测有效、Loopky 如何安排卡片，以及如何写出记得住的记忆卡。",
+      "url": "https://loopky.app/zh-hans/spaced-repetition/",
+      "inLanguage": "zh-Hans",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=zh-Hans"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "间隔重复",
+          "item": "https://loopky.app/zh-hans/spaced-repetition/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/zh-hans/spaced-repetition/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "每天应该学多少张卡片？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "先从 10 到 20 张新卡片开始，再加上所有到期的复习。Loopky 默认的目标是每天 20 张新卡片。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "比重读笔记更好吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的。关于间隔和测试的研究表明，按间隔回想胜过重读和突击。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Loopky 用的是什么算法？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "每个按钮固定间隔：默认为 10 分钟以内，然后是 1 天、3 天和 7 天，每个都可以调到最长 365 天。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=zh-Hans">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">语言</span>
+        <select id="lang-select">
+          <option value="../../spaced-repetition/" data-lang="en">English</option>
+          <option value="../../pt-br/spaced-repetition/" data-lang="pt-BR">Português</option>
+          <option value="../../es/spaced-repetition/" data-lang="es">Español</option>
+          <option value="../../fr/spaced-repetition/" data-lang="fr">Français</option>
+          <option value="../../de/spaced-repetition/" data-lang="de">Deutsch</option>
+          <option value="../../it/spaced-repetition/" data-lang="it">Italiano</option>
+          <option value="../../ja/spaced-repetition/" data-lang="ja">日本語</option>
+          <option value="../../ko/spaced-repetition/" data-lang="ko">한국어</option>
+          <option value="../../vi/spaced-repetition/" data-lang="vi">Tiếng Việt</option>
+          <option value="../../zh-hans/spaced-repetition/" data-lang="zh-Hans" selected>简体中文</option>
+          <option value="../../zh-hant/spaced-repetition/" data-lang="zh-Hant">繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">获取应用</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=zh-Hans">Loopky</a></li>
+          <li aria-current="page">间隔重复</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">指南</p>
+      <h1>什么是间隔重复？</h1>
+      <p class="lead">在你快要忘记之前复习每张卡片，每次都隔得更久一点。每天十分钟就够了。</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 获取</a>
+        <span class="soon">iOS 版即将推出</span>
+      </div>
+      <p class="fineprint">免费。没有广告。开源。</p>
+    </div>
+    <div class="ghero-art">
+      <img class="shot" src="../../assets/img/guides/phone-answer.webp" width="540" height="1200" alt="给卡片评分，每个按钮显示下次复习时间" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📉</span>
+        <h2 class="h3">遗忘曲线</h2>
+        <p>学完之后，记忆消退得很快。每次复习都能让它慢下来。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">📅</span>
+        <h2 class="h3">间隔效应</h2>
+        <p>分散在多天的短时学习，胜过一次长时间突击。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🧠</span>
+        <h2 class="h3">测试效应</h2>
+        <p>回想答案比重读一遍更能加深记忆。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Loopky 如何安排一张卡片</h2>
+      <p>每张卡片学完后给自己评分。每个按钮都会显示卡片确切的回来时间。</p>
+      <div class="card dtable-wrap">
+        <table class="dtable">
+          <thead><tr><th scope="col">按钮</th><th scope="col">下次复习</th><th scope="col">可否调整</th></tr></thead>
+          <tbody>
+          <tr><td>重来</td><td>10 分钟以内</td><td>否</td></tr>
+          <tr><td>困难</td><td>1 天</td><td>1 到 365 天</td></tr>
+          <tr><td>良好</td><td>3 天</td><td>1 到 365 天</td></tr>
+          <tr><td>简单</td><td>7 天</td><td>1 到 365 天</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/shot-today.webp" width="540" height="1200" alt="Loopky 的「今天」页面和每日队列" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-rev">
+    <div class="split-copy">
+      <h2>记得住的卡片</h2>
+      <p>好的卡片小而具体。</p>
+      <ul class="ticks">
+        <li>一张卡片只记一个知识点</li>
+        <li>提一个问题，而不是陈述事实</li>
+        <li>加一个例句或一张图片</li>
+        <li>诚实地给自己评分</li>
+      </ul>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-deck.webp" width="540" height="1200" alt="一个卡组的卡片，每张一个知识点" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <h2>常见问题</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>每天应该学多少张卡片？</summary>
+        <p>先从 10 到 20 张新卡片开始，再加上所有到期的复习。Loopky 默认的目标是每天 20 张新卡片。</p>
+      </details>
+      <details class="card">
+        <summary>比重读笔记更好吗？</summary>
+        <p>是的。关于间隔和测试的研究表明，按间隔回想胜过重读和突击。</p>
+      </details>
+      <details class="card">
+        <summary>Loopky 用的是什么算法？</summary>
+        <p>每个按钮固定间隔：默认为 10 分钟以内，然后是 1 天、3 天和 7 天，每个都可以调到最长 365 天。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>每天几分钟就够了。</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 获取</a>
+      <span class="soon soon-invert">iOS 版即将推出</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>更多关于 Loopky</h2>
+    <nav class="guide-links" aria-label="更多关于 Loopky">
+      <a class="card" href="../../zh-hans/anki-alternative/">从 Anki 转过来<span>带上你的 .apkg 卡组，不再需要插件。</span></a>
+      <a class="card" href="../../zh-hans/language-learning/">语言学习者<span>听每个词，跟着说，牢牢记住。</span></a>
+      <a class="card" href="../../zh-hans/medical-students/">医学生<span>你的医学院卡组，图片和填空都在。</span></a>
+      <a class="card" href="../../zh-hans/teachers/">老师和学习小组<span>发布一次卡组，发一个链接。</span></a>
+      <a class="card" href="../../zh-hans/ai-flashcards/">AI 制作的记忆卡<span>让 Claude、ChatGPT 或 Gemini 替你写卡组。</span></a>
+      <a class="card" href="../../zh-hans/compare/">Loopky、Anki 还是 Quizlet？<span>哪个记忆卡应用适合哪类学习者。</span></a>
+      <a class="card" href="../../zh-hans/faq/">问题与解答<span>价格、平台、隐私、Anki 和登录。</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=zh-Hans">首页</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">源代码</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">隐私</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">基于 Pubky 构建。MIT 许可。</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>

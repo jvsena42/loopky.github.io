@@ -1,0 +1,270 @@
+{
+  "ui": {
+    "skip": "Skip to content",
+    "lang": "Language",
+    "get": "Get the app",
+    "play": "Get it on Google Play",
+    "ios": "iOS coming soon",
+    "free": "Free. No ads. Open source.",
+    "faq": "Questions",
+    "more": "More about Loopky",
+    "ctaSub": "A few minutes a day is enough.",
+    "home": "Home",
+    "source": "Source code",
+    "privacy": "Privacy",
+    "note": "Built on Pubky. MIT licensed.",
+    "ogAlt": "Loopky, a free flashcards app with spaced repetition",
+    "yes": "Yes",
+    "no": "No",
+    "intervals": {
+      "head": ["Button", "Next review", "You can set it"],
+      "rows": [
+        ["Again", "Under 10 minutes", "No"],
+        ["Hard", "1 day", "1 to 365 days"],
+        ["Good", "3 days", "1 to 365 days"],
+        ["Easy", "7 days", "1 to 365 days"]
+      ]
+    }
+  },
+  "pages": {
+    "anki-alternative": {
+      "title": "Free Anki alternative that imports your .apkg decks · Loopky",
+      "desc": "Switch from Anki to Loopky, a free flashcards app. Import .apkg decks with images and cloze, and get text to speech, pronunciation checks and deck sharing without add-ons.",
+      "crumb": "Anki alternative",
+      "card": "Coming from Anki",
+      "blurb": "Bring your .apkg decks and leave the add-ons behind.",
+      "eyebrow": "For Anki users",
+      "h1": "Switch from Anki and keep your decks",
+      "lead": "Loopky opens your .apkg files, then adds listening, speaking, sharing and AI written cards. No add-ons, no cost.",
+      "heroAlt": "Loopky's deck library with the Import from Anki button",
+      "features": [
+        { "t": "Your decks come along", "d": "Text, images and cloze deletions import from .apkg, .txt and .csv files." },
+        { "t": "No add-ons needed", "d": "Text to speech and a pronunciation check are built in, in 35 languages." },
+        { "t": "Share by link", "d": "Publish a deck and anyone can follow it or clone it." },
+        { "t": "Tablet and desktop", "d": "Two-pane layouts on tablets, and a command line tool for bulk deck work." }
+      ],
+      "sections": [
+        { "h": "Made for big screens", "p": "On a tablet, Loopky uses real two-pane layouts: today's queue beside your decks, a deck beside its cards. Android tablets now, iPad with the iOS app.", "alt": "Loopky's deck library on a tablet, four columns wide" },
+        { "h": "Manage decks from your computer", "p": "The Loopky command line tool runs on Windows, macOS and Linux.", "points": ["Create, edit and delete decks", "Add, edit and remove cards in bulk", "Import .apkg and TSV files from disk", "Script it, or let an AI agent do it"] },
+        { "h": "Move a deck in a minute", "p": "In Anki, export the deck as .apkg with media. Open it in Loopky and pick the front and back fields. Only have a list? Paste it.", "alt": "Pasting a word list into Loopky, with the separator detected" }
+      ],
+      "table": {
+        "h": "What comes over from Anki",
+        "head": ["From Anki", "In Loopky"],
+        "rows": [
+          ["Text and fields", "Yes, you pick the front and back"],
+          ["Images", "Yes"],
+          ["Cloze deletions", "Yes, one card per deletion"],
+          ["Reversed cards", "Yes"],
+          ["Audio", "No, use built in text to speech"],
+          ["LaTeX", "Shown as source"],
+          ["Review history", "No, cards start fresh"]
+        ],
+        "note": "Newest .anki21b files: export again with \"Support older Anki versions\" ticked."
+      },
+      "faq": [
+        ["Can Loopky fully replace Anki?", "For most learners, yes. Check first if you rely on audio files, LaTeX, custom card templates or FSRS."],
+        ["Does Loopky use FSRS?", "No. Each grade button has a fixed interval that you set, from 1 to 365 days."],
+        ["Is it free?", "Yes. No ads, no subscription, and open source under the MIT license."],
+        ["Is there an iPhone app?", "Loopky is on Android now. The iOS app is built and coming soon."]
+      ]
+    },
+    "language-learning": {
+      "title": "Language learning flashcards with audio and speaking · Loopky",
+      "desc": "Free language flashcards that read each word aloud, check your pronunciation, and bring cards back with spaced repetition. 35 languages, Anki import, shared decks.",
+      "crumb": "Language learning",
+      "card": "Language learners",
+      "blurb": "Hear each word, say it back, keep it for good.",
+      "eyebrow": "For language learners",
+      "h1": "Flashcards that talk back",
+      "lead": "Hear every word, say it out loud, and let spaced repetition bring it back right before you forget.",
+      "heroAlt": "A study card with Listen and Speak buttons",
+      "features": [
+        { "t": "Listen", "d": "Every card is read aloud in its own language." },
+        { "t": "Speak", "d": "Say the answer and Loopky checks your pronunciation." },
+        { "t": "Type", "d": "Type the answer to practise spelling and accents." },
+        { "t": "Both directions", "d": "Reverse cards train you from and into the language." }
+      ],
+      "sections": [
+        { "h": "35 languages and variants", "p": "Each side of a deck has its own language, from Japanese to Brazilian Portuguese. The voices come from your phone, and recordings are never stored.", "alt": "Grading a card, each button showing its next review" },
+        { "h": "A vocabulary deck in a minute", "p": "Paste a word list from your notes or a spreadsheet. Loopky finds the separator and makes the cards. Or ask an AI to write the deck.", "alt": "Pasting a word list into Loopky" },
+        { "h": "Decks other learners made", "p": "Discover lists public decks by language and topic. Follow one, or clone it and make it yours.", "alt": "The Discover tab on a tablet" }
+      ],
+      "faq": [
+        ["Does Loopky check my pronunciation?", "Yes. Speak mode uses your device's speech recognition to grade the answer. Loopky does not store or upload the recording."],
+        ["Is it good for Japanese, Chinese or Korean?", "Yes. All three are supported for listening and speaking, and Type mode works with your phone's keyboard."],
+        ["How is it different from Duolingo?", "Duolingo teaches a fixed course. In Loopky you choose or build the decks, and spaced repetition decides when each card returns."]
+      ]
+    },
+    "medical-students": {
+      "title": "Flashcards for medical students and med school · Loopky",
+      "desc": "Free spaced repetition flashcards for medical students. Import your Anki decks with images and cloze, study on phone or tablet, and share decks with your class.",
+      "crumb": "Medical students",
+      "card": "Medical students",
+      "blurb": "Your med school decks, with images and cloze.",
+      "eyebrow": "For medical students",
+      "h1": "Med school flashcards on your phone and tablet",
+      "lead": "Bring your Anki decks with their images and cloze, review between lectures, and tighten every interval before exams.",
+      "heroAlt": "A deck on a tablet, its stats beside the full card list",
+      "features": [
+        { "t": "Images and cloze", "d": "Anatomy, histology and ECG cards keep their pictures. Cloze becomes one card per deletion." },
+        { "t": "Intervals you set", "d": "Shorten Good and Easy before an exam and the whole deck tightens." },
+        { "t": "Cards from lecture notes", "d": "An AI agent can turn your notes into a deck through the command line." },
+        { "t": "Share with your class", "d": "Send one link. Classmates follow it or clone their own copy." }
+      ],
+      "sections": [
+        { "h": "Every button shows the real date", "p": "Again, Hard, Good and Easy each show when the card comes back. There is no cap on daily reviews.", "alt": "Grading a card, each button showing its next review", "table": "intervals" },
+        { "h": "Big cards on a big screen", "p": "Image-heavy cards read best on a tablet, with the grade buttons right beside the card.", "alt": "Grading a card on a tablet" }
+      ],
+      "faq": [
+        ["Can I use my med school Anki decks?", "Yes. Export them as .apkg with media. Text, images and cloze come across; audio and review history do not."],
+        ["Does Loopky use FSRS?", "No. Intervals are fixed per button and you set them. If you rely on FSRS for years-long retention, Anki is stronger there."],
+        ["Are my decks private?", "No. Decks on Loopky are public. Never put patient information on a card."],
+        ["Is it free?", "Yes. No ads and no subscription."]
+      ]
+    },
+    "teachers": {
+      "title": "Flashcards for teachers, tutors and study groups · Loopky",
+      "desc": "Make a flashcard deck once and share it with your class through one link. Students follow it or clone it and study with spaced repetition. Free, no ads, no tracking.",
+      "crumb": "Teachers and study groups",
+      "card": "Teachers and study groups",
+      "blurb": "Publish a deck once and send one link.",
+      "eyebrow": "For teachers and study groups",
+      "h1": "One deck, one link, the whole class",
+      "lead": "Publish a flashcard deck once. Students open the link and study it with spaced repetition on their own phones.",
+      "heroAlt": "A shared deck with its cards, stats and topics",
+      "features": [
+        { "t": "Share one link", "d": "Every deck has a web link that opens in the app." },
+        { "t": "Follow or clone", "d": "Following gets your edits. Cloning gives students a copy they can change." },
+        { "t": "Listening and speaking", "d": "Language decks read aloud and check pronunciation." },
+        { "t": "No ads, no tracking", "d": "No analytics, and no student data collected." }
+      ],
+      "sections": [
+        { "h": "Build the deck your way", "p": "Type the cards, paste a list from a spreadsheet, import an Anki file, or have an AI write them.", "alt": "Pasting a list of cards into Loopky" },
+        { "h": "Your profile is your course", "p": "Your profile lists every deck you publish, so one link covers the whole term.", "alt": "A Loopky profile on a tablet" }
+      ],
+      "faq": [
+        ["Do students need an email account?", "No. They sign in with a Pubky key, or create an account in the app."],
+        ["Can I see my students' progress?", "No. Progress belongs to each student, and there is no teacher dashboard."],
+        ["Can students on iPhone join?", "They can open the deck page in a browser now, and study it once the iOS app is out."]
+      ]
+    },
+    "ai-flashcards": {
+      "title": "Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky",
+      "desc": "Let an AI agent write and publish your flashcard deck. Loopky's command line tool, with JSON output and dry runs, is built for Claude, ChatGPT, Gemini and other agents.",
+      "crumb": "Flashcards made by AI",
+      "card": "Flashcards made by AI",
+      "blurb": "Claude, ChatGPT or Gemini write the deck for you.",
+      "eyebrow": "AI flashcard maker",
+      "h1": "Let your AI write the flashcards",
+      "lead": "Tell Claude, ChatGPT or Gemini what you want to learn. It writes the cards and publishes the deck to your phone.",
+      "heroAlt": "",
+      "features": [
+        { "t": "Any source", "d": "A chapter, lecture notes, a word list or a TV episode." },
+        { "t": "Dry runs first", "d": "Every card is checked before anything is written." },
+        { "t": "Narrow permissions", "d": "It manages decks. It can never post, follow or edit your profile." },
+        { "t": "JSON everywhere", "d": "Agents read real results instead of guessing." }
+      ],
+      "promptH": "The prompt",
+      "promptP": "Paste this into your AI agent and fill in the topic. You approve the login on your phone.",
+      "sections": [
+        { "h": "Then study it on your phone", "p": "The deck shows up in Loopky, ready for spaced repetition, with audio for language decks. Check AI written cards for mistakes.", "alt": "The finished deck in Loopky" },
+        { "h": "One file, every computer", "p": "Windows, macOS and Linux, plus Homebrew, a .deb package and Docker. No Java, no setup.", "link": "Read the CLI docs" }
+      ],
+      "faq": [
+        ["Do I need to know how to code?", "No. Paste the prompt into an AI agent with a terminal, such as Claude Code, Codex or Gemini CLI. It runs the commands."],
+        ["Can the AI import my Anki decks?", "Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first."],
+        ["What can the tool not do?", "It cannot post, follow people or edit your profile. It only manages decks and cards."]
+      ]
+    },
+    "spaced-repetition": {
+      "title": "What is spaced repetition? A plain guide · Loopky",
+      "desc": "Spaced repetition explained simply: the forgetting curve, why testing yourself works, how Loopky schedules cards, and how to write flashcards you will remember.",
+      "crumb": "Spaced repetition",
+      "card": "What is spaced repetition?",
+      "blurb": "How it works, and how to write cards that stick.",
+      "eyebrow": "Guide",
+      "h1": "What is spaced repetition?",
+      "lead": "Review each card right before you would forget it, a little later each time. Ten minutes a day is enough.",
+      "heroAlt": "Grading a card, each button showing its next review",
+      "features": [
+        { "t": "The forgetting curve", "d": "Memory fades fast after learning. Each review slows it down." },
+        { "t": "The spacing effect", "d": "Short sessions over many days beat one long cram." },
+        { "t": "The testing effect", "d": "Recalling an answer strengthens it more than rereading it." }
+      ],
+      "sections": [
+        { "h": "How Loopky schedules a card", "p": "Grade yourself after each card. Every button shows exactly when the card comes back.", "alt": "Loopky's Today screen with the daily queue", "table": "intervals" },
+        { "h": "Cards that stick", "p": "Good cards are small and specific.", "points": ["One fact per card", "Ask a question, do not state a fact", "Add a sentence or a picture", "Grade yourself honestly"], "alt": "A deck's cards, one fact each" }
+      ],
+      "faq": [
+        ["How many cards should I study a day?", "Start with 10 to 20 new cards and all your due reviews. Loopky's default goal is 20 new cards."],
+        ["Is it better than rereading notes?", "Yes. Research on spacing and testing shows recall at spaced intervals beats rereading and cramming."],
+        ["What algorithm does Loopky use?", "Fixed intervals per button: under 10 minutes, then 1, 3 and 7 days by default, each adjustable up to 365."]
+      ]
+    },
+    "compare": {
+      "title": "Loopky vs Anki vs Quizlet: which flashcard app to use · Loopky",
+      "desc": "Loopky, Anki and Quizlet side by side: price, scheduling, Anki import, audio and speaking practice, sharing and offline use, with a pick for each kind of learner.",
+      "crumb": "Compare",
+      "card": "Loopky, Anki or Quizlet?",
+      "blurb": "Which flashcard app fits which learner.",
+      "eyebrow": "Comparison",
+      "h1": "Loopky, Anki or Quizlet?",
+      "lead": "What each one does best, and which one fits the way you learn.",
+      "heroAlt": "Loopky's Today screen on a tablet",
+      "features": [
+        { "t": "Pick Loopky", "d": "Free with no ads, speaking practice, sharing by link, AI built decks, and your Anki decks come along." },
+        { "t": "Stay with Anki", "d": "If you depend on FSRS, full offline study, audio files, LaTeX or custom templates." },
+        { "t": "Pick Quizlet", "d": "If your class already uses it and you want games more than spaced repetition." }
+      ],
+      "table": {
+        "h": "Side by side",
+        "head": ["", "Loopky", "Anki", "Quizlet"],
+        "rows": [
+          ["Price", "Free, no ads", "Free; paid app on iPhone", "Free with ads; paid plan"],
+          ["Opens Anki decks", "Yes", "Yes", "No"],
+          ["Scheduling", "Fixed intervals you set", "FSRS or SM-2", "Study modes"],
+          ["Reads cards aloud", "Yes, 35 languages", "With setup", "Yes"],
+          ["Pronunciation check", "Yes", "With add-ons", "Not a core feature"],
+          ["Share by link", "Yes", "AnkiWeb shared decks", "Yes"],
+          ["Full offline study", "No", "Yes", "Limited"],
+          ["Open source", "Yes", "Yes", "No"]
+        ],
+        "note": "Other apps change over time. Check their own sites for current prices."
+      },
+      "sections": [
+        { "h": "Switching from Anki?", "p": "Export each deck as .apkg and open it in Loopky. Text, images and cloze come across, and big screens get two-pane layouts.", "alt": "Loopky's deck library on a tablet" }
+      ],
+      "faq": [
+        ["Is Loopky better than Anki?", "For many learners. It is simpler, free on the phone, and has speaking practice and sharing built in. Anki has FSRS, full offline study, audio and LaTeX."],
+        ["What is a free alternative to Quizlet?", "Loopky is free with no ads and no paid tier, and it uses spaced repetition."],
+        ["How do I switch from Anki?", "Export each deck from Anki as .apkg with media and import it in Loopky. Review history starts fresh."]
+      ]
+    },
+    "faq": {
+      "title": "Loopky FAQ: price, Anki import, privacy and sign in",
+      "desc": "Answers about Loopky, the free flashcards app: price, Android and iOS, tablets, Anki import, spaced repetition, text to speech, sharing, privacy and sign in.",
+      "crumb": "FAQ",
+      "card": "Questions and answers",
+      "blurb": "Price, platforms, privacy, Anki and sign in.",
+      "eyebrow": "FAQ",
+      "h1": "Questions about Loopky",
+      "lead": "What it costs, where it runs, what it imports, and where your data goes.",
+      "heroAlt": "Loopky's Today screen with the daily queue",
+      "faq": [
+        ["What is Loopky?", "A free flashcards app with spaced repetition. You make or import decks, study a few minutes a day, and each card comes back right before you forget it."],
+        ["Is it really free?", "Yes. No price, no subscription, no ads and no in-app purchases. The code is open source under MIT."],
+        ["Where does it run?", "Android 10 and later, on phones and tablets. The iOS app is coming soon. On computers, a command line tool manages decks."],
+        ["Can I import Anki decks?", "Yes: .apkg with text, images and cloze, plus .txt, .csv and pasted lists. Audio, LaTeX and review history are not imported."],
+        ["How does it schedule cards?", "Fixed intervals per button: under 10 minutes for Again, then 1, 3 and 7 days by default, each adjustable up to 365."],
+        ["Can it read cards aloud?", "Yes, in 35 languages and variants, and Speak mode checks your pronunciation."],
+        ["Can I share decks?", "Yes. Publish a deck and share its link. Others can follow it or clone it."],
+        ["Are my decks private?", "No. Published decks are public and searchable. Your study progress stays under your own key."],
+        ["How do I sign in?", "With a Pubky key through the Pubky Ring app, or by creating an account in the app. No email or password."],
+        ["Does Loopky track me?", "No. No analytics, no telemetry, no crash reporting, no ads."],
+        ["Does it work offline?", "Partly. Offline reviews are saved and sent later, but loading decks needs a connection."],
+        ["Can an AI make decks for me?", "Yes. The command line tool is built for AI agents like Claude, ChatGPT and Gemini."]
+      ]
+    }
+  }
+}

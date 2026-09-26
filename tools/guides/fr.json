@@ -1,0 +1,615 @@
+{
+  "ui": {
+    "skip": "Aller au contenu",
+    "lang": "Langue",
+    "get": "Télécharger l’appli",
+    "play": "Télécharger sur Google Play",
+    "ios": "iOS bientôt",
+    "free": "Gratuit. Sans pub. Open source.",
+    "faq": "Questions",
+    "more": "En savoir plus sur Loopky",
+    "ctaSub": "Quelques minutes par jour suffisent.",
+    "home": "Accueil",
+    "source": "Code source",
+    "privacy": "Confidentialité",
+    "note": "Construit sur Pubky. Licence MIT.",
+    "ogAlt": "Loopky, une appli de flashcards gratuite avec répétition espacée",
+    "yes": "Oui",
+    "no": "Non",
+    "intervals": {
+      "head": [
+        "Bouton",
+        "Prochaine révision",
+        "Réglable"
+      ],
+      "rows": [
+        [
+          "Encore",
+          "Moins de 10 minutes",
+          "Non"
+        ],
+        [
+          "Difficile",
+          "1 jour",
+          "De 1 à 365 jours"
+        ],
+        [
+          "Bien",
+          "3 jours",
+          "De 1 à 365 jours"
+        ],
+        [
+          "Facile",
+          "7 jours",
+          "De 1 à 365 jours"
+        ]
+      ]
+    }
+  },
+  "pages": {
+    "anki-alternative": {
+      "title": "Alternative gratuite à Anki qui importe vos .apkg · Loopky",
+      "desc": "Passez d’Anki à Loopky, une appli de flashcards gratuite. Importez vos .apkg avec images et textes à trous. Synthèse vocale, prononciation, partage, sans extensions.",
+      "crumb": "Alternative à Anki",
+      "card": "Vous venez d’Anki",
+      "blurb": "Apportez vos paquets .apkg et oubliez les extensions.",
+      "eyebrow": "Pour les utilisateurs d’Anki",
+      "h1": "Quittez Anki et gardez vos paquets",
+      "lead": "Loopky ouvre vos fichiers .apkg, puis ajoute l’écoute, l’oral, le partage et des cartes écrites par l’IA. Sans extensions, sans frais.",
+      "heroAlt": "La bibliothèque de paquets de Loopky avec le bouton Importer depuis Anki",
+      "features": [
+        {
+          "t": "Vos paquets vous suivent",
+          "d": "Le texte, les images et les textes à trous s’importent depuis des fichiers .apkg, .txt et .csv."
+        },
+        {
+          "t": "Aucune extension",
+          "d": "La synthèse vocale et la vérification de prononciation sont intégrées, en 35 langues."
+        },
+        {
+          "t": "Partage par lien",
+          "d": "Publiez un paquet : tout le monde peut le suivre ou le cloner."
+        },
+        {
+          "t": "Tablette et ordinateur",
+          "d": "Affichage sur deux volets sur tablette, et un outil en ligne de commande pour gérer les paquets en masse."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Pensé pour les grands écrans",
+          "p": "Sur tablette, Loopky affiche deux volets : la file du jour à côté de vos paquets, un paquet à côté de ses cartes. Tablettes Android dès maintenant, iPad avec l’appli iOS.",
+          "alt": "La bibliothèque de paquets de Loopky sur tablette, sur quatre colonnes"
+        },
+        {
+          "h": "Gérez vos paquets depuis l’ordinateur",
+          "p": "L’outil en ligne de commande de Loopky fonctionne sous Windows, macOS et Linux.",
+          "points": [
+            "Créer, modifier et supprimer des paquets",
+            "Ajouter, modifier et retirer des cartes en masse",
+            "Importer des fichiers .apkg et TSV depuis le disque",
+            "L’automatiser, ou le confier à un agent IA"
+          ]
+        },
+        {
+          "h": "Un paquet transféré en une minute",
+          "p": "Dans Anki, exportez le paquet en .apkg avec les médias. Ouvrez-le dans Loopky et choisissez les champs recto et verso. Vous n’avez qu’une liste ? Collez-la.",
+          "alt": "Une liste de mots collée dans Loopky, avec le séparateur détecté"
+        }
+      ],
+      "table": {
+        "h": "Ce qui passe d’Anki à Loopky",
+        "head": [
+          "Depuis Anki",
+          "Dans Loopky"
+        ],
+        "rows": [
+          [
+            "Texte et champs",
+            "Oui, vous choisissez le recto et le verso"
+          ],
+          [
+            "Images",
+            "Oui"
+          ],
+          [
+            "Textes à trous",
+            "Oui, une carte par trou"
+          ],
+          [
+            "Cartes inversées",
+            "Oui"
+          ],
+          [
+            "Audio",
+            "Non, utilisez la synthèse vocale intégrée"
+          ],
+          [
+            "LaTeX",
+            "Affiché en code source"
+          ],
+          [
+            "Historique de révision",
+            "Non, les cartes repartent de zéro"
+          ]
+        ],
+        "note": "Fichiers .anki21b récents : exportez à nouveau en cochant \"Support older Anki versions\" (prendre en charge les anciennes versions d’Anki)."
+      },
+      "faq": [
+        [
+          "Loopky peut-il remplacer complètement Anki ?",
+          "Pour la plupart des gens, oui. Vérifiez d’abord si vous dépendez de fichiers audio, de LaTeX, de modèles de cartes personnalisés ou de FSRS."
+        ],
+        [
+          "Loopky utilise-t-il FSRS ?",
+          "Non. Chaque bouton de notation a un intervalle fixe que vous réglez, de 1 à 365 jours."
+        ],
+        [
+          "Est-ce gratuit ?",
+          "Oui. Sans pub, sans abonnement, et open source sous licence MIT."
+        ],
+        [
+          "Y a-t-il une appli iPhone ?",
+          "Loopky est sur Android pour l’instant. L’appli iOS est prête et arrive bientôt."
+        ]
+      ]
+    },
+    "language-learning": {
+      "title": "Flashcards de langues avec audio et oral · Loopky",
+      "desc": "Des flashcards de langues gratuites qui lisent chaque mot, vérifient votre prononciation et reviennent par répétition espacée. 35 langues, import Anki, partage.",
+      "crumb": "Apprendre une langue",
+      "card": "Apprenants en langues",
+      "blurb": "Écoutez chaque mot, répétez-le, retenez-le pour de bon.",
+      "eyebrow": "Pour les apprenants en langues",
+      "h1": "Des flashcards qui vous répondent",
+      "lead": "Écoutez chaque mot, dites-le à voix haute, et laissez la répétition espacée le ramener juste avant que vous l’oubliiez.",
+      "heroAlt": "Une carte de révision avec les boutons Écouter et Parler",
+      "features": [
+        {
+          "t": "Écouter",
+          "d": "Chaque carte est lue à voix haute dans sa propre langue."
+        },
+        {
+          "t": "Parler",
+          "d": "Dites la réponse et Loopky vérifie votre prononciation."
+        },
+        {
+          "t": "Écrire",
+          "d": "Tapez la réponse pour travailler l’orthographe et les accents."
+        },
+        {
+          "t": "Dans les deux sens",
+          "d": "Les cartes inversées vous entraînent vers la langue et depuis la langue."
+        }
+      ],
+      "sections": [
+        {
+          "h": "35 langues et variantes",
+          "p": "Chaque face d’un paquet a sa propre langue, du japonais au portugais du Brésil. Les voix viennent de votre téléphone, et les enregistrements ne sont jamais conservés.",
+          "alt": "Notation d’une carte, chaque bouton indiquant sa prochaine révision"
+        },
+        {
+          "h": "Un paquet de vocabulaire en une minute",
+          "p": "Collez une liste de mots depuis vos notes ou un tableur. Loopky trouve le séparateur et crée les cartes. Ou demandez à une IA d’écrire le paquet.",
+          "alt": "Une liste de mots collée dans Loopky"
+        },
+        {
+          "h": "Des paquets créés par d’autres apprenants",
+          "p": "Découvrir liste les paquets publics par langue et par thème. Suivez-en un, ou clonez-le pour l’adapter.",
+          "alt": "L’onglet Découvrir sur tablette"
+        }
+      ],
+      "faq": [
+        [
+          "Loopky vérifie-t-il ma prononciation ?",
+          "Oui. Le mode Parler utilise la reconnaissance vocale de votre appareil pour noter la réponse. Loopky ne conserve ni n’envoie l’enregistrement."
+        ],
+        [
+          "Est-ce adapté au japonais, au chinois ou au coréen ?",
+          "Oui. Les trois sont pris en charge pour l’écoute et l’oral, et le mode Écrire fonctionne avec le clavier de votre téléphone."
+        ],
+        [
+          "Quelle différence avec Duolingo ?",
+          "Duolingo propose un cours fixe. Dans Loopky, vous choisissez ou créez les paquets, et la répétition espacée décide quand chaque carte revient."
+        ]
+      ]
+    },
+    "medical-students": {
+      "title": "Flashcards pour les études de médecine · Loopky",
+      "desc": "Flashcards gratuites avec répétition espacée pour étudiants en médecine. Importez vos paquets Anki avec images et textes à trous, et partagez-les avec votre promo.",
+      "crumb": "Étudiants en médecine",
+      "card": "Étudiants en médecine",
+      "blurb": "Vos paquets de médecine, avec images et textes à trous.",
+      "eyebrow": "Pour les étudiants en médecine",
+      "h1": "Vos flashcards de médecine sur téléphone et tablette",
+      "lead": "Apportez vos paquets Anki avec leurs images et textes à trous, révisez entre deux cours, et resserrez chaque intervalle avant les examens.",
+      "heroAlt": "Un paquet sur tablette, ses statistiques à côté de la liste des cartes",
+      "features": [
+        {
+          "t": "Images et textes à trous",
+          "d": "Les cartes d’anatomie, d’histologie et d’ECG gardent leurs images. Chaque trou devient une carte."
+        },
+        {
+          "t": "Des intervalles à votre main",
+          "d": "Raccourcissez Bien et Facile avant un examen, et tout le paquet se resserre."
+        },
+        {
+          "t": "Des cartes tirées de vos cours",
+          "d": "Un agent IA peut transformer vos notes en paquet via la ligne de commande."
+        },
+        {
+          "t": "Partagez avec votre promo",
+          "d": "Envoyez un seul lien. Vos camarades le suivent ou en clonent leur propre copie."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Chaque bouton affiche la vraie date",
+          "p": "Encore, Difficile, Bien et Facile indiquent chacun quand la carte reviendra. Aucune limite de révisions par jour.",
+          "alt": "Notation d’une carte, chaque bouton indiquant sa prochaine révision",
+          "table": "intervals"
+        },
+        {
+          "h": "Grandes cartes, grand écran",
+          "p": "Les cartes riches en images se lisent mieux sur tablette, avec les boutons de notation juste à côté.",
+          "alt": "Notation d’une carte sur tablette"
+        }
+      ],
+      "faq": [
+        [
+          "Puis-je utiliser mes paquets Anki de médecine ?",
+          "Oui. Exportez-les en .apkg avec les médias. Le texte, les images et les textes à trous passent ; l’audio et l’historique de révision non."
+        ],
+        [
+          "Loopky utilise-t-il FSRS ?",
+          "Non. Les intervalles sont fixes par bouton et c’est vous qui les réglez. Si vous comptez sur FSRS pour retenir sur des années, Anki est plus solide sur ce point."
+        ],
+        [
+          "Mes paquets sont-ils privés ?",
+          "Non. Les paquets sur Loopky sont publics. Ne mettez jamais d’informations sur un patient dans une carte."
+        ],
+        [
+          "Est-ce gratuit ?",
+          "Oui. Sans pub et sans abonnement."
+        ]
+      ]
+    },
+    "teachers": {
+      "title": "Flashcards pour enseignants et groupes d’étude · Loopky",
+      "desc": "Créez un paquet de flashcards une fois et partagez-le avec votre classe via un seul lien. Les élèves le suivent ou le clonent. Gratuit, sans pub, sans pistage.",
+      "crumb": "Enseignants et groupes d’étude",
+      "card": "Enseignants et groupes d’étude",
+      "blurb": "Publiez un paquet une fois et envoyez un seul lien.",
+      "eyebrow": "Pour les enseignants et groupes d’étude",
+      "h1": "Un paquet, un lien, toute la classe",
+      "lead": "Publiez un paquet de flashcards une fois. Les élèves ouvrent le lien et le révisent avec la répétition espacée sur leur propre téléphone.",
+      "heroAlt": "Un paquet partagé avec ses cartes, ses statistiques et ses thèmes",
+      "features": [
+        {
+          "t": "Un seul lien à partager",
+          "d": "Chaque paquet a un lien web qui s’ouvre dans l’appli."
+        },
+        {
+          "t": "Suivre ou cloner",
+          "d": "Suivre, c’est recevoir vos modifications. Cloner donne aux élèves une copie modifiable."
+        },
+        {
+          "t": "Écoute et oral",
+          "d": "Les paquets de langues lisent à voix haute et vérifient la prononciation."
+        },
+        {
+          "t": "Sans pub, sans pistage",
+          "d": "Aucune statistique d’usage, et aucune donnée d’élève collectée."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Créez le paquet à votre façon",
+          "p": "Tapez les cartes, collez une liste depuis un tableur, importez un fichier Anki, ou faites-les écrire par une IA.",
+          "alt": "Une liste de cartes collée dans Loopky"
+        },
+        {
+          "h": "Votre profil, c’est votre cours",
+          "p": "Votre profil liste tous les paquets que vous publiez : un seul lien suffit pour tout le trimestre.",
+          "alt": "Un profil Loopky sur tablette"
+        }
+      ],
+      "faq": [
+        [
+          "Les élèves ont-ils besoin d’une adresse e-mail ?",
+          "Non. Ils se connectent avec une clé Pubky, ou créent un compte dans l’appli."
+        ],
+        [
+          "Puis-je voir la progression de mes élèves ?",
+          "Non. La progression appartient à chaque élève, et il n’y a pas de tableau de bord enseignant."
+        ],
+        [
+          "Les élèves sur iPhone peuvent-ils suivre ?",
+          "Ils peuvent déjà ouvrir la page du paquet dans un navigateur, et le réviser dès la sortie de l’appli iOS."
+        ]
+      ]
+    },
+    "ai-flashcards": {
+      "title": "Créer des flashcards avec Claude, ChatGPT et Gemini · Loopky",
+      "desc": "Laissez un agent IA écrire et publier vos flashcards. L’outil en ligne de commande de Loopky (JSON, essais à blanc) est fait pour Claude, ChatGPT, Gemini et autres.",
+      "crumb": "Flashcards créées par l’IA",
+      "card": "Flashcards créées par l’IA",
+      "blurb": "Claude, ChatGPT ou Gemini écrivent le paquet pour vous.",
+      "eyebrow": "Créateur de flashcards par IA",
+      "h1": "Laissez votre IA écrire les flashcards",
+      "lead": "Dites à Claude, ChatGPT ou Gemini ce que vous voulez apprendre. L’IA écrit les cartes et publie le paquet sur votre téléphone.",
+      "heroAlt": "",
+      "features": [
+        {
+          "t": "N’importe quelle source",
+          "d": "Un chapitre, des notes de cours, une liste de mots ou un épisode de série."
+        },
+        {
+          "t": "Essai à blanc d’abord",
+          "d": "Chaque carte est vérifiée avant que quoi que ce soit ne soit écrit."
+        },
+        {
+          "t": "Permissions limitées",
+          "d": "L’outil gère les paquets. Il ne peut jamais poster, suivre ou modifier votre profil."
+        },
+        {
+          "t": "Du JSON partout",
+          "d": "Les agents lisent de vrais résultats au lieu de deviner."
+        }
+      ],
+      "promptH": "Le prompt",
+      "promptP": "Collez ceci dans votre agent IA et indiquez le sujet. Vous validez la connexion sur votre téléphone.",
+      "sections": [
+        {
+          "h": "Puis révisez-le sur votre téléphone",
+          "p": "Le paquet apparaît dans Loopky, prêt pour la répétition espacée, avec l’audio pour les paquets de langues. Relisez les cartes écrites par l’IA pour repérer les erreurs.",
+          "alt": "Le paquet terminé dans Loopky"
+        },
+        {
+          "h": "Un seul fichier, sur tous les ordinateurs",
+          "p": "Windows, macOS et Linux, plus Homebrew, un paquet .deb et Docker. Pas de Java, rien à configurer.",
+          "link": "Lire la doc de la CLI"
+        }
+      ],
+      "faq": [
+        [
+          "Faut-il savoir coder ?",
+          "Non. Collez le prompt dans un agent IA qui a un terminal, comme Claude Code, Codex ou Gemini CLI. Il lance les commandes."
+        ],
+        [
+          "L’IA peut-elle importer mes paquets Anki ?",
+          "Oui. loopky import deck.apkg importe un paquet Anki, et --dry-run montre d’abord le résultat."
+        ],
+        [
+          "Que ne peut pas faire l’outil ?",
+          "Il ne peut pas poster, suivre des personnes ou modifier votre profil. Il gère seulement les paquets et les cartes."
+        ]
+      ]
+    },
+    "spaced-repetition": {
+      "title": "La répétition espacée, c’est quoi ? Un guide simple · Loopky",
+      "desc": "La répétition espacée simplement : la courbe de l’oubli, pourquoi se tester marche, comment Loopky planifie les cartes et comment écrire des cartes qui restent.",
+      "crumb": "Répétition espacée",
+      "card": "La répétition espacée, c’est quoi ?",
+      "blurb": "Comment ça marche, et comment écrire des cartes qui restent.",
+      "eyebrow": "Guide",
+      "h1": "La répétition espacée, c’est quoi ?",
+      "lead": "Révisez chaque carte juste avant de l’oublier, un peu plus tard à chaque fois. Dix minutes par jour suffisent.",
+      "heroAlt": "Notation d’une carte, chaque bouton indiquant sa prochaine révision",
+      "features": [
+        {
+          "t": "La courbe de l’oubli",
+          "d": "La mémoire s’efface vite après l’apprentissage. Chaque révision la ralentit."
+        },
+        {
+          "t": "L’effet d’espacement",
+          "d": "De courtes séances sur plusieurs jours valent mieux qu’un long bachotage."
+        },
+        {
+          "t": "L’effet de test",
+          "d": "Se rappeler une réponse la renforce plus que la relire."
+        }
+      ],
+      "sections": [
+        {
+          "h": "Comment Loopky planifie une carte",
+          "p": "Notez-vous après chaque carte. Chaque bouton indique exactement quand la carte reviendra.",
+          "alt": "L’écran Aujourd’hui de Loopky avec la file du jour",
+          "table": "intervals"
+        },
+        {
+          "h": "Des cartes qui restent",
+          "p": "Les bonnes cartes sont courtes et précises.",
+          "points": [
+            "Un seul fait par carte",
+            "Posez une question, n’énoncez pas un fait",
+            "Ajoutez une phrase ou une image",
+            "Notez-vous honnêtement"
+          ],
+          "alt": "Les cartes d’un paquet, un fait chacune"
+        }
+      ],
+      "faq": [
+        [
+          "Combien de cartes réviser par jour ?",
+          "Commencez par 10 à 20 nouvelles cartes et toutes vos révisions dues. L’objectif par défaut de Loopky est de 20 nouvelles cartes."
+        ],
+        [
+          "Est-ce mieux que relire ses notes ?",
+          "Oui. La recherche sur l’espacement et le test montre que se rappeler à intervalles espacés bat la relecture et le bachotage."
+        ],
+        [
+          "Quel algorithme Loopky utilise-t-il ?",
+          "Des intervalles fixes par bouton : moins de 10 minutes, puis 1, 3 et 7 jours par défaut, chacun réglable jusqu’à 365."
+        ]
+      ]
+    },
+    "compare": {
+      "title": "Loopky, Anki ou Quizlet : quelle appli de flashcards ? · Loopky",
+      "desc": "Loopky, Anki et Quizlet côte à côte : prix, planification, import Anki, audio et oral, partage et hors ligne, avec un choix pour chaque profil d’apprenant.",
+      "crumb": "Comparer",
+      "card": "Loopky, Anki ou Quizlet ?",
+      "blurb": "Quelle appli de flashcards pour quel apprenant.",
+      "eyebrow": "Comparatif",
+      "h1": "Loopky, Anki ou Quizlet ?",
+      "lead": "Ce que chacune fait de mieux, et laquelle correspond à votre façon d’apprendre.",
+      "heroAlt": "L’écran Aujourd’hui de Loopky sur tablette",
+      "features": [
+        {
+          "t": "Choisissez Loopky",
+          "d": "Gratuit et sans pub, pratique de l’oral, partage par lien, paquets créés par l’IA, et vos paquets Anki vous suivent."
+        },
+        {
+          "t": "Restez sur Anki",
+          "d": "Si vous dépendez de FSRS, de la révision entièrement hors ligne, des fichiers audio, de LaTeX ou de modèles personnalisés."
+        },
+        {
+          "t": "Choisissez Quizlet",
+          "d": "Si votre classe l’utilise déjà et que vous préférez les jeux à la répétition espacée."
+        }
+      ],
+      "table": {
+        "h": "Côte à côte",
+        "head": [
+          "",
+          "Loopky",
+          "Anki",
+          "Quizlet"
+        ],
+        "rows": [
+          [
+            "Prix",
+            "Gratuit, sans pub",
+            "Gratuit ; appli payante sur iPhone",
+            "Gratuit avec pub ; offre payante"
+          ],
+          [
+            "Ouvre les paquets Anki",
+            "Oui",
+            "Oui",
+            "Non"
+          ],
+          [
+            "Planification",
+            "Intervalles fixes que vous réglez",
+            "FSRS ou SM-2",
+            "Modes d’étude"
+          ],
+          [
+            "Lecture à voix haute",
+            "Oui, 35 langues",
+            "Avec configuration",
+            "Oui"
+          ],
+          [
+            "Vérification de prononciation",
+            "Oui",
+            "Avec extensions",
+            "Pas une fonction centrale"
+          ],
+          [
+            "Partage par lien",
+            "Oui",
+            "Paquets partagés AnkiWeb",
+            "Oui"
+          ],
+          [
+            "Révision entièrement hors ligne",
+            "Non",
+            "Oui",
+            "Limitée"
+          ],
+          [
+            "Open source",
+            "Oui",
+            "Oui",
+            "Non"
+          ]
+        ],
+        "note": "Les autres applis évoluent. Consultez leurs sites pour les prix actuels."
+      },
+      "sections": [
+        {
+          "h": "Vous quittez Anki ?",
+          "p": "Exportez chaque paquet en .apkg et ouvrez-le dans Loopky. Le texte, les images et les textes à trous passent, et les grands écrans ont un affichage sur deux volets.",
+          "alt": "La bibliothèque de paquets de Loopky sur tablette"
+        }
+      ],
+      "faq": [
+        [
+          "Loopky est-il meilleur qu’Anki ?",
+          "Pour beaucoup d’apprenants, oui. Il est plus simple, gratuit sur téléphone, avec oral et partage intégrés. Anki a FSRS, la révision entièrement hors ligne, l’audio et LaTeX."
+        ],
+        [
+          "Quelle alternative gratuite à Quizlet ?",
+          "Loopky est gratuit, sans pub et sans offre payante, et il utilise la répétition espacée."
+        ],
+        [
+          "Comment passer d’Anki à Loopky ?",
+          "Exportez chaque paquet depuis Anki en .apkg avec les médias et importez-le dans Loopky. L’historique de révision repart de zéro."
+        ]
+      ]
+    },
+    "faq": {
+      "title": "FAQ Loopky : prix, import Anki, confidentialité et connexion",
+      "desc": "Réponses sur Loopky, l’appli de flashcards gratuite : prix, Android et iOS, tablettes, import Anki, répétition espacée, synthèse vocale, partage, vie privée, connexion.",
+      "crumb": "FAQ",
+      "card": "Questions et réponses",
+      "blurb": "Prix, plateformes, confidentialité, Anki et connexion.",
+      "eyebrow": "FAQ",
+      "h1": "Questions sur Loopky",
+      "lead": "Ce que ça coûte, où ça tourne, ce que ça importe, et où vont vos données.",
+      "heroAlt": "L’écran Aujourd’hui de Loopky avec la file du jour",
+      "faq": [
+        [
+          "Qu’est-ce que Loopky ?",
+          "Une appli de flashcards gratuite avec répétition espacée. Vous créez ou importez des paquets, révisez quelques minutes par jour, et chaque carte revient juste avant que vous l’oubliiez."
+        ],
+        [
+          "Est-ce vraiment gratuit ?",
+          "Oui. Pas de prix, pas d’abonnement, pas de pub et pas d’achats intégrés. Le code est open source sous licence MIT."
+        ],
+        [
+          "Sur quoi ça fonctionne ?",
+          "Android 10 et plus, sur téléphones et tablettes. L’appli iOS arrive bientôt. Sur ordinateur, un outil en ligne de commande gère les paquets."
+        ],
+        [
+          "Puis-je importer des paquets Anki ?",
+          "Oui : .apkg avec texte, images et textes à trous, plus .txt, .csv et listes collées. L’audio, LaTeX et l’historique de révision ne sont pas importés."
+        ],
+        [
+          "Comment les cartes sont-elles planifiées ?",
+          "Des intervalles fixes par bouton : moins de 10 minutes pour Encore, puis 1, 3 et 7 jours par défaut, chacun réglable jusqu’à 365."
+        ],
+        [
+          "Peut-il lire les cartes à voix haute ?",
+          "Oui, en 35 langues et variantes, et le mode Parler vérifie votre prononciation."
+        ],
+        [
+          "Puis-je partager des paquets ?",
+          "Oui. Publiez un paquet et partagez son lien. Les autres peuvent le suivre ou le cloner."
+        ],
+        [
+          "Mes paquets sont-ils privés ?",
+          "Non. Les paquets publiés sont publics et consultables par recherche. Votre progression reste sous votre propre clé."
+        ],
+        [
+          "Comment me connecter ?",
+          "Avec une clé Pubky via l’appli Pubky Ring, ou en créant un compte dans l’appli. Ni e-mail ni mot de passe."
+        ],
+        [
+          "Loopky me piste-t-il ?",
+          "Non. Pas de statistiques d’usage, pas de télémétrie, pas de rapports de plantage, pas de pub."
+        ],
+        [
+          "Fonctionne-t-il hors ligne ?",
+          "En partie. Les révisions hors ligne sont enregistrées et envoyées plus tard, mais charger des paquets demande une connexion."
+        ],
+        [
+          "Une IA peut-elle créer des paquets pour moi ?",
+          "Oui. L’outil en ligne de commande est fait pour les agents IA comme Claude, ChatGPT et Gemini."
+        ]
+      ]
+    }
+  }
+}
