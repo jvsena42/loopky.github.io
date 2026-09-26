@@ -97,10 +97,23 @@
   /* Every guide exists in every language, at /{lang}/{slug}/ with the tag lowercased,
      and English at /{slug}/. The markup ships the English address for crawlers. */
   function linkGuides() {
+    var root = document.body.getAttribute('data-root') || '';
     document.querySelectorAll('[data-guide]').forEach(function (a) {
-      var dir = lang === 'en' ? '' : lang.toLowerCase() + '/';
-      a.setAttribute('href', dir + a.getAttribute('data-guide') + '/');
+      a.setAttribute('href', root + langDir(lang) + a.getAttribute('data-guide') + '/');
     });
+  }
+
+  /* The folder a language lives in: '' for English, 'pt-br/' for pt-BR. */
+  function langDir(code) {
+    return code === 'en' ? '' : code.toLowerCase() + '/';
+  }
+
+  /* The home page exists once per language, /pt-br/, /ja/ and so on, built with its
+     words already in place. `data-home` names the language a copy was built in. */
+  var HOME = document.documentElement.getAttribute('data-home');
+  function goHome(code) {
+    var root = document.body.getAttribute('data-root') || '';
+    location.href = root + langDir(code) + location.hash;
   }
 
   function renderUses() {
@@ -488,6 +501,9 @@
     if (sel) {
       sel.addEventListener('change', function () {
         try { localStorage.setItem(STORE_KEY, sel.value); } catch (e) { /* storage can be off */ }
+        /* A home page moves to its copy in that language; the deck and profile
+           pages have one copy and repaint in place. */
+        if (HOME) { goHome(sel.value); return; }
         applyLang(sel.value);
       });
     }
@@ -505,7 +521,14 @@
     }
 
     applyTheme(readTheme());
-    applyLang(pickLang());
+    /* The English home page is the default for search engines and for anyone whose
+       browser or earlier choice says English. Everyone else, and an old ?lang= link,
+       goes to their own language's page. A translated page stays in its language. */
+    if (HOME === 'en') {
+      var wanted = pickLang();
+      if (wanted !== 'en') { location.replace(langDir(wanted) + location.hash); return; }
+    }
+    applyLang(HOME || pickLang());
     startDiscover();
   });
 })();

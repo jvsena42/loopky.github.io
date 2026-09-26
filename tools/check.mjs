@@ -10,7 +10,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { stamp, PAGES, GUIDES, ALL_PAGES } from './stamp-assets.mjs';
-import { SLUGS, LOCALES } from './guides.mjs';
+import { SLUGS, LOCALES, HOME_FILES } from './guides.mjs';
 
 const problems = [];
 const notes = [];
@@ -24,11 +24,13 @@ const pages = Object.fromEntries(PAGES.map((p) => [p, read(p)]));
 /* The guide pages, every language. Built from tools/guides/*.json, so they are held
    to the asset, stamp, copy and URL rules below, and the dictionaries to parity. */
 const guides = Object.fromEntries(GUIDES.map((p) => [p, read(p)]));
-const everyPage = { ...pages, ...guides };
+/* The home page's copies in the other ten languages, built from index.html. */
+const homes = Object.fromEntries(HOME_FILES.map((p) => [p, read(p)]));
+const everyPage = { ...pages, ...guides, ...homes };
 
 /* ---- 1. every script parses ---- */
 
-const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js'];
+const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js', 'tools/indexnow.mjs'];
 for (const f of scripts) {
   try {
     execFileSync(process.execPath, ['--check', new URL('../' + f, import.meta.url).pathname],
@@ -258,7 +260,8 @@ if (upload && Number(upload[1]) >= 4 && !/include-hidden-files:\s*true/.test(wor
   fail('upload-pages-artifact v4+ drops .well-known unless the step sets include-hidden-files: true');
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-const expected = SUPPORTED.length + 1 + GUIDES.length;
+/* One home page per language, one guide page per language and guide. */
+const expected = SUPPORTED.length + GUIDES.length;
 if (locs.length !== expected) {
   fail(`sitemap.xml lists ${locs.length} URLs, expected ${expected}`);
 }
@@ -358,6 +361,25 @@ if (I18N) {
     ?.matchAll(/<li>([^<]*)<\/li>/g) ?? []].map((m) => m[1]);
   if (JSON.stringify(shipped) !== JSON.stringify(I18N.en['uses.list'])) {
     fail('the topic list in index.html differs from uses.list in i18n.js; copy it across');
+  }
+}
+
+/* The home page's hreflang points at the language folders, not at ?lang=, which only
+   forwards there now. */
+for (const l of LOCALES) {
+  const want = `hreflang="${l.code}" href="${canonical}${l.dir ? l.dir + '/' : ''}"`;
+  for (const [page, src] of Object.entries({ 'index.html': html, ...homes })) {
+    if (!src.includes(want)) fail(`${page} lacks <link rel="alternate" ${want}>`);
+  }
+}
+
+/* IndexNow engines check ownership by fetching the key file at the root. A renamed
+   or edited key file makes every announcement fail, quietly, in a warning. */
+{
+  const key = /export const KEY = '([0-9a-f]{32})'/.exec(read('tools/indexnow.mjs'))?.[1];
+  if (!key) fail('tools/indexnow.mjs has no 32-character KEY');
+  else if (!existsSync(new URL(`../${key}.txt`, import.meta.url)) || read(`${key}.txt`) !== key) {
+    fail(`${key}.txt must sit at the site root and hold exactly the IndexNow key`);
   }
 }
 

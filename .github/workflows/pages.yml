@@ -62,7 +62,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Full history, so the IndexNow step can see what this push changed.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       # enablement turns Pages on the first time, so the repository needs no
       # click in Settings before the first deploy can land.
@@ -79,3 +82,9 @@ jobs:
 
       - id: deployment
         uses: actions/deploy-pages@v4
+
+      # Tells Bing and the other IndexNow engines which pages changed, once they are
+      # live. A warning at worst: a slow search engine is no reason to fail a deploy.
+      - name: Announce changed pages (IndexNow)
+        continue-on-error: true
+        run: node tools/indexnow.mjs "${{ github.event.before }}"
