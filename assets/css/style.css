@@ -577,3 +577,52 @@ img { max-width: 100%; height: auto; display: block; }
   }
   .cli-box pre:hover::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .4); }
 }
+
+/* ---------- who it is for (home) ---------- */
+.grid-who { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+a.feat { color: inherit; display: block; }
+a.feat:hover { text-decoration: none; }
+a.feat h3 { color: var(--fg); }
+.more { display: inline-block; margin-top: 12px; color: var(--accent-2); font-weight: 700; font-size: .92rem; }
+
+/* ---------- guide pages ---------- */
+
+/* The English pages written for one kind of learner each: Anki users, language
+   learners, medical students, teachers. Long-form reading, so a narrow measure. */
+.guide-hero { padding: clamp(36px, 6vw, 72px) 0 clamp(18px, 3vw, 32px); }
+.guide-hero .lead { max-width: 62ch; }
+.guide-hero + .section { padding-top: 12px; }
+.crumbs { font-size: .88rem; color: var(--fg-muted); margin: 0 0 18px; }
+.crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
+.crumbs li + li::before { content: "/"; margin-right: 6px; color: var(--fg-muted); }
+.crumbs a { color: var(--fg-2); }
+.prose { max-width: 72ch; }
+.prose > * { min-width: 0; }
+.prose h2 { font-size: clamp(1.4rem, 2.6vw, 1.8rem); margin-top: 1.6em; }
+.prose h3 { margin-top: 1.4em; }
+.prose p, .prose li { color: var(--fg-2); font-size: 1.02rem; line-height: 1.65; }
+.prose ul, .prose ol { padding-left: 1.3em; margin: 0 0 1em; }
+.prose li { margin-bottom: .4em; }
+.prose strong { color: var(--fg); }
+.prose code {
+  font: 400 .9em ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background: var(--surface-secondary); border-radius: 6px; padding: 1px 6px;
+  overflow-wrap: anywhere;
+}
+.prose pre {
+  background: var(--navbar); color: #EDEBF1; border-radius: var(--r-sm);
+  padding: 16px 18px; overflow: auto; white-space: pre-wrap; word-break: break-word;
+  font: 400 13px/1.62 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+.prose pre code { background: none; padding: 0; color: inherit; font: inherit; }
+.tablewrap { overflow-x: auto; margin: 0 0 1.2em; }
+.prose table { border-collapse: collapse; width: 100%; font-size: .96rem; }
+.prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.prose th { color: var(--fg); font-weight: 700; background: var(--surface-secondary); }
+.prose td { color: var(--fg-2); }
+.faq h3 { color: var(--fg); }
+.guide-cta { margin: 34px 0 8px; }
+.guide-links { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top: 18px; }
+.guide-links a { padding: 18px 20px; color: var(--fg); font-weight: 700; }
+.guide-links a:hover { text-decoration: none; box-shadow: var(--shadow-mid); }
+.guide-links span { display: block; color: var(--fg-2); font-weight: 400; font-size: .92rem; margin-top: 4px; }

@@ -1,0 +1,422 @@
+# Loopky: full guide text
+
+> Every guide on https://loopky.app/ as plain text, for language models. The short index is https://loopky.app/llms.txt.
+
+Loopky is a free, open source flashcards app with spaced repetition for Android (iOS coming soon). Get it on Google Play: https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky. Source: https://github.com/jvsena42/loopky
+## A free Anki alternative that opens your .apkg decks
+
+Source: https://loopky.app/anki-alternative/
+
+Keep the decks you already built. Loopky imports Anki packages on your phone, schedules them with spaced repetition, and adds the things Anki needs add-ons for: listening, speaking, sharing and AI written cards.
+
+Anki is the reference for spaced repetition, and it earned that. People still go looking for something else for a few common reasons: the phone app is not free on iPhone, the interface takes a while to learn, and the most wanted features live in add-ons that only run on the desktop. **Loopky** is a free flashcards app with spaced repetition that reads your Anki decks and covers those gaps out of the box.
+
+### What comes over from Anki
+
+Loopky reads `.apkg` packages (the `collection.anki2` and `.anki21` formats) as well as `.txt` and `.csv` files. Here is exactly what happens to each part of a deck:
+
+| From your Anki deck | In Loopky |
+|---|---|
+| Front and back text | Imported. You choose which two fields become the front and the back. |
+| Images | Imported with the cards. |
+| Cloze deletions | Expanded into one card per deletion. |
+| Reversed note types | Turn on reverse cards. |
+| HTML formatting | Turned into plain text. Subscripts and superscripts are kept, so H2O and x^2 still read right. |
+| Audio ([sound:]) | Not imported. Language decks can read cards out loud with the phone's own voice instead. |
+| LaTeX and MathJax | Shown as source, not typeset. |
+| Review history and due dates | Not carried over. Cards start fresh. |
+| Newest .anki21b packages | Not read yet. Export again from Anki with "Support older Anki versions" ticked. |
+
+### How to move a deck from Anki to Loopky
+
+1. In Anki on your computer, choose **File › Export**, pick **Anki Deck Package (.apkg)**, and tick **Include media**. If you are on a recent Anki, also tick **Support older Anki versions**.
+2. Put the file on your phone: a cloud drive, a chat with yourself, or a USB cable all work.
+3. In Loopky, open the import screen, pick the `.apkg`, and choose which fields are the front and the back.
+4. Study. New cards are counted separately from due cards, so a 1,600 card deck does not open on "1,600 due".
+
+Only have a list? Paste it. Loopky finds the separator on its own (tab, comma, semicolon, pipe, colon, a dash, or a markdown table) and builds the cards.
+
+### Things Anki needs add-ons for, built in
+
+Many people search for Anki add-ons to get one of these. In Loopky they are part of the app, on the phone:
+
+- **Text to speech.** Language decks read the card aloud with the phone's own voices, in 35 languages and regional variants. No TTS add-on, no API key.
+- **Pronunciation check.** Speak mode listens to you say the answer and grades it with the device's speech recognition. The recording is never stored or uploaded by Loopky.
+- **Type in the answer.** Type mode checks what you typed against the card.
+- **Pictures from the web.** Search Unsplash for a card image, or take one from your gallery, without leaving the editor.
+- **Shared decks.** Publish a deck, follow someone else's, or clone one and make it your own. Every published deck gets an https link that opens in the app.
+- **AI deck building.** The Loopky command line tool lets Claude, ChatGPT, Gemini or any agent with a shell write cards and publish a deck for you, in the same spirit as AnkiConnect but with nothing to keep running. See [flashcards made by AI](https://loopky.app/ai-flashcards/).
+
+### Where Anki is still the better tool
+
+Honest trade offs, so you can pick the right one:
+
+- **Scheduling.** Anki offers FSRS and SM-2, where intervals grow as you learn a card. Loopky uses fixed intervals you set per button (1, 3 and 7 days by default). They are predictable and the button always shows the real date, but a well known card does not drift out to months on its own. Read [how Loopky schedules](https://loopky.app/spaced-repetition/).
+- **Add-on ecosystem and note types.** Anki has thousands of add-ons and fully custom card templates. Loopky cards are a front and a back, with optional images.
+- **Audio files and math.** Anki plays sound files and renders LaTeX. Loopky does neither yet.
+- **Offline and desktop.** Anki works fully offline and has a desktop app. Loopky keeps your decks on a Pubky homeserver, so it needs a connection to sync, and on the desktop it has only its command line tool.
+
+Plenty of people use both: Anki at the desk, Loopky on the phone for listening and speaking practice and for sharing decks with friends.
+
+### Questions
+
+**Is Loopky free?**
+Yes. Loopky is free, has no ads, and is open source under the MIT license.
+
+**Can Loopky import Anki decks?**
+Yes. It imports .apkg packages, including images and cloze deletions, plus .txt and .csv files. Audio, LaTeX typesetting and Anki review history are not carried over.
+
+**Does Loopky sync with AnkiWeb?**
+No. Loopky imports a deck once from a file. After that the deck lives in Loopky and syncs through your own Pubky homeserver, not AnkiWeb.
+
+**Does Loopky use FSRS or SM-2?**
+Neither. It uses fixed intervals per button: Again brings the card back within 10 minutes, and Hard, Good and Easy default to 1, 3 and 7 days. You can set each one from 1 to 365 days.
+
+**Is there an iPhone version?**
+Loopky is on Google Play for Android now. The iOS app is built and coming soon.
+
+
+## Flashcards that talk back, for learning a language
+
+Source: https://loopky.app/language-learning/
+
+Hear every word, say it out loud, and let spaced repetition bring it back right before you forget. Loopky is a free flashcards app built around the way vocabulary actually sticks.
+
+Reading a word is not the same as knowing it. You need to recognise it when you hear it and produce it when you speak. **Loopky** gives every language deck three ways to practise, and schedules each card with [spaced repetition](https://loopky.app/spaced-repetition/) so a few minutes a day is enough.
+
+### Three ways to study a card
+
+- **Listen.** The card is read aloud with the phone's own text to speech voice for that language, so you learn the sound with the spelling.
+- **Speak.** Say the answer out loud. Loopky hands it to your device's speech recognition and checks it. The recording is not stored or uploaded by Loopky.
+- **Type.** Type the answer and see what you got right. Good for spelling, accents and characters.
+
+### 35 languages and variants
+
+Each side of a deck can have its own language, so the front can be Japanese and the back English. The language picker offers what your phone can voice, and always includes this common set:
+Arabic, Bengali, Chinese (Mainland and Taiwan), Czech, Danish, Dutch, English (UK and US), Finnish, French (France and Canada), German, Greek, Hebrew, Hindi, Hungarian, Indonesian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese (Brazil and Portugal), Romanian, Russian, Slovak, Spanish (Spain and Mexico), Swedish, Thai, Turkish, Ukrainian and Vietnamese.
+How natural a voice sounds depends on the voices installed on your phone.
+
+### Build a vocabulary deck in a minute
+
+1. **Paste a list.** Copy a word list from a textbook, a spreadsheet, or your notes. Loopky detects the separator (tab, comma, semicolon, pipe, colon, a dash, or a markdown table) and makes one card per line.
+2. **Turn on reverse cards** to practise both directions: target language to yours, and yours to the target language.
+3. **Add pictures** from Unsplash or your gallery. An image next to a word beats a translation for concrete nouns.
+
+Already have decks in Anki? [Import your .apkg files](https://loopky.app/anki-alternative/). Want someone to do the typing? [Ask your AI to write the deck](https://loopky.app/ai-flashcards/), for example "the 300 most common Spanish verbs with an example sentence each", or "the vocabulary from the first episode of the show I am watching".
+
+### Find decks other learners made
+
+The Discover tab lists decks published by people using Loopky, searchable by topic. Language decks are tagged by language automatically, so finding Japanese or German decks is one tap. Follow a deck, or clone it and edit your own copy.
+
+### Tips that make vocabulary stick
+
+- **Put words in a sentence.** "el perro ladra" teaches more than "perro".
+- **Say it every time.** Speak mode feels slow for a day and then becomes the part you remember best.
+- **Keep new cards small.** The default goal is 20 new cards a day. Fewer, every day, beats a big batch once a week.
+- **Kanji and Hanzi:** keep one character or one word per card, with the reading on the back and an example word or sentence.
+
+### Questions
+
+**Can Loopky read flashcards out loud?**
+Yes. Language decks use the phone's built in text to speech voices in 35 languages and regional variants.
+
+**Does Loopky check my pronunciation?**
+Yes. Speak mode passes what you say to your device's speech recognition and grades the card from the recognised text. Loopky does not store or upload the recording.
+
+**Is it good for Japanese or Chinese?**
+Yes. Japanese, Mandarin (Mainland and Taiwan) and Korean are supported for listening and speaking, and Type mode works with your phone's keyboard for kana and characters.
+
+**How is Loopky different from Duolingo?**
+Duolingo teaches a fixed course. Loopky is a flashcards app: you choose or build the decks, and spaced repetition decides when each card comes back. Many learners use a course and flashcards together.
+
+**Is it free?**
+Yes. Free, no ads, and open source.
+
+
+## Spaced repetition flashcards for med school, on your phone
+
+Source: https://loopky.app/medical-students/
+
+Medicine is a memory sport: drugs, pathways, criteria, anatomy. Loopky brings your Anki decks to your phone, keeps the images and cloze deletions, and fits reviews into the gaps between lectures and rounds.
+
+Most medical students who use flashcards build or download them in Anki. **Loopky** is a free flashcards app that imports those decks, schedules them with spaced repetition, and makes it easy to study for five minutes on a bus, between cases, or on call.
+
+### Bring the decks you already use
+
+- **Images come with the cards**, so anatomy, histology, ECG and imaging cards still show their picture.
+- **Cloze deletions** are expanded into one card per deletion, the way you would study them in Anki.
+- **Formatting** becomes plain text, with subscripts and superscripts kept (Na^+, CO2, Ca^2+).
+- **Large decks import fine**, and new cards are counted apart from due cards, so a big deck does not greet you with thousands of reviews.
+
+Know the limits before you move a big deck: **audio is not imported** (heart and lung sound cards lose their sound), **LaTeX shows as source**, and **Anki review history does not carry over**. See the [full Anki import details](https://loopky.app/anki-alternative/).
+
+### A schedule you control
+
+Every grade button shows the real next date, and you set the intervals yourself:
+
+| Button | Next review, by default | Can you change it? |
+|---|---|---|
+| Again | In under 10 minutes, same session | No |
+| Hard | 1 day | Yes, 1 to 365 days |
+| Good | 3 days | Yes, 1 to 365 days |
+| Easy | 7 days | Yes, 1 to 365 days |
+Intervals are fixed: a card graded Good comes back after your Good interval every time, instead of growing to months as in Anki's FSRS or SM-2. Close to an exam that is handy, because shortening Good and Easy tightens the whole deck at once. For material you need to hold for years, keep Easy long. There is no cap on daily reviews, and new cards default to a goal of 20 a day, adjustable from 1 to 999.
+
+### Turn lecture notes into cards with AI
+
+Loopky has a command line tool that an AI agent can drive. Give Claude, ChatGPT or Gemini your lecture notes and ask for a deck of cloze style or question and answer cards. The agent writes the cards, checks them with a dry run, and publishes the deck to your account. [How it works](https://loopky.app/ai-flashcards/). Always read AI written medical cards before you trust them.
+
+### Study with your class
+
+Publish a deck and send the link to your study group. Each classmate can follow it or clone it and study with their own progress. One important rule: **decks on Loopky are public**. Never put patient information or anything confidential on a card.
+
+### What people use it for
+
+Pharmacology (drug classes, mechanisms, side effects), microbiology, anatomy with pictures, physiology formulas, biochemistry pathways, diagnostic criteria, and board exam review such as the USMLE Step exams, COMLEX, PLAB, AMC or residency entrance exams. Nursing, pharmacy, dentistry, physician assistant and veterinary students use the same approach.
+
+### Questions
+
+**Can I use my Anki decks for medical school in Loopky?**
+Yes. Export the deck from Anki as .apkg with media and import it in Loopky. Text, images and cloze deletions come across. Audio, LaTeX typesetting and your Anki review history do not.
+
+**Does Loopky use FSRS?**
+No. Loopky uses fixed intervals per grade button that you can set from 1 to 365 days. If you rely on FSRS for very long term retention, Anki is still the stronger scheduler.
+
+**Is there a limit on reviews per day?**
+No. There is no daily review cap. New cards have a daily goal, 20 by default, which you can change.
+
+**Are my decks private?**
+No. Decks on Loopky are public and can be discovered by others. Do not put patient data or anything confidential on a card.
+
+**Does it cost anything?**
+No. Loopky is free, with no ads and no subscription.
+
+
+## Make a deck once, share it with the whole class
+
+Source: https://loopky.app/teachers/
+
+Loopky turns your vocabulary lists, definitions and exam facts into a shared flashcard deck. Send one link, and every student studies it with spaced repetition on their own phone.
+
+**Loopky** is a free flashcards app with spaced repetition and deck sharing built in. It suits language teachers, tutors, course creators, and any group of students preparing for the same exam.
+
+### How sharing works
+
+1. **Build the deck.** Type cards, paste a list from a spreadsheet (Loopky detects the separator), import an Anki `.apkg`, or [have an AI write it](https://loopky.app/ai-flashcards/).
+2. **Publish it** with a title, a cover and topic tags.
+3. **Send the link.** Every deck has an https address like `loopky.app/deck/?author=...&id=...`. On an Android phone with Loopky it opens the deck in the app; anywhere else it shows the deck and a Google Play button.
+4. **Students follow or clone.** Following puts the deck in their library and reads it from yours, so they get your edits. Cloning gives them an independent copy with its own study progress that they can edit.
+
+Your profile page lists every deck you have published, so one link to your profile is a whole course.
+
+### Why it works for a class
+
+- **Spaced repetition does the planning.** Each student sees each card right before they would forget it, without you assigning review sessions. Read [why spacing works](https://loopky.app/spaced-repetition/).
+- **Listening and speaking** for language classes: cards are read aloud in 35 languages, and Speak mode checks pronunciation. See [Loopky for language learning](https://loopky.app/language-learning/).
+- **No accounts to hand out.** Students sign in with a Pubky key, not an email address and password.
+- **No ads and no tracking.** Loopky has no analytics, no telemetry and no ad SDKs. It is open source under the MIT license.
+
+### Good to know
+
+- Published decks are **public**, so keep student names and grades out of them.
+- Loopky is on Android now, with iOS coming soon. Until then, students on iPhone can view a shared deck's page in the browser but cannot study it in the app.
+- There is no teacher dashboard or class roster. Loopky shares decks; it does not track students.
+
+### Questions
+
+**Can I share a flashcard deck with my students?**
+Yes. Publish the deck and send its link. Students can follow it or clone their own copy and study it with spaced repetition.
+
+**Do students need an email account?**
+No. Loopky signs in with a Pubky key through the Pubky Ring app, or by creating an account in the app. There is no email and password.
+
+**Can I see my students' progress?**
+No. Study progress belongs to each student and Loopky has no teacher dashboard.
+
+**Can I import my existing quiz or vocabulary lists?**
+Yes. Paste a list or import a .txt, .csv or Anki .apkg file. Loopky detects the separator and builds the cards.
+
+
+## Let your AI write the flashcards
+
+Source: https://loopky.app/ai-flashcards/
+
+Loopky has a command line tool made for AI agents. Tell Claude, ChatGPT, Gemini or any agent with a shell what you want to learn, and it writes the cards and publishes the deck to your phone.
+
+Writing cards is the slow part of flashcards. An AI is good at it: it can turn a chapter, a word list, lecture slides or a TV episode into clean question and answer pairs in seconds. **Loopky** lets the AI go one step further and put the deck straight into the app.
+
+### What you can ask for
+
+- "A Japanese deck with the vocabulary from the first season of Naruto."
+- "The 200 most common French verbs, with an example sentence each, French to English, with audio on."
+- "Cloze cards from these pharmacology lecture notes."
+- "Every country in Africa and its capital, with a flag image."
+- "Convert this Anki file to a Loopky deck."
+
+### The prompt
+
+Copy this into your AI agent, fill in the topic, and let it run. It installs the tool if needed, logs in (you approve with a QR code in Pubky Ring), writes the cards, checks them, and publishes.
+```
+Build me a Loopky flashcard deck with the Loopky CLI.
+
+Topic: <WHAT I WANT TO LEARN>
+Cards: <HOW MANY>
+
+Steps:
+1. Install the CLI if it is missing:
+curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
+Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
+2. Read the command surface first: loopky commands --json
+3. Log in: loopky login
+4. Write the cards to cards.tsv, one card per line: front <TAB> back
+5. Check: loopky deck create --title &quot;<TITLE>&quot; --from-file cards.tsv --dry-run --json
+6. Publish: loopky deck create --title &quot;<TITLE>&quot; --tag <TOPIC> --from-file cards.tsv
+Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
+```
+The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
+
+### Why it is safe to hand to an agent
+
+- **Every command speaks JSON** with `--json`, so the agent reads results instead of guessing.
+- **Dry runs.** `--dry-run` shows what would be written before anything is.
+- **Narrow permissions.** The CLI manages decks and cards. It can never post, follow people, or edit your profile.
+- **You approve the login** on your phone. The agent never sees your key.
+
+### Where it runs
+
+One file, no Java, no setup. Linux (x86_64), macOS (Apple Silicon), Windows (x86_64), plus Homebrew, a `.deb` package and Docker. Commands cover decks (list, create, show, edit, delete), cards (list, add, edit, remove), `import` for TSV and Anki `.apkg` files, trending tags and batch operations. [Read the CLI docs](https://github.com/jvsena42/loopky/tree/main/cli).
+
+### Then study it on your phone
+
+The deck shows up in the Loopky app, scheduled with [spaced repetition](https://loopky.app/spaced-repetition/). Language decks can read cards aloud and check your pronunciation. Check AI written cards for mistakes, especially for medicine, law or anything you will be examined on.
+
+### Questions
+
+**Can ChatGPT or Claude make flashcards for me?**
+Yes. Any AI agent that can run shell commands can use the Loopky CLI to write cards and publish a deck. Give it the prompt on this page and your topic.
+
+**Do I need to know how to code?**
+No. You paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands.
+
+**Can the AI import my Anki decks?**
+Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first.
+
+**What can the CLI not do?**
+It cannot post, follow people or edit your profile. It only manages your decks and cards.
+
+
+## What is spaced repetition?
+
+Source: https://loopky.app/spaced-repetition/
+
+Spaced repetition is a way of studying where you review something right before you would forget it, and a little later each time you remember it. It is the idea behind Anki, SuperMemo and Loopky.
+
+### The short version
+
+You forget most of what you learn within days. Every time you successfully recall something, it lasts longer before you forget it again. Spaced repetition uses that: it shows you a card, asks you to recall the answer, and schedules the next review based on how well you did. Easy cards come back rarely; hard cards come back soon. You spend your time on what you are about to lose.
+
+### Why it works
+
+- **The forgetting curve.** Hermann Ebbinghaus measured in the 1880s how memory fades after learning. Each well timed review flattens the curve.
+- **The spacing effect.** The same amount of study spread over days beats one long session. Cramming works for tomorrow and fails next month.
+- **The testing effect.** Pulling an answer out of memory strengthens it far more than rereading it. Flashcards force that retrieval every time.
+
+### How Loopky schedules a card
+
+After you reveal the answer, you grade yourself with one of four buttons. Each button shows the exact interval it will give the card, so there are no surprises:
+
+| Button | Next review, by default | Can you change it? |
+|---|---|---|
+| Again | In under 10 minutes, same session | No |
+| Hard | 1 day | Yes, 1 to 365 days |
+| Good | 3 days | Yes, 1 to 365 days |
+| Easy | 7 days | Yes, 1 to 365 days |
+Loopky uses **fixed intervals**: the interval you set for a button is the interval you get, every review. That keeps the schedule predictable and easy to tune, for example shortening everything before an exam. The trade off is that intervals do not grow on their own the way they do in SM-2 or FSRS, so a card you know well keeps returning on its Easy interval. If you want reviews spaced out to months, set Easy to 30 days or more.
+New cards are separate from reviews. The default goal is 20 new cards a day, and you can set it anywhere from 1 to 999. Your intervals and goals sync across your devices.
+
+### How much to study
+
+For most people, **10 to 20 minutes a day** is plenty. Consistency matters more than volume: a short session every day beats a long one on weekends, because the whole method depends on reviewing close to the right day. If you miss a few days, just start again; overdue cards wait for you.
+
+### How to write cards you will remember
+
+1. **One fact per card.** "Capital of Australia?" is a good card. "Everything about Australia" is not.
+2. **Make it a question.** Cards that ask something force recall. Cards that state something invite rereading.
+3. **Add context.** For vocabulary, use a sentence. For concepts, use your own words.
+4. **Use pictures.** An image is often faster to recall than a definition.
+5. **Be honest with the buttons.** If you hesitated, it was Hard. Grading generously just means forgetting later.
+6. **Understand first, memorise second.** Flashcards hold what you already understand. They are not a substitute for learning it.
+
+### Start without writing a single card
+
+Import an [Anki deck](https://loopky.app/anki-alternative/), paste a list, pick a deck other people published in Discover, or [have an AI write one](https://loopky.app/ai-flashcards/). Loopky is used for [languages](https://loopky.app/language-learning/), [medicine](https://loopky.app/medical-students/), law, coding, geography, music theory, history and job interviews.
+
+### Questions
+
+**What is spaced repetition in simple terms?**
+It is reviewing information at increasing gaps, timed so you review each item right before you would forget it. Apps like Loopky and Anki do the timing for you.
+
+**Is spaced repetition better than rereading notes?**
+Yes. Research on the spacing and testing effects consistently shows that recalling answers at spaced intervals leads to much better long term memory than rereading or cramming.
+
+**How many flashcards should I study a day?**
+Start with 10 to 20 new cards a day and do all your due reviews. Loopky's default new card goal is 20.
+
+**What algorithm does Loopky use?**
+Fixed intervals per grade button. Again returns the card within 10 minutes; Hard, Good and Easy default to 1, 3 and 7 days and can each be set from 1 to 365 days.
+
+
+## Questions about Loopky
+
+Source: https://loopky.app/faq/
+
+Everything people ask before they install: what it costs, where it runs, what it imports, and where your data goes.
+
+Loopky is a free, open source flashcards app with spaced repetition. It imports Anki decks, reads cards aloud, checks your pronunciation, and lets you share decks with other people. Short answers below; each links to a longer guide where there is one.
+
+### Questions
+
+**What is Loopky?**
+Loopky is a free flashcards app with spaced repetition for Android, with iOS coming soon. You make or import decks, study a few minutes a day, and the app brings each card back right before you forget it. It is built on Pubky, an open protocol for identity and data.
+
+**Is Loopky really free?**
+Yes. There is no price, no subscription, no ads and no in-app purchases. The source code is on GitHub under the MIT license.
+
+**Which platforms does it run on?**
+Android 10 and later, from Google Play. The iOS app is built and coming soon. On the desktop there is a command line tool for Linux, macOS (Apple Silicon) and Windows.
+
+**Can I import my Anki decks?**
+Yes. Loopky imports .apkg packages with their text, images and cloze deletions, plus .txt and .csv files and pasted lists. Audio, LaTeX typesetting and Anki review history are not imported. [Details](https://loopky.app/anki-alternative/).
+
+**Which spaced repetition algorithm does it use?**
+Fixed intervals per grade button. Again brings a card back within 10 minutes; Hard, Good and Easy default to 1, 3 and 7 days, and each can be set from 1 to 365 days. [How it works](https://loopky.app/spaced-repetition/).
+
+**Can it read cards aloud and check pronunciation?**
+Yes. Language decks use your phone's text to speech in 35 languages and variants, and Speak mode grades what you say with the device's speech recognition. [Details](https://loopky.app/language-learning/).
+
+**Can I share decks?**
+Yes. Publish a deck and share its link. Others can follow it or clone their own copy. The Discover tab lists published decks by topic. [Sharing with a class](https://loopky.app/teachers/).
+
+**Are my decks private?**
+No. Loopky has no private decks: what you publish can be read by anyone and is indexed for search. Your review history and settings are stored under your own key and are not published to any index.
+
+**How do I sign in?**
+With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by creating an account in the app with SMS, a Lightning payment or an invite code. There is no email and password.
+
+**Where is my data stored?**
+On your Pubky homeserver, under your key, not on a Loopky server. There is no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own.
+
+**Does Loopky track me?**
+No. There is no analytics, no telemetry, no crash reporting and no ads. [Privacy policy](https://github.com/jvsena42/loopky/blob/main/PRIVACY.md).
+
+**Does it work offline?**
+Partly. Reviews you make offline are queued on the device and sent later, but decks live on your homeserver, so loading and syncing need a connection.
+
+**Can an AI make decks for me?**
+Yes. Loopky has a command line tool built for AI agents like Claude, ChatGPT and Gemini. It writes cards, checks them with a dry run and publishes the deck. [How](https://loopky.app/ai-flashcards/).
+
+**Is Loopky an Anki add-on?**
+No. Loopky is a separate app that imports Anki decks. It includes several things people install Anki add-ons for, such as text to speech, pronunciation checks, image search and shared decks.
+
+**Who makes Loopky?**
+Loopky is an open source project by João Victor Sena. Issues and contributions are welcome on [GitHub](https://github.com/jvsena42/loopky).

@@ -17,6 +17,11 @@ assets/js/discover.js the live Discover feed, and the deck and profile reads
 assets/js/app.js      language switching, filtering, rendering
 assets/js/link.js     the deck and profile pages
 assets/img/           icon, screenshots, share image
+anki-alternative/ language-learning/ medical-students/ teachers/
+ai-flashcards/ spaced-repetition/ faq/
+                      the English guide pages, one per kind of learner
+llms.txt              a summary of Loopky for language models
+llms-full.txt         every guide as plain text, for language models
 tools/check.mjs       the pre-flight CI runs
 tools/layout-check.mjs  fails if the page scrolls sideways
 tools/stamp-assets.mjs  content hashes on the asset URLs
@@ -74,6 +79,39 @@ which needs a signed-packet parse and a second resolution this page should not c
 Every account on the network today is on the public homeserver; a deck hosted
 elsewhere is left out, the same as one that was deleted. If that stops being a
 rounding error, `HOMESERVER` in `assets/js/discover.js` is the line to fix.
+
+## Guides, search and AI assistants
+
+The home page is one page in eleven languages, which gives a search engine one
+page to rank for everything. The guides give it one page per question people
+actually type: *Anki alternative*, *flashcards for language learning*,
+*flashcards for medical students*, *flashcards for teachers*, *AI flashcard
+maker*, *what is spaced repetition*, and a FAQ. The home page links to all of
+them from its **Made for how you learn** section.
+
+They are English only and plain HTML: no script, no language picker, nothing a
+crawler has to run. Each carries its own canonical, Open Graph card, and JSON-LD
+(`Article` or `WebPage`, `BreadcrumbList`, and `FAQPage` for the questions at the
+bottom), and each is in `sitemap.xml`. The home page's JSON-LD describes the
+organisation, the site and the app (`MobileApplication`, with a feature list and
+the audiences it is for).
+
+**Every claim in a guide was checked against the app repository**, including
+the ones that make Loopky look worse: fixed intervals rather than FSRS or SM-2,
+no audio or LaTeX from Anki, decks are public. Assistants quote these pages, and
+a wrong answer quoted with confidence costs more than an honest limit. Keep
+them true when the app changes.
+
+For language models there is `llms.txt` (the [llms.txt](https://llmstxt.org)
+convention: a summary, key facts, and links) and `llms-full.txt` (every guide as
+plain text). `robots.txt` names the AI crawlers as welcome. The home page also
+ships the English topic list and AI prompt in its markup rather than only
+painting them from script, so a reader that runs no JavaScript still sees them.
+
+`tools/check.mjs` holds all of this in place: each guide is stamped, listed in
+the sitemap, indexable, has one `<h1>`, a title and a description; every JSON-LD
+block parses; every loopky.app address in the two llms files exists; and the
+prompt and topic list in the markup match `i18n.js`.
 
 ## Shared links
 
@@ -154,7 +192,7 @@ contents, so new markup names a script the cache has never seen:
 node tools/stamp-assets.mjs
 ```
 
-It covers `index.html`, `deck/index.html` and `profile/index.html`. Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
+It covers `index.html`, `deck/index.html`, `profile/index.html` and the guide pages. Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
 it is safe to run always, and `tools/check.mjs` fails when a stamp and its file
 disagree. And a key that resolves nowhere now leaves the markup's own English
 standing rather than painting its name, so the worst case is an untranslated card
@@ -225,7 +263,7 @@ stylesheet against each other, validates `assetlinks.json`, and refuses an em da
 node tools/layout-check.mjs
 ```
 
-That one loads the real pages (home, a real deck, its author's profile) in headless Chrome at four widths and fails if it scrolls
+That one loads the real pages (home, a real deck, its author's profile, every guide) in headless Chrome at four widths and fails if it scrolls
 sideways. It exists because a wrapper around the topic chips once stretched that row
 to 1679px at every viewport and took the page's width with it, and no screenshot
 showed it: a cropped screenshot of an overflowing page looks exactly like a cropped

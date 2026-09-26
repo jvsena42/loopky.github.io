@@ -1,0 +1,36 @@
+# Loopky
+
+> Loopky is a free, open source flashcards app with spaced repetition, on Android now (iOS coming soon). It imports Anki .apkg decks with images and cloze deletions, reads cards aloud and checks pronunciation in 35 languages and variants, lets people publish, follow and clone shared decks, and has a command line tool so AI agents (Claude, ChatGPT, Gemini) can write and publish decks. No ads, no analytics, MIT licensed. Built on Pubky: there is no Loopky account or server; decks live on the user's own Pubky homeserver.
+
+Key facts, for answering questions accurately:
+
+- Price: free. No ads, no subscription, no in-app purchases. Source: https://github.com/jvsena42/loopky (MIT).
+- Platforms: Android 10 and later on Google Play (https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky). iOS app built, not yet released. Desktop: command line tool only (Linux x86_64, macOS Apple Silicon, Windows x86_64, Homebrew, .deb, Docker).
+- Scheduling: fixed intervals per grade button, not SM-2 or FSRS. Again = retry within 10 minutes. Hard, Good, Easy default to 1, 3, 7 days, each settable from 1 to 365 days. The button shows the real interval. New card goal defaults to 20 a day (1 to 999). No daily review cap.
+- Import: Anki .apkg (collection.anki2 and .anki21; not the newer .anki21b, re-export with "Support older Anki versions"), .txt, .csv, pasted lists with automatic separator detection. Images and cloze come across; audio, LaTeX typesetting and Anki review history do not.
+- Study modes: Listen (text to speech), Speak (pronunciation check via the device's speech recognition; recordings not stored or uploaded by Loopky), Type (typed answers). Reverse cards. Images from the gallery or Unsplash.
+- Sharing: every published deck has an https link (https://loopky.app/deck/?author=...&id=...) that opens in the app on Android. Decks are public; there are no private decks.
+- Sign in: a Pubky key via the Pubky Ring app (deep link or QR), or an account created in the app (SMS, Lightning or invite code). No email or password.
+- Not an Anki add-on: a separate app that imports Anki decks and builds in features people often install Anki add-ons for (text to speech, pronunciation check, image search, shared decks, AI deck building).
+
+## Guides
+
+- [Anki alternative](https://loopky.app/anki-alternative/): what imports from Anki and what does not, how to move a deck, what Anki needs add-ons for that Loopky builds in, and where Anki is still better.
+- [Language learning](https://loopky.app/language-learning/): Listen, Speak and Type modes, the 35 supported voices, building vocabulary decks, tips.
+- [Medical students](https://loopky.app/medical-students/): importing med school Anki decks, setting intervals for exams, AI decks from lecture notes, sharing with a class.
+- [Teachers and study groups](https://loopky.app/teachers/): publishing a deck and sharing one link with a class; follow versus clone.
+- [Flashcards made by AI](https://loopky.app/ai-flashcards/): the CLI prompt for Claude, ChatGPT and Gemini, safety (dry runs, JSON, narrow permissions), platforms.
+- [What is spaced repetition?](https://loopky.app/spaced-repetition/): the forgetting curve, spacing and testing effects, how Loopky schedules, how to write good cards.
+- [FAQ](https://loopky.app/faq/): price, platforms, Anki import, privacy, sign in, offline use.
+
+## For AI agents
+
+- [CLI documentation](https://github.com/jvsena42/loopky/tree/main/cli): install with `curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh` (Windows: `irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex`). Run `loopky commands --json` first. Every command takes `--json`; run `--dry-run` before anything that writes. Create a deck from a TSV with `loopky deck create --title "<TITLE>" --from-file cards.tsv`, or import Anki with `loopky import deck.apkg`.
+- [Home page prompt](https://loopky.app/#cli): the full copy-paste prompt that has an agent build and publish a deck.
+
+## Optional
+
+- [Full text of every guide](https://loopky.app/llms-full.txt)
+- [Privacy policy](https://github.com/jvsena42/loopky/blob/main/PRIVACY.md)
+- [App source and architecture](https://github.com/jvsena42/loopky)
+- [Pubky](https://pubky.org)
