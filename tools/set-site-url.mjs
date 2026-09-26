@@ -15,6 +15,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { GUIDES } from './stamp-assets.mjs';
+import { HOME_FILES } from './guides.mjs';
 
 const next = process.argv[2];
 if (!next) {
@@ -31,7 +32,7 @@ try {
 if (!base.endsWith('/')) base += '/';
 
 const files = ['index.html', 'sitemap.xml', 'robots.txt', 'README.md',
-  'llms.txt', 'llms-full.txt', ...GUIDES];
+  'llms.txt', 'llms-full.txt', ...GUIDES, ...HOME_FILES];
 /* The canonical link is the source of truth for where the site is today, and
    tools/check.mjs holds every other published address under it, so moving the site
    is replacing that one prefix wherever it appears. */

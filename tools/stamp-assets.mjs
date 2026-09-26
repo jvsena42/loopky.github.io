@@ -28,6 +28,8 @@ export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
 export const GUIDES = GUIDE_FILES;
 
 export const ALL_PAGES = [...PAGES, ...GUIDES];
+/* The translated home pages are copies of index.html, stamps included, so they are
+   checked through tools/build-guides.mjs --check rather than stamped here. */
 
 export function stampFor(file) {
   return createHash('sha256')

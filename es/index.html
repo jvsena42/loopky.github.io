@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="es" data-home="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-i18n="meta.title">Loopky · Flashcards gratis con repetición espaciada e importación de Anki</title>
+<meta name="description" data-i18n-attr="content" data-i18n="meta.desc" content="Loopky es una app de flashcards gratis con repetición espaciada. Importa mazos de Anki, aprende idiomas escuchando y hablando, prepara exámenes y medicina, comparte mazos. Sin anuncios.">
+<meta name="keywords" content="flashcards, flashcard app, free flashcards app, Anki, Anki alternative, Anki for Android, Anki import, apkg import, Anki add-ons, Anki text to speech, shared Anki decks, spaced repetition, SRS, study app, revision, exam prep, language learning, learn languages, vocabulary, pronunciation practice, text to speech flashcards, Japanese, Kanji, Hanzi, medical school flashcards, med student, USMLE, nursing, teachers, study group, self learning, AI flashcards, ChatGPT flashcards, Claude flashcards, AI flashcard maker, memorization, Quizlet alternative, TinyCards alternative, open source flashcards, Pubky">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="author" content="João Victor Sena">
+<meta name="theme-color" id="tc-light" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" id="tc-dark" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/es/">
+<link rel="icon" href="../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../llms.txt">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:url" content="https://loopky.app/es/">
+<meta property="og:title" data-i18n-attr="content" data-i18n="meta.title" content="Loopky · Flashcards gratis con repetición espaciada e importación de Anki">
+<meta property="og:description" data-i18n-attr="content" data-i18n="meta.desc" content="Loopky es una app de flashcards gratis con repetición espaciada. Importa mazos de Anki, aprende idiomas escuchando y hablando, prepara exámenes y medicina, comparte mazos. Sin anuncios.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, a free flashcards app with spaced repetition">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" data-i18n-attr="content" data-i18n="meta.title" content="Loopky · Flashcards gratis con repetición espaciada e importación de Anki">
+<meta name="twitter:description" data-i18n-attr="content" data-i18n="meta.desc" content="Loopky es una app de flashcards gratis con repetición espaciada. Importa mazos de Anki, aprende idiomas escuchando y hablando, prepara exámenes y medicina, comparte mazos. Sin anuncios.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, a free flashcards app with spaced repetition">
+
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/">
+
+<link rel="preconnect" href="https://nexus.pubky.app" crossorigin>
+<script>
+/* A stored choice has to be on <html> before the first paint, or the page draws the
+   system theme and then flips to the chosen one in front of the visitor. Nothing
+   stored means no attribute, and the stylesheet lets the system decide. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://loopky.app/#org",
+      "name": "Loopky",
+      "url": "https://loopky.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://loopky.app/assets/img/logo.png",
+        "width": 256,
+        "height": 256
+      },
+      "sameAs": [
+        "https://github.com/jvsena42/loopky",
+        "https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky"
+      ],
+      "founder": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://loopky.app/#website",
+      "name": "Loopky",
+      "url": "https://loopky.app/",
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "inLanguage": [
+        "en",
+        "pt-BR",
+        "es",
+        "fr",
+        "de",
+        "it",
+        "ja",
+        "ko",
+        "vi",
+        "zh-Hans",
+        "zh-Hant"
+      ]
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://loopky.app/#app",
+      "name": "Loopky",
+      "alternateName": "Loopky flashcards",
+      "applicationCategory": "EducationalApplication",
+      "applicationSubCategory": "Flashcards",
+      "operatingSystem": "Android 10 or later",
+      "url": "https://loopky.app/",
+      "downloadUrl": "https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky",
+      "image": "https://loopky.app/assets/img/og.png",
+      "screenshot": [
+        "https://loopky.app/assets/img/shot-today.webp",
+        "https://loopky.app/assets/img/shot-discover.webp"
+      ],
+      "license": "https://github.com/jvsena42/loopky/blob/main/LICENSE",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock"
+      },
+      "description": "Free, open source flashcards app with spaced repetition. Import Anki .apkg decks with images and cloze, learn languages with text to speech and pronunciation checks, share decks with friends and classmates, and let an AI agent build decks through the command line tool.",
+      "featureList": [
+        "Spaced repetition with Again, Hard, Good and Easy buttons and intervals you set",
+        "Anki .apkg import with images and cloze deletions",
+        "Import from .txt, .csv or a pasted list with automatic separator detection",
+        "Text to speech in 35 languages and variants",
+        "Pronunciation check with speech recognition",
+        "Type-in answers",
+        "Reverse cards",
+        "Images from the gallery or Unsplash",
+        "Publish, follow and clone shared decks",
+        "Discover decks by topic",
+        "Command line tool for AI agents such as Claude, ChatGPT and Gemini",
+        "No ads, no analytics, open source under the MIT license"
+      ],
+      "keywords": "flashcards, Anki alternative, Anki import, spaced repetition, language learning, vocabulary, medical school, exam prep, AI flashcards, study app",
+      "audience": {
+        "@type": "EducationalAudience",
+        "educationalRole": [
+          "student",
+          "teacher",
+          "self-learner"
+        ],
+        "audienceType": "Language learners, medical students, Anki users, teachers and self learners"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "softwareHelp": {
+        "@type": "CreativeWork",
+        "url": "https://loopky.app/faq/"
+      },
+      "sameAs": [
+        "https://github.com/jvsena42/loopky"
+      ],
+      "inLanguage": [
+        "en",
+        "pt-BR",
+        "es",
+        "fr",
+        "de",
+        "it",
+        "ja",
+        "ko",
+        "vi",
+        "zh-Hans",
+        "zh-Hant"
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body data-root="../">
+
+<a class="skip" href="#main" data-i18n="a11y.skip">Ir al contenido</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#top">
+      <img src="../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <nav class="topnav">
+      <a href="#features" data-i18n="nav.features">Funciones</a>
+      <a href="#discover" data-i18n="nav.discover">Descubrir</a>
+      <a href="#cli" data-i18n="nav.cli">Para IA</a>
+    </nav>
+    <div class="topright">
+      <button class="themebtn" id="theme-toggle" type="button" data-state="system">
+        <svg class="ico-system" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+          <path fill="currentColor" d="M12 3.5a8.5 8.5 0 0 0 0 17Z"/>
+        </svg>
+        <svg class="ico-light" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.4" fill="currentColor"/>
+          <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <path d="M12 2.4v2.3M12 19.3v2.3M2.4 12h2.3M19.3 12h2.3M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"/>
+          </g>
+        </svg>
+        <svg class="ico-dark" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true">
+          <path fill="currentColor" d="M20.4 14.6A8.6 8.6 0 0 1 9.4 3.6a8.8 8.8 0 1 0 11 11Z"/>
+        </svg>
+        <span class="themebtn-label" id="theme-label">System</span>
+      </button>
+      <label class="lang">
+        <span class="sr-only" data-i18n="a11y.lang">Idioma</span>
+        <select id="lang-select">
+          <option value="en">English</option>
+          <option value="pt-BR">Português</option>
+          <option value="es" selected>Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="vi">Tiếng Việt</option>
+          <option value="zh-Hans">简体中文</option>
+          <option value="zh-Hant">繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky" data-i18n="nav.get">Descargar</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <p class="eyebrow" data-i18n="hero.eyebrow">Flashcards · Repetición espaciada</p>
+      <h1 data-i18n="hero.title">Learn anything, remember everything.</h1>
+      <p class="lead" data-i18n="hero.sub">Crea un mazo, estudia unos minutos al día y conserva lo que aprendes. Trae tus mazos de Anki o encuentra mazos de otras personas.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l9.3-9.7L3.6 2.3Zm10.6 8.1 2.9-3-9.8-5.5 6.9 8.5Zm0 3.2-6.9 8.5 9.8-5.5-2.9-3Zm1.4-1.5 3.1-3.2c.8-.5.8-1.9 0-2.4l-3.1 3.2 3.1 3.2c.8-.5.8-1.9 0-2.4l-3.1-3.2Z"/></svg>
+          <span data-i18n="hero.play">Descargar en Google Play</span>
+        </a>
+        <span class="soon" data-i18n="hero.ios">iOS muy pronto</span>
+      </div>
+      <p class="fineprint" data-i18n="hero.free">Gratis. Sin anuncios.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img class="phone phone-back" src="../assets/img/shot-discover.webp" width="270" height="600" alt="" loading="eager" decoding="async">
+      <img class="phone phone-front" src="../assets/img/shot-today.webp" width="270" height="600" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <div class="wrap">
+    <h2 data-i18n="feat.title">Lo que incluye</h2>
+    <div class="grid-feat">
+      <article class="card feat">
+        <span class="ico ico-orange">🔁</span>
+        <h3 data-i18n="feat.srs.t">Repetición espaciada</h3>
+        <p data-i18n="feat.srs.d">Las tarjetas vuelven justo antes de que las olvides. Califica una y la app elige el próximo día.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple">📥</span>
+        <h3 data-i18n="feat.anki.t">Trae tus mazos de Anki</h3>
+        <p data-i18n="feat.anki.d">Importa un archivo .apkg o pega una lista simple. Loopky detecta el separador y arma las tarjetas.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue">🗣️</span>
+        <h3 data-i18n="feat.speak.t">Escucha y habla</h3>
+        <p data-i18n="feat.speak.d">Los mazos de idiomas leen la tarjeta en voz alta y revisan cómo la dices.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-green">🤝</span>
+        <h3 data-i18n="feat.share.t">Comparte mazos con amigos</h3>
+        <p data-i18n="feat.share.d">Publica un mazo, sigue el de otra persona o clona uno y hazlo tuyo.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-pink">🤖</span>
+        <h3 data-i18n="feat.cli.t">Tu IA escribe las tarjetas</h3>
+        <p data-i18n="feat.cli.d">Pídele a tu IA un mazo de japonés con la primera temporada de Naruto. Loopky tiene una app de terminal, así que puede.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-amber">💛</span>
+        <h3 data-i18n="feat.open.t">Gratis y de código abierto</h3>
+        <p data-i18n="feat.open.d">Licencia MIT. Lee el código, abre un issue o compílalo tú.</p>
+      </article>
+    </div>
+
+    <div class="uses">
+      <h3 data-i18n="uses.title">La gente usa Loopky para</h3>
+      <ul class="pillrow" id="uses-list">
+        <li>Idiomas</li>
+        <li>Vocabulario</li>
+        <li>Mazos de Anki</li>
+        <li>Exámenes</li>
+        <li>Medicina</li>
+        <li>Derecho</li>
+        <li>Kanji y Hanzi</li>
+        <li>Programación</li>
+        <li>Geografía</li>
+        <li>Teoría musical</li>
+        <li>Historia</li>
+        <li>Entrevistas de trabajo</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="who.title">Hecho para tu forma de aprender</h2>
+      <p class="lead" data-i18n="who.sub">Guías para quienes más usan Loopky.</p>
+    </div>
+    <div class="grid-who">
+      <a class="card feat" href="language-learning/" data-guide="language-learning">
+        <span class="ico ico-blue">🗣️</span>
+        <h3 data-i18n="who.lang.t">Estudiantes de idiomas</h3>
+        <p data-i18n="who.lang.d">Escucha cada palabra, repítela en voz alta y consérvala con repetición espaciada.</p>
+        <span class="more" data-i18n="who.more">Leer la guía</span>
+      </a>
+      <a class="card feat" href="medical-students/" data-guide="medical-students">
+        <span class="ico ico-pink">🩺</span>
+        <h3 data-i18n="who.med.t">Estudiantes de medicina</h3>
+        <p data-i18n="who.med.d">Trae tus mazos de Anki de la carrera, con imágenes y cloze.</p>
+        <span class="more" data-i18n="who.more">Leer la guía</span>
+      </a>
+      <a class="card feat" href="anki-alternative/" data-guide="anki-alternative">
+        <span class="ico ico-purple">📥</span>
+        <h3 data-i18n="who.anki.t">Si vienes de Anki</h3>
+        <p data-i18n="who.anki.d">Importa tus archivos .apkg y obtén audio y mazos compartidos sin complementos.</p>
+        <span class="more" data-i18n="who.more">Leer la guía</span>
+      </a>
+      <a class="card feat" href="teachers/" data-guide="teachers">
+        <span class="ico ico-green">🍎</span>
+        <h3 data-i18n="who.teach.t">Docentes y grupos de estudio</h3>
+        <p data-i18n="who.teach.d">Publica un mazo una vez y envía un solo enlace a toda la clase.</p>
+        <span class="more" data-i18n="who.more">Leer la guía</span>
+      </a>
+      <a class="card feat" href="ai-flashcards/" data-guide="ai-flashcards">
+        <span class="ico ico-orange">🤖</span>
+        <h3 data-i18n="who.ai.t">Flashcards hechas con IA</h3>
+        <p data-i18n="who.ai.d">Deja que Claude, ChatGPT o Gemini escriban las tarjetas y publiquen el mazo.</p>
+        <span class="more" data-i18n="who.more">Leer la guía</span>
+      </a>
+      <a class="card feat" href="spaced-repetition/" data-guide="spaced-repetition">
+        <span class="ico ico-amber">🧠</span>
+        <h3 data-i18n="who.self.t">Autodidactas</h3>
+        <p data-i18n="who.self.d">Qué es la repetición espaciada y cómo escribir tarjetas que se quedan.</p>
+        <span class="more" data-i18n="who.more">Leer la guía</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="discover">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2 data-i18n="disc.title">Descubre mazos</h2>
+        <p class="lead" data-i18n="disc.sub">Esta es la pestaña Descubrir, en vivo desde la red. Cada mazo lo publicó alguien que usa Loopky.</p>
+      </div>
+    </div>
+
+    <div class="disc-controls">
+      <div class="searchbox">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm5 12 4 4"/></svg>
+        <input id="disc-search" type="search" autocomplete="off" data-i18n-attr="placeholder" data-i18n="disc.search" placeholder="Buscar mazos y temas">
+      </div>
+      <div class="chips" id="disc-chips" role="group" data-i18n-attr="aria-label" data-i18n="disc.topics" aria-label="Temas"></div>
+    </div>
+
+    <p class="disc-status" id="disc-status" role="status" data-i18n="disc.loading">Cargando mazos…</p>
+    <div class="deckgrid" id="disc-grid"></div>
+    <noscript><p class="disc-status">The deck list loads from the Pubky network and needs JavaScript. Decks cover languages, vocabulary, medicine, exam prep, coding, geography and more; study them in the app.</p></noscript>
+    <div class="disc-foot">
+      <button class="btn btn-ghost" id="disc-more" hidden data-i18n="disc.more">Ver más</button>
+      <a class="btn" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky" data-i18n="disc.cta">Estudia estos en la app</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="cli">
+  <div class="wrap cli-in">
+    <div class="cli-copy">
+      <p class="eyebrow" data-i18n="cli.eyebrow">Línea de comandos</p>
+      <h2 data-i18n="cli.title">Deja que tu IA arme el mazo</h2>
+      <p class="lead" data-i18n="cli.sub">Loopky tiene una app de terminal. Dale el prompt de abajo a Claude, ChatGPT, Gemini o cualquier agente con shell, y escribirá las tarjetas y publicará el mazo.</p>
+      <ul class="ticks">
+        <li data-i18n="cli.t1">Un solo archivo. Sin Java, sin configuración.</li>
+        <li data-i18n="cli.t2">Todos los comandos hablan JSON.</li>
+        <li data-i18n="cli.t3">Nunca publica, sigue ni edita tu perfil.</li>
+      </ul>
+      <p class="fineprint"><a href="https://github.com/jvsena42/loopky/tree/main/cli" data-i18n="cli.docs">Ver la documentación de la CLI</a></p>
+    </div>
+    <div class="cli-box">
+      <div class="cli-bar">
+        <span data-i18n="cli.promptlabel">Prompt para tu IA</span>
+        <button class="btn btn-sm" id="copy-prompt" data-copy="#ai-prompt" data-i18n="cli.copy">Copiar</button>
+      </div>
+      <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
+
+Topic: &lt;WHAT I WANT TO LEARN&gt;
+Cards: &lt;HOW MANY&gt;
+
+Steps:
+1. Install the CLI if it is missing:
+   curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
+   Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
+2. Read the command surface first: loopky commands --json
+3. Log in: loopky login
+   It prints a QR code. I approve it in Pubky Ring on my phone.
+4. Write the cards to cards.tsv, one card per line:
+   front &lt;TAB&gt; back
+   Two more columns are optional: an https image URL for each side.
+5. Check before you write anything:
+   loopky deck create --title "&lt;TITLE&gt;" --from-file cards.tsv --dry-run --json
+6. Publish it:
+   loopky deck create --title "&lt;TITLE&gt;" --tag &lt;TOPIC&gt; --from-file cards.tsv
+   Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
+7. Show me the result: loopky deck show &lt;deckId&gt; --json
+
+I already have an Anki file? Import it instead:
+   loopky import deck.apkg --dry-run --json
+   loopky import deck.apkg --title "&lt;TITLE&gt;"
+
+Rules:
+- Every command takes --json, and the result sits under "data".
+- Always run --dry-run before a command that writes.
+- Image URLs must be https, and no SVG or TIFF. Those do not render.
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <h2 data-i18n="how.title">Tres pasos</h2>
+    <ol class="steps">
+      <li>
+        <span class="num">1</span>
+        <h3 data-i18n="how.s1.t">Instala Loopky</h3>
+        <p data-i18n="how.s1.d">Descárgalo en Google Play. Es gratis.</p>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <h3 data-i18n="how.s2.t">Entra con una clave</h3>
+        <p data-i18n="how.s2.d">Escanea un código con Pubky Ring. Sin correo, sin contraseña.</p>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <h3 data-i18n="how.s3.t">Empieza a estudiar</h3>
+        <p data-i18n="how.s3.d">Crea un mazo, pega una lista, importa de Anki o sigue un mazo que encontraste.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2 data-i18n="cta.title">Learn anything, remember everything.</h2>
+    <p data-i18n="cta.sub">Con unos minutos al día basta.</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky" data-i18n="hero.play">Descargar en Google Play</a>
+      <span class="soon soon-invert" data-i18n="hero.ios">iOS muy pronto</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky" data-i18n="foot.play">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky" data-i18n="foot.repo">Código fuente</a>
+      <a href="faq/" data-guide="faq" data-i18n="foot.faq">Preguntas frecuentes</a>
+      <a href="compare/" data-guide="compare" data-i18n="foot.compare">Comparar apps</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md" data-i18n="foot.privacy">Privacidad</a>
+      <a href="https://pubky.org" rel="noopener">Pubky</a>
+    </nav>
+    <p class="foot-note" data-i18n="foot.note">Hecho sobre Pubky. Licencia MIT.</p>
+  </div>
+</footer>
+
+<script src="../assets/js/i18n.js?v=d18ae3c6"></script>
+<script src="../assets/js/discover.js?v=0dcdb803"></script>
+<script src="../assets/js/app.js?v=952f8d09"></script>
+</body>
+</html>

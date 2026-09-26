@@ -28,6 +28,8 @@ const PAGES = [
   'index.html',
   `deck/?author=${AUTHOR}&id=viageming2026a`,
   `profile/?pubky=${AUTHOR}`,
+  /* Translated home pages: the longest words and the no-space script. */
+  'de/', 'ja/', 'pt-br/',
   /* Every guide in English, plus the two languages most likely to break a layout:
      Japanese (no spaces to wrap at) and German (long compounds). */
   ...GUIDES.filter((g) => !/^(?:[a-z-]+\/){2}/.test(g) || /^(?:ja|de)\//.test(g))

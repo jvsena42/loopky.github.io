@@ -30,5 +30,8 @@ export const LOCALES = [
 /* Site-relative path of one guide in one language, with the trailing slash. */
 export const guidePath = (locale, slug) => (locale.dir ? locale.dir + '/' : '') + slug + '/';
 
+/* The home page in every language but English, which is index.html itself. */
+export const HOME_FILES = LOCALES.filter((l) => l.dir).map((l) => l.dir + '/index.html');
+
 /* Every guide file, English first. */
 export const GUIDE_FILES = LOCALES.flatMap((l) => SLUGS.map((s) => guidePath(l, s) + 'index.html'));

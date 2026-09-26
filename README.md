@@ -223,8 +223,19 @@ English is the default. The picker covers the same languages as the app: English
 Português, Español, Français, Deutsch, Italiano, 日本語, 한국어, Tiếng Việt,
 简体中文, 繁體中文.
 
-The choice comes from `?lang=`, then `localStorage`, then the browser. Every language
-has its own `hreflang` and its own entry in `sitemap.xml`.
+Each language has its own home page: `/` in English, and `/pt-br/`, `/es/`, `/ja/`
+and so on for the other ten. They are built from `index.html` by
+`node tools/build-guides.mjs`, with that language's dictionary from `i18n.js`
+applied at build time, so each page is real text in its language with its own
+canonical and `hreflang`, not English that a script rewrites. Never edit a
+translated copy: edit `index.html` or `i18n.js` and rebuild. `tools/check.mjs` fails
+when a copy is stale.
+
+`/` sends a visitor to their language's page when `?lang=`, an earlier choice in
+`localStorage`, or the browser says so, which also keeps old `?lang=` links working.
+A translated page never redirects: someone who searched in Portuguese stays on the
+Portuguese page. The picker moves between the copies. The deck and profile pages
+have one copy each and still repaint in place.
 
 The slogan is the exception and stays English everywhere. `strings.xml` declares
 `brand_tagline` as `translatable="false"` and the app shows the English line in every
@@ -321,6 +332,16 @@ move looks like.
 `.app` is on the HSTS preload list, so browsers refuse plain HTTP for it and there is
 no insecure fallback while a certificate is being issued. A domain change means the
 site is unreachable until Pages has one, usually minutes.
+
+## IndexNow
+
+After each deploy, `tools/indexnow.mjs` tells the IndexNow engines (Bing, Yandex,
+Seznam, Naver and others) which pages the push changed, so they recrawl within
+hours. It announces only HTML files the push touched, or the whole sitemap when it
+cannot tell. The engines check that the site owns the key by fetching
+`70747e102c8b7c4c31ffdd586a8ea820.txt` at the root, so that file keeps its name and
+contents; `tools/check.mjs` fails if they drift from the key in the script. The step
+only warns when it fails.
 
 ## CI and deploying
 

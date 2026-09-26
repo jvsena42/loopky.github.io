@@ -1,4 +1,9 @@
-/* Builds the guide pages and the sitemap from tools/guides/{code}.json.
+/* Builds the guide pages, the translated home pages and the sitemap.
+ *
+ * Guides come from tools/guides/{code}.json. Home pages in the ten other languages
+ * (/pt-br/, /ja/ ...) come from index.html with the dictionaries in
+ * assets/js/i18n.js applied here, at build time, so a crawler reads Portuguese on
+ * the Portuguese page rather than English that a script replaces later.
  *
  *   node tools/build-guides.mjs          write the pages and sitemap.xml
  *   node tools/build-guides.mjs --check  exit 1 if anything written is stale
@@ -30,8 +35,9 @@ const SLOGAN = 'Learn anything, remember everything.';
 /* The canonical link on the home page is where the site lives today. */
 const SITE = /<link rel="canonical" href="([^"]+)"/.exec(read('index.html'))[1];
 
-/* The same prompt the home page shows, read from the one place it is written. */
-const AI_PROMPT = new Function(read('assets/js/i18n.js') + '\nreturn AI_PROMPT;')();
+/* The same prompt the home page shows, and the home page's dictionaries, read from
+   the one place they are written. */
+const { AI_PROMPT, I18N } = new Function(read('assets/js/i18n.js') + '\nreturn { AI_PROMPT, I18N };')();
 
 /* ---------------------------------------------------------------- layout */
 
@@ -150,7 +156,8 @@ function page(locale, slug) {
   const p = d.pages[slug];
   const L = LAYOUT[slug];
   const prefix = locale.dir ? '../../' : '../';
-  const home = locale.dir ? `${prefix}?lang=${locale.code}` : prefix;
+  /* One level up is this language's home page: /pt-br/ from /pt-br/{slug}/. */
+  const home = '../';
   const self = url(locale, slug);
   const css = `${prefix}assets/css/style.css?v=${stampFor('assets/css/style.css')}`;
 
@@ -179,7 +186,7 @@ function page(locale, slug) {
     {
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Loopky', item: locale.dir ? `${SITE}?lang=${locale.code}` : SITE },
+        { '@type': 'ListItem', position: 1, name: 'Loopky', item: SITE + (locale.dir ? locale.dir + '/' : '') },
         { '@type': 'ListItem', position: 2, name: p.crumb, item: self },
       ],
     },
@@ -434,14 +441,61 @@ ${others}
 `;
 }
 
+/* ---------------------------------------------------------------- home pages */
+
+const homeUrl = (l) => SITE + (l.dir ? l.dir + '/' : '');
+
+/* The hreflang block every home page carries, the English one included. */
+export const HOME_ALTERNATES = [
+  `<link rel="alternate" hreflang="x-default" href="${SITE}">`,
+  ...LOCALES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${homeUrl(l)}">`),
+].join('\n');
+
+function homePage(locale) {
+  const master = read('index.html');
+  const dict = I18N[locale.code];
+  const t = (key) => {
+    const v = dict[key] !== undefined ? dict[key] : I18N.en[key];
+    return typeof v === 'string' ? v : null;
+  };
+  let html = master;
+
+  /* Attributes first (meta content, placeholders, aria-labels), then text. */
+  html = html.replace(/<[^>]*\bdata-i18n-attr="([\w-]+)"[^>]*>/g, (tag, attr) => {
+    const key = /\bdata-i18n="([^"]+)"/.exec(tag)[1];
+    const v = t(key);
+    return v === null ? tag : tag.replace(new RegExp(`(\\s${attr}=")[^"]*"`), (_, a) => a + esc(v) + '"');
+  });
+  html = html.replace(/(<(\w+)\b[^>]*\bdata-i18n="([^"]+)"[^>]*>)([^<]*)(<\/\2>)/g,
+    (whole, open, tag, key, text, close) => {
+      if (/data-i18n-attr=/.test(open)) return whole;
+      const v = t(key);
+      return v === null ? whole : open + esc(v) + close;
+    });
+  html = html.replace(/(<ul class="pillrow" id="uses-list">)[\s\S]*?(\n\s*<\/ul>)/,
+    (_, a, b) => a + '\n' + dict['uses.list'].map((u) => `        <li>${esc(u)}</li>`).join('\n') + b);
+
+  html = html
+    .replace('<html lang="en" data-home="en">', `<html lang="${locale.code}" data-home="${locale.code}">`)
+    .replace(/<link rel="canonical" href="[^"]+">/, `<link rel="canonical" href="${homeUrl(locale)}">`)
+    .replace(/<meta property="og:url" content="[^"]+">/, `<meta property="og:url" content="${homeUrl(locale)}">`)
+    .replace(/<meta property="og:locale" content="[^"]+">/, `<meta property="og:locale" content="${locale.og}">`)
+    .replace(/<option value="([^"]+)">/g, (o, v) => v === locale.code ? `<option value="${v}" selected>` : o)
+    .replace('<body>', '<body data-root="../">');
+
+  /* One folder down: every local address climbs back to the root, except the guide
+     links, which should land on this language's guides right beside it. */
+  html = html.replace(/\b(src|href)="(?!https?:|#|mailto:|data:|\/)([^"]*)"/g, (whole, attr, path) =>
+    SLUGS.some((s) => path.startsWith(s + '/')) ? whole : `${attr}="../${path}"`);
+  return html;
+}
+
 /* ---------------------------------------------------------------- sitemap */
 
-const HOME_LANGS = LOCALES.map((l) => l.code);
-
 function sitemap() {
-  const homeAlts = ['  <xhtml:link rel="alternate" hreflang="x-default" href="' + SITE + '"/>',
-    ...HOME_LANGS.map((c) => `  <xhtml:link rel="alternate" hreflang="${c}" href="${SITE}?lang=${c}"/>`)]
-    .map((l) => '  ' + l).join('\n');
+  const homeAlts = [`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}"/>`,
+    ...LOCALES.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${homeUrl(l)}"/>`)]
+    .join('\n');
   const entry = (loc, alts, freq, prio) => `  <url>
     <loc>${loc}</loc>
     <lastmod>${LASTMOD}</lastmod>
@@ -449,10 +503,7 @@ function sitemap() {
     <priority>${prio}</priority>
 ${alts}
   </url>`;
-  const homes = [
-    entry(SITE, homeAlts, 'weekly', '1.0'),
-    ...HOME_LANGS.map((c) => entry(`${SITE}?lang=${c}`, homeAlts, 'weekly', '0.8')),
-  ];
+  const homes = LOCALES.map((l) => entry(homeUrl(l), homeAlts, 'weekly', l.dir ? '0.9' : '1.0'));
   const guides = SLUGS.flatMap((slug) => {
     const alts = [
       `    <xhtml:link rel="alternate" hreflang="x-default" href="${url(LOCALES[0], slug)}"/>`,
@@ -473,6 +524,7 @@ ${[...homes, ...guides].join('\n')}
 export function build() {
   const out = new Map();
   for (const l of BUILT) for (const s of SLUGS) out.set(guidePath(l, s) + 'index.html', page(l, s));
+  for (const l of LOCALES.filter((x) => x.dir)) out.set(l.dir + '/index.html', homePage(l));
   out.set('sitemap.xml', sitemap());
   return out;
 }
