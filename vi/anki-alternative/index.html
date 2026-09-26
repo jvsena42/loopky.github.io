@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Thay thế Anki miễn phí, nhập bộ thẻ .apkg của bạn · Loopky</title>
+<meta name="description" content="Chuyển từ Anki sang Loopky, ứng dụng thẻ ghi nhớ miễn phí. Nhập bộ thẻ .apkg có hình ảnh và điền chỗ trống, có đọc to, kiểm tra phát âm và chia sẻ, không cần add-on.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/vi/anki-alternative/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:url" content="https://loopky.app/vi/anki-alternative/">
+<meta property="og:title" content="Thay thế Anki miễn phí, nhập bộ thẻ .apkg của bạn · Loopky">
+<meta property="og:description" content="Chuyển từ Anki sang Loopky, ứng dụng thẻ ghi nhớ miễn phí. Nhập bộ thẻ .apkg có hình ảnh và điền chỗ trống, có đọc to, kiểm tra phát âm và chia sẻ, không cần add-on.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thay thế Anki miễn phí, nhập bộ thẻ .apkg của bạn · Loopky">
+<meta name="twitter:description" content="Chuyển từ Anki sang Loopky, ứng dụng thẻ ghi nhớ miễn phí. Nhập bộ thẻ .apkg có hình ảnh và điền chỗ trống, có đọc to, kiểm tra phát âm và chia sẻ, không cần add-on.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/vi/anki-alternative/#page",
+      "headline": "Chuyển từ Anki mà vẫn giữ bộ thẻ",
+      "name": "Thay thế Anki miễn phí, nhập bộ thẻ .apkg của bạn · Loopky",
+      "description": "Chuyển từ Anki sang Loopky, ứng dụng thẻ ghi nhớ miễn phí. Nhập bộ thẻ .apkg có hình ảnh và điền chỗ trống, có đọc to, kiểm tra phát âm và chia sẻ, không cần add-on.",
+      "url": "https://loopky.app/vi/anki-alternative/",
+      "inLanguage": "vi",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=vi"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Thay thế Anki",
+          "item": "https://loopky.app/vi/anki-alternative/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/vi/anki-alternative/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Loopky có thay thế hoàn toàn Anki được không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Với phần lớn người học, có. Hãy kiểm tra trước nếu bạn cần tệp âm thanh, LaTeX, mẫu thẻ tùy chỉnh hoặc FSRS."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Loopky có dùng FSRS không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không. Mỗi nút chấm điểm có một khoảng cách cố định do bạn đặt, từ 1 đến 365 ngày."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có miễn phí không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có. Không quảng cáo, không thuê bao, và là mã nguồn mở theo giấy phép MIT."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có ứng dụng cho iPhone không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hiện Loopky có trên Android. Ứng dụng iOS đã làm xong và sắp ra mắt."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Tới nội dung</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=vi">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">Ngôn ngữ</span>
+        <select id="lang-select">
+          <option value="../../anki-alternative/" data-lang="en">English</option>
+          <option value="../../pt-br/anki-alternative/" data-lang="pt-BR">Português</option>
+          <option value="../../es/anki-alternative/" data-lang="es">Español</option>
+          <option value="../../fr/anki-alternative/" data-lang="fr">Français</option>
+          <option value="../../de/anki-alternative/" data-lang="de">Deutsch</option>
+          <option value="../../it/anki-alternative/" data-lang="it">Italiano</option>
+          <option value="../../ja/anki-alternative/" data-lang="ja">日本語</option>
+          <option value="../../ko/anki-alternative/" data-lang="ko">한국어</option>
+          <option value="../../vi/anki-alternative/" data-lang="vi" selected>Tiếng Việt</option>
+          <option value="../../zh-hans/anki-alternative/" data-lang="zh-Hans">简体中文</option>
+          <option value="../../zh-hant/anki-alternative/" data-lang="zh-Hant">繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Tải ứng dụng</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=vi">Loopky</a></li>
+          <li aria-current="page">Thay thế Anki</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Cho người dùng Anki</p>
+      <h1>Chuyển từ Anki mà vẫn giữ bộ thẻ</h1>
+      <p class="lead">Loopky mở tệp .apkg của bạn, rồi thêm nghe, nói, chia sẻ và thẻ do AI viết. Không add-on, không tốn tiền.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Tải trên Google Play</a>
+        <span class="soon">iOS sắp có</span>
+      </div>
+      <p class="fineprint">Miễn phí. Không quảng cáo. Mã nguồn mở.</p>
+    </div>
+    <div class="ghero-art">
+      <img class="shot" src="../../assets/img/guides/phone-decks.webp" width="540" height="1200" alt="Thư viện bộ thẻ của Loopky với nút Nhập từ Anki" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat n4">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📥</span>
+        <h2 class="h3">Bộ thẻ đi cùng bạn</h2>
+        <p>Văn bản, hình ảnh và thẻ điền chỗ trống được nhập từ tệp .apkg, .txt và .csv.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">🧩</span>
+        <h2 class="h3">Không cần add-on</h2>
+        <p>Đọc to và kiểm tra phát âm có sẵn, cho 35 ngôn ngữ.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🔗</span>
+        <h2 class="h3">Chia sẻ bằng link</h2>
+        <p>Đăng một bộ thẻ và ai cũng có thể theo dõi hoặc sao chép nó.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-green" aria-hidden="true">💻</span>
+        <h2 class="h3">Máy tính bảng và máy tính</h2>
+        <p>Bố cục hai khung trên máy tính bảng, và công cụ dòng lệnh để xử lý nhiều bộ thẻ cùng lúc.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Làm cho màn hình lớn</h2>
+      <p>Trên máy tính bảng, Loopky dùng bố cục hai khung thật sự: hàng đợi hôm nay cạnh các bộ thẻ, một bộ thẻ cạnh các thẻ của nó. Máy tính bảng Android ngay bây giờ, iPad khi có ứng dụng iOS.</p>
+    </div>
+    <div class="split-art">
+      <img class="shot shot-tablet" src="../../assets/img/guides/tablet-decks.webp" width="1280" height="800" alt="Thư viện bộ thẻ của Loopky trên máy tính bảng, rộng bốn cột" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Những gì mang sang được từ Anki</h2>
+    <div class="card dtable-wrap">
+        <table class="dtable">
+          <thead><tr><th scope="col">Từ Anki</th><th scope="col">Trong Loopky</th></tr></thead>
+          <tbody>
+          <tr><td>Văn bản và các trường</td><td>Có, bạn chọn mặt trước và mặt sau</td></tr>
+          <tr><td>Hình ảnh</td><td>Có</td></tr>
+          <tr><td>Thẻ điền chỗ trống</td><td>Có, mỗi chỗ trống thành một thẻ</td></tr>
+          <tr><td>Thẻ đảo chiều</td><td>Có</td></tr>
+          <tr><td>Âm thanh</td><td>Không, dùng tính năng đọc to có sẵn</td></tr>
+          <tr><td>LaTeX</td><td>Hiện dưới dạng mã nguồn</td></tr>
+          <tr><td>Lịch sử ôn tập</td><td>Không, thẻ bắt đầu lại từ đầu</td></tr>
+          </tbody>
+        </table>
+      </div>
+    <p class="fineprint table-note">Tệp .anki21b mới nhất: xuất lại và đánh dấu &quot;Support older Anki versions&quot; (hỗ trợ phiên bản Anki cũ).</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split split-rev">
+    <div class="split-copy">
+      <h2>Quản lý bộ thẻ từ máy tính</h2>
+      <p>Công cụ dòng lệnh của Loopky chạy trên Windows, macOS và Linux.</p>
+      <ul class="ticks">
+        <li>Tạo, sửa và xóa bộ thẻ</li>
+        <li>Thêm, sửa và xóa nhiều thẻ cùng lúc</li>
+        <li>Nhập tệp .apkg và TSV từ ổ đĩa</li>
+        <li>Viết script, hoặc để một agent AI làm</li>
+      </ul>
+    </div>
+    <div class="split-art">
+      <div class="cli-box" aria-hidden="true"><div class="cli-bar"><span>loopky</span></div><pre><code><span class="c"># Bring a whole Anki deck across</span>
+<span class="p">$</span> loopky import deck.apkg --dry-run --json
+<span class="p">$</span> loopky import deck.apkg --title &quot;Pharmacology&quot;
+<span class="c"># Or build one from a spreadsheet</span>
+<span class="p">$</span> loopky deck create --title &quot;Verbs&quot; --from-file cards.tsv
+<span class="p">$</span> loopky deck list --json</code></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Chuyển một bộ thẻ trong một phút</h2>
+      <p>Trong Anki, xuất bộ thẻ thành .apkg kèm media. Mở nó trong Loopky và chọn trường mặt trước, mặt sau. Chỉ có một danh sách? Dán vào là được.</p>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-paste.webp" width="540" height="1200" alt="Dán danh sách từ vào Loopky, dấu phân cách được tự nhận ra" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <h2>Câu hỏi</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>Loopky có thay thế hoàn toàn Anki được không?</summary>
+        <p>Với phần lớn người học, có. Hãy kiểm tra trước nếu bạn cần tệp âm thanh, LaTeX, mẫu thẻ tùy chỉnh hoặc FSRS.</p>
+      </details>
+      <details class="card">
+        <summary>Loopky có dùng FSRS không?</summary>
+        <p>Không. Mỗi nút chấm điểm có một khoảng cách cố định do bạn đặt, từ 1 đến 365 ngày.</p>
+      </details>
+      <details class="card">
+        <summary>Có miễn phí không?</summary>
+        <p>Có. Không quảng cáo, không thuê bao, và là mã nguồn mở theo giấy phép MIT.</p>
+      </details>
+      <details class="card">
+        <summary>Có ứng dụng cho iPhone không?</summary>
+        <p>Hiện Loopky có trên Android. Ứng dụng iOS đã làm xong và sắp ra mắt.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>Vài phút mỗi ngày là đủ.</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Tải trên Google Play</a>
+      <span class="soon soon-invert">iOS sắp có</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Thêm về Loopky</h2>
+    <nav class="guide-links" aria-label="Thêm về Loopky">
+      <a class="card" href="../../vi/language-learning/">Người học ngoại ngữ<span>Nghe từng từ, nói lại, nhớ mãi.</span></a>
+      <a class="card" href="../../vi/medical-students/">Sinh viên y khoa<span>Bộ thẻ ngành y của bạn, kèm hình ảnh và điền chỗ trống.</span></a>
+      <a class="card" href="../../vi/teachers/">Giáo viên và nhóm học<span>Đăng bộ thẻ một lần và gửi một đường link.</span></a>
+      <a class="card" href="../../vi/ai-flashcards/">Thẻ ghi nhớ do AI tạo<span>Claude, ChatGPT hoặc Gemini viết bộ thẻ giúp bạn.</span></a>
+      <a class="card" href="../../vi/spaced-repetition/">Lặp lại ngắt quãng là gì?<span>Cách nó hoạt động, và cách viết thẻ dễ nhớ.</span></a>
+      <a class="card" href="../../vi/compare/">Loopky, Anki hay Quizlet?<span>Ứng dụng thẻ ghi nhớ nào hợp với ai.</span></a>
+      <a class="card" href="../../vi/faq/">Hỏi và đáp<span>Giá, nền tảng, quyền riêng tư, Anki và đăng nhập.</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=vi">Trang chủ</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">Mã nguồn</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">Quyền riêng tư</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">Xây trên Pubky. Giấy phép MIT.</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>

@@ -9,6 +9,18 @@
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://loopky.app/teachers/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/teachers/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/">
 <link rel="icon" href="../assets/img/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/img/logo.png">
 <link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../llms.txt">
@@ -39,7 +51,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=e55dd892">
+<link rel="stylesheet" href="../assets/css/style.css?v=151d8a39">
 
 <script type="application/ld+json">
 {
@@ -48,7 +60,7 @@
     {
       "@type": "Article",
       "@id": "https://loopky.app/teachers/#page",
-      "headline": "Make a deck once, share it with the whole class",
+      "headline": "One deck, one link, the whole class",
       "name": "Flashcards for teachers, tutors and study groups · Loopky",
       "description": "Make a flashcard deck once and share it with your class through one link. Students follow it or clone it and study with spaced repetition. Free, no ads, no tracking.",
       "url": "https://loopky.app/teachers/",
@@ -69,10 +81,6 @@
       },
       "about": {
         "@id": "https://loopky.app/#app"
-      },
-      "audience": {
-        "@type": "EducationalAudience",
-        "educationalRole": "teacher"
       }
     },
     {
@@ -98,18 +106,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Can I share a flashcard deck with my students?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Publish the deck and send its link. Students can follow it or clone their own copy and study it with spaced repetition."
-          }
-        },
-        {
-          "@type": "Question",
           "name": "Do students need an email account?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Loopky signs in with a Pubky key through the Pubky Ring app, or by creating an account in the app. There is no email and password."
+            "text": "No. They sign in with a Pubky key, or create an account in the app."
           }
         },
         {
@@ -117,15 +117,15 @@
           "name": "Can I see my students' progress?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Study progress belongs to each student and Loopky has no teacher dashboard."
+            "text": "No. Progress belongs to each student, and there is no teacher dashboard."
           }
         },
         {
           "@type": "Question",
-          "name": "Can I import my existing quiz or vocabulary lists?",
+          "name": "Can students on iPhone join?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes. Paste a list or import a .txt, .csv or Anki .apkg file. Loopky detects the separator and builds the cards."
+            "text": "They can open the deck page in a browser now, and study it once the iOS app is out."
           }
         }
       ]
@@ -144,14 +144,23 @@
       <img src="../assets/img/logo.png" width="34" height="34" alt="Loopky">
       <span>Loopky</span>
     </a>
-    <nav class="topnav" aria-label="Guides">
-      <a href="../anki-alternative/">Anki import</a>
-      <a href="../language-learning/">Languages</a>
-      <a href="../medical-students/">Medicine</a>
-      <a href="../compare/">Compare</a>
-      <a href="../faq/">FAQ</a>
-    </nav>
     <div class="topright">
+      <label class="lang">
+        <span class="sr-only">Language</span>
+        <select id="lang-select">
+          <option value="../teachers/" data-lang="en" selected>English</option>
+          <option value="../pt-br/teachers/" data-lang="pt-BR">Português</option>
+          <option value="../es/teachers/" data-lang="es">Español</option>
+          <option value="../fr/teachers/" data-lang="fr">Français</option>
+          <option value="../de/teachers/" data-lang="de">Deutsch</option>
+          <option value="../it/teachers/" data-lang="it">Italiano</option>
+          <option value="../ja/teachers/" data-lang="ja">日本語</option>
+          <option value="../ko/teachers/" data-lang="ko">한국어</option>
+          <option value="../vi/teachers/" data-lang="vi">Tiếng Việt</option>
+          <option value="../zh-hans/teachers/" data-lang="zh-Hans">简体中文</option>
+          <option value="../zh-hant/teachers/" data-lang="zh-Hant">繁體中文</option>
+        </select>
+      </label>
       <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get the app</a>
     </div>
   </div>
@@ -159,85 +168,123 @@
 
 <main id="main">
 
-<section class="guide-hero">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <ol>
-        <li><a href="../">Loopky</a></li>
-        <li aria-current="page">Teachers and study groups</li>
-      </ol>
-    </nav>
-    <p class="eyebrow">For teachers and study groups</p>
-    <h1>Make a deck once, share it with the whole class</h1>
-    <p class="lead">Loopky turns your vocabulary lists, definitions and exam facts into a shared flashcard deck. Send one link, and every student studies it with spaced repetition on their own phone.</p>
-    <div class="cta-row">
-      <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">
-        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3.6 2.3a1 1 0 0 0-.5.9v17.6a1 1 0 0 0 .5.9l9.3-9.7L3.6 2.3Zm10.6 8.1 2.9-3-9.8-5.5 6.9 8.5Zm0 3.2-6.9 8.5 9.8-5.5-2.9-3Zm1.4-1.5 3.1-3.2c.8-.5.8-1.9 0-2.4l-3.1 3.2 3.1 3.2c.8-.5.8-1.9 0-2.4l-3.1-3.2Z"/></svg>
-        <span>Get it on Google Play</span>
-      </a>
-      <span class="soon">iOS coming soon</span>
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../">Loopky</a></li>
+          <li aria-current="page">Teachers and study groups</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">For teachers and study groups</p>
+      <h1>One deck, one link, the whole class</h1>
+      <p class="lead">Publish a flashcard deck once. Students open the link and study it with spaced repetition on their own phones.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get it on Google Play</a>
+        <span class="soon">iOS coming soon</span>
+      </div>
+      <p class="fineprint">Free. No ads. Open source.</p>
     </div>
-    <p class="fineprint">Free. No ads. Open source.</p>
+    <div class="ghero-art">
+      <img class="shot" src="../assets/img/guides/phone-deck.webp" width="540" height="1200" alt="A shared deck with its cards, stats and topics" loading="eager" decoding="async">
+    </div>
   </div>
 </section>
 
 <section class="section">
   <div class="wrap">
-    <article class="prose">
-<p><strong>Loopky</strong> is a free flashcards app with spaced repetition and deck sharing built in. It suits language teachers, tutors, course creators, and any group of students preparing for the same exam.</p>
-
-<h2>How sharing works</h2>
-<ol>
-  <li><strong>Build the deck.</strong> Type cards, paste a list from a spreadsheet (Loopky detects the separator), import an Anki <code>.apkg</code>, or <a href="../ai-flashcards/">have an AI write it</a>.</li>
-  <li><strong>Publish it</strong> with a title, a cover and topic tags.</li>
-  <li><strong>Send the link.</strong> Every deck has an https address like <code>loopky.app/deck/?author=...&amp;id=...</code>. On an Android phone with Loopky it opens the deck in the app; anywhere else it shows the deck and a Google Play button.</li>
-  <li><strong>Students follow or clone.</strong> Following puts the deck in their library and reads it from yours, so they get your edits. Cloning gives them an independent copy with its own study progress that they can edit.</li>
-</ol>
-<p>Your profile page lists every deck you have published, so one link to your profile is a whole course.</p>
-
-<h2>Why it works for a class</h2>
-<ul>
-  <li><strong>Spaced repetition does the planning.</strong> Each student sees each card right before they would forget it, without you assigning review sessions. Read <a href="../spaced-repetition/">why spacing works</a>.</li>
-  <li><strong>Listening and speaking</strong> for language classes: cards are read aloud in 35 languages, and Speak mode checks pronunciation. See <a href="../language-learning/">Loopky for language learning</a>.</li>
-  <li><strong>No accounts to hand out.</strong> Students sign in with a Pubky key, not an email address and password.</li>
-  <li><strong>No ads and no tracking.</strong> Loopky has no analytics, no telemetry and no ad SDKs. It is open source under the MIT license.</li>
-</ul>
-
-<h2>Good to know</h2>
-<ul>
-  <li>Published decks are <strong>public</strong>, so keep student names and grades out of them.</li>
-  <li>Loopky is on Android now, with iOS coming soon. Until then, students on iPhone can view a shared deck's page in the browser but cannot study it in the app.</li>
-  <li>There is no teacher dashboard or class roster. Loopky shares decks; it does not track students.</li>
-</ul>
-
-    <section class="faq" id="questions">
-      <h2>Questions</h2>
-      <h3>Can I share a flashcard deck with my students?</h3>
-      <p>Yes. Publish the deck and send its link. Students can follow it or clone their own copy and study it with spaced repetition.</p>
-      <h3>Do students need an email account?</h3>
-      <p>No. Loopky signs in with a Pubky key through the Pubky Ring app, or by creating an account in the app. There is no email and password.</p>
-      <h3>Can I see my students' progress?</h3>
-      <p>No. Study progress belongs to each student and Loopky has no teacher dashboard.</p>
-      <h3>Can I import my existing quiz or vocabulary lists?</h3>
-      <p>Yes. Paste a list or import a .txt, .csv or Anki .apkg file. Loopky detects the separator and builds the cards.</p>
-    </section>
-      <p class="guide-cta"><a class="btn" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get Loopky on Google Play</a></p>
-      <p class="fineprint">Updated <time datetime="2026-09-26">September 2026</time>.</p>
-    </article>
+    <div class="grid-feat n4">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">🔗</span>
+        <h2 class="h3">Share one link</h2>
+        <p>Every deck has a web link that opens in the app.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">👀</span>
+        <h2 class="h3">Follow or clone</h2>
+        <p>Following gets your edits. Cloning gives students a copy they can change.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🗣️</span>
+        <h2 class="h3">Listening and speaking</h2>
+        <p>Language decks read aloud and check pronunciation.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-green" aria-hidden="true">🚫</span>
+        <h2 class="h3">No ads, no tracking</h2>
+        <p>No analytics, and no student data collected.</p>
+      </article>
+    </div>
   </div>
 </section>
 
 <section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Build the deck your way</h2>
+      <p>Type the cards, paste a list from a spreadsheet, import an Anki file, or have an AI write them.</p>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../assets/img/guides/phone-paste.webp" width="540" height="1200" alt="Pasting a list of cards into Loopky" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-rev">
+    <div class="split-copy">
+      <h2>Your profile is your course</h2>
+      <p>Your profile lists every deck you publish, so one link covers the whole term.</p>
+    </div>
+    <div class="split-art">
+      <img class="shot shot-tablet" src="../assets/img/guides/tablet-profile.webp" width="1280" height="800" alt="A Loopky profile on a tablet" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <h2>Questions</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>Do students need an email account?</summary>
+        <p>No. They sign in with a Pubky key, or create an account in the app.</p>
+      </details>
+      <details class="card">
+        <summary>Can I see my students' progress?</summary>
+        <p>No. Progress belongs to each student, and there is no teacher dashboard.</p>
+      </details>
+      <details class="card">
+        <summary>Can students on iPhone join?</summary>
+        <p>They can open the deck page in a browser now, and study it once the iOS app is out.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>A few minutes a day is enough.</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get it on Google Play</a>
+      <span class="soon soon-invert">iOS coming soon</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
   <div class="wrap">
     <h2>More about Loopky</h2>
-    <nav class="guide-links" aria-label="More guides">
-      <a class="card" href="../anki-alternative/">Coming from Anki<span>Import your .apkg decks and keep studying on your phone.</span></a>
-      <a class="card" href="../language-learning/">Language learners<span>Listen, speak and type your way through vocabulary in 35 voices.</span></a>
-      <a class="card" href="../medical-students/">Medical students<span>Bring your med school Anki decks, with images and cloze.</span></a>
-      <a class="card" href="../ai-flashcards/">Flashcards made by AI<span>Let Claude, ChatGPT or Gemini write and publish the deck.</span></a>
-      <a class="card" href="../spaced-repetition/">What is spaced repetition?<span>How it works, how Loopky schedules, and how to write good cards.</span></a>
-      <a class="card" href="../compare/">Loopky, Anki or Quizlet?<span>Which flashcard app fits which learner, side by side.</span></a>
-      <a class="card" href="../faq/">Questions and answers<span>Price, platforms, privacy, Anki, sharing and sign in.</span></a>
+    <nav class="guide-links" aria-label="More about Loopky">
+      <a class="card" href="../anki-alternative/">Coming from Anki<span>Bring your .apkg decks and leave the add-ons behind.</span></a>
+      <a class="card" href="../language-learning/">Language learners<span>Hear each word, say it back, keep it for good.</span></a>
+      <a class="card" href="../medical-students/">Medical students<span>Your med school decks, with images and cloze.</span></a>
+      <a class="card" href="../ai-flashcards/">Flashcards made by AI<span>Claude, ChatGPT or Gemini write the deck for you.</span></a>
+      <a class="card" href="../spaced-repetition/">What is spaced repetition?<span>How it works, and how to write cards that stick.</span></a>
+      <a class="card" href="../compare/">Loopky, Anki or Quizlet?<span>Which flashcard app fits which learner.</span></a>
+      <a class="card" href="../faq/">Questions and answers<span>Price, platforms, privacy, Anki and sign in.</span></a>
     </nav>
   </div>
 </section>
@@ -261,5 +308,18 @@
   </div>
 </footer>
 
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
 </body>
 </html>

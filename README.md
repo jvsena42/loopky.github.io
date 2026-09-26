@@ -17,9 +17,12 @@ assets/js/discover.js the live Discover feed, and the deck and profile reads
 assets/js/app.js      language switching, filtering, rendering
 assets/js/link.js     the deck and profile pages
 assets/img/           icon, screenshots, share image
-anki-alternative/ language-learning/ medical-students/ teachers/
-ai-flashcards/ spaced-repetition/ compare/ faq/
-                      the English guide pages, one per kind of learner
+anki-alternative/ … faq/   the guide pages in English, one per kind of learner
+pt-br/ es/ fr/ de/ it/ ja/ ko/ vi/ zh-hans/ zh-hant/
+                      the same guides in the other ten languages
+tools/guides/*.json   the guides' words, one file per language
+tools/build-guides.mjs  builds the guide pages and sitemap.xml from them
+assets/img/guides/    app screenshots the guides show
 llms.txt              a summary of Loopky for language models
 llms-full.txt         every guide as plain text, for language models
 tools/check.mjs       the pre-flight CI runs
@@ -89,12 +92,28 @@ actually type: *Anki alternative*, *flashcards for language learning*,
 maker*, *what is spaced repetition*, and a FAQ. The home page links to all of
 them from its **Made for how you learn** section.
 
-They are English only and plain HTML: no script, no language picker, nothing a
-crawler has to run. Each carries its own canonical, Open Graph card, and JSON-LD
-(`Article` or `WebPage`, `BreadcrumbList`, and `FAQPage` for the questions at the
-bottom), and each is in `sitemap.xml`. The home page's JSON-LD describes the
-organisation, the site and the app (`MobileApplication`, with a feature list and
-the audiences it is for).
+Each guide is short and visual: a screenshot of the app, a few feature cards, one
+or two screenshot-and-text blocks, a table where one helps, and a few questions. They
+exist in all eleven languages, each at its own address (`/anki-alternative/`,
+`/pt-br/anki-alternative/`, `/ja/anki-alternative/` …) with `hreflang` between them,
+because a language that only appears after a script runs is one a search engine
+barely sees. The home page's guide links follow the chosen language.
+
+The words live in `tools/guides/{lang}.json` and the layout (which screenshot, which
+icon) in `tools/build-guides.mjs`, so a translation cannot move a picture. After
+editing either, rebuild:
+
+```shell
+node tools/build-guides.mjs
+```
+
+That writes every guide page and `sitemap.xml`. `tools/check.mjs` runs the same
+build in `--check` mode and fails when the output is stale, and it fails when a
+language's JSON drifts from `en.json` (a missing key, a question too few). Adding a
+guide means a slug in `tools/guides.mjs`, a layout entry, and the text in all eleven
+files. The pages carry no script beyond the theme and the language picker. Each has
+its own canonical, Open Graph card and JSON-LD (`Article` or `WebPage`,
+`BreadcrumbList`, `FAQPage`).
 
 **Every claim in a guide was checked against the app repository**, including
 the ones that make Loopky look worse: fixed intervals rather than FSRS or SM-2,
@@ -103,8 +122,8 @@ a wrong answer quoted with confidence costs more than an honest limit. Keep
 them true when the app changes.
 
 For language models there is `llms.txt` (the [llms.txt](https://llmstxt.org)
-convention: a summary, key facts, and links) and `llms-full.txt` (every guide as
-plain text). `robots.txt` names the AI crawlers as welcome. The home page also
+convention: a summary, key facts, and links) and `llms-full.txt` (the long version
+of every guide, written by hand; the pages stay short, this keeps the detail). `robots.txt` names the AI crawlers as welcome. The home page also
 ships the English topic list and AI prompt in its markup rather than only
 painting them from script, so a reader that runs no JavaScript still sees them.
 

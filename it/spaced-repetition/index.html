@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cos’è la ripetizione dilazionata? Una guida semplice · Loopky</title>
+<meta name="description" content="La ripetizione dilazionata spiegata in modo semplice: la curva dell’oblio, perché mettersi alla prova funziona, come Loopky pianifica le carte e come scriverle bene.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/it/spaced-repetition/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="it_IT">
+<meta property="og:url" content="https://loopky.app/it/spaced-repetition/">
+<meta property="og:title" content="Cos’è la ripetizione dilazionata? Una guida semplice · Loopky">
+<meta property="og:description" content="La ripetizione dilazionata spiegata in modo semplice: la curva dell’oblio, perché mettersi alla prova funziona, come Loopky pianifica le carte e come scriverle bene.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, un’app di flashcard gratuita con ripetizione dilazionata">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cos’è la ripetizione dilazionata? Una guida semplice · Loopky">
+<meta name="twitter:description" content="La ripetizione dilazionata spiegata in modo semplice: la curva dell’oblio, perché mettersi alla prova funziona, come Loopky pianifica le carte e come scriverle bene.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, un’app di flashcard gratuita con ripetizione dilazionata">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/it/spaced-repetition/#page",
+      "headline": "Cos’è la ripetizione dilazionata?",
+      "name": "Cos’è la ripetizione dilazionata? Una guida semplice · Loopky",
+      "description": "La ripetizione dilazionata spiegata in modo semplice: la curva dell’oblio, perché mettersi alla prova funziona, come Loopky pianifica le carte e come scriverle bene.",
+      "url": "https://loopky.app/it/spaced-repetition/",
+      "inLanguage": "it",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=it"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ripetizione dilazionata",
+          "item": "https://loopky.app/it/spaced-repetition/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/it/spaced-repetition/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quante carte dovrei studiare al giorno?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Inizia con 10 o 20 carte nuove più tutti i ripassi in scadenza. L’obiettivo predefinito di Loopky è 20 carte nuove."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "È meglio che rileggere gli appunti?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì. La ricerca su spaziatura e test mostra che richiamare a intervalli distanziati batte rileggere e studiare tutto all’ultimo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che algoritmo usa Loopky?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Intervalli fissi per pulsante: meno di 10 minuti, poi 1, 3 e 7 giorni per impostazione predefinita, ognuno regolabile fino a 365."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=it">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">Lingua</span>
+        <select id="lang-select">
+          <option value="../../spaced-repetition/" data-lang="en">English</option>
+          <option value="../../pt-br/spaced-repetition/" data-lang="pt-BR">Português</option>
+          <option value="../../es/spaced-repetition/" data-lang="es">Español</option>
+          <option value="../../fr/spaced-repetition/" data-lang="fr">Français</option>
+          <option value="../../de/spaced-repetition/" data-lang="de">Deutsch</option>
+          <option value="../../it/spaced-repetition/" data-lang="it" selected>Italiano</option>
+          <option value="../../ja/spaced-repetition/" data-lang="ja">日本語</option>
+          <option value="../../ko/spaced-repetition/" data-lang="ko">한국어</option>
+          <option value="../../vi/spaced-repetition/" data-lang="vi">Tiếng Việt</option>
+          <option value="../../zh-hans/spaced-repetition/" data-lang="zh-Hans">简体中文</option>
+          <option value="../../zh-hant/spaced-repetition/" data-lang="zh-Hant">繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Scarica l’app</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=it">Loopky</a></li>
+          <li aria-current="page">Ripetizione dilazionata</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Guida</p>
+      <h1>Cos’è la ripetizione dilazionata?</h1>
+      <p class="lead">Ripassa ogni carta poco prima di dimenticarla, ogni volta un po’ più tardi. Bastano dieci minuti al giorno.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Scarica su Google Play</a>
+        <span class="soon">iOS in arrivo</span>
+      </div>
+      <p class="fineprint">Gratis. Senza pubblicità. Open source.</p>
+    </div>
+    <div class="ghero-art">
+      <img class="shot" src="../../assets/img/guides/phone-answer.webp" width="540" height="1200" alt="Voto a una carta, ogni pulsante mostra il prossimo ripasso" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📉</span>
+        <h2 class="h3">La curva dell’oblio</h2>
+        <p>Dopo aver imparato, la memoria svanisce in fretta. Ogni ripasso la rallenta.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">📅</span>
+        <h2 class="h3">L’effetto di spaziatura</h2>
+        <p>Sessioni brevi distribuite su molti giorni battono una lunga maratona di studio.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🧠</span>
+        <h2 class="h3">L’effetto test</h2>
+        <p>Richiamare una risposta la rafforza più che rileggerla.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Come Loopky pianifica una carta</h2>
+      <p>Datti un voto dopo ogni carta. Ogni pulsante mostra esattamente quando torna la carta.</p>
+      <div class="card dtable-wrap">
+        <table class="dtable">
+          <thead><tr><th scope="col">Pulsante</th><th scope="col">Prossimo ripasso</th><th scope="col">Si può impostare</th></tr></thead>
+          <tbody>
+          <tr><td>Ancora</td><td>Meno di 10 minuti</td><td>No</td></tr>
+          <tr><td>Difficile</td><td>1 giorno</td><td>Da 1 a 365 giorni</td></tr>
+          <tr><td>Bene</td><td>3 giorni</td><td>Da 1 a 365 giorni</td></tr>
+          <tr><td>Facile</td><td>7 giorni</td><td>Da 1 a 365 giorni</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/shot-today.webp" width="540" height="1200" alt="La schermata Oggi di Loopky con la coda del giorno" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split split-rev">
+    <div class="split-copy">
+      <h2>Carte che restano</h2>
+      <p>Le carte buone sono piccole e precise.</p>
+      <ul class="ticks">
+        <li>Un fatto per carta</li>
+        <li>Fai una domanda, non enunciare un fatto</li>
+        <li>Aggiungi una frase o un’immagine</li>
+        <li>Datti voti onesti</li>
+      </ul>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-deck.webp" width="540" height="1200" alt="Le carte di un mazzo, un fatto ciascuna" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <h2>Domande</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>Quante carte dovrei studiare al giorno?</summary>
+        <p>Inizia con 10 o 20 carte nuove più tutti i ripassi in scadenza. L’obiettivo predefinito di Loopky è 20 carte nuove.</p>
+      </details>
+      <details class="card">
+        <summary>È meglio che rileggere gli appunti?</summary>
+        <p>Sì. La ricerca su spaziatura e test mostra che richiamare a intervalli distanziati batte rileggere e studiare tutto all’ultimo.</p>
+      </details>
+      <details class="card">
+        <summary>Che algoritmo usa Loopky?</summary>
+        <p>Intervalli fissi per pulsante: meno di 10 minuti, poi 1, 3 e 7 giorni per impostazione predefinita, ognuno regolabile fino a 365.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>Bastano pochi minuti al giorno.</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Scarica su Google Play</a>
+      <span class="soon soon-invert">iOS in arrivo</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Altro su Loopky</h2>
+    <nav class="guide-links" aria-label="Altro su Loopky">
+      <a class="card" href="../../it/anki-alternative/">Se arrivi da Anki<span>Porta i tuoi mazzi .apkg e dimentica gli add-on.</span></a>
+      <a class="card" href="../../it/language-learning/">Chi studia le lingue<span>Ascolta ogni parola, ripetila, tienila per sempre.</span></a>
+      <a class="card" href="../../it/medical-students/">Studenti di medicina<span>I tuoi mazzi di medicina, con immagini e cloze.</span></a>
+      <a class="card" href="../../it/teachers/">Insegnanti e gruppi di studio<span>Pubblica un mazzo una volta e invia un solo link.</span></a>
+      <a class="card" href="../../it/ai-flashcards/">Flashcard create con l’IA<span>Claude, ChatGPT o Gemini scrivono il mazzo per te.</span></a>
+      <a class="card" href="../../it/compare/">Loopky, Anki o Quizlet?<span>Quale app di flashcard per quale studente.</span></a>
+      <a class="card" href="../../it/faq/">Domande e risposte<span>Prezzo, piattaforme, privacy, Anki e accesso.</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=it">Home</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">Codice sorgente</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">Privacy</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">Costruita su Pubky. Licenza MIT.</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>

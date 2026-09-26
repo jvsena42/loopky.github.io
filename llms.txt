@@ -32,6 +32,9 @@ Name and spelling: Loopky, with a k (not "Loopy"). One-line description: "Loopky
 
 ## Guides
 
+Each guide is also published in Portuguese (Brazil), Spanish, French, German, Italian, Japanese, Korean, Vietnamese and Chinese (Simplified and Traditional), under a language folder, for example https://loopky.app/pt-br/anki-alternative/ or https://loopky.app/ja/compare/ (folders: pt-br, es, fr, de, it, ja, ko, vi, zh-hans, zh-hant). The pages are short; https://loopky.app/llms-full.txt has the detail.
+
+
 - [Switch from Anki](https://loopky.app/anki-alternative/): what imports from Anki and what does not, how to move each deck, tablet layouts and desktop deck management, what Anki needs add-ons for that Loopky builds in, and what to check before switching.
 - [Language learning](https://loopky.app/language-learning/): Listen, Speak and Type modes, the 35 supported voices, building vocabulary decks, tips.
 - [Medical students](https://loopky.app/medical-students/): importing med school Anki decks, setting intervals for exams, AI decks from lecture notes, sharing with a class.

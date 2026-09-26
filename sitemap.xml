@@ -222,47 +222,1583 @@
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/anki-alternative/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/"/>
   </url>
   <url>
     <loc>https://loopky.app/language-learning/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/language-learning/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/language-learning/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/language-learning/"/>
   </url>
   <url>
     <loc>https://loopky.app/medical-students/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/medical-students/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/medical-students/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/medical-students/"/>
   </url>
   <url>
     <loc>https://loopky.app/teachers/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/teachers/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/teachers/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/teachers/"/>
   </url>
   <url>
     <loc>https://loopky.app/ai-flashcards/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/ai-flashcards/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/"/>
   </url>
   <url>
     <loc>https://loopky.app/spaced-repetition/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/spaced-repetition/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/spaced-repetition/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/spaced-repetition/"/>
   </url>
   <url>
     <loc>https://loopky.app/compare/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/compare/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/compare/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/compare/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/compare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/compare/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/compare/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/compare/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/compare/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/compare/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/compare/"/>
   </url>
   <url>
     <loc>https://loopky.app/faq/</loc>
     <lastmod>2026-09-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/pt-br/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/es/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/fr/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/de/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/it/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ja/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/ko/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/vi/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hans/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/zh-hant/faq/</loc>
+    <lastmod>2026-09-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/faq/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/faq/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://loopky.app/es/faq/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://loopky.app/fr/faq/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://loopky.app/de/faq/"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://loopky.app/it/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://loopky.app/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://loopky.app/ko/faq/"/>
+    <xhtml:link rel="alternate" hreflang="vi" href="https://loopky.app/vi/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
   </url>
 </urlset>

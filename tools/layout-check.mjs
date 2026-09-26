@@ -28,7 +28,10 @@ const PAGES = [
   'index.html',
   `deck/?author=${AUTHOR}&id=viageming2026a`,
   `profile/?pubky=${AUTHOR}`,
-  ...GUIDES.map((g) => g.replace('index.html', '')),
+  /* Every guide in English, plus the two languages most likely to break a layout:
+     Japanese (no spaces to wrap at) and German (long compounds). */
+  ...GUIDES.filter((g) => !/^(?:[a-z-]+\/){2}/.test(g) || /^(?:ja|de)\//.test(g))
+    .map((g) => g.replace('index.html', '')),
 ];
 /* One chip of slack: a sub-pixel layout width rounds up and is not a broken page. */
 const TOLERANCE = 1;
@@ -61,10 +64,8 @@ function cleanup() {
 process.on('exit', cleanup);
 
 try {
-  cpSync(join(root, 'index.html'), join(dir, 'index.html'));
-  for (const d of ['assets', 'deck', 'profile', ...GUIDES.map((g) => g.split('/')[0])]) {
-    cpSync(join(root, d), join(dir, d), { recursive: true });
-  }
+  /* The whole site, since guides live in a directory per language. */
+  cpSync(root, dir, { recursive: true, filter: (src) => !src.includes('/.git') });
 
   writeFileSync(join(dir, 'probe.html'), `<!doctype html>
 <meta charset="utf-8">

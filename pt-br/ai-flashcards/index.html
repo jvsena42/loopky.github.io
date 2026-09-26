@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Crie flashcards com IA: Claude, ChatGPT e Gemini · Loopky</title>
+<meta name="description" content="Deixe uma IA escrever e publicar seu baralho de flashcards. A CLI do Loopky, com saída JSON e simulações, é feita para Claude, ChatGPT, Gemini e outros agentes.">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/pt-br/ai-flashcards/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/ai-flashcards/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/ai-flashcards/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/ai-flashcards/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/ai-flashcards/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/ai-flashcards/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/ai-flashcards/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/ai-flashcards/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/ai-flashcards/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/ai-flashcards/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/ai-flashcards/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/ai-flashcards/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://loopky.app/pt-br/ai-flashcards/">
+<meta property="og:title" content="Crie flashcards com IA: Claude, ChatGPT e Gemini · Loopky">
+<meta property="og:description" content="Deixe uma IA escrever e publicar seu baralho de flashcards. A CLI do Loopky, com saída JSON e simulações, é feita para Claude, ChatGPT, Gemini e outros agentes.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky, um app de flashcards grátis com repetição espaçada">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crie flashcards com IA: Claude, ChatGPT e Gemini · Loopky">
+<meta name="twitter:description" content="Deixe uma IA escrever e publicar seu baralho de flashcards. A CLI do Loopky, com saída JSON e simulações, é feita para Claude, ChatGPT, Gemini e outros agentes.">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky, um app de flashcards grátis com repetição espaçada">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/pt-br/ai-flashcards/#page",
+      "headline": "Deixe sua IA escrever os flashcards",
+      "name": "Crie flashcards com IA: Claude, ChatGPT e Gemini · Loopky",
+      "description": "Deixe uma IA escrever e publicar seu baralho de flashcards. A CLI do Loopky, com saída JSON e simulações, é feita para Claude, ChatGPT, Gemini e outros agentes.",
+      "url": "https://loopky.app/pt-br/ai-flashcards/",
+      "inLanguage": "pt-BR",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=pt-BR"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Flashcards feitos por IA",
+          "item": "https://loopky.app/pt-br/ai-flashcards/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/pt-br/ai-flashcards/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Preciso saber programar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não. Cole o prompt num agente de IA com terminal, como Claude Code, Codex ou Gemini CLI. Ele roda os comandos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A IA pode importar meus baralhos do Anki?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. loopky import deck.apkg importa um pacote do Anki, e --dry-run mostra o resultado antes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O que a ferramenta não faz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ela não posta, não segue pessoas e não edita seu perfil. Só gerencia baralhos e cartas."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Ir para o conteúdo</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=pt-BR">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">Idioma</span>
+        <select id="lang-select">
+          <option value="../../ai-flashcards/" data-lang="en">English</option>
+          <option value="../../pt-br/ai-flashcards/" data-lang="pt-BR" selected>Português</option>
+          <option value="../../es/ai-flashcards/" data-lang="es">Español</option>
+          <option value="../../fr/ai-flashcards/" data-lang="fr">Français</option>
+          <option value="../../de/ai-flashcards/" data-lang="de">Deutsch</option>
+          <option value="../../it/ai-flashcards/" data-lang="it">Italiano</option>
+          <option value="../../ja/ai-flashcards/" data-lang="ja">日本語</option>
+          <option value="../../ko/ai-flashcards/" data-lang="ko">한국어</option>
+          <option value="../../vi/ai-flashcards/" data-lang="vi">Tiếng Việt</option>
+          <option value="../../zh-hans/ai-flashcards/" data-lang="zh-Hans">简体中文</option>
+          <option value="../../zh-hant/ai-flashcards/" data-lang="zh-Hant">繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Baixar o app</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in ghero-wide">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=pt-BR">Loopky</a></li>
+          <li aria-current="page">Flashcards feitos por IA</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">Criador de flashcards com IA</p>
+      <h1>Deixe sua IA escrever os flashcards</h1>
+      <p class="lead">Diga ao Claude, ChatGPT ou Gemini o que você quer aprender. Ele escreve as cartas e publica o baralho no seu celular.</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Baixar no Google Play</a>
+        <span class="soon">iOS em breve</span>
+      </div>
+      <p class="fineprint">Grátis. Sem anúncios. Open source.</p>
+    </div>
+    <div class="ghero-art">
+      <div class="cli-box cli-hero" aria-hidden="true"><div class="cli-bar"><span>loopky</span></div><pre><code><span class="c"># Your AI agent runs these for you</span>
+<span class="p">$</span> loopky login
+<span class="p">$</span> loopky deck create --title &quot;Spanish verbs&quot; \
+    --from-file cards.tsv --dry-run --json
+<span class="p">$</span> loopky deck create --title &quot;Spanish verbs&quot; \
+    --tag spanish --from-file cards.tsv \
+    --front-lang es-ES --back-lang en-US --listen --speak
+<span class="c"># Open Loopky on your phone and start studying</span></code></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat n4">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📝</span>
+        <h2 class="h3">Qualquer fonte</h2>
+        <p>Um capítulo, anotações de aula, uma lista de palavras ou um episódio de série.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">🧪</span>
+        <h2 class="h3">Simulação primeiro</h2>
+        <p>Cada carta é conferida antes de qualquer coisa ser gravada.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🔒</span>
+        <h2 class="h3">Permissões restritas</h2>
+        <p>Ele gerencia baralhos. Nunca pode postar, seguir ou editar seu perfil.</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-green" aria-hidden="true">🧾</span>
+        <h2 class="h3">JSON em tudo</h2>
+        <p>Os agentes leem resultados reais em vez de adivinhar.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>O prompt</h2>
+      <p>Cole isto no seu agente de IA e preencha o tema. Você aprova o login no celular.</p>
+    </div>
+    <div class="split-art">
+      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+
+Topic: &lt;WHAT I WANT TO LEARN&gt;
+Cards: &lt;HOW MANY&gt;
+
+Steps:
+1. Install the CLI if it is missing:
+   curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
+   Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
+2. Read the command surface first: loopky commands --json
+3. Log in: loopky login
+   It prints a QR code. I approve it in Pubky Ring on my phone.
+4. Write the cards to cards.tsv, one card per line:
+   front &lt;TAB&gt; back
+   Two more columns are optional: an https image URL for each side.
+5. Check before you write anything:
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
+6. Publish it:
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
+   Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
+7. Show me the result: loopky deck show &lt;deckId&gt; --json
+
+I already have an Anki file? Import it instead:
+   loopky import deck.apkg --dry-run --json
+   loopky import deck.apkg --title &quot;&lt;TITLE&gt;&quot;
+
+Rules:
+- Every command takes --json, and the result sits under &quot;data&quot;.
+- Always run --dry-run before a command that writes.
+- Image URLs must be https, and no SVG or TIFF. Those do not render.
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>Depois é só estudar no celular</h2>
+      <p>O baralho aparece no Loopky, pronto para a repetição espaçada, com áudio nos baralhos de idiomas. Revise as cartas escritas por IA para achar erros.</p>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-deck.webp" width="540" height="1200" alt="O baralho pronto no Loopky" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split split-solo">
+    <div class="split-copy">
+      <h2>Um arquivo, qualquer computador</h2>
+      <p>Windows, macOS e Linux, além de Homebrew, pacote .deb e Docker. Sem Java, sem configuração.</p>
+      <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">Ler a documentação da CLI</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="questions">
+  <div class="wrap">
+    <h2>Perguntas</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>Preciso saber programar?</summary>
+        <p>Não. Cole o prompt num agente de IA com terminal, como Claude Code, Codex ou Gemini CLI. Ele roda os comandos.</p>
+      </details>
+      <details class="card">
+        <summary>A IA pode importar meus baralhos do Anki?</summary>
+        <p>Sim. loopky import deck.apkg importa um pacote do Anki, e --dry-run mostra o resultado antes.</p>
+      </details>
+      <details class="card">
+        <summary>O que a ferramenta não faz?</summary>
+        <p>Ela não posta, não segue pessoas e não edita seu perfil. Só gerencia baralhos e cartas.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>Alguns minutos por dia já bastam.</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Baixar no Google Play</a>
+      <span class="soon soon-invert">iOS em breve</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Mais sobre o Loopky</h2>
+    <nav class="guide-links" aria-label="Mais sobre o Loopky">
+      <a class="card" href="../../pt-br/anki-alternative/">Vindo do Anki<span>Traga seus baralhos .apkg e deixe os add-ons para trás.</span></a>
+      <a class="card" href="../../pt-br/language-learning/">Quem aprende idiomas<span>Ouça cada palavra, repita e guarde de vez.</span></a>
+      <a class="card" href="../../pt-br/medical-students/">Estudantes de medicina<span>Seus baralhos da faculdade, com imagens e cloze.</span></a>
+      <a class="card" href="../../pt-br/teachers/">Professores e grupos de estudo<span>Publique um baralho uma vez e mande um link.</span></a>
+      <a class="card" href="../../pt-br/spaced-repetition/">O que é repetição espaçada?<span>Como funciona e como escrever cartas que ficam na memória.</span></a>
+      <a class="card" href="../../pt-br/compare/">Loopky, Anki ou Quizlet?<span>Qual app de flashcards combina com cada estudante.</span></a>
+      <a class="card" href="../../pt-br/faq/">Perguntas e respostas<span>Preço, plataformas, privacidade, Anki e login.</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=pt-BR">Início</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">Código-fonte</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">Privacidade</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">Feito sobre o Pubky. Licença MIT.</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>

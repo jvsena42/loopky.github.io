@@ -86,11 +86,21 @@
     if (sel) sel.value = lang;
 
     labelTheme();
+    linkGuides();
     renderUses();
     renderDiscover();
     /* The deck and profile pages build their copy from data, so they listen for this
        and paint again rather than carrying data-i18n on nodes that change. */
     document.dispatchEvent(new CustomEvent('loopky:lang'));
+  }
+
+  /* Every guide exists in every language, at /{lang}/{slug}/ with the tag lowercased,
+     and English at /{slug}/. The markup ships the English address for crawlers. */
+  function linkGuides() {
+    document.querySelectorAll('[data-guide]').forEach(function (a) {
+      var dir = lang === 'en' ? '' : lang.toLowerCase() + '/';
+      a.setAttribute('href', dir + a.getAttribute('data-guide') + '/');
+    });
   }
 
   function renderUses() {

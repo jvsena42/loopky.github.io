@@ -1,6 +1,6 @@
 # Loopky: full guide text
 
-> Every guide on https://loopky.app/ as plain text, for language models. The short index is https://loopky.app/llms.txt.
+> Loopky in detail, for language models: longer than the guide pages on https://loopky.app/, same facts. The short index is https://loopky.app/llms.txt.
 
 Loopky is a free, open source flashcards app with spaced repetition for Android (iOS coming soon). Get it on Google Play: https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky. Source: https://github.com/jvsena42/loopky
 ## Switch from Anki to Loopky and keep your decks

@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>免費的 Anki 替代方案，可匯入 .apkg 牌組 · Loopky</title>
+<meta name="description" content="從 Anki 換到 Loopky，一款免費的記憶卡應用程式。匯入含圖片和克漏字的 .apkg 牌組，不需外掛就有語音朗讀、發音檢查和牌組分享。">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/zh-hant/anki-alternative/">
+<link rel="alternate" hreflang="en" href="https://loopky.app/anki-alternative/">
+<link rel="alternate" hreflang="pt-BR" href="https://loopky.app/pt-br/anki-alternative/">
+<link rel="alternate" hreflang="es" href="https://loopky.app/es/anki-alternative/">
+<link rel="alternate" hreflang="fr" href="https://loopky.app/fr/anki-alternative/">
+<link rel="alternate" hreflang="de" href="https://loopky.app/de/anki-alternative/">
+<link rel="alternate" hreflang="it" href="https://loopky.app/it/anki-alternative/">
+<link rel="alternate" hreflang="ja" href="https://loopky.app/ja/anki-alternative/">
+<link rel="alternate" hreflang="ko" href="https://loopky.app/ko/anki-alternative/">
+<link rel="alternate" hreflang="vi" href="https://loopky.app/vi/anki-alternative/">
+<link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/anki-alternative/">
+<link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/anki-alternative/">
+<link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/">
+<link rel="icon" href="../../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../../assets/img/logo.png">
+<link rel="alternate" type="text/plain" title="Loopky for LLMs" href="../../llms.txt">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:url" content="https://loopky.app/zh-hant/anki-alternative/">
+<meta property="og:title" content="免費的 Anki 替代方案，可匯入 .apkg 牌組 · Loopky">
+<meta property="og:description" content="從 Anki 換到 Loopky，一款免費的記憶卡應用程式。匯入含圖片和克漏字的 .apkg 牌組，不需外掛就有語音朗讀、發音檢查和牌組分享。">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="免費的 Anki 替代方案，可匯入 .apkg 牌組 · Loopky">
+<meta name="twitter:description" content="從 Anki 換到 Loopky，一款免費的記憶卡應用程式。匯入含圖片和克漏字的 .apkg 牌組，不需外掛就有語音朗讀、發音檢查和牌組分享。">
+<meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../../assets/css/style.css?v=151d8a39">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://loopky.app/zh-hant/anki-alternative/#page",
+      "headline": "從 Anki 換過來，牌組都還在",
+      "name": "免費的 Anki 替代方案，可匯入 .apkg 牌組 · Loopky",
+      "description": "從 Anki 換到 Loopky，一款免費的記憶卡應用程式。匯入含圖片和克漏字的 .apkg 牌組，不需外掛就有語音朗讀、發音檢查和牌組分享。",
+      "url": "https://loopky.app/zh-hant/anki-alternative/",
+      "inLanguage": "zh-Hant",
+      "datePublished": "2026-09-26",
+      "dateModified": "2026-09-26",
+      "image": "https://loopky.app/assets/img/og.png",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/?lang=zh-Hant"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Anki 替代方案",
+          "item": "https://loopky.app/zh-hant/anki-alternative/"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://loopky.app/zh-hant/anki-alternative/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Loopky 能完全取代 Anki 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "對大多數學習者來說可以。如果你依賴音訊檔案、LaTeX、自訂卡片範本或 FSRS，請先確認一下。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Loopky 使用 FSRS 嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不使用。每個評分按鈕有固定的間隔，由你設定，範圍是 1 到 365 天。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "是免費的嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "是的。沒有廣告，沒有訂閱，並以 MIT 授權開源。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有 iPhone 應用程式嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Loopky 現在支援 Android。iOS 應用程式已經做好，即將推出。"
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">跳至內容</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../../?lang=zh-Hant">
+      <img src="../../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <label class="lang">
+        <span class="sr-only">語言</span>
+        <select id="lang-select">
+          <option value="../../anki-alternative/" data-lang="en">English</option>
+          <option value="../../pt-br/anki-alternative/" data-lang="pt-BR">Português</option>
+          <option value="../../es/anki-alternative/" data-lang="es">Español</option>
+          <option value="../../fr/anki-alternative/" data-lang="fr">Français</option>
+          <option value="../../de/anki-alternative/" data-lang="de">Deutsch</option>
+          <option value="../../it/anki-alternative/" data-lang="it">Italiano</option>
+          <option value="../../ja/anki-alternative/" data-lang="ja">日本語</option>
+          <option value="../../ko/anki-alternative/" data-lang="ko">한국어</option>
+          <option value="../../vi/anki-alternative/" data-lang="vi">Tiếng Việt</option>
+          <option value="../../zh-hans/anki-alternative/" data-lang="zh-Hans">简体中文</option>
+          <option value="../../zh-hant/anki-alternative/" data-lang="zh-Hant" selected>繁體中文</option>
+        </select>
+      </label>
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">取得應用程式</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../../?lang=zh-Hant">Loopky</a></li>
+          <li aria-current="page">Anki 替代方案</li>
+        </ol>
+      </nav>
+      <p class="eyebrow">給 Anki 使用者</p>
+      <h1>從 Anki 換過來，牌組都還在</h1>
+      <p class="lead">Loopky 能開啟你的 .apkg 檔案，還多了聽、說、分享和 AI 寫卡片。不用外掛，不花錢。</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 取得</a>
+        <span class="soon">iOS 版即將推出</span>
+      </div>
+      <p class="fineprint">免費。沒有廣告。開源。</p>
+    </div>
+    <div class="ghero-art">
+      <img class="shot" src="../../assets/img/guides/phone-decks.webp" width="540" height="1200" alt="Loopky 的牌組庫，有「從 Anki 匯入」按鈕" loading="eager" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-feat n4">
+      <article class="card feat">
+        <span class="ico ico-orange" aria-hidden="true">📥</span>
+        <h2 class="h3">牌組一起帶過來</h2>
+        <p>文字、圖片和克漏字都能從 .apkg、.txt 和 .csv 檔案匯入。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-purple" aria-hidden="true">🧩</span>
+        <h2 class="h3">不需要外掛</h2>
+        <p>內建語音朗讀和發音檢查，支援 35 種語言。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-blue" aria-hidden="true">🔗</span>
+        <h2 class="h3">用連結分享</h2>
+        <p>發布一個牌組，任何人都能追蹤或複製。</p>
+      </article>
+      <article class="card feat">
+        <span class="ico ico-green" aria-hidden="true">💻</span>
+        <h2 class="h3">平板和電腦</h2>
+        <p>平板上是雙欄版面，電腦上有命令列工具可批次處理牌組。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>為大螢幕而設計</h2>
+      <p>在平板上，Loopky 使用真正的雙欄版面：今天的複習佇列在牌組旁邊，牌組在它的卡片旁邊。現在支援 Android 平板，iOS 應用程式推出後支援 iPad。</p>
+    </div>
+    <div class="split-art">
+      <img class="shot shot-tablet" src="../../assets/img/guides/tablet-decks.webp" width="1280" height="800" alt="平板上的 Loopky 牌組庫，四欄寬" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Anki 裡的哪些內容能帶過來</h2>
+    <div class="card dtable-wrap">
+        <table class="dtable">
+          <thead><tr><th scope="col">Anki 中</th><th scope="col">Loopky 中</th></tr></thead>
+          <tbody>
+          <tr><td>文字和欄位</td><td>可以，由你選擇正面和背面</td></tr>
+          <tr><td>圖片</td><td>可以</td></tr>
+          <tr><td>克漏字</td><td>可以，每個克漏字一張卡片</td></tr>
+          <tr><td>反向卡片</td><td>可以</td></tr>
+          <tr><td>音訊</td><td>不行，請使用內建語音朗讀</td></tr>
+          <tr><td>LaTeX</td><td>顯示為原始碼</td></tr>
+          <tr><td>複習紀錄</td><td>不行，卡片從頭開始</td></tr>
+          </tbody>
+        </table>
+      </div>
+    <p class="fineprint table-note">最新的 .anki21b 檔案：請勾選「Support older Anki versions」（支援舊版 Anki）後重新匯出。</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split split-rev">
+    <div class="split-copy">
+      <h2>在電腦上管理牌組</h2>
+      <p>Loopky 命令列工具可在 Windows、macOS 和 Linux 上執行。</p>
+      <ul class="ticks">
+        <li>建立、編輯和刪除牌組</li>
+        <li>批次新增、編輯和移除卡片</li>
+        <li>從本機匯入 .apkg 和 TSV 檔案</li>
+        <li>寫成腳本，或交給 AI 代理來做</li>
+      </ul>
+    </div>
+    <div class="split-art">
+      <div class="cli-box" aria-hidden="true"><div class="cli-bar"><span>loopky</span></div><pre><code><span class="c"># Bring a whole Anki deck across</span>
+<span class="p">$</span> loopky import deck.apkg --dry-run --json
+<span class="p">$</span> loopky import deck.apkg --title &quot;Pharmacology&quot;
+<span class="c"># Or build one from a spreadsheet</span>
+<span class="p">$</span> loopky deck create --title &quot;Verbs&quot; --from-file cards.tsv
+<span class="p">$</span> loopky deck list --json</code></pre></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="split-copy">
+      <h2>一分鐘搬走一個牌組</h2>
+      <p>在 Anki 中把牌組匯出為含媒體的 .apkg。用 Loopky 開啟，選好正面和背面欄位。只有一份清單？直接貼上。</p>
+    </div>
+    <div class="split-art">
+      <img class="shot" src="../../assets/img/guides/phone-paste.webp" width="540" height="1200" alt="把單字清單貼到 Loopky，自動偵測分隔符號" loading="lazy" decoding="async">
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="questions">
+  <div class="wrap">
+    <h2>常見問題</h2>
+    <div class="faqlist">
+      <details class="card" open>
+        <summary>Loopky 能完全取代 Anki 嗎？</summary>
+        <p>對大多數學習者來說可以。如果你依賴音訊檔案、LaTeX、自訂卡片範本或 FSRS，請先確認一下。</p>
+      </details>
+      <details class="card">
+        <summary>Loopky 使用 FSRS 嗎？</summary>
+        <p>不使用。每個評分按鈕有固定的間隔，由你設定，範圍是 1 到 365 天。</p>
+      </details>
+      <details class="card">
+        <summary>是免費的嗎？</summary>
+        <p>是的。沒有廣告，沒有訂閱，並以 MIT 授權開源。</p>
+      </details>
+      <details class="card">
+        <summary>有 iPhone 應用程式嗎？</summary>
+        <p>Loopky 現在支援 Android。iOS 應用程式已經做好，即將推出。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band">
+  <div class="wrap cta-in">
+    <h2>Learn anything, remember everything.</h2>
+    <p>每天幾分鐘就夠了。</p>
+    <div class="cta-row center">
+      <a class="btn btn-lg btn-invert" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 取得</a>
+      <span class="soon soon-invert">iOS 版即將推出</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>更多關於 Loopky</h2>
+    <nav class="guide-links" aria-label="更多關於 Loopky">
+      <a class="card" href="../../zh-hant/language-learning/">語言學習者<span>聽每個詞，跟著說，牢牢記住。</span></a>
+      <a class="card" href="../../zh-hant/medical-students/">醫學生<span>你的醫學院牌組，圖片和克漏字都在。</span></a>
+      <a class="card" href="../../zh-hant/teachers/">老師和讀書會<span>發布一次牌組，傳一個連結。</span></a>
+      <a class="card" href="../../zh-hant/ai-flashcards/">AI 製作的記憶卡<span>讓 Claude、ChatGPT 或 Gemini 替你寫牌組。</span></a>
+      <a class="card" href="../../zh-hant/spaced-repetition/">什麼是間隔重複？<span>原理是什麼，以及如何寫出記得住的卡片。</span></a>
+      <a class="card" href="../../zh-hant/compare/">Loopky、Anki 還是 Quizlet？<span>哪個記憶卡應用程式適合哪類學習者。</span></a>
+      <a class="card" href="../../zh-hant/faq/">問題與解答<span>價格、平台、隱私、Anki 和登入。</span></a>
+    </nav>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../../?lang=zh-Hant">首頁</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://github.com/jvsena42/loopky">原始碼</a>
+      <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">隱私</a>
+      <a href="../../llms.txt">llms.txt</a>
+    </nav>
+    <p class="foot-note">基於 Pubky 打造。MIT 授權。</p>
+  </div>
+</footer>
+
+<script>
+/* The picker goes to this guide in the chosen language, and remembers the choice for
+   the home page, which reads the same key. */
+(function () {
+  var sel = document.getElementById('lang-select');
+  if (!sel) return;
+  sel.addEventListener('change', function () {
+    var opt = sel.options[sel.selectedIndex];
+    try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
+    location.href = opt.value;
+  });
+})();
+</script>
+</body>
+</html>
