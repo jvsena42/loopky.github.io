@@ -27,7 +27,7 @@ export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
    arrive from one. They load the same stylesheet, so they are stamped too. */
 export const GUIDES = [
   'anki-alternative', 'language-learning', 'medical-students', 'teachers',
-  'ai-flashcards', 'spaced-repetition', 'faq',
+  'ai-flashcards', 'spaced-repetition', 'compare', 'faq',
 ].map((slug) => `${slug}/index.html`);
 
 export const ALL_PAGES = [...PAGES, ...GUIDES];

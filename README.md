@@ -18,7 +18,7 @@ assets/js/app.js      language switching, filtering, rendering
 assets/js/link.js     the deck and profile pages
 assets/img/           icon, screenshots, share image
 anki-alternative/ language-learning/ medical-students/ teachers/
-ai-flashcards/ spaced-repetition/ faq/
+ai-flashcards/ spaced-repetition/ compare/ faq/
                       the English guide pages, one per kind of learner
 llms.txt              a summary of Loopky for language models
 llms-full.txt         every guide as plain text, for language models

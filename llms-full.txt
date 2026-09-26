@@ -366,6 +366,66 @@ Start with 10 to 20 new cards a day and do all your due reviews. Loopky's defaul
 Fixed intervals per grade button. Again returns the card within 10 minutes; Hard, Good and Easy default to 1, 3 and 7 days and can each be set from 1 to 365 days.
 
 
+## Loopky, Anki or Quizlet: which flashcard app should you use?
+
+Source: https://loopky.app/compare/
+
+Three good tools that suit different people. Here is what each does well, where each falls short, and which one we would pick for your situation, including the cases where the answer is not Loopky.
+
+### The short answer
+
+- **Pick Loopky** if you want a free phone app with no ads, you learn a language and want to hear and say the words, you want to share decks with friends or a class through a link, or you want an AI to build decks for you. It also opens your Anki decks.
+- **Pick Anki** (with AnkiDroid on Android) if you need the most advanced scheduling (FSRS), full offline use, custom card templates, audio files, LaTeX, or its add-ons. It is the most powerful option and takes longer to learn.
+- **Pick Quizlet** if your class already shares Quizlet sets, or you want games and a web app more than long term spaced repetition. Its full feature set needs a paid plan.
+
+### Side by side
+
+|  | Loopky | Anki | Quizlet |
+|---|---|---|---|
+| Price | Free, no ads | Free on desktop and Android; paid app on iPhone | Free tier with ads; paid plan for full features |
+| Platforms | Android now, iOS coming; command line on desktop | Windows, macOS, Linux, Android, iOS, web | Web, iOS, Android |
+| Open source | Yes, MIT | Yes | No |
+| Scheduling | Fixed intervals you set per button | FSRS or SM-2, intervals grow as you learn | Study modes; spaced review not the core |
+| Opens Anki .apkg | Yes, with images and cloze | Yes, natively | No |
+| Read aloud | Built in, 35 languages | Built in TTS tags or add-ons | Yes |
+| Pronunciation check | Built in (Speak mode) | Through add-ons | Not a core feature |
+| Share a deck by link | Yes; follow or clone | Upload to AnkiWeb shared decks | Yes |
+| Works fully offline | No, reviews queue until online | Yes | Limited |
+| Audio files, LaTeX, custom templates | No | Yes | Partly |
+| AI builds decks | Command line tool made for AI agents | Through add-ons such as AnkiConnect | Built in AI features on paid plans |
+| Account | A Pubky key; no email | Optional AnkiWeb account | Email account |
+Details about other apps change; check their own sites for current prices. Loopky's facts are kept current in the [FAQ](https://loopky.app/faq/).
+
+### Which one for you
+
+<h3>Language learners</h3>
+**Loopky** is the easiest way to hear every card and say it back without setting anything up: Listen, Speak and Type are built in for 35 languages. Anki can do the same with TTS and add-ons once configured. [Loopky for language learning](https://loopky.app/language-learning/).
+<h3>Medical students and long exam syllabi</h3>
+**Anki** remains the standard for very large decks held for years, because FSRS stretches intervals out to months. **Loopky** is a good phone companion for the same decks, especially when you want to tighten everything before an exam or share a deck with classmates; its fixed intervals do not grow on their own. [Loopky for medical students](https://loopky.app/medical-students/).
+<h3>Teachers and study groups</h3>
+**Loopky** if you want students studying with spaced repetition for free, with no ads and no student tracking, from one link. **Quizlet** if your school already uses it and you want classroom games. [Loopky for teachers](https://loopky.app/teachers/).
+<h3>Anki users who want something simpler on the phone</h3>
+**Loopky** opens your .apkg files and adds speaking practice and link sharing. Stay with **AnkiDroid** if you depend on audio files, LaTeX or add-ons. [Moving from Anki](https://loopky.app/anki-alternative/).
+<h3>People who want an AI to make the cards</h3>
+**Loopky** has a command line tool built for Claude, ChatGPT, Gemini and other agents: the AI writes the cards, dry runs them, and publishes the deck to your phone. [How it works](https://loopky.app/ai-flashcards/).
+<h3>Self learners starting out</h3>
+Any of the three works; what matters is studying a little every day. Loopky is free with nothing to configure. [How spaced repetition works](https://loopky.app/spaced-repetition/).
+
+### Questions
+
+**Is Loopky better than Anki?**
+For some people. Loopky is simpler, free on the phone, and has speaking practice and link sharing built in. Anki has stronger scheduling (FSRS), works fully offline, supports audio, LaTeX and add-ons, and runs on every platform. Many people use both.
+
+**What is a free alternative to Quizlet?**
+Loopky is free with no ads and no paid tier, uses spaced repetition, and lets you share decks by link. Anki is another free option with more power and a steeper learning curve.
+
+**What is the best flashcard app for learning a language on Android?**
+If you want to hear and say every word with no setup, Loopky has text to speech and a pronunciation check built in for 35 languages. AnkiDroid is the choice if you need Anki's advanced scheduling and offline use.
+
+**Can I use Loopky and Anki together?**
+Yes. Export a deck from Anki as .apkg and import it in Loopky. Progress does not sync between them, so most people pick one app per deck.
+
+
 ## Questions about Loopky
 
 Source: https://loopky.app/faq/
