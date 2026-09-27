@@ -57,7 +57,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=151d8a39">
+<link rel="stylesheet" href="../assets/css/style.css?v=b9a16c99">
 
 <script type="application/ld+json">
 {
@@ -400,7 +400,7 @@
     <div class="cli-copy">
       <p class="eyebrow" data-i18n="cli.eyebrow">명령줄</p>
       <h2 data-i18n="cli.title">AI에게 덱을 맡기세요</h2>
-      <p class="lead" data-i18n="cli.sub">Loopky에는 터미널 앱이 있습니다. 아래 프롬프트를 Claude, ChatGPT, Gemini 등 셸을 쓰는 에이전트에 주면 카드를 쓰고 덱을 공개해 줍니다.</p>
+      <p class="lead" data-i18n="cli.sub">좋아하는 드라마부터 다음 주 면접까지, 배우고 싶은 걸 AI에게 말해 보세요. 아이디어를 고르고 내 식으로 고친 뒤 Claude, ChatGPT, Gemini 등 셸을 쓰는 에이전트에 붙여 넣으면 됩니다.</p>
       <ul class="ticks">
         <li data-i18n="cli.t1">파일 하나면 끝. Java도 설정도 필요 없습니다.</li>
         <li data-i18n="cli.t2">모든 명령이 JSON을 돌려줍니다.</li>
@@ -413,10 +413,26 @@
         <span data-i18n="cli.promptlabel">AI에게 줄 프롬프트</span>
         <button class="btn btn-sm" id="copy-prompt" data-copy="#ai-prompt" data-i18n="cli.copy">복사</button>
       </div>
-      <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-body">
+        <p class="cli-label" data-i18n="cli.pick">아이디어로 시작하기</p>
+        <div class="ideas" id="ideas">
+          <button type="button" class="idea" data-idea="anime" aria-pressed="true"><span aria-hidden="true">🍥</span> <span data-i18n="idea.anime.t">애니메이션</span></button>
+          <button type="button" class="idea" data-idea="series" aria-pressed="false"><span aria-hidden="true">📺</span> <span data-i18n="idea.series.t">드라마</span></button>
+          <button type="button" class="idea" data-idea="playlist" aria-pressed="false"><span aria-hidden="true">🎧</span> <span data-i18n="idea.playlist.t">Spotify 플레이리스트</span></button>
+          <button type="button" class="idea" data-idea="interview" aria-pressed="false"><span aria-hidden="true">💼</span> <span data-i18n="idea.interview.t">취업 면접</span></button>
+          <button type="button" class="idea" data-idea="trip" aria-pressed="false"><span aria-hidden="true">✈️</span> <span data-i18n="idea.trip.t">해외여행</span></button>
+          <button type="button" class="idea" data-idea="notes" aria-pressed="false"><span aria-hidden="true">📝</span> <span data-i18n="idea.notes.t">수업 노트</span></button>
+        </div>
+        <label class="cli-label" for="ai-ask" data-i18n="cli.asklabel">내 요청</label>
+        <textarea id="ai-ask" class="cli-ask" rows="4" data-i18n="idea.anime.p">나루토 1기에 나온 단어와 표현 40개로 일본어 덱을 만들어 줘. 앞면에 한자, 뒷면에 읽는 법과 뜻.</textarea>
+        <p class="cli-hint" data-i18n="cli.hint">복사하면 설치 단계가 함께 붙어서, AI가 Loopky를 설치하고 카드를 쓰고 덱을 공개합니다.</p>
+      </div>
+      <details class="cli-full">
+        <summary data-i18n="cli.full">전체 프롬프트 보기</summary>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
-Topic: &lt;WHAT I WANT TO LEARN&gt;
-Cards: &lt;HOW MANY&gt;
+What I want:
+나루토 1기에 나온 단어와 표현 40개로 일본어 덱을 만들어 줘. 앞면에 한자, 뒷면에 읽는 법과 뜻.
 
 Steps:
 1. Install the CLI if it is missing:
@@ -429,21 +445,22 @@ Steps:
    front &lt;TAB&gt; back
    Two more columns are optional: an https image URL for each side.
 5. Check before you write anything:
-   loopky deck create --title "&lt;TITLE&gt;" --from-file cards.tsv --dry-run --json
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
 6. Publish it:
-   loopky deck create --title "&lt;TITLE&gt;" --tag &lt;TOPIC&gt; --from-file cards.tsv
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
    Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
 7. Show me the result: loopky deck show &lt;deckId&gt; --json
 
 I already have an Anki file? Import it instead:
    loopky import deck.apkg --dry-run --json
-   loopky import deck.apkg --title "&lt;TITLE&gt;"
+   loopky import deck.apkg --title &quot;&lt;TITLE&gt;&quot;
 
 Rules:
-- Every command takes --json, and the result sits under "data".
+- Every command takes --json, and the result sits under &quot;data&quot;.
 - Always run --dry-run before a command that writes.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
 - Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </details>
     </div>
   </div>
 </section>
@@ -502,8 +519,8 @@ Rules:
   </div>
 </footer>
 
-<script src="../assets/js/i18n.js?v=d18ae3c6"></script>
+<script src="../assets/js/i18n.js?v=a16c1e74"></script>
 <script src="../assets/js/discover.js?v=0dcdb803"></script>
-<script src="../assets/js/app.js?v=952f8d09"></script>
+<script src="../assets/js/app.js?v=1ad507a1"></script>
 </body>
 </html>

@@ -57,7 +57,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=151d8a39">
+<link rel="stylesheet" href="../assets/css/style.css?v=b9a16c99">
 
 <script type="application/ld+json">
 {
@@ -400,7 +400,7 @@
     <div class="cli-copy">
       <p class="eyebrow" data-i18n="cli.eyebrow">命令行</p>
       <h2 data-i18n="cli.title">让你的 AI 来建卡组</h2>
-      <p class="lead" data-i18n="cli.sub">Loopky 有一个终端版。把下面这段提示词交给 Claude、ChatGPT、Gemini 或任何能用 shell 的智能体，它会写好卡片并发布卡组。</p>
+      <p class="lead" data-i18n="cli.sub">告诉你的 AI 想学什么，从追的剧到下周的面试都行。选一个点子，改成你想要的，贴给 Claude、ChatGPT、Gemini 或任何能用 shell 的智能体。</p>
       <ul class="ticks">
         <li data-i18n="cli.t1">只有一个文件。不用 Java，不用配置。</li>
         <li data-i18n="cli.t2">每条命令都返回 JSON。</li>
@@ -413,10 +413,26 @@
         <span data-i18n="cli.promptlabel">给 AI 的提示词</span>
         <button class="btn btn-sm" id="copy-prompt" data-copy="#ai-prompt" data-i18n="cli.copy">复制</button>
       </div>
-      <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-body">
+        <p class="cli-label" data-i18n="cli.pick">从一个点子开始</p>
+        <div class="ideas" id="ideas">
+          <button type="button" class="idea" data-idea="anime" aria-pressed="true"><span aria-hidden="true">🍥</span> <span data-i18n="idea.anime.t">动漫</span></button>
+          <button type="button" class="idea" data-idea="series" aria-pressed="false"><span aria-hidden="true">📺</span> <span data-i18n="idea.series.t">美剧</span></button>
+          <button type="button" class="idea" data-idea="playlist" aria-pressed="false"><span aria-hidden="true">🎧</span> <span data-i18n="idea.playlist.t">Spotify 歌单</span></button>
+          <button type="button" class="idea" data-idea="interview" aria-pressed="false"><span aria-hidden="true">💼</span> <span data-i18n="idea.interview.t">求职面试</span></button>
+          <button type="button" class="idea" data-idea="trip" aria-pressed="false"><span aria-hidden="true">✈️</span> <span data-i18n="idea.trip.t">出国旅行</span></button>
+          <button type="button" class="idea" data-idea="notes" aria-pressed="false"><span aria-hidden="true">📝</span> <span data-i18n="idea.notes.t">课堂笔记</span></button>
+        </div>
+        <label class="cli-label" for="ai-ask" data-i18n="cli.asklabel">你的请求</label>
+        <textarea id="ai-ask" class="cli-ask" rows="4" data-i18n="idea.anime.p">用《火影忍者》第一季做一个日语卡组，40 个单词和句子。正面是日文，背面是读音和意思。</textarea>
+        <p class="cli-hint" data-i18n="cli.hint">复制时会带上安装步骤，AI 会安装 Loopky、写好卡片并发布卡组。</p>
+      </div>
+      <details class="cli-full">
+        <summary data-i18n="cli.full">查看完整提示词</summary>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
-Topic: &lt;WHAT I WANT TO LEARN&gt;
-Cards: &lt;HOW MANY&gt;
+What I want:
+用《火影忍者》第一季做一个日语卡组，40 个单词和句子。正面是日文，背面是读音和意思。
 
 Steps:
 1. Install the CLI if it is missing:
@@ -429,21 +445,22 @@ Steps:
    front &lt;TAB&gt; back
    Two more columns are optional: an https image URL for each side.
 5. Check before you write anything:
-   loopky deck create --title "&lt;TITLE&gt;" --from-file cards.tsv --dry-run --json
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
 6. Publish it:
-   loopky deck create --title "&lt;TITLE&gt;" --tag &lt;TOPIC&gt; --from-file cards.tsv
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
    Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
 7. Show me the result: loopky deck show &lt;deckId&gt; --json
 
 I already have an Anki file? Import it instead:
    loopky import deck.apkg --dry-run --json
-   loopky import deck.apkg --title "&lt;TITLE&gt;"
+   loopky import deck.apkg --title &quot;&lt;TITLE&gt;&quot;
 
 Rules:
-- Every command takes --json, and the result sits under "data".
+- Every command takes --json, and the result sits under &quot;data&quot;.
 - Always run --dry-run before a command that writes.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
 - Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </details>
     </div>
   </div>
 </section>
@@ -502,8 +519,8 @@ Rules:
   </div>
 </footer>
 
-<script src="../assets/js/i18n.js?v=d18ae3c6"></script>
+<script src="../assets/js/i18n.js?v=a16c1e74"></script>
 <script src="../assets/js/discover.js?v=0dcdb803"></script>
-<script src="../assets/js/app.js?v=952f8d09"></script>
+<script src="../assets/js/app.js?v=1ad507a1"></script>
 </body>
 </html>

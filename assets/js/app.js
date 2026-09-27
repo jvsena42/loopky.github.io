@@ -88,6 +88,7 @@
     labelTheme();
     linkGuides();
     renderUses();
+    paintIdea();
     renderDiscover();
     /* The deck and profile pages build their copy from data, so they listen for this
        and paint again rather than carrying data-i18n on nodes that change. */
@@ -442,6 +443,44 @@
     });
   }
 
+  /* ---------------- the AI prompt ---------------- */
+
+  /* The idea chosen above the request box. Picking one, or switching language,
+     replaces what is in the box; typing in it only repaints the full prompt. */
+  var idea = IDEAS[0];
+
+  function currentPrompt() {
+    var ask = document.getElementById('ai-ask');
+    var text = ask && ask.value.trim();
+    return text ? aiPrompt(text) : AI_PROMPT;
+  }
+
+  function paintPrompt() {
+    var code = document.querySelector('#ai-prompt code');
+    if (code) code.textContent = currentPrompt();
+  }
+
+  function paintIdea() {
+    document.querySelectorAll('#ideas [data-idea]').forEach(function (btn) {
+      btn.setAttribute('aria-pressed', btn.getAttribute('data-idea') === idea ? 'true' : 'false');
+    });
+    var ask = document.getElementById('ai-ask');
+    if (ask) {
+      ask.setAttribute('data-i18n', 'idea.' + idea + '.p');
+      ask.value = tf('idea.' + idea + '.p', '');
+      fitAsk();
+    }
+    paintPrompt();
+  }
+
+  /* The request box grows with its text, so a whole idea reads without scrolling. */
+  function fitAsk() {
+    var ask = document.getElementById('ai-ask');
+    if (!ask || !ask.offsetParent) return;
+    ask.style.height = 'auto';
+    ask.style.height = ask.scrollHeight + 2 + 'px';
+  }
+
   /* ---------------- shared with the deck and profile pages ---------------- */
 
   window.loopkyT = tf;
@@ -460,8 +499,18 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var code = document.querySelector('#ai-prompt code');
-    if (code) code.textContent = AI_PROMPT;
+    var ask = document.getElementById('ai-ask');
+    if (ask) ask.addEventListener('input', function () { fitAsk(); paintPrompt(); });
+
+    var ideas = document.getElementById('ideas');
+    if (ideas) {
+      ideas.addEventListener('click', function (e) {
+        var btn = e.target.closest('[data-idea]');
+        if (!btn) return;
+        idea = btn.getAttribute('data-idea');
+        paintIdea();
+      });
+    }
 
     var copy = document.getElementById('copy-prompt');
     if (copy) {
@@ -470,8 +519,9 @@
           copy.textContent = tf('cli.copied', 'Copied');
           setTimeout(function () { copy.textContent = tf('cli.copy', 'Copy'); }, 1800);
         };
+        var text = currentPrompt();
         if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(AI_PROMPT).then(done, selectPrompt);
+          navigator.clipboard.writeText(text).then(done, selectPrompt);
         } else {
           selectPrompt();
         }
@@ -481,6 +531,8 @@
     function selectPrompt() {
       var pre = document.getElementById('ai-prompt');
       if (!pre) return;
+      var details = pre.closest('details');
+      if (details) details.open = true;
       var range = document.createRange();
       range.selectNodeContents(pre);
       var sel = window.getSelection();

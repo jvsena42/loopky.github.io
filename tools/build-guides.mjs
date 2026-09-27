@@ -37,7 +37,7 @@ const SITE = /<link rel="canonical" href="([^"]+)"/.exec(read('index.html'))[1];
 
 /* The same prompt the home page shows, and the home page's dictionaries, read from
    the one place they are written. */
-const { AI_PROMPT, I18N } = new Function(read('assets/js/i18n.js') + '\nreturn { AI_PROMPT, I18N };')();
+const { AI_PROMPT, I18N, IDEAS, aiPrompt } = new Function(read('assets/js/i18n.js') + '\nreturn { AI_PROMPT, I18N, IDEAS, aiPrompt };')();
 
 /* ---------------------------------------------------------------- layout */
 
@@ -474,6 +474,9 @@ function homePage(locale) {
     });
   html = html.replace(/(<ul class="pillrow" id="uses-list">)[\s\S]*?(\n\s*<\/ul>)/,
     (_, a, b) => a + '\n' + dict['uses.list'].map((u) => `        <li>${esc(u)}</li>`).join('\n') + b);
+  /* The full prompt carries the first idea's request, in this language. */
+  html = html.replace(/(<pre id="ai-prompt"><code>)[\s\S]*?(<\/code><\/pre>)/,
+    (_, a, b) => a + esc(aiPrompt(t(`idea.${IDEAS[0]}.p`))) + b);
 
   html = html
     .replace('<html lang="en" data-home="en">', `<html lang="${locale.code}" data-home="${locale.code}">`)
