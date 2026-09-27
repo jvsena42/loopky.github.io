@@ -57,7 +57,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=151d8a39">
+<link rel="stylesheet" href="../assets/css/style.css?v=b9a16c99">
 
 <script type="application/ld+json">
 {
@@ -400,7 +400,7 @@
     <div class="cli-copy">
       <p class="eyebrow" data-i18n="cli.eyebrow">Dòng lệnh</p>
       <h2 data-i18n="cli.title">Để AI của bạn dựng bộ thẻ</h2>
-      <p class="lead" data-i18n="cli.sub">Loopky có một ứng dụng chạy trên terminal. Đưa prompt bên dưới cho Claude, ChatGPT, Gemini hay bất kỳ agent nào có shell, nó sẽ viết thẻ và đăng bộ thẻ giúp bạn.</p>
+      <p class="lead" data-i18n="cli.sub">Hãy nói với AI bạn muốn học gì, từ bộ phim bạn mê đến buổi phỏng vấn tuần sau. Chọn một ý tưởng, sửa theo ý bạn rồi dán vào Claude, ChatGPT, Gemini hay bất kỳ agent nào có shell.</p>
       <ul class="ticks">
         <li data-i18n="cli.t1">Một tệp duy nhất. Không cần Java, không cần cài đặt gì.</li>
         <li data-i18n="cli.t2">Mọi lệnh đều trả về JSON.</li>
@@ -413,10 +413,26 @@
         <span data-i18n="cli.promptlabel">Prompt cho AI của bạn</span>
         <button class="btn btn-sm" id="copy-prompt" data-copy="#ai-prompt" data-i18n="cli.copy">Sao chép</button>
       </div>
-      <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-body">
+        <p class="cli-label" data-i18n="cli.pick">Bắt đầu từ một ý tưởng</p>
+        <div class="ideas" id="ideas">
+          <button type="button" class="idea" data-idea="anime" aria-pressed="true"><span aria-hidden="true">🍥</span> <span data-i18n="idea.anime.t">Anime</span></button>
+          <button type="button" class="idea" data-idea="series" aria-pressed="false"><span aria-hidden="true">📺</span> <span data-i18n="idea.series.t">Phim bộ</span></button>
+          <button type="button" class="idea" data-idea="playlist" aria-pressed="false"><span aria-hidden="true">🎧</span> <span data-i18n="idea.playlist.t">Playlist Spotify</span></button>
+          <button type="button" class="idea" data-idea="interview" aria-pressed="false"><span aria-hidden="true">💼</span> <span data-i18n="idea.interview.t">Phỏng vấn xin việc</span></button>
+          <button type="button" class="idea" data-idea="trip" aria-pressed="false"><span aria-hidden="true">✈️</span> <span data-i18n="idea.trip.t">Du lịch</span></button>
+          <button type="button" class="idea" data-idea="notes" aria-pressed="false"><span aria-hidden="true">📝</span> <span data-i18n="idea.notes.t">Ghi chép trên lớp</span></button>
+        </div>
+        <label class="cli-label" for="ai-ask" data-i18n="cli.asklabel">Yêu cầu của bạn</label>
+        <textarea id="ai-ask" class="cli-ask" rows="4" data-i18n="idea.anime.p">Một bộ thẻ tiếng Nhật với 40 từ và câu trong mùa đầu của Naruto. Kanji ở mặt trước, cách đọc và nghĩa ở mặt sau.</textarea>
+        <p class="cli-hint" data-i18n="cli.hint">Khi sao chép sẽ kèm các bước cài đặt, để AI cài Loopky, viết thẻ và đăng bộ thẻ.</p>
+      </div>
+      <details class="cli-full">
+        <summary data-i18n="cli.full">Xem toàn bộ prompt</summary>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
-Topic: &lt;WHAT I WANT TO LEARN&gt;
-Cards: &lt;HOW MANY&gt;
+What I want:
+Một bộ thẻ tiếng Nhật với 40 từ và câu trong mùa đầu của Naruto. Kanji ở mặt trước, cách đọc và nghĩa ở mặt sau.
 
 Steps:
 1. Install the CLI if it is missing:
@@ -429,21 +445,22 @@ Steps:
    front &lt;TAB&gt; back
    Two more columns are optional: an https image URL for each side.
 5. Check before you write anything:
-   loopky deck create --title "&lt;TITLE&gt;" --from-file cards.tsv --dry-run --json
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
 6. Publish it:
-   loopky deck create --title "&lt;TITLE&gt;" --tag &lt;TOPIC&gt; --from-file cards.tsv
+   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
    Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
 7. Show me the result: loopky deck show &lt;deckId&gt; --json
 
 I already have an Anki file? Import it instead:
    loopky import deck.apkg --dry-run --json
-   loopky import deck.apkg --title "&lt;TITLE&gt;"
+   loopky import deck.apkg --title &quot;&lt;TITLE&gt;&quot;
 
 Rules:
-- Every command takes --json, and the result sits under "data".
+- Every command takes --json, and the result sits under &quot;data&quot;.
 - Always run --dry-run before a command that writes.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
 - Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </details>
     </div>
   </div>
 </section>
@@ -502,8 +519,8 @@ Rules:
   </div>
 </footer>
 
-<script src="../assets/js/i18n.js?v=d18ae3c6"></script>
+<script src="../assets/js/i18n.js?v=a16c1e74"></script>
 <script src="../assets/js/discover.js?v=0dcdb803"></script>
-<script src="../assets/js/app.js?v=952f8d09"></script>
+<script src="../assets/js/app.js?v=1ad507a1"></script>
 </body>
 </html>

@@ -57,7 +57,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="assets/css/style.css?v=151d8a39">
+<link rel="stylesheet" href="assets/css/style.css?v=b9a16c99">
 
 <script type="application/ld+json">
 {
@@ -400,7 +400,7 @@
     <div class="cli-copy">
       <p class="eyebrow" data-i18n="cli.eyebrow">Command line</p>
       <h2 data-i18n="cli.title">Let your AI build the deck</h2>
-      <p class="lead" data-i18n="cli.sub">Loopky has a terminal app. Give the prompt below to Claude, ChatGPT, Gemini or any agent with a shell, and it writes the cards and publishes the deck for you.</p>
+      <p class="lead" data-i18n="cli.sub">Tell your AI what you want to learn, from the show you love to next week’s interview. Pick an idea, make it yours, and paste it into Claude, ChatGPT, Gemini or any agent with a shell.</p>
       <ul class="ticks">
         <li data-i18n="cli.t1">One file to install. No Java, no setup.</li>
         <li data-i18n="cli.t2">Every command speaks JSON.</li>
@@ -413,10 +413,26 @@
         <span data-i18n="cli.promptlabel">Prompt for your AI</span>
         <button class="btn btn-sm" id="copy-prompt" data-copy="#ai-prompt" data-i18n="cli.copy">Copy</button>
       </div>
-      <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-body">
+        <p class="cli-label" data-i18n="cli.pick">Start from an idea</p>
+        <div class="ideas" id="ideas">
+          <button type="button" class="idea" data-idea="anime" aria-pressed="true"><span aria-hidden="true">🍥</span> <span data-i18n="idea.anime.t">Anime</span></button>
+          <button type="button" class="idea" data-idea="series" aria-pressed="false"><span aria-hidden="true">📺</span> <span data-i18n="idea.series.t">TV series</span></button>
+          <button type="button" class="idea" data-idea="playlist" aria-pressed="false"><span aria-hidden="true">🎧</span> <span data-i18n="idea.playlist.t">Spotify playlist</span></button>
+          <button type="button" class="idea" data-idea="interview" aria-pressed="false"><span aria-hidden="true">💼</span> <span data-i18n="idea.interview.t">Job interview</span></button>
+          <button type="button" class="idea" data-idea="trip" aria-pressed="false"><span aria-hidden="true">✈️</span> <span data-i18n="idea.trip.t">Trip abroad</span></button>
+          <button type="button" class="idea" data-idea="notes" aria-pressed="false"><span aria-hidden="true">📝</span> <span data-i18n="idea.notes.t">Class notes</span></button>
+        </div>
+        <label class="cli-label" for="ai-ask" data-i18n="cli.asklabel">Your request</label>
+        <textarea id="ai-ask" class="cli-ask" rows="4" data-i18n="idea.anime.p">A Japanese deck with 40 words and phrases from the first season of Naruto. Kanji on the front, the reading and meaning on the back.</textarea>
+        <p class="cli-hint" data-i18n="cli.hint">Copy adds the setup steps, so your AI can install Loopky, write the cards and publish the deck.</p>
+      </div>
+      <details class="cli-full">
+        <summary data-i18n="cli.full">See the full prompt</summary>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
-Topic: &lt;WHAT I WANT TO LEARN&gt;
-Cards: &lt;HOW MANY&gt;
+What I want:
+A Japanese deck with 40 words and phrases from the first season of Naruto. Kanji on the front, the reading and meaning on the back.
 
 Steps:
 1. Install the CLI if it is missing:
@@ -444,6 +460,7 @@ Rules:
 - Always run --dry-run before a command that writes.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
 - Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </details>
     </div>
   </div>
 </section>
@@ -502,8 +519,8 @@ Rules:
   </div>
 </footer>
 
-<script src="assets/js/i18n.js?v=d18ae3c6"></script>
+<script src="assets/js/i18n.js?v=a16c1e74"></script>
 <script src="assets/js/discover.js?v=0dcdb803"></script>
-<script src="assets/js/app.js?v=952f8d09"></script>
+<script src="assets/js/app.js?v=1ad507a1"></script>
 </body>
 </html>

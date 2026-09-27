@@ -43,10 +43,11 @@ for (const f of scripts) {
 /* ---- 2. the eleven dictionaries hold the same keys ---- */
 
 const i18nSrc = read('assets/js/i18n.js');
-let I18N, AI_PROMPT;
+let I18N, AI_PROMPT, IDEAS, aiPrompt;
 try {
   // The file is a plain script, so it is evaluated rather than imported.
-  ({ I18N, AI_PROMPT } = new Function(i18nSrc + '\nreturn { I18N, AI_PROMPT };')());
+  ({ I18N, AI_PROMPT, IDEAS, aiPrompt } =
+    new Function(i18nSrc + '\nreturn { I18N, AI_PROMPT, IDEAS, aiPrompt };')());
 } catch (e) {
   fail(`assets/js/i18n.js could not be evaluated: ${e.message}`);
 }
@@ -75,7 +76,7 @@ if (I18N) {
        seeing. The brand name and the store's own wording are the real exceptions. */
     // Some strings are the same word in another language, or are a brand name.
     const ALLOW_SAME = new Set([
-      'foot.play', 'disc.topics', 'it:foot.privacy', 'de:theme.system', 'de:link.decks',
+      'foot.play', 'disc.topics', 'idea.anime.t', 'it:foot.privacy', 'de:theme.system', 'de:link.decks',
       ...BRAND_KEYS,
     ]);
     if (lang !== 'en') {
@@ -115,6 +116,8 @@ if (I18N) {
     /* t(key) and tf(key, fallback) both count as a use. */
     for (const m of read(f).matchAll(/(?<![\w$])tf?\('([^']+)'\s*[,)]/g)) fromJs.add(m[1]);
   }
+  /* app.js paints each idea's request by building the key from IDEAS. */
+  for (const id of IDEAS ?? []) fromJs.add(`idea.${id}.p`);
 
   for (const key of [...used, ...fromJs]) {
     if (!(key in I18N.en)) fail(`the page asks for "${key}", which no dictionary defines`);
@@ -131,6 +134,14 @@ if (AI_PROMPT) {
     if (!AI_PROMPT.includes(cmd)) fail(`the AI prompt no longer mentions \`${cmd}\``);
   }
   if (!/install\.sh|install\.ps1/.test(AI_PROMPT)) fail('the AI prompt has no install line');
+  /* aiPrompt swaps these two lines for a request; reword them and it swaps nothing. */
+  if (aiPrompt && aiPrompt('x') === AI_PROMPT) fail('aiPrompt no longer finds the Topic and Cards lines in AI_PROMPT');
+}
+if (I18N && IDEAS) {
+  for (const id of IDEAS) {
+    for (const k of [`idea.${id}.t`, `idea.${id}.p`]) if (!(k in I18N.en)) fail(`IDEAS names "${id}", but "${k}" is not defined`);
+    if (!html.includes(`data-idea="${id}"`)) fail(`index.html has no button for the idea "${id}"`);
+  }
 }
 
 /* ---- 5. every local asset the page references exists ---- */
@@ -352,8 +363,8 @@ if (canonical) {
 if (AI_PROMPT) {
   const shipped = /<pre id="ai-prompt"><code>([\s\S]*?)<\/code><\/pre>/.exec(html)?.[1]
     ?.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
-  if (shipped !== AI_PROMPT) {
-    fail('the AI prompt in index.html differs from AI_PROMPT in i18n.js; copy it across');
+  if (shipped !== aiPrompt(I18N.en[`idea.${IDEAS[0]}.p`])) {
+    fail('the AI prompt in index.html differs from aiPrompt() with the first idea; copy it across');
   }
 }
 if (I18N) {
