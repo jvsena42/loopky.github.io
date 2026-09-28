@@ -163,16 +163,16 @@
         { "t": "Qualsiasi file, qualsiasi argomento", "d": "PDF, slide, fogli di calcolo, una foto della lavagna, sottotitoli o solo un’idea." },
         { "t": "Prima vedi le carte", "d": "La tua IA controlla ogni carta e ti mostra l’elenco prima di pubblicare qualsiasi cosa." },
         { "t": "Il tuo profilo resta tuo", "d": "Approvi l’accesso dal telefono. Gestisce i mazzi e non posta né segue mai nessuno." },
-        { "t": "Funziona dove lavora la tua IA", "d": "Sul tuo computer o nella sandbox cloud della tua IA, senza che tu debba installare nulla." }
+        { "t": "Funziona dove lavora la tua IA", "d": "Nell’app di IA che usi già, sul computer o nel browser. Non devi installare nulla." }
       ],
       "promptH": "Il prompt",
       "promptP": "Incollalo nella tua IA e inserisci l’argomento o allega un file. Approvi l’accesso dal telefono.",
       "sections": [
         { "h": "Poi studialo sul telefono", "p": "Il mazzo compare in Loopky, pronto per la ripetizione dilazionata, con l’audio per i mazzi di lingue. Controlla che le carte scritte dall’IA non abbiano errori.", "alt": "Il mazzo finito in Loopky" },
-        { "h": "Niente da installare", "p": "La tua IA installa Loopky da sola, su Windows, macOS, Linux o in una sandbox cloud. Vanno bene anche Homebrew, un pacchetto .deb e Docker.", "link": "Leggi la documentazione della CLI" }
+        { "h": "Niente da installare", "p": "La tua IA installa Loopky da sola, su Windows, macOS o Linux, anche quando ci chatti nel browser. Vanno bene anche Homebrew, un pacchetto .deb e Docker.", "link": "Leggi la documentazione della CLI" }
       ],
       "faq": [
-        ["Devo saper programmare?", "No. Incolla il prompt nella tua IA, aggiungi l’argomento o il file, e lei fa ogni passaggio da sola. Funziona con Claude Code, Codex, Gemini CLI e le sandbox cloud."],
+        ["Devo saper programmare?", "No. Incolla il prompt nella tua IA, aggiungi l’argomento o il file, e lei fa ogni passaggio da sola. Funziona nelle app di chat con IA e con agenti come Claude Code, Codex e Gemini CLI."],
         ["L’IA può importare i miei mazzi Anki?", "Sì. loopky import deck.apkg importa un pacchetto Anki, e --dry-run mostra prima il risultato."],
         ["Cosa non può fare lo strumento?", "Non può postare, seguire persone o modificare il tuo profilo. Gestisce solo mazzi e carte."],
         ["Funziona in Claude Code sul web o in Codex?", "Sì, quando il tuo sandbox può raggiungere gli host di Loopky. Nessuno dei due li lascia passare di default. Chiedi all'agente di eseguire loopky doctor: elenca gli host e dove aggiungerli. In Codex lascia disattivata l'opzione solo GET/HEAD/OPTIONS. Un sandbox che ispeziona il TLS non funziona ancora."],

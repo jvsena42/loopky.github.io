@@ -149,11 +149,42 @@ function table(t, extraClass = '') {
 
 /* ---------------------------------------------------------------- page */
 
+/* The prompt's Copy button, only on a page that shows the prompt. */
+const COPY_SCRIPT = `
+/* The prompt's Copy button. Without a clipboard, it selects the prompt instead. */
+(function () {
+  var btn = document.getElementById('copy-prompt');
+  var code = document.querySelector('#ai-prompt code');
+  if (!btn || !code) return;
+  var label = btn.textContent;
+  var select = function () {
+    var r = document.createRange();
+    r.selectNodeContents(code);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  };
+  btn.addEventListener('click', function () {
+    var done = function () {
+      btn.textContent = btn.getAttribute('data-copied');
+      setTimeout(function () { btn.textContent = label; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code.textContent).then(done, select);
+    } else {
+      select();
+    }
+  });
+})();
+`;
+
 function page(locale, slug) {
   const d = dicts[locale.code];
   const en = dicts.en;
   const ui = d.ui;
   const p = d.pages[slug];
+  /* The home page's words for the prompt box, so both boxes read the same. */
+  const tr = (key) => I18N[locale.code]?.[key] ?? I18N.en[key];
   const L = LAYOUT[slug];
   const prefix = locale.dir ? '../../' : '../';
   /* One level up is this language's home page: /pt-br/ from /pt-br/{slug}/. */
@@ -226,7 +257,13 @@ ${p.features.map((f, i) => `      <article class="card feat">
       <p>${esc(p.promptP)}</p>
     </div>
     <div class="split-art">
-      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>${esc(AI_PROMPT)}</code></pre></div>
+      <div class="cli-box">
+        <div class="cli-bar">
+          <span>${esc(tr('cli.promptlabel'))}</span>
+          <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="${esc(tr('cli.copied'))}">${esc(tr('cli.copy'))}</button>
+        </div>
+        <pre id="ai-prompt"><code>${esc(AI_PROMPT)}</code></pre>
+      </div>
     </div>
   </div>
 </section>`);
@@ -435,7 +472,7 @@ ${others}
     location.href = opt.value;
   });
 })();
-</script>
+${L.prompt ? COPY_SCRIPT : ''}</script>
 </body>
 </html>
 `;

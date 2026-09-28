@@ -163,16 +163,16 @@
         { "t": "Qualquer arquivo, qualquer tema", "d": "PDFs, slides, planilhas, a foto do quadro, legendas ou só uma ideia." },
         { "t": "Veja as cartas antes", "d": "Sua IA confere cada carta e mostra a lista antes de publicar qualquer coisa." },
         { "t": "Seu perfil continua seu", "d": "Você aprova o login no celular. Ele gerencia baralhos e nunca posta nem segue ninguém." },
-        { "t": "Funciona onde sua IA funciona", "d": "No seu computador ou no sandbox na nuvem da sua IA, sem nada para você instalar." }
+        { "t": "Funciona onde sua IA funciona", "d": "No app de IA que você já usa, no computador ou no navegador. Nada para você instalar." }
       ],
       "promptH": "O prompt",
       "promptP": "Cole isto na sua IA e preencha o tema ou anexe um arquivo. Você aprova o login no celular.",
       "sections": [
         { "h": "Depois é só estudar no celular", "p": "O baralho aparece no Loopky, pronto para a repetição espaçada, com áudio nos baralhos de idiomas. Revise as cartas escritas por IA para achar erros.", "alt": "O baralho pronto no Loopky" },
-        { "h": "Nada para você instalar", "p": "Sua IA instala o Loopky sozinha, no Windows, macOS, Linux ou num sandbox na nuvem. Homebrew, pacote .deb e Docker também funcionam.", "link": "Ler a documentação da CLI" }
+        { "h": "Nada para você instalar", "p": "Sua IA instala o Loopky sozinha, no Windows, macOS ou Linux, até quando você conversa com ela pelo navegador. Homebrew, pacote .deb e Docker também funcionam.", "link": "Ler a documentação da CLI" }
       ],
       "faq": [
-        ["Preciso saber programar?", "Não. Cole o prompt na sua IA, junte o tema ou o arquivo, e ela faz todos os passos sozinha. Claude Code, Codex, Gemini CLI e sandboxes na nuvem funcionam."],
+        ["Preciso saber programar?", "Não. Cole o prompt na sua IA, junte o tema ou o arquivo, e ela faz todos os passos sozinha. Funciona em apps de chat com IA e em agentes como Claude Code, Codex e Gemini CLI."],
         ["A IA pode importar meus baralhos do Anki?", "Sim. loopky import deck.apkg importa um pacote do Anki, e --dry-run mostra o resultado antes."],
         ["O que a ferramenta não faz?", "Ela não posta, não segue pessoas e não edita seu perfil. Só gerencia baralhos e cartas."],
         ["Funciona no Claude Code na web ou no Codex?", "Sim, depois que o sandbox conseguir acessar os hosts do Loopky. Nenhum dos dois libera por padrão. Peça para o agente rodar loopky doctor: ele lista os hosts e onde adicioná-los. No Codex, deixe desligada a opção só GET/HEAD/OPTIONS. Um sandbox que inspeciona TLS ainda não funciona."],
