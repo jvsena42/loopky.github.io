@@ -331,34 +331,34 @@
     },
     "ai-flashcards": {
       "title": "Créer des flashcards avec Claude, ChatGPT et Gemini · Loopky",
-      "desc": "Laissez un agent IA écrire et publier vos flashcards. L’outil en ligne de commande de Loopky (JSON, essais à blanc) est fait pour Claude, ChatGPT, Gemini et autres.",
+      "desc": "Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, des diapos ou une photo de vos notes. L’IA écrit et publie un paquet de flashcards à réviser sur votre téléphone avec la répétition espacée.",
       "crumb": "Flashcards créées par l’IA",
       "card": "Flashcards créées par l’IA",
       "blurb": "Claude, ChatGPT ou Gemini écrivent le paquet pour vous.",
       "eyebrow": "Créateur de flashcards par IA",
       "h1": "Laissez votre IA écrire les flashcards",
-      "lead": "Dites à Claude, ChatGPT ou Gemini ce que vous voulez apprendre. L’IA écrit les cartes et publie le paquet sur votre téléphone.",
+      "lead": "Donnez à Claude, ChatGPT ou Gemini un sujet ou un fichier. L’IA écrit les cartes et publie le paquet sur votre téléphone.",
       "heroAlt": "",
       "features": [
         {
-          "t": "N’importe quelle source",
-          "d": "Un chapitre, des notes de cours, une liste de mots ou un épisode de série."
+          "t": "N’importe quel fichier, n’importe quel sujet",
+          "d": "PDF, diapos, tableurs, une photo du tableau, des sous-titres ou juste une idée."
         },
         {
-          "t": "Essai à blanc d’abord",
-          "d": "Chaque carte est vérifiée avant que quoi que ce soit ne soit écrit."
+          "t": "Les cartes d’abord",
+          "d": "Votre IA vérifie chaque carte et vous montre la liste avant de publier quoi que ce soit."
         },
         {
-          "t": "Permissions limitées",
-          "d": "L’outil gère les paquets. Il ne peut jamais poster, suivre ou modifier votre profil."
+          "t": "Votre profil reste à vous",
+          "d": "Vous validez la connexion sur votre téléphone. L’outil gère les paquets et ne poste ni ne suit jamais personne."
         },
         {
-          "t": "Du JSON partout",
-          "d": "Les agents lisent de vrais résultats au lieu de deviner."
+          "t": "Là où travaille votre IA",
+          "d": "Sur votre ordinateur ou dans le bac à sable cloud de votre IA, sans rien installer vous-même."
         }
       ],
       "promptH": "Le prompt",
-      "promptP": "Collez ceci dans votre agent IA et indiquez le sujet. Vous validez la connexion sur votre téléphone.",
+      "promptP": "Collez ceci dans votre IA, puis indiquez le sujet ou joignez un fichier. Vous validez la connexion sur votre téléphone.",
       "sections": [
         {
           "h": "Puis révisez-le sur votre téléphone",
@@ -366,15 +366,15 @@
           "alt": "Le paquet terminé dans Loopky"
         },
         {
-          "h": "Un seul fichier, sur tous les ordinateurs",
-          "p": "Windows, macOS et Linux, plus Homebrew, un paquet .deb et Docker. Pas de Java, rien à configurer.",
+          "h": "Rien à installer pour vous",
+          "p": "Votre IA installe Loopky elle-même, sur Windows, macOS, Linux ou dans un bac à sable cloud. Homebrew, un paquet .deb et Docker marchent aussi.",
           "link": "Lire la doc de la CLI"
         }
       ],
       "faq": [
         [
           "Faut-il savoir coder ?",
-          "Non. Collez le prompt dans un agent IA qui a un terminal, comme Claude Code, Codex ou Gemini CLI. Il lance les commandes."
+          "Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Claude Code, Codex, Gemini CLI et les bacs à sable cloud fonctionnent."
         ],
         [
           "L’IA peut-elle importer mes paquets Anki ?",
@@ -384,7 +384,8 @@
           "Que ne peut pas faire l’outil ?",
           "Il ne peut pas poster, suivre des personnes ou modifier votre profil. Il gère seulement les paquets et les cartes."
         ],
-        ["Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?", "Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Un sandbox qui inspecte le TLS ne fonctionne pas encore."]
+        ["Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?", "Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Un sandbox qui inspecte le TLS ne fonctionne pas encore."],
+        ["Quels fichiers peut-elle transformer en cartes ?", "Tout ce que votre IA sait lire : PDF, fichiers Word et PowerPoint, tableurs, photos de notes, sous-titres et pages web."]
       ]
     },
     "spaced-repetition": {

@@ -151,31 +151,32 @@
     },
     "ai-flashcards": {
       "title": "Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky",
-      "desc": "Let an AI agent write and publish your flashcard deck. Loopky's command line tool, with JSON output and dry runs, is built for Claude, ChatGPT, Gemini and other agents.",
+      "desc": "Give Claude, ChatGPT or Gemini a topic, a PDF, slides or a photo of your notes. It writes and publishes a flashcard deck you study on your phone with spaced repetition.",
       "crumb": "Flashcards made by AI",
       "card": "Flashcards made by AI",
       "blurb": "Claude, ChatGPT or Gemini write the deck for you.",
       "eyebrow": "AI flashcard maker",
       "h1": "Let your AI write the flashcards",
-      "lead": "Tell Claude, ChatGPT or Gemini what you want to learn. It writes the cards and publishes the deck to your phone.",
+      "lead": "Give Claude, ChatGPT or Gemini a topic or a file. It writes the cards and publishes the deck to your phone.",
       "heroAlt": "",
       "features": [
-        { "t": "Any source", "d": "A chapter, lecture notes, a word list or a TV episode." },
-        { "t": "Dry runs first", "d": "Every card is checked before anything is written." },
-        { "t": "Narrow permissions", "d": "It manages decks. It can never post, follow or edit your profile." },
-        { "t": "JSON everywhere", "d": "Agents read real results instead of guessing." }
+        { "t": "Any file, any topic", "d": "PDFs, slides, spreadsheets, a photo of the whiteboard, subtitles or just an idea." },
+        { "t": "See the cards first", "d": "Your AI checks every card and shows you the list before anything is published." },
+        { "t": "Your profile stays yours", "d": "You approve the sign-in on your phone. It manages decks and never posts or follows anyone." },
+        { "t": "Works where your AI works", "d": "On your computer or in your AI's cloud sandbox, with nothing for you to install." }
       ],
       "promptH": "The prompt",
-      "promptP": "Paste this into your AI agent and fill in the topic. You approve the login on your phone.",
+      "promptP": "Paste this into your AI, then fill in the topic or attach a file. You approve the sign-in on your phone.",
       "sections": [
         { "h": "Then study it on your phone", "p": "The deck shows up in Loopky, ready for spaced repetition, with audio for language decks. Check AI written cards for mistakes.", "alt": "The finished deck in Loopky" },
-        { "h": "One file, every computer", "p": "Windows, macOS and Linux, plus Homebrew, a .deb package and Docker. No Java, no setup.", "link": "Read the CLI docs" }
+        { "h": "Nothing for you to install", "p": "Your AI installs Loopky by itself, on Windows, macOS, Linux or in a cloud sandbox. Homebrew, a .deb package and Docker work too.", "link": "Read the CLI docs" }
       ],
       "faq": [
-        ["Do I need to know how to code?", "No. Paste the prompt into an AI agent with a terminal, such as Claude Code, Codex or Gemini CLI. It runs the commands."],
+        ["Do I need to know how to code?", "No. Paste the prompt into your AI, add your topic or file, and it does every step itself. Claude Code, Codex, Gemini CLI and cloud sandboxes all work."],
         ["Can the AI import my Anki decks?", "Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first."],
         ["What can the tool not do?", "It cannot post, follow people or edit your profile. It only manages decks and cards."],
-        ["Does it work in Claude Code on the web or Codex?", "Yes, once your sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS does not work yet."]
+        ["Does it work in Claude Code on the web or Codex?", "Yes, once your sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS does not work yet."],
+        ["What files can it turn into cards?", "Anything your AI can read: PDFs, Word and PowerPoint files, spreadsheets, photos of notes, subtitles and web pages."]
       ]
     },
     "spaced-repetition": {

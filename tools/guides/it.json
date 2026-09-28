@@ -151,31 +151,32 @@
     },
     "ai-flashcards": {
       "title": "Crea flashcard con l’IA: Claude, ChatGPT e Gemini · Loopky",
-      "desc": "Lascia che un agente IA scriva e pubblichi il tuo mazzo. La CLI di Loopky, con output JSON e prove a vuoto, è fatta per Claude, ChatGPT, Gemini e altri agenti.",
+      "desc": "Dai a Claude, ChatGPT o Gemini un argomento, un PDF, delle slide o la foto dei tuoi appunti. Scrive e pubblica un mazzo di flashcard da studiare sul telefono con la ripetizione dilazionata.",
       "crumb": "Flashcard create con l’IA",
       "card": "Flashcard create con l’IA",
       "blurb": "Claude, ChatGPT o Gemini scrivono il mazzo per te.",
       "eyebrow": "Flashcard con l’IA",
       "h1": "Lascia che la tua IA scriva le flashcard",
-      "lead": "Di’ a Claude, ChatGPT o Gemini cosa vuoi imparare. Scrive le carte e pubblica il mazzo sul tuo telefono.",
+      "lead": "Dai a Claude, ChatGPT o Gemini un argomento o un file. Scrive le carte e pubblica il mazzo sul tuo telefono.",
       "heroAlt": "",
       "features": [
-        { "t": "Qualsiasi fonte", "d": "Un capitolo, appunti di lezione, una lista di parole o un episodio di una serie." },
-        { "t": "Prima una prova a vuoto", "d": "Ogni carta viene controllata prima di scrivere qualsiasi cosa." },
-        { "t": "Permessi limitati", "d": "Gestisce i mazzi. Non può mai postare, seguire o modificare il tuo profilo." },
-        { "t": "JSON ovunque", "d": "Gli agenti leggono risultati veri invece di tirare a indovinare." }
+        { "t": "Qualsiasi file, qualsiasi argomento", "d": "PDF, slide, fogli di calcolo, una foto della lavagna, sottotitoli o solo un’idea." },
+        { "t": "Prima vedi le carte", "d": "La tua IA controlla ogni carta e ti mostra l’elenco prima di pubblicare qualsiasi cosa." },
+        { "t": "Il tuo profilo resta tuo", "d": "Approvi l’accesso dal telefono. Gestisce i mazzi e non posta né segue mai nessuno." },
+        { "t": "Funziona dove lavora la tua IA", "d": "Sul tuo computer o nella sandbox cloud della tua IA, senza che tu debba installare nulla." }
       ],
       "promptH": "Il prompt",
-      "promptP": "Incollalo nel tuo agente IA e inserisci l’argomento. Approvi l’accesso dal telefono.",
+      "promptP": "Incollalo nella tua IA e inserisci l’argomento o allega un file. Approvi l’accesso dal telefono.",
       "sections": [
         { "h": "Poi studialo sul telefono", "p": "Il mazzo compare in Loopky, pronto per la ripetizione dilazionata, con l’audio per i mazzi di lingue. Controlla che le carte scritte dall’IA non abbiano errori.", "alt": "Il mazzo finito in Loopky" },
-        { "h": "Un solo file, ogni computer", "p": "Windows, macOS e Linux, più Homebrew, un pacchetto .deb e Docker. Niente Java, niente configurazione.", "link": "Leggi la documentazione della CLI" }
+        { "h": "Niente da installare", "p": "La tua IA installa Loopky da sola, su Windows, macOS, Linux o in una sandbox cloud. Vanno bene anche Homebrew, un pacchetto .deb e Docker.", "link": "Leggi la documentazione della CLI" }
       ],
       "faq": [
-        ["Devo saper programmare?", "No. Incolla il prompt in un agente IA con un terminale, come Claude Code, Codex o Gemini CLI. È lui a eseguire i comandi."],
+        ["Devo saper programmare?", "No. Incolla il prompt nella tua IA, aggiungi l’argomento o il file, e lei fa ogni passaggio da sola. Funziona con Claude Code, Codex, Gemini CLI e le sandbox cloud."],
         ["L’IA può importare i miei mazzi Anki?", "Sì. loopky import deck.apkg importa un pacchetto Anki, e --dry-run mostra prima il risultato."],
         ["Cosa non può fare lo strumento?", "Non può postare, seguire persone o modificare il tuo profilo. Gestisce solo mazzi e carte."],
-        ["Funziona in Claude Code sul web o in Codex?", "Sì, quando il tuo sandbox può raggiungere gli host di Loopky. Nessuno dei due li lascia passare di default. Chiedi all'agente di eseguire loopky doctor: elenca gli host e dove aggiungerli. In Codex lascia disattivata l'opzione solo GET/HEAD/OPTIONS. Un sandbox che ispeziona il TLS non funziona ancora."]
+        ["Funziona in Claude Code sul web o in Codex?", "Sì, quando il tuo sandbox può raggiungere gli host di Loopky. Nessuno dei due li lascia passare di default. Chiedi all'agente di eseguire loopky doctor: elenca gli host e dove aggiungerli. In Codex lascia disattivata l'opzione solo GET/HEAD/OPTIONS. Un sandbox che ispeziona il TLS non funziona ancora."],
+        ["Quali file può trasformare in carte?", "Tutto ciò che la tua IA sa leggere: PDF, file Word e PowerPoint, fogli di calcolo, foto di appunti, sottotitoli e pagine web."]
       ]
     },
     "spaced-repetition": {

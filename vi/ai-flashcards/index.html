@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky</title>
-<meta name="description" content="Để một agent AI viết và đăng bộ thẻ cho bạn. Công cụ dòng lệnh của Loopky, với đầu ra JSON và chạy thử, được làm cho Claude, ChatGPT, Gemini và các agent khác.">
+<meta name="description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, slide hay ảnh chụp ghi chú. AI sẽ viết và đăng một bộ thẻ để bạn học trên điện thoại với lặp lại ngắt quãng.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:url" content="https://loopky.app/vi/ai-flashcards/">
 <meta property="og:title" content="Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky">
-<meta property="og:description" content="Để một agent AI viết và đăng bộ thẻ cho bạn. Công cụ dòng lệnh của Loopky, với đầu ra JSON và chạy thử, được làm cho Claude, ChatGPT, Gemini và các agent khác.">
+<meta property="og:description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, slide hay ảnh chụp ghi chú. AI sẽ viết và đăng một bộ thẻ để bạn học trên điện thoại với lặp lại ngắt quãng.">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky">
-<meta name="twitter:description" content="Để một agent AI viết và đăng bộ thẻ cho bạn. Công cụ dòng lệnh của Loopky, với đầu ra JSON và chạy thử, được làm cho Claude, ChatGPT, Gemini và các agent khác.">
+<meta name="twitter:description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, slide hay ảnh chụp ghi chú. AI sẽ viết và đăng một bộ thẻ để bạn học trên điện thoại với lặp lại ngắt quãng.">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng">
 
@@ -62,7 +62,7 @@
       "@id": "https://loopky.app/vi/ai-flashcards/#page",
       "headline": "Để AI của bạn viết thẻ ghi nhớ",
       "name": "Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky",
-      "description": "Để một agent AI viết và đăng bộ thẻ cho bạn. Công cụ dòng lệnh của Loopky, với đầu ra JSON và chạy thử, được làm cho Claude, ChatGPT, Gemini và các agent khác.",
+      "description": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, slide hay ảnh chụp ghi chú. AI sẽ viết và đăng một bộ thẻ để bạn học trên điện thoại với lặp lại ngắt quãng.",
       "url": "https://loopky.app/vi/ai-flashcards/",
       "inLanguage": "vi",
       "datePublished": "2026-09-26",
@@ -109,7 +109,7 @@
           "name": "Tôi có cần biết lập trình không?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Không. Dán prompt vào một agent AI có terminal, như Claude Code, Codex hoặc Gemini CLI. Nó sẽ chạy các lệnh."
+            "text": "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được với Claude Code, Codex, Gemini CLI và sandbox đám mây."
           }
         },
         {
@@ -134,6 +134,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox có kiểm tra TLS thì hiện chưa dùng được."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Nó có thể biến những tệp nào thành thẻ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bất cứ thứ gì AI của bạn đọc được: PDF, tệp Word và PowerPoint, bảng tính, ảnh chụp ghi chú, phụ đề và trang web."
           }
         }
       ]
@@ -187,7 +195,7 @@
       </nav>
       <p class="eyebrow">Tạo thẻ ghi nhớ bằng AI</p>
       <h1>Để AI của bạn viết thẻ ghi nhớ</h1>
-      <p class="lead">Nói với Claude, ChatGPT hoặc Gemini bạn muốn học gì. Nó viết thẻ và đăng bộ thẻ lên điện thoại của bạn.</p>
+      <p class="lead">Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề hay một tệp. Nó viết thẻ và đăng bộ thẻ lên điện thoại của bạn.</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Tải trên Google Play</a>
         <span class="soon">iOS sắp có</span>
@@ -211,24 +219,24 @@
   <div class="wrap">
     <div class="grid-feat n4">
       <article class="card feat">
-        <span class="ico ico-orange" aria-hidden="true">📝</span>
-        <h2 class="h3">Nguồn nào cũng được</h2>
-        <p>Một chương sách, ghi chú bài giảng, một danh sách từ hay một tập phim.</p>
+        <span class="ico ico-orange" aria-hidden="true">📂</span>
+        <h2 class="h3">Tệp nào, chủ đề nào cũng được</h2>
+        <p>PDF, slide, bảng tính, ảnh chụp bảng, phụ đề hay chỉ một ý tưởng.</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-purple" aria-hidden="true">🧪</span>
-        <h2 class="h3">Chạy thử trước</h2>
-        <p>Mọi thẻ được kiểm tra trước khi ghi bất cứ thứ gì.</p>
+        <span class="ico ico-purple" aria-hidden="true">👀</span>
+        <h2 class="h3">Xem thẻ trước</h2>
+        <p>AI kiểm tra từng thẻ và cho bạn xem danh sách trước khi đăng bất cứ thứ gì.</p>
       </article>
       <article class="card feat">
         <span class="ico ico-blue" aria-hidden="true">🔒</span>
-        <h2 class="h3">Quyền hạn hẹp</h2>
-        <p>Nó quản lý bộ thẻ. Nó không bao giờ đăng bài, theo dõi hay sửa hồ sơ của bạn.</p>
+        <h2 class="h3">Hồ sơ vẫn là của bạn</h2>
+        <p>Bạn duyệt đăng nhập trên điện thoại. Nó chỉ quản lý bộ thẻ, không bao giờ đăng bài hay theo dõi ai.</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-green" aria-hidden="true">🧾</span>
-        <h2 class="h3">JSON ở khắp nơi</h2>
-        <p>Agent đọc kết quả thật thay vì phải đoán.</p>
+        <span class="ico ico-green" aria-hidden="true">☁️</span>
+        <h2 class="h3">Chạy ở nơi AI của bạn chạy</h2>
+        <p>Trên máy tính của bạn hay trong sandbox đám mây của AI, bạn không phải cài gì cả.</p>
       </article>
     </div>
   </div>
@@ -238,7 +246,7 @@
   <div class="wrap split">
     <div class="split-copy">
       <h2>Prompt</h2>
-      <p>Dán đoạn này vào agent AI của bạn và điền chủ đề. Bạn duyệt đăng nhập trên điện thoại.</p>
+      <p>Dán đoạn này vào AI của bạn, rồi điền chủ đề hoặc đính kèm một tệp. Bạn duyệt đăng nhập trên điện thoại.</p>
     </div>
     <div class="split-art">
       <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
@@ -297,8 +305,8 @@ Rules:
 <section class="section section-alt">
   <div class="wrap split split-solo">
     <div class="split-copy">
-      <h2>Một tệp, mọi máy tính</h2>
-      <p>Windows, macOS và Linux, cùng Homebrew, gói .deb và Docker. Không cần Java, không cần cài đặt gì.</p>
+      <h2>Bạn không phải cài gì</h2>
+      <p>AI tự cài Loopky, trên Windows, macOS, Linux hay trong sandbox đám mây. Cũng có Homebrew, gói .deb và Docker.</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">Đọc tài liệu CLI</a></p>
     </div>
   </div>
@@ -310,7 +318,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>Tôi có cần biết lập trình không?</summary>
-        <p>Không. Dán prompt vào một agent AI có terminal, như Claude Code, Codex hoặc Gemini CLI. Nó sẽ chạy các lệnh.</p>
+        <p>Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được với Claude Code, Codex, Gemini CLI và sandbox đám mây.</p>
       </details>
       <details class="card">
         <summary>AI có nhập được bộ thẻ Anki của tôi không?</summary>
@@ -323,6 +331,10 @@ Rules:
       <details class="card">
         <summary>Có chạy được trong Claude Code trên web hoặc Codex không?</summary>
         <p>Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox có kiểm tra TLS thì hiện chưa dùng được.</p>
+      </details>
+      <details class="card">
+        <summary>Nó có thể biến những tệp nào thành thẻ?</summary>
+        <p>Bất cứ thứ gì AI của bạn đọc được: PDF, tệp Word và PowerPoint, bảng tính, ảnh chụp ghi chú, phụ đề và trang web.</p>
       </details>
     </div>
   </div>

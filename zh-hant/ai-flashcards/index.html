@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky</title>
-<meta name="description" content="讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。">
+<meta name="description" content="把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:url" content="https://loopky.app/zh-hant/ai-flashcards/">
 <meta property="og:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky">
-<meta property="og:description" content="讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。">
+<meta property="og:description" content="把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky">
-<meta name="twitter:description" content="讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。">
+<meta name="twitter:description" content="把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
 
@@ -62,7 +62,7 @@
       "@id": "https://loopky.app/zh-hant/ai-flashcards/#page",
       "headline": "讓你的 AI 來寫記憶卡",
       "name": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky",
-      "description": "讓 AI 代理來寫並發布你的記憶卡牌組。Loopky 的命令列工具支援 JSON 輸出和試執行，專為 Claude、ChatGPT、Gemini 等代理打造。",
+      "description": "把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。",
       "url": "https://loopky.app/zh-hant/ai-flashcards/",
       "inLanguage": "zh-Hant",
       "datePublished": "2026-09-26",
@@ -109,7 +109,7 @@
           "name": "我需要會寫程式嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "不需要。把提示詞貼到能用終端機的 AI 代理裡，例如 Claude Code、Codex 或 Gemini CLI。指令由它來執行。"
+            "text": "不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。Claude Code、Codex、Gemini CLI 和雲端沙盒都能用。"
           }
         },
         {
@@ -134,6 +134,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。會檢查 TLS 的沙盒目前還無法使用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "它能把哪些檔案變成卡片？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "只要 AI 能讀的都行：PDF、Word 和 PowerPoint 檔案、試算表、筆記照片、字幕和網頁。"
           }
         }
       ]
@@ -187,7 +195,7 @@
       </nav>
       <p class="eyebrow">AI 記憶卡製作</p>
       <h1>讓你的 AI 來寫記憶卡</h1>
-      <p class="lead">告訴 Claude、ChatGPT 或 Gemini 你想學什麼。它會寫好卡片，把牌組發布到你的手機上。</p>
+      <p class="lead">把一個主題或一個檔案交給 Claude、ChatGPT 或 Gemini。它會寫好卡片，把牌組發布到你的手機上。</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">在 Google Play 取得</a>
         <span class="soon">iOS 版即將推出</span>
@@ -211,24 +219,24 @@
   <div class="wrap">
     <div class="grid-feat n4">
       <article class="card feat">
-        <span class="ico ico-orange" aria-hidden="true">📝</span>
-        <h2 class="h3">任何素材</h2>
-        <p>一個章節、上課筆記、一份單字表，或一集影集。</p>
+        <span class="ico ico-orange" aria-hidden="true">📂</span>
+        <h2 class="h3">任何檔案，任何主題</h2>
+        <p>PDF、投影片、試算表、白板照片、字幕，或只是一個點子。</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-purple" aria-hidden="true">🧪</span>
-        <h2 class="h3">先試執行</h2>
-        <p>寫入任何內容前，每張卡片都會先檢查一遍。</p>
+        <span class="ico ico-purple" aria-hidden="true">👀</span>
+        <h2 class="h3">先看卡片</h2>
+        <p>AI 會檢查每張卡片，發布前先把清單給你看。</p>
       </article>
       <article class="card feat">
         <span class="ico ico-blue" aria-hidden="true">🔒</span>
-        <h2 class="h3">權限很窄</h2>
-        <p>它只管理牌組，永遠無法發文、追蹤或修改你的個人資料。</p>
+        <h2 class="h3">個人資料始終是你的</h2>
+        <p>登入由你在手機上確認。它只管理牌組，從不替你發文或追蹤別人。</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-green" aria-hidden="true">🧾</span>
-        <h2 class="h3">全部是 JSON</h2>
-        <p>代理讀取真實結果，不用靠猜。</p>
+        <span class="ico ico-green" aria-hidden="true">☁️</span>
+        <h2 class="h3">AI 在哪都能用</h2>
+        <p>在你的電腦上，或在 AI 的雲端沙盒裡，你自己什麼都不用裝。</p>
       </article>
     </div>
   </div>
@@ -238,7 +246,7 @@
   <div class="wrap split">
     <div class="split-copy">
       <h2>提示詞</h2>
-      <p>把這段貼到你的 AI 代理裡，填上主題。登入由你在手機上確認。</p>
+      <p>把這段貼給你的 AI，填上主題或附上檔案。登入由你在手機上確認。</p>
     </div>
     <div class="split-art">
       <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
@@ -297,8 +305,8 @@ Rules:
 <section class="section section-alt">
   <div class="wrap split split-solo">
     <div class="split-copy">
-      <h2>一個檔案，所有電腦</h2>
-      <p>支援 Windows、macOS 和 Linux，還有 Homebrew、.deb 套件和 Docker。不用 Java，不用設定。</p>
+      <h2>什麼都不用你裝</h2>
+      <p>AI 會自己安裝 Loopky，Windows、macOS、Linux 或雲端沙盒都行。也有 Homebrew、.deb 套件和 Docker。</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">查看 CLI 文件</a></p>
     </div>
   </div>
@@ -310,7 +318,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>我需要會寫程式嗎？</summary>
-        <p>不需要。把提示詞貼到能用終端機的 AI 代理裡，例如 Claude Code、Codex 或 Gemini CLI。指令由它來執行。</p>
+        <p>不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。Claude Code、Codex、Gemini CLI 和雲端沙盒都能用。</p>
       </details>
       <details class="card">
         <summary>AI 能匯入我的 Anki 牌組嗎？</summary>
@@ -323,6 +331,10 @@ Rules:
       <details class="card">
         <summary>能在網頁版 Claude Code 或 Codex 裡用嗎？</summary>
         <p>可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。會檢查 TLS 的沙盒目前還無法使用。</p>
+      </details>
+      <details class="card">
+        <summary>它能把哪些檔案變成卡片？</summary>
+        <p>只要 AI 能讀的都行：PDF、Word 和 PowerPoint 檔案、試算表、筆記照片、字幕和網頁。</p>
       </details>
     </div>
   </div>

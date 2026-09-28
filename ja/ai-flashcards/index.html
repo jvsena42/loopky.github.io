@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI で単語カードを作る：Claude、ChatGPT、Gemini · Loopky</title>
-<meta name="description" content="AI エージェントに単語カードのデッキを書かせて公開しましょう。JSON 出力とドライランを備えた Loopky のコマンドラインツールは、Claude、ChatGPT、Gemini などのエージェント向けです。">
+<meta name="description" content="トピック、PDF、スライド、ノートの写真を Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードのデッキを書いて公開し、スマートフォンで間隔反復を使って学べます。">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://loopky.app/ja/ai-flashcards/">
 <meta property="og:title" content="AI で単語カードを作る：Claude、ChatGPT、Gemini · Loopky">
-<meta property="og:description" content="AI エージェントに単語カードのデッキを書かせて公開しましょう。JSON 出力とドライランを備えた Loopky のコマンドラインツールは、Claude、ChatGPT、Gemini などのエージェント向けです。">
+<meta property="og:description" content="トピック、PDF、スライド、ノートの写真を Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードのデッキを書いて公開し、スマートフォンで間隔反復を使って学べます。">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky、間隔反復で覚える無料の単語カードアプリ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI で単語カードを作る：Claude、ChatGPT、Gemini · Loopky">
-<meta name="twitter:description" content="AI エージェントに単語カードのデッキを書かせて公開しましょう。JSON 出力とドライランを備えた Loopky のコマンドラインツールは、Claude、ChatGPT、Gemini などのエージェント向けです。">
+<meta name="twitter:description" content="トピック、PDF、スライド、ノートの写真を Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードのデッキを書いて公開し、スマートフォンで間隔反復を使って学べます。">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky、間隔反復で覚える無料の単語カードアプリ">
 
@@ -62,7 +62,7 @@
       "@id": "https://loopky.app/ja/ai-flashcards/#page",
       "headline": "単語カードは AI に書かせる",
       "name": "AI で単語カードを作る：Claude、ChatGPT、Gemini · Loopky",
-      "description": "AI エージェントに単語カードのデッキを書かせて公開しましょう。JSON 出力とドライランを備えた Loopky のコマンドラインツールは、Claude、ChatGPT、Gemini などのエージェント向けです。",
+      "description": "トピック、PDF、スライド、ノートの写真を Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードのデッキを書いて公開し、スマートフォンで間隔反復を使って学べます。",
       "url": "https://loopky.app/ja/ai-flashcards/",
       "inLanguage": "ja",
       "datePublished": "2026-09-26",
@@ -109,7 +109,7 @@
           "name": "プログラミングの知識は必要ですか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "いいえ。Claude Code、Codex、Gemini CLI など、ターミナルを使える AI エージェントにプロンプトを貼り付けてください。コマンドはエージェントが実行します。"
+            "text": "いいえ。プロンプトを AI に貼り付けて、トピックかファイルを渡せば、あとは AI がすべて進めます。Claude Code、Codex、Gemini CLI、クラウドのサンドボックスで使えます。"
           }
         },
         {
@@ -134,6 +134,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "はい。サンドボックスから Loopky のホストに接続できれば使えます。どちらも初期設定では許可されていません。エージェントに loopky doctor を実行させると、必要なホストと追加する場所が表示されます。Codex では「GET/HEAD/OPTIONS のみ」の設定をオフのままにしてください。TLS を検査するサンドボックスではまだ動きません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どんなファイルをカードにできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "AI が読めるものなら何でも。PDF、Word や PowerPoint のファイル、表計算、ノートの写真、字幕、Web ページなど。"
           }
         }
       ]
@@ -187,7 +195,7 @@
       </nav>
       <p class="eyebrow">AI 単語カードメーカー</p>
       <h1>単語カードは AI に書かせる</h1>
-      <p class="lead">学びたいことを Claude、ChatGPT、Gemini に伝えるだけ。カードを書いて、スマートフォンにデッキを公開してくれます。</p>
+      <p class="lead">Claude、ChatGPT、Gemini にトピックかファイルを渡すだけ。カードを書いて、スマートフォンにデッキを公開してくれます。</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play で入手</a>
         <span class="soon">iOS 版はまもなく</span>
@@ -211,24 +219,24 @@
   <div class="wrap">
     <div class="grid-feat n4">
       <article class="card feat">
-        <span class="ico ico-orange" aria-hidden="true">📝</span>
-        <h2 class="h3">どんな素材でも</h2>
-        <p>本の 1 章、講義ノート、単語リスト、テレビ番組の 1 話。</p>
+        <span class="ico ico-orange" aria-hidden="true">📂</span>
+        <h2 class="h3">どんなファイルでも</h2>
+        <p>PDF、スライド、表計算、ホワイトボードの写真、字幕、ただのアイデアでも。</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-purple" aria-hidden="true">🧪</span>
-        <h2 class="h3">まずドライラン</h2>
-        <p>何かを書き込む前に、すべてのカードを確認します。</p>
+        <span class="ico ico-purple" aria-hidden="true">👀</span>
+        <h2 class="h3">まずカードを確認</h2>
+        <p>AI がすべてのカードをチェックし、公開する前に一覧を見せてくれます。</p>
       </article>
       <article class="card feat">
         <span class="ico ico-blue" aria-hidden="true">🔒</span>
-        <h2 class="h3">最小限の権限</h2>
-        <p>デッキの管理だけ。投稿、フォロー、プロフィール編集は絶対にできません。</p>
+        <h2 class="h3">プロフィールはあなたのもの</h2>
+        <p>ログインはスマートフォンで承認。デッキを管理するだけで、投稿やフォローは一切しません。</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-green" aria-hidden="true">🧾</span>
-        <h2 class="h3">すべて JSON</h2>
-        <p>エージェントは推測せずに、実際の結果を読み取ります。</p>
+        <span class="ico ico-green" aria-hidden="true">☁️</span>
+        <h2 class="h3">AI が動く場所でそのまま</h2>
+        <p>パソコンでも AI のクラウドサンドボックスでも。あなたがインストールするものはありません。</p>
       </article>
     </div>
   </div>
@@ -238,7 +246,7 @@
   <div class="wrap split">
     <div class="split-copy">
       <h2>プロンプト</h2>
-      <p>これを AI エージェントに貼り付けて、トピックを埋めてください。ログインはスマートフォンで承認します。</p>
+      <p>これを AI に貼り付けて、トピックを埋めるかファイルを添付してください。ログインはスマートフォンで承認します。</p>
     </div>
     <div class="split-art">
       <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
@@ -297,8 +305,8 @@ Rules:
 <section class="section section-alt">
   <div class="wrap split split-solo">
     <div class="split-copy">
-      <h2>ファイル一つで、どのパソコンでも</h2>
-      <p>Windows、macOS、Linux に対応。Homebrew、.deb パッケージ、Docker もあります。Java も設定も不要です。</p>
+      <h2>インストールは AI におまかせ</h2>
+      <p>Windows、macOS、Linux でも、クラウドのサンドボックスでも、AI が自分で Loopky をインストールします。Homebrew、.deb パッケージ、Docker もあります。</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">CLI のドキュメントを読む</a></p>
     </div>
   </div>
@@ -310,7 +318,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>プログラミングの知識は必要ですか？</summary>
-        <p>いいえ。Claude Code、Codex、Gemini CLI など、ターミナルを使える AI エージェントにプロンプトを貼り付けてください。コマンドはエージェントが実行します。</p>
+        <p>いいえ。プロンプトを AI に貼り付けて、トピックかファイルを渡せば、あとは AI がすべて進めます。Claude Code、Codex、Gemini CLI、クラウドのサンドボックスで使えます。</p>
       </details>
       <details class="card">
         <summary>AI は Anki デッキを取り込めますか？</summary>
@@ -323,6 +331,10 @@ Rules:
       <details class="card">
         <summary>Claude Code on the web や Codex でも使えますか？</summary>
         <p>はい。サンドボックスから Loopky のホストに接続できれば使えます。どちらも初期設定では許可されていません。エージェントに loopky doctor を実行させると、必要なホストと追加する場所が表示されます。Codex では「GET/HEAD/OPTIONS のみ」の設定をオフのままにしてください。TLS を検査するサンドボックスではまだ動きません。</p>
+      </details>
+      <details class="card">
+        <summary>どんなファイルをカードにできますか？</summary>
+        <p>AI が読めるものなら何でも。PDF、Word や PowerPoint のファイル、表計算、ノートの写真、字幕、Web ページなど。</p>
       </details>
     </div>
   </div>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Crea flashcard con l’IA: Claude, ChatGPT e Gemini · Loopky</title>
-<meta name="description" content="Lascia che un agente IA scriva e pubblichi il tuo mazzo. La CLI di Loopky, con output JSON e prove a vuoto, è fatta per Claude, ChatGPT, Gemini e altri agenti.">
+<meta name="description" content="Dai a Claude, ChatGPT o Gemini un argomento, un PDF, delle slide o la foto dei tuoi appunti. Scrive e pubblica un mazzo di flashcard da studiare sul telefono con la ripetizione dilazionata.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="it_IT">
 <meta property="og:url" content="https://loopky.app/it/ai-flashcards/">
 <meta property="og:title" content="Crea flashcard con l’IA: Claude, ChatGPT e Gemini · Loopky">
-<meta property="og:description" content="Lascia che un agente IA scriva e pubblichi il tuo mazzo. La CLI di Loopky, con output JSON e prove a vuoto, è fatta per Claude, ChatGPT, Gemini e altri agenti.">
+<meta property="og:description" content="Dai a Claude, ChatGPT o Gemini un argomento, un PDF, delle slide o la foto dei tuoi appunti. Scrive e pubblica un mazzo di flashcard da studiare sul telefono con la ripetizione dilazionata.">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky, un’app di flashcard gratuita con ripetizione dilazionata">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Crea flashcard con l’IA: Claude, ChatGPT e Gemini · Loopky">
-<meta name="twitter:description" content="Lascia che un agente IA scriva e pubblichi il tuo mazzo. La CLI di Loopky, con output JSON e prove a vuoto, è fatta per Claude, ChatGPT, Gemini e altri agenti.">
+<meta name="twitter:description" content="Dai a Claude, ChatGPT o Gemini un argomento, un PDF, delle slide o la foto dei tuoi appunti. Scrive e pubblica un mazzo di flashcard da studiare sul telefono con la ripetizione dilazionata.">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky, un’app di flashcard gratuita con ripetizione dilazionata">
 
@@ -62,7 +62,7 @@
       "@id": "https://loopky.app/it/ai-flashcards/#page",
       "headline": "Lascia che la tua IA scriva le flashcard",
       "name": "Crea flashcard con l’IA: Claude, ChatGPT e Gemini · Loopky",
-      "description": "Lascia che un agente IA scriva e pubblichi il tuo mazzo. La CLI di Loopky, con output JSON e prove a vuoto, è fatta per Claude, ChatGPT, Gemini e altri agenti.",
+      "description": "Dai a Claude, ChatGPT o Gemini un argomento, un PDF, delle slide o la foto dei tuoi appunti. Scrive e pubblica un mazzo di flashcard da studiare sul telefono con la ripetizione dilazionata.",
       "url": "https://loopky.app/it/ai-flashcards/",
       "inLanguage": "it",
       "datePublished": "2026-09-26",
@@ -109,7 +109,7 @@
           "name": "Devo saper programmare?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No. Incolla il prompt in un agente IA con un terminale, come Claude Code, Codex o Gemini CLI. È lui a eseguire i comandi."
+            "text": "No. Incolla il prompt nella tua IA, aggiungi l’argomento o il file, e lei fa ogni passaggio da sola. Funziona con Claude Code, Codex, Gemini CLI e le sandbox cloud."
           }
         },
         {
@@ -134,6 +134,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Sì, quando il tuo sandbox può raggiungere gli host di Loopky. Nessuno dei due li lascia passare di default. Chiedi all'agente di eseguire loopky doctor: elenca gli host e dove aggiungerli. In Codex lascia disattivata l'opzione solo GET/HEAD/OPTIONS. Un sandbox che ispeziona il TLS non funziona ancora."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali file può trasformare in carte?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tutto ciò che la tua IA sa leggere: PDF, file Word e PowerPoint, fogli di calcolo, foto di appunti, sottotitoli e pagine web."
           }
         }
       ]
@@ -187,7 +195,7 @@
       </nav>
       <p class="eyebrow">Flashcard con l’IA</p>
       <h1>Lascia che la tua IA scriva le flashcard</h1>
-      <p class="lead">Di’ a Claude, ChatGPT o Gemini cosa vuoi imparare. Scrive le carte e pubblica il mazzo sul tuo telefono.</p>
+      <p class="lead">Dai a Claude, ChatGPT o Gemini un argomento o un file. Scrive le carte e pubblica il mazzo sul tuo telefono.</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Scarica su Google Play</a>
         <span class="soon">iOS in arrivo</span>
@@ -211,24 +219,24 @@
   <div class="wrap">
     <div class="grid-feat n4">
       <article class="card feat">
-        <span class="ico ico-orange" aria-hidden="true">📝</span>
-        <h2 class="h3">Qualsiasi fonte</h2>
-        <p>Un capitolo, appunti di lezione, una lista di parole o un episodio di una serie.</p>
+        <span class="ico ico-orange" aria-hidden="true">📂</span>
+        <h2 class="h3">Qualsiasi file, qualsiasi argomento</h2>
+        <p>PDF, slide, fogli di calcolo, una foto della lavagna, sottotitoli o solo un’idea.</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-purple" aria-hidden="true">🧪</span>
-        <h2 class="h3">Prima una prova a vuoto</h2>
-        <p>Ogni carta viene controllata prima di scrivere qualsiasi cosa.</p>
+        <span class="ico ico-purple" aria-hidden="true">👀</span>
+        <h2 class="h3">Prima vedi le carte</h2>
+        <p>La tua IA controlla ogni carta e ti mostra l’elenco prima di pubblicare qualsiasi cosa.</p>
       </article>
       <article class="card feat">
         <span class="ico ico-blue" aria-hidden="true">🔒</span>
-        <h2 class="h3">Permessi limitati</h2>
-        <p>Gestisce i mazzi. Non può mai postare, seguire o modificare il tuo profilo.</p>
+        <h2 class="h3">Il tuo profilo resta tuo</h2>
+        <p>Approvi l’accesso dal telefono. Gestisce i mazzi e non posta né segue mai nessuno.</p>
       </article>
       <article class="card feat">
-        <span class="ico ico-green" aria-hidden="true">🧾</span>
-        <h2 class="h3">JSON ovunque</h2>
-        <p>Gli agenti leggono risultati veri invece di tirare a indovinare.</p>
+        <span class="ico ico-green" aria-hidden="true">☁️</span>
+        <h2 class="h3">Funziona dove lavora la tua IA</h2>
+        <p>Sul tuo computer o nella sandbox cloud della tua IA, senza che tu debba installare nulla.</p>
       </article>
     </div>
   </div>
@@ -238,7 +246,7 @@
   <div class="wrap split">
     <div class="split-copy">
       <h2>Il prompt</h2>
-      <p>Incollalo nel tuo agente IA e inserisci l’argomento. Approvi l’accesso dal telefono.</p>
+      <p>Incollalo nella tua IA e inserisci l’argomento o allega un file. Approvi l’accesso dal telefono.</p>
     </div>
     <div class="split-art">
       <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
@@ -297,8 +305,8 @@ Rules:
 <section class="section section-alt">
   <div class="wrap split split-solo">
     <div class="split-copy">
-      <h2>Un solo file, ogni computer</h2>
-      <p>Windows, macOS e Linux, più Homebrew, un pacchetto .deb e Docker. Niente Java, niente configurazione.</p>
+      <h2>Niente da installare</h2>
+      <p>La tua IA installa Loopky da sola, su Windows, macOS, Linux o in una sandbox cloud. Vanno bene anche Homebrew, un pacchetto .deb e Docker.</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">Leggi la documentazione della CLI</a></p>
     </div>
   </div>
@@ -310,7 +318,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>Devo saper programmare?</summary>
-        <p>No. Incolla il prompt in un agente IA con un terminale, come Claude Code, Codex o Gemini CLI. È lui a eseguire i comandi.</p>
+        <p>No. Incolla il prompt nella tua IA, aggiungi l’argomento o il file, e lei fa ogni passaggio da sola. Funziona con Claude Code, Codex, Gemini CLI e le sandbox cloud.</p>
       </details>
       <details class="card">
         <summary>L’IA può importare i miei mazzi Anki?</summary>
@@ -323,6 +331,10 @@ Rules:
       <details class="card">
         <summary>Funziona in Claude Code sul web o in Codex?</summary>
         <p>Sì, quando il tuo sandbox può raggiungere gli host di Loopky. Nessuno dei due li lascia passare di default. Chiedi all'agente di eseguire loopky doctor: elenca gli host e dove aggiungerli. In Codex lascia disattivata l'opzione solo GET/HEAD/OPTIONS. Un sandbox che ispeziona il TLS non funziona ancora.</p>
+      </details>
+      <details class="card">
+        <summary>Quali file può trasformare in carte?</summary>
+        <p>Tutto ciò che la tua IA sa leggere: PDF, file Word e PowerPoint, fogli di calcolo, foto di appunti, sottotitoli e pagine web.</p>
       </details>
     </div>
   </div>
