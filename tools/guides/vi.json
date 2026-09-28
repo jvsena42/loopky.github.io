@@ -163,16 +163,16 @@
         { "t": "Tệp nào, chủ đề nào cũng được", "d": "PDF, slide, bảng tính, ảnh chụp bảng, phụ đề hay chỉ một ý tưởng." },
         { "t": "Xem thẻ trước", "d": "AI kiểm tra từng thẻ và cho bạn xem danh sách trước khi đăng bất cứ thứ gì." },
         { "t": "Hồ sơ vẫn là của bạn", "d": "Bạn duyệt đăng nhập trên điện thoại. Nó chỉ quản lý bộ thẻ, không bao giờ đăng bài hay theo dõi ai." },
-        { "t": "Chạy ở nơi AI của bạn chạy", "d": "Trên máy tính của bạn hay trong sandbox đám mây của AI, bạn không phải cài gì cả." }
+        { "t": "Chạy ở nơi AI của bạn chạy", "d": "Ngay trong ứng dụng AI bạn đang dùng, trên máy tính hay trình duyệt. Bạn không phải cài gì cả." }
       ],
       "promptH": "Prompt",
       "promptP": "Dán đoạn này vào AI của bạn, rồi điền chủ đề hoặc đính kèm một tệp. Bạn duyệt đăng nhập trên điện thoại.",
       "sections": [
         { "h": "Rồi học trên điện thoại", "p": "Bộ thẻ hiện trong Loopky, sẵn sàng cho lặp lại ngắt quãng, có âm thanh với bộ thẻ ngoại ngữ. Hãy kiểm tra lỗi trong các thẻ do AI viết.", "alt": "Bộ thẻ hoàn chỉnh trong Loopky" },
-        { "h": "Bạn không phải cài gì", "p": "AI tự cài Loopky, trên Windows, macOS, Linux hay trong sandbox đám mây. Cũng có Homebrew, gói .deb và Docker.", "link": "Đọc tài liệu CLI" }
+        { "h": "Bạn không phải cài gì", "p": "AI tự cài Loopky, trên Windows, macOS hay Linux, kể cả khi bạn trò chuyện với nó trên trình duyệt. Cũng có Homebrew, gói .deb và Docker.", "link": "Đọc tài liệu CLI" }
       ],
       "faq": [
-        ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được với Claude Code, Codex, Gemini CLI và sandbox đám mây."],
+        ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được trong các ứng dụng chat AI và với agent như Claude Code, Codex, Gemini CLI."],
         ["AI có nhập được bộ thẻ Anki của tôi không?", "Có. loopky import deck.apkg nhập một gói Anki, và --dry-run cho xem kết quả trước."],
         ["Công cụ này không làm được gì?", "Nó không thể đăng bài, theo dõi người khác hay sửa hồ sơ của bạn. Nó chỉ quản lý bộ thẻ và thẻ."],
         ["Có chạy được trong Claude Code trên web hoặc Codex không?", "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox có kiểm tra TLS thì hiện chưa dùng được."],

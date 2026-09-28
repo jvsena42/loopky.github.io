@@ -109,7 +109,7 @@
           "name": "我需要會寫程式嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。Claude Code、Codex、Gemini CLI 和雲端沙盒都能用。"
+            "text": "不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。AI 聊天應用，以及 Claude Code、Codex、Gemini CLI 等代理都能用。"
           }
         },
         {
@@ -236,7 +236,7 @@
       <article class="card feat">
         <span class="ico ico-green" aria-hidden="true">☁️</span>
         <h2 class="h3">AI 在哪都能用</h2>
-        <p>在你的電腦上，或在 AI 的雲端沙盒裡，你自己什麼都不用裝。</p>
+        <p>就在你常用的 AI 應用裡，電腦或瀏覽器都行，你自己什麼都不用裝。</p>
       </article>
     </div>
   </div>
@@ -249,7 +249,12 @@
       <p>把這段貼給你的 AI，填上主題或附上檔案。登入由你在手機上確認。</p>
     </div>
     <div class="split-art">
-      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-box">
+        <div class="cli-bar">
+          <span>給 AI 的提示詞</span>
+          <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="已複製">複製</button>
+        </div>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
 Topic: &lt;WHAT I WANT TO LEARN&gt;
 Cards: &lt;HOW MANY&gt;
@@ -285,7 +290,8 @@ Rules:
 - Always run --dry-run before a command that writes.
 - Exit 14 or 15 is the network, not your input: never retry it. Ask me.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
-- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </div>
     </div>
   </div>
 </section>
@@ -306,7 +312,7 @@ Rules:
   <div class="wrap split split-solo">
     <div class="split-copy">
       <h2>什麼都不用你裝</h2>
-      <p>AI 會自己安裝 Loopky，Windows、macOS、Linux 或雲端沙盒都行。也有 Homebrew、.deb 套件和 Docker。</p>
+      <p>AI 會自己安裝 Loopky，Windows、macOS、Linux 都行，在瀏覽器裡和 AI 聊天時也可以。也有 Homebrew、.deb 套件和 Docker。</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">查看 CLI 文件</a></p>
     </div>
   </div>
@@ -318,7 +324,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>我需要會寫程式嗎？</summary>
-        <p>不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。Claude Code、Codex、Gemini CLI 和雲端沙盒都能用。</p>
+        <p>不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。AI 聊天應用，以及 Claude Code、Codex、Gemini CLI 等代理都能用。</p>
       </details>
       <details class="card">
         <summary>AI 能匯入我的 Anki 牌組嗎？</summary>
@@ -395,6 +401,32 @@ Rules:
     var opt = sel.options[sel.selectedIndex];
     try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
     location.href = opt.value;
+  });
+})();
+
+/* The prompt's Copy button. Without a clipboard, it selects the prompt instead. */
+(function () {
+  var btn = document.getElementById('copy-prompt');
+  var code = document.querySelector('#ai-prompt code');
+  if (!btn || !code) return;
+  var label = btn.textContent;
+  var select = function () {
+    var r = document.createRange();
+    r.selectNodeContents(code);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  };
+  btn.addEventListener('click', function () {
+    var done = function () {
+      btn.textContent = btn.getAttribute('data-copied');
+      setTimeout(function () { btn.textContent = label; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code.textContent).then(done, select);
+    } else {
+      select();
+    }
   });
 })();
 </script>

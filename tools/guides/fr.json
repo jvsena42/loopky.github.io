@@ -354,7 +354,7 @@
         },
         {
           "t": "Là où travaille votre IA",
-          "d": "Sur votre ordinateur ou dans le bac à sable cloud de votre IA, sans rien installer vous-même."
+          "d": "Dans l’app d’IA que vous utilisez déjà, sur votre ordinateur ou dans le navigateur. Rien à installer vous-même."
         }
       ],
       "promptH": "Le prompt",
@@ -367,14 +367,14 @@
         },
         {
           "h": "Rien à installer pour vous",
-          "p": "Votre IA installe Loopky elle-même, sur Windows, macOS, Linux ou dans un bac à sable cloud. Homebrew, un paquet .deb et Docker marchent aussi.",
+          "p": "Votre IA installe Loopky elle-même, sur Windows, macOS ou Linux, même quand vous discutez avec elle dans le navigateur. Homebrew, un paquet .deb et Docker marchent aussi.",
           "link": "Lire la doc de la CLI"
         }
       ],
       "faq": [
         [
           "Faut-il savoir coder ?",
-          "Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Claude Code, Codex, Gemini CLI et les bacs à sable cloud fonctionnent."
+          "Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Ça marche dans les apps de chat IA et avec des agents comme Claude Code, Codex et Gemini CLI."
         ],
         [
           "L’IA peut-elle importer mes paquets Anki ?",

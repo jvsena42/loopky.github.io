@@ -354,7 +354,7 @@
         },
         {
           "t": "Läuft, wo deine KI läuft",
-          "d": "Auf deinem Computer oder in der Cloud-Sandbox deiner KI, ohne dass du etwas installierst."
+          "d": "In der KI-App, die du schon nutzt, auf dem Computer oder im Browser. Du installierst nichts."
         }
       ],
       "promptH": "Der Prompt",
@@ -367,14 +367,14 @@
         },
         {
           "h": "Du installierst nichts",
-          "p": "Deine KI installiert Loopky selbst, unter Windows, macOS, Linux oder in einer Cloud-Sandbox. Homebrew, ein .deb-Paket und Docker gehen auch.",
+          "p": "Deine KI installiert Loopky selbst, unter Windows, macOS oder Linux, auch wenn du im Browser mit ihr chattest. Homebrew, ein .deb-Paket und Docker gehen auch.",
           "link": "CLI-Doku lesen"
         }
       ],
       "faq": [
         [
           "Muss ich programmieren können?",
-          "Nein. Füg den Prompt in deine KI ein, gib dein Thema oder deine Datei dazu, und sie erledigt jeden Schritt selbst. Claude Code, Codex, Gemini CLI und Cloud-Sandboxes funktionieren."
+          "Nein. Füg den Prompt in deine KI ein, gib dein Thema oder deine Datei dazu, und sie erledigt jeden Schritt selbst. Das klappt in KI-Chat-Apps und mit Agenten wie Claude Code, Codex und Gemini CLI."
         ],
         [
           "Kann die KI meine Anki-Stapel importieren?",

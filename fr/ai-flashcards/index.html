@@ -109,7 +109,7 @@
           "name": "Faut-il savoir coder ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Claude Code, Codex, Gemini CLI et les bacs à sable cloud fonctionnent."
+            "text": "Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Ça marche dans les apps de chat IA et avec des agents comme Claude Code, Codex et Gemini CLI."
           }
         },
         {
@@ -236,7 +236,7 @@
       <article class="card feat">
         <span class="ico ico-green" aria-hidden="true">☁️</span>
         <h2 class="h3">Là où travaille votre IA</h2>
-        <p>Sur votre ordinateur ou dans le bac à sable cloud de votre IA, sans rien installer vous-même.</p>
+        <p>Dans l’app d’IA que vous utilisez déjà, sur votre ordinateur ou dans le navigateur. Rien à installer vous-même.</p>
       </article>
     </div>
   </div>
@@ -249,7 +249,12 @@
       <p>Collez ceci dans votre IA, puis indiquez le sujet ou joignez un fichier. Vous validez la connexion sur votre téléphone.</p>
     </div>
     <div class="split-art">
-      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-box">
+        <div class="cli-bar">
+          <span>Prompt pour ton IA</span>
+          <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="Copié">Copier</button>
+        </div>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
 Topic: &lt;WHAT I WANT TO LEARN&gt;
 Cards: &lt;HOW MANY&gt;
@@ -285,7 +290,8 @@ Rules:
 - Always run --dry-run before a command that writes.
 - Exit 14 or 15 is the network, not your input: never retry it. Ask me.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
-- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </div>
     </div>
   </div>
 </section>
@@ -306,7 +312,7 @@ Rules:
   <div class="wrap split split-solo">
     <div class="split-copy">
       <h2>Rien à installer pour vous</h2>
-      <p>Votre IA installe Loopky elle-même, sur Windows, macOS, Linux ou dans un bac à sable cloud. Homebrew, un paquet .deb et Docker marchent aussi.</p>
+      <p>Votre IA installe Loopky elle-même, sur Windows, macOS ou Linux, même quand vous discutez avec elle dans le navigateur. Homebrew, un paquet .deb et Docker marchent aussi.</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">Lire la doc de la CLI</a></p>
     </div>
   </div>
@@ -318,7 +324,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>Faut-il savoir coder ?</summary>
-        <p>Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Claude Code, Codex, Gemini CLI et les bacs à sable cloud fonctionnent.</p>
+        <p>Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Ça marche dans les apps de chat IA et avec des agents comme Claude Code, Codex et Gemini CLI.</p>
       </details>
       <details class="card">
         <summary>L’IA peut-elle importer mes paquets Anki ?</summary>
@@ -395,6 +401,32 @@ Rules:
     var opt = sel.options[sel.selectedIndex];
     try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
     location.href = opt.value;
+  });
+})();
+
+/* The prompt's Copy button. Without a clipboard, it selects the prompt instead. */
+(function () {
+  var btn = document.getElementById('copy-prompt');
+  var code = document.querySelector('#ai-prompt code');
+  if (!btn || !code) return;
+  var label = btn.textContent;
+  var select = function () {
+    var r = document.createRange();
+    r.selectNodeContents(code);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  };
+  btn.addEventListener('click', function () {
+    var done = function () {
+      btn.textContent = btn.getAttribute('data-copied');
+      setTimeout(function () { btn.textContent = label; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code.textContent).then(done, select);
+    } else {
+      select();
+    }
   });
 })();
 </script>

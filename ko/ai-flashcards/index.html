@@ -109,7 +109,7 @@
           "name": "코딩을 알아야 하나요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "아니요. 프롬프트를 AI에 붙여넣고 주제나 파일을 주면, 나머지는 AI가 모두 알아서 합니다. Claude Code, Codex, Gemini CLI, 클라우드 샌드박스에서 쓸 수 있습니다."
+            "text": "아니요. 프롬프트를 AI에 붙여넣고 주제나 파일을 주면, 나머지는 AI가 모두 알아서 합니다. AI 채팅 앱과 Claude Code, Codex, Gemini CLI 같은 에이전트에서 쓸 수 있습니다."
           }
         },
         {
@@ -236,7 +236,7 @@
       <article class="card feat">
         <span class="ico ico-green" aria-hidden="true">☁️</span>
         <h2 class="h3">AI가 일하는 곳 어디서나</h2>
-        <p>내 컴퓨터에서도, AI의 클라우드 샌드박스에서도. 직접 설치할 것은 없습니다.</p>
+        <p>평소 쓰는 AI 앱에서, 컴퓨터든 브라우저든. 직접 설치할 것은 없습니다.</p>
       </article>
     </div>
   </div>
@@ -249,7 +249,12 @@
       <p>이것을 AI에 붙여넣고 주제를 채우거나 파일을 첨부하세요. 로그인은 휴대폰에서 승인합니다.</p>
     </div>
     <div class="split-art">
-      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-box">
+        <div class="cli-bar">
+          <span>AI에게 줄 프롬프트</span>
+          <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="복사됨">복사</button>
+        </div>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
 Topic: &lt;WHAT I WANT TO LEARN&gt;
 Cards: &lt;HOW MANY&gt;
@@ -285,7 +290,8 @@ Rules:
 - Always run --dry-run before a command that writes.
 - Exit 14 or 15 is the network, not your input: never retry it. Ask me.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
-- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </div>
     </div>
   </div>
 </section>
@@ -306,7 +312,7 @@ Rules:
   <div class="wrap split split-solo">
     <div class="split-copy">
       <h2>설치는 AI가 알아서</h2>
-      <p>Windows, macOS, Linux, 클라우드 샌드박스 어디서든 AI가 직접 Loopky를 설치합니다. Homebrew, .deb 패키지, Docker도 있습니다.</p>
+      <p>Windows, macOS, Linux는 물론 브라우저에서 AI와 대화할 때도 AI가 직접 Loopky를 설치합니다. Homebrew, .deb 패키지, Docker도 있습니다.</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">CLI 문서 보기</a></p>
     </div>
   </div>
@@ -318,7 +324,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>코딩을 알아야 하나요?</summary>
-        <p>아니요. 프롬프트를 AI에 붙여넣고 주제나 파일을 주면, 나머지는 AI가 모두 알아서 합니다. Claude Code, Codex, Gemini CLI, 클라우드 샌드박스에서 쓸 수 있습니다.</p>
+        <p>아니요. 프롬프트를 AI에 붙여넣고 주제나 파일을 주면, 나머지는 AI가 모두 알아서 합니다. AI 채팅 앱과 Claude Code, Codex, Gemini CLI 같은 에이전트에서 쓸 수 있습니다.</p>
       </details>
       <details class="card">
         <summary>AI가 내 Anki 덱을 가져올 수 있나요?</summary>
@@ -395,6 +401,32 @@ Rules:
     var opt = sel.options[sel.selectedIndex];
     try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
     location.href = opt.value;
+  });
+})();
+
+/* The prompt's Copy button. Without a clipboard, it selects the prompt instead. */
+(function () {
+  var btn = document.getElementById('copy-prompt');
+  var code = document.querySelector('#ai-prompt code');
+  if (!btn || !code) return;
+  var label = btn.textContent;
+  var select = function () {
+    var r = document.createRange();
+    r.selectNodeContents(code);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  };
+  btn.addEventListener('click', function () {
+    var done = function () {
+      btn.textContent = btn.getAttribute('data-copied');
+      setTimeout(function () { btn.textContent = label; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code.textContent).then(done, select);
+    } else {
+      select();
+    }
   });
 })();
 </script>

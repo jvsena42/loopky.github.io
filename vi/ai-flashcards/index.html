@@ -109,7 +109,7 @@
           "name": "Tôi có cần biết lập trình không?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được với Claude Code, Codex, Gemini CLI và sandbox đám mây."
+            "text": "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được trong các ứng dụng chat AI và với agent như Claude Code, Codex, Gemini CLI."
           }
         },
         {
@@ -236,7 +236,7 @@
       <article class="card feat">
         <span class="ico ico-green" aria-hidden="true">☁️</span>
         <h2 class="h3">Chạy ở nơi AI của bạn chạy</h2>
-        <p>Trên máy tính của bạn hay trong sandbox đám mây của AI, bạn không phải cài gì cả.</p>
+        <p>Ngay trong ứng dụng AI bạn đang dùng, trên máy tính hay trình duyệt. Bạn không phải cài gì cả.</p>
       </article>
     </div>
   </div>
@@ -249,7 +249,12 @@
       <p>Dán đoạn này vào AI của bạn, rồi điền chủ đề hoặc đính kèm một tệp. Bạn duyệt đăng nhập trên điện thoại.</p>
     </div>
     <div class="split-art">
-      <div class="cli-box"><div class="cli-bar"><span>Prompt</span></div><pre><code>Build me a Loopky flashcard deck with the Loopky CLI.
+      <div class="cli-box">
+        <div class="cli-bar">
+          <span>Prompt cho AI của bạn</span>
+          <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="Đã sao chép">Sao chép</button>
+        </div>
+        <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
 
 Topic: &lt;WHAT I WANT TO LEARN&gt;
 Cards: &lt;HOW MANY&gt;
@@ -285,7 +290,8 @@ Rules:
 - Always run --dry-run before a command that writes.
 - Exit 14 or 15 is the network, not your input: never retry it. Ask me.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
-- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
+- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+      </div>
     </div>
   </div>
 </section>
@@ -306,7 +312,7 @@ Rules:
   <div class="wrap split split-solo">
     <div class="split-copy">
       <h2>Bạn không phải cài gì</h2>
-      <p>AI tự cài Loopky, trên Windows, macOS, Linux hay trong sandbox đám mây. Cũng có Homebrew, gói .deb và Docker.</p>
+      <p>AI tự cài Loopky, trên Windows, macOS hay Linux, kể cả khi bạn trò chuyện với nó trên trình duyệt. Cũng có Homebrew, gói .deb và Docker.</p>
       <p><a class="textlink" href="https://github.com/jvsena42/loopky/tree/main/cli">Đọc tài liệu CLI</a></p>
     </div>
   </div>
@@ -318,7 +324,7 @@ Rules:
     <div class="faqlist">
       <details class="card" open>
         <summary>Tôi có cần biết lập trình không?</summary>
-        <p>Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được với Claude Code, Codex, Gemini CLI và sandbox đám mây.</p>
+        <p>Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được trong các ứng dụng chat AI và với agent như Claude Code, Codex, Gemini CLI.</p>
       </details>
       <details class="card">
         <summary>AI có nhập được bộ thẻ Anki của tôi không?</summary>
@@ -395,6 +401,32 @@ Rules:
     var opt = sel.options[sel.selectedIndex];
     try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
     location.href = opt.value;
+  });
+})();
+
+/* The prompt's Copy button. Without a clipboard, it selects the prompt instead. */
+(function () {
+  var btn = document.getElementById('copy-prompt');
+  var code = document.querySelector('#ai-prompt code');
+  if (!btn || !code) return;
+  var label = btn.textContent;
+  var select = function () {
+    var r = document.createRange();
+    r.selectNodeContents(code);
+    var s = window.getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  };
+  btn.addEventListener('click', function () {
+    var done = function () {
+      btn.textContent = btn.getAttribute('data-copied');
+      setTimeout(function () { btn.textContent = label; }, 1800);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code.textContent).then(done, select);
+    } else {
+      select();
+    }
   });
 })();
 </script>
