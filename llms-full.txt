@@ -289,7 +289,7 @@ curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.s
 Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
 2. Read the command surface first: loopky commands --json
 3. Check the network: loopky doctor --json (exit 14 or 15: stop, show me its next_step)
-4. Log in: loopky login
+4. Log in: loopky login --json --timeout 300 (show me the QR and the auth_url link in a code block: on a phone with Pubky Ring, I open the link; it is a login secret until approved, so only in this chat)
 5. Write the cards to cards.tsv, one card per line: front <TAB> back
 6. Check: loopky deck create --title &quot;<TITLE>&quot; --from-file cards.tsv --dry-run --json
 7. Publish: loopky deck create --title &quot;<TITLE>&quot; --tag <TOPIC> --from-file cards.tsv
