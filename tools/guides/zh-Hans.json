@@ -151,31 +151,32 @@
     },
     "ai-flashcards": {
       "title": "用 AI 做记忆卡：Claude、ChatGPT 和 Gemini · Loopky",
-      "desc": "让 AI 智能体来写并发布你的记忆卡组。Loopky 的命令行工具支持 JSON 输出和试运行，专为 Claude、ChatGPT、Gemini 等智能体打造。",
+      "desc": "把主题、PDF、幻灯片或笔记照片交给 Claude、ChatGPT 或 Gemini，它会写好并发布一套记忆卡组，你在手机上用间隔重复来学。",
       "crumb": "AI 制作的记忆卡",
       "card": "AI 制作的记忆卡",
       "blurb": "让 Claude、ChatGPT 或 Gemini 替你写卡组。",
       "eyebrow": "AI 记忆卡制作",
       "h1": "让你的 AI 来写记忆卡",
-      "lead": "告诉 Claude、ChatGPT 或 Gemini 你想学什么。它会写好卡片，把卡组发布到你的手机上。",
+      "lead": "把一个主题或一个文件交给 Claude、ChatGPT 或 Gemini。它会写好卡片，把卡组发布到你的手机上。",
       "heroAlt": "",
       "features": [
-        { "t": "任何素材", "d": "一个章节、课堂笔记、一份单词表，或一集电视剧。" },
-        { "t": "先试运行", "d": "写入任何内容前，每张卡片都会先检查一遍。" },
-        { "t": "权限很窄", "d": "它只管理卡组，永远无法发帖、关注或修改你的资料。" },
-        { "t": "全部是 JSON", "d": "智能体读取真实结果，不用靠猜。" }
+        { "t": "任何文件，任何主题", "d": "PDF、幻灯片、表格、白板照片、字幕，或者只是一个想法。" },
+        { "t": "先看卡片", "d": "AI 会检查每张卡片，发布前先把列表给你看。" },
+        { "t": "资料始终归你", "d": "登录由你在手机上确认。它只管理卡组，从不替你发帖或关注别人。" },
+        { "t": "AI 在哪儿都能用", "d": "在你的电脑上，或在 AI 的云端沙盒里，你自己什么都不用装。" }
       ],
       "promptH": "提示词",
-      "promptP": "把这段粘贴到你的 AI 智能体里，填上主题。登录由你在手机上确认。",
+      "promptP": "把这段粘贴给你的 AI，填上主题或附上文件。登录由你在手机上确认。",
       "sections": [
         { "h": "然后在手机上学习", "p": "卡组会出现在 Loopky 里，可以直接用间隔重复学习，语言卡组还有语音。AI 写的卡片请检查一下有没有错误。", "alt": "Loopky 里做好的卡组" },
-        { "h": "一个文件，所有电脑", "p": "支持 Windows、macOS 和 Linux，还有 Homebrew、.deb 安装包和 Docker。不用 Java，不用配置。", "link": "查看 CLI 文档" }
+        { "h": "什么都不用你装", "p": "AI 会自己安装 Loopky，Windows、macOS、Linux 或云端沙盒都行。也有 Homebrew、.deb 安装包和 Docker。", "link": "查看 CLI 文档" }
       ],
       "faq": [
-        ["我需要会写代码吗？", "不需要。把提示词粘贴到能用终端的 AI 智能体里，比如 Claude Code、Codex 或 Gemini CLI。命令由它来运行。"],
+        ["我需要会写代码吗？", "不需要。把提示词粘贴给 AI，加上主题或文件，剩下的每一步它都会自己完成。Claude Code、Codex、Gemini CLI 和云端沙盒都能用。"],
         ["AI 能导入我的 Anki 卡组吗？", "能。loopky import deck.apkg 会导入 Anki 卡组包，加上 --dry-run 可以先看结果。"],
         ["这个工具不能做什么？", "它不能发帖、关注别人或修改你的资料。它只管理卡组和卡片。"],
-        ["能在网页版 Claude Code 或 Codex 里用吗？", "可以，只要你的沙盒能访问 Loopky 的主机。两者默认都不放行。让智能体运行 loopky doctor：它会列出这些主机，并说明在哪里添加。在 Codex 中，请保持“仅 GET/HEAD/OPTIONS”选项关闭。会检查 TLS 的沙盒目前还不能用。"]
+        ["能在网页版 Claude Code 或 Codex 里用吗？", "可以，只要你的沙盒能访问 Loopky 的主机。两者默认都不放行。让智能体运行 loopky doctor：它会列出这些主机，并说明在哪里添加。在 Codex 中，请保持“仅 GET/HEAD/OPTIONS”选项关闭。会检查 TLS 的沙盒目前还不能用。"],
+        ["它能把哪些文件变成卡片？", "只要 AI 能读的都行：PDF、Word 和 PowerPoint 文件、表格、笔记照片、字幕和网页。"]
       ]
     },
     "spaced-repetition": {

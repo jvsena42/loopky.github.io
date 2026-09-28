@@ -39,7 +39,7 @@ Each guide is also published in Portuguese (Brazil), Spanish, French, German, It
 - [Language learning](https://loopky.app/language-learning/): Listen, Speak and Type modes, the 35 supported voices, building vocabulary decks, tips.
 - [Medical students](https://loopky.app/medical-students/): importing med school Anki decks, setting intervals for exams, AI decks from lecture notes, sharing with a class.
 - [Teachers and study groups](https://loopky.app/teachers/): publishing a deck and sharing one link with a class; follow versus clone.
-- [Flashcards made by AI](https://loopky.app/ai-flashcards/): the CLI prompt for Claude, ChatGPT and Gemini, safety (dry runs, JSON, narrow permissions), platforms.
+- [Flashcards made by AI](https://loopky.app/ai-flashcards/): the CLI prompt for Claude, ChatGPT and Gemini, turning any file the AI can read (PDFs, slides, spreadsheets, photos of notes) into a deck, safety (dry runs, JSON, narrow permissions), platforms.
 - [What is spaced repetition?](https://loopky.app/spaced-repetition/): the forgetting curve, spacing and testing effects, how Loopky schedules, how to write good cards.
 - [Loopky vs Anki vs Quizlet](https://loopky.app/compare/): side by side comparison and a pick for each kind of learner, including when Anki or Quizlet fits better.
 - [FAQ](https://loopky.app/faq/): price, platforms, Anki import, privacy, sign in, offline use.

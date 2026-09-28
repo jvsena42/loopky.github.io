@@ -297,6 +297,10 @@ Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
 ```
 The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
 
+### Any file becomes a deck
+
+The agent reads the source and writes the cards, so anything it can open works: PDFs, Word and PowerPoint files, spreadsheets, photos of notes, subtitles, web pages, or just a topic.
+
 ### Why it is safe to hand to an agent
 
 - **Every command speaks JSON** with `--json`, so the agent reads results instead of guessing.

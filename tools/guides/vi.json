@@ -151,31 +151,32 @@
     },
     "ai-flashcards": {
       "title": "Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky",
-      "desc": "Để một agent AI viết và đăng bộ thẻ cho bạn. Công cụ dòng lệnh của Loopky, với đầu ra JSON và chạy thử, được làm cho Claude, ChatGPT, Gemini và các agent khác.",
+      "desc": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, slide hay ảnh chụp ghi chú. AI sẽ viết và đăng một bộ thẻ để bạn học trên điện thoại với lặp lại ngắt quãng.",
       "crumb": "Thẻ ghi nhớ do AI tạo",
       "card": "Thẻ ghi nhớ do AI tạo",
       "blurb": "Claude, ChatGPT hoặc Gemini viết bộ thẻ giúp bạn.",
       "eyebrow": "Tạo thẻ ghi nhớ bằng AI",
       "h1": "Để AI của bạn viết thẻ ghi nhớ",
-      "lead": "Nói với Claude, ChatGPT hoặc Gemini bạn muốn học gì. Nó viết thẻ và đăng bộ thẻ lên điện thoại của bạn.",
+      "lead": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề hay một tệp. Nó viết thẻ và đăng bộ thẻ lên điện thoại của bạn.",
       "heroAlt": "",
       "features": [
-        { "t": "Nguồn nào cũng được", "d": "Một chương sách, ghi chú bài giảng, một danh sách từ hay một tập phim." },
-        { "t": "Chạy thử trước", "d": "Mọi thẻ được kiểm tra trước khi ghi bất cứ thứ gì." },
-        { "t": "Quyền hạn hẹp", "d": "Nó quản lý bộ thẻ. Nó không bao giờ đăng bài, theo dõi hay sửa hồ sơ của bạn." },
-        { "t": "JSON ở khắp nơi", "d": "Agent đọc kết quả thật thay vì phải đoán." }
+        { "t": "Tệp nào, chủ đề nào cũng được", "d": "PDF, slide, bảng tính, ảnh chụp bảng, phụ đề hay chỉ một ý tưởng." },
+        { "t": "Xem thẻ trước", "d": "AI kiểm tra từng thẻ và cho bạn xem danh sách trước khi đăng bất cứ thứ gì." },
+        { "t": "Hồ sơ vẫn là của bạn", "d": "Bạn duyệt đăng nhập trên điện thoại. Nó chỉ quản lý bộ thẻ, không bao giờ đăng bài hay theo dõi ai." },
+        { "t": "Chạy ở nơi AI của bạn chạy", "d": "Trên máy tính của bạn hay trong sandbox đám mây của AI, bạn không phải cài gì cả." }
       ],
       "promptH": "Prompt",
-      "promptP": "Dán đoạn này vào agent AI của bạn và điền chủ đề. Bạn duyệt đăng nhập trên điện thoại.",
+      "promptP": "Dán đoạn này vào AI của bạn, rồi điền chủ đề hoặc đính kèm một tệp. Bạn duyệt đăng nhập trên điện thoại.",
       "sections": [
         { "h": "Rồi học trên điện thoại", "p": "Bộ thẻ hiện trong Loopky, sẵn sàng cho lặp lại ngắt quãng, có âm thanh với bộ thẻ ngoại ngữ. Hãy kiểm tra lỗi trong các thẻ do AI viết.", "alt": "Bộ thẻ hoàn chỉnh trong Loopky" },
-        { "h": "Một tệp, mọi máy tính", "p": "Windows, macOS và Linux, cùng Homebrew, gói .deb và Docker. Không cần Java, không cần cài đặt gì.", "link": "Đọc tài liệu CLI" }
+        { "h": "Bạn không phải cài gì", "p": "AI tự cài Loopky, trên Windows, macOS, Linux hay trong sandbox đám mây. Cũng có Homebrew, gói .deb và Docker.", "link": "Đọc tài liệu CLI" }
       ],
       "faq": [
-        ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào một agent AI có terminal, như Claude Code, Codex hoặc Gemini CLI. Nó sẽ chạy các lệnh."],
+        ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được với Claude Code, Codex, Gemini CLI và sandbox đám mây."],
         ["AI có nhập được bộ thẻ Anki của tôi không?", "Có. loopky import deck.apkg nhập một gói Anki, và --dry-run cho xem kết quả trước."],
         ["Công cụ này không làm được gì?", "Nó không thể đăng bài, theo dõi người khác hay sửa hồ sơ của bạn. Nó chỉ quản lý bộ thẻ và thẻ."],
-        ["Có chạy được trong Claude Code trên web hoặc Codex không?", "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox có kiểm tra TLS thì hiện chưa dùng được."]
+        ["Có chạy được trong Claude Code trên web hoặc Codex không?", "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox có kiểm tra TLS thì hiện chưa dùng được."],
+        ["Nó có thể biến những tệp nào thành thẻ?", "Bất cứ thứ gì AI của bạn đọc được: PDF, tệp Word và PowerPoint, bảng tính, ảnh chụp ghi chú, phụ đề và trang web."]
       ]
     },
     "spaced-repetition": {

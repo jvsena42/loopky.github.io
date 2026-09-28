@@ -86,7 +86,7 @@ const LAYOUT = {
     sections: [P('phone-paste'), T('tablet-profile')],
   },
   'ai-flashcards': {
-    hero: { terminal: TERM_AI }, icons: ['📝', '🧪', '🔒', '🧾'],
+    hero: { terminal: TERM_AI }, icons: ['📂', '👀', '🔒', '☁️'],
     sections: [P('phone-deck'), { link: `${GH}/tree/main/cli` }],
     prompt: true,
   },
