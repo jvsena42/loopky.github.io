@@ -26,7 +26,7 @@ const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
 
 /* Bump when the guides' content changes, so the sitemap says so. */
-const LASTMOD = '2026-09-26';
+const LASTMOD = '2026-09-28';
 
 const PLAY = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
 const GH = 'https://github.com/jvsena42/loopky';

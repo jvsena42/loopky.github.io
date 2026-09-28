@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://loopky.app/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -21,7 +21,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -165,7 +165,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -183,7 +183,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/"/>
@@ -201,7 +201,7 @@
   </url>
   <url>
     <loc>https://loopky.app/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -219,7 +219,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -237,7 +237,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -255,7 +255,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -273,7 +273,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -291,7 +291,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -309,7 +309,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -327,7 +327,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -345,7 +345,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -363,7 +363,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -381,7 +381,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/anki-alternative/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/anki-alternative/"/>
@@ -399,7 +399,7 @@
   </url>
   <url>
     <loc>https://loopky.app/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -417,7 +417,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -435,7 +435,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -453,7 +453,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -471,7 +471,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -489,7 +489,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -507,7 +507,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -525,7 +525,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -543,7 +543,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -561,7 +561,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -579,7 +579,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/language-learning/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/language-learning/"/>
@@ -597,7 +597,7 @@
   </url>
   <url>
     <loc>https://loopky.app/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -615,7 +615,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -633,7 +633,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -651,7 +651,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -669,7 +669,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -687,7 +687,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -705,7 +705,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -723,7 +723,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -741,7 +741,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -759,7 +759,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -777,7 +777,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/medical-students/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/medical-students/"/>
@@ -795,7 +795,7 @@
   </url>
   <url>
     <loc>https://loopky.app/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -813,7 +813,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -831,7 +831,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -849,7 +849,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -867,7 +867,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -885,7 +885,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -903,7 +903,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -921,7 +921,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -939,7 +939,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -957,7 +957,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -975,7 +975,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/teachers/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/teachers/"/>
@@ -993,7 +993,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1011,7 +1011,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1029,7 +1029,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1047,7 +1047,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1065,7 +1065,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1083,7 +1083,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1101,7 +1101,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1119,7 +1119,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1137,7 +1137,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1155,7 +1155,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1173,7 +1173,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/ai-flashcards/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/ai-flashcards/"/>
@@ -1191,7 +1191,7 @@
   </url>
   <url>
     <loc>https://loopky.app/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1209,7 +1209,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1227,7 +1227,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1245,7 +1245,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1263,7 +1263,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1281,7 +1281,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1299,7 +1299,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1317,7 +1317,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1335,7 +1335,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1353,7 +1353,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1371,7 +1371,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/spaced-repetition/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/spaced-repetition/"/>
@@ -1389,7 +1389,7 @@
   </url>
   <url>
     <loc>https://loopky.app/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1407,7 +1407,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1425,7 +1425,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1443,7 +1443,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1461,7 +1461,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1479,7 +1479,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1497,7 +1497,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1515,7 +1515,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1533,7 +1533,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1551,7 +1551,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1569,7 +1569,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/compare/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/compare/"/>
@@ -1587,7 +1587,7 @@
   </url>
   <url>
     <loc>https://loopky.app/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1605,7 +1605,7 @@
   </url>
   <url>
     <loc>https://loopky.app/pt-br/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1623,7 +1623,7 @@
   </url>
   <url>
     <loc>https://loopky.app/es/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1641,7 +1641,7 @@
   </url>
   <url>
     <loc>https://loopky.app/fr/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1659,7 +1659,7 @@
   </url>
   <url>
     <loc>https://loopky.app/de/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1677,7 +1677,7 @@
   </url>
   <url>
     <loc>https://loopky.app/it/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1695,7 +1695,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ja/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1713,7 +1713,7 @@
   </url>
   <url>
     <loc>https://loopky.app/ko/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1731,7 +1731,7 @@
   </url>
   <url>
     <loc>https://loopky.app/vi/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1749,7 +1749,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hans/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>
@@ -1767,7 +1767,7 @@
   </url>
   <url>
     <loc>https://loopky.app/zh-hant/faq/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/faq/"/>

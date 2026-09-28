@@ -174,7 +174,8 @@
       "faq": [
         ["我需要會寫程式嗎？", "不需要。把提示詞貼到能用終端機的 AI 代理裡，例如 Claude Code、Codex 或 Gemini CLI。指令由它來執行。"],
         ["AI 能匯入我的 Anki 牌組嗎？", "能。loopky import deck.apkg 會匯入 Anki 牌組套件，加上 --dry-run 可以先看結果。"],
-        ["這個工具不能做什麼？", "它不能發文、追蹤別人或修改你的個人資料。它只管理牌組和卡片。"]
+        ["這個工具不能做什麼？", "它不能發文、追蹤別人或修改你的個人資料。它只管理牌組和卡片。"],
+        ["能在網頁版 Claude Code 或 Codex 裡用嗎？", "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。會檢查 TLS 的沙盒目前還無法使用。"]
       ]
     },
     "spaced-repetition": {

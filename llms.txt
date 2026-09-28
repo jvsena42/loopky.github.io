@@ -48,6 +48,7 @@ Each guide is also published in Portuguese (Brazil), Spanish, French, German, It
 
 - [CLI documentation](https://github.com/jvsena42/loopky/tree/main/cli): install with `curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh` (Windows: `irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex`). Run `loopky commands --json` first. Every command takes `--json`; run `--dry-run` before anything that writes. Create a deck from a TSV with `loopky deck create --title "<TITLE>" --from-file cards.tsv`, or import Anki with `loopky import deck.apkg`.
 - [Home page prompt](https://loopky.app/#cli): the full copy-paste prompt that has an agent build and publish a deck.
+- Cloud sandboxes (Claude Code on the web, Codex): neither default allowlist includes Loopky's hosts, so run `loopky doctor --json` first. It needs no login, checks each host through the sandbox's proxy, and returns `next_step`: the hosts for the user to add and where (Claude Code: Network access Custom, keep defaults, Allowed domains; Codex: Agent internet access, and leave the GET/HEAD/OPTIONS-only option off since writes are PUT and DELETE). Hosts: httprelay.pubky.app, pkarr.pubky.app or pkarr.pubky.org, homeserver.pubky.app, nexus.pubky.app, github.com, release-assets.githubusercontent.com. Exit 14 (`proxy_refused`) or 15 (`tls_untrusted`, a TLS-intercepting proxy, not supported yet) means stop and ask the user; never retry.
 
 ## Optional
 

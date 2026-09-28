@@ -288,10 +288,11 @@ Steps:
 curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
 Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
 2. Read the command surface first: loopky commands --json
-3. Log in: loopky login
-4. Write the cards to cards.tsv, one card per line: front <TAB> back
-5. Check: loopky deck create --title &quot;<TITLE>&quot; --from-file cards.tsv --dry-run --json
-6. Publish: loopky deck create --title &quot;<TITLE>&quot; --tag <TOPIC> --from-file cards.tsv
+3. Check the network: loopky doctor --json (exit 14 or 15: stop, show me its next_step)
+4. Log in: loopky login
+5. Write the cards to cards.tsv, one card per line: front <TAB> back
+6. Check: loopky deck create --title &quot;<TITLE>&quot; --from-file cards.tsv --dry-run --json
+7. Publish: loopky deck create --title &quot;<TITLE>&quot; --tag <TOPIC> --from-file cards.tsv
 Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
 ```
 The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
@@ -306,6 +307,15 @@ The full, always current version is on the [home page](https://loopky.app/#cli) 
 ### Where it runs
 
 One file, no Java, no setup. Linux (x86_64), macOS (Apple Silicon), Windows (x86_64), plus Homebrew, a `.deb` package and Docker. Commands cover decks (list, create, show, edit, delete), cards (list, add, edit, remove), `import` for TSV and Anki `.apkg` files, trending tags and batch operations. [Read the CLI docs](https://github.com/jvsena42/loopky/tree/main/cli).
+
+### In a cloud sandbox: Claude Code on the web, Codex
+
+A cloud agent reaches the internet through an allowlist, and neither Claude Code on the web's default ("Trusted") nor Codex's "Common dependencies" preset includes Loopky's hosts (Codex has no internet at all in the agent phase unless the environment turns it on). The agent cannot change that itself; the user adds the hosts in the environment's settings:
+
+- **Claude Code on the web:** environment settings, Network access: Custom, keep the default domains, add the hosts under Allowed domains.
+- **Codex:** environment settings, Agent internet access: On, add the hosts as allowed domains. Leave the "GET, HEAD and OPTIONS only" option off: every write is a PUT or DELETE.
+
+The hosts (production): `httprelay.pubky.app` (login), `pkarr.pubky.app` or `pkarr.pubky.org` (either one is enough), `homeserver.pubky.app` (every deck read and write), `nexus.pubky.app` (tags), `github.com` and `release-assets.githubusercontent.com` (install and update). `loopky doctor` checks each one through the sandbox's proxy, needs no login, and ends with a `next_step` telling the agent exactly what to ask for. Exit code 14 (`proxy_refused`) means a host is blocked; 15 (`tls_untrusted`) means the proxy re-signs TLS, which Loopky cannot work through yet. Neither is worth retrying. To skip the phone step in a sandbox, sign in on a computer with `loopky login --export` and give the sandbox the printed secret as `LOOPKY_SESSION`.
 
 ### Then study it on your phone
 
@@ -324,6 +334,9 @@ Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the re
 
 **What can the CLI not do?**
 It cannot post, follow people or edit your profile. It only manages your decks and cards.
+
+**Does it work in Claude Code on the web or Codex?**
+Yes, once the sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS does not work yet.
 
 
 ## What is spaced repetition?

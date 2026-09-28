@@ -174,7 +174,8 @@
       "faq": [
         ["Do I need to know how to code?", "No. Paste the prompt into an AI agent with a terminal, such as Claude Code, Codex or Gemini CLI. It runs the commands."],
         ["Can the AI import my Anki decks?", "Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first."],
-        ["What can the tool not do?", "It cannot post, follow people or edit your profile. It only manages decks and cards."]
+        ["What can the tool not do?", "It cannot post, follow people or edit your profile. It only manages decks and cards."],
+        ["Does it work in Claude Code on the web or Codex?", "Yes, once your sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS does not work yet."]
       ]
     },
     "spaced-repetition": {
