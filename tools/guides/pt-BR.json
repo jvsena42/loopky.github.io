@@ -174,7 +174,8 @@
       "faq": [
         ["Preciso saber programar?", "Não. Cole o prompt num agente de IA com terminal, como Claude Code, Codex ou Gemini CLI. Ele roda os comandos."],
         ["A IA pode importar meus baralhos do Anki?", "Sim. loopky import deck.apkg importa um pacote do Anki, e --dry-run mostra o resultado antes."],
-        ["O que a ferramenta não faz?", "Ela não posta, não segue pessoas e não edita seu perfil. Só gerencia baralhos e cartas."]
+        ["O que a ferramenta não faz?", "Ela não posta, não segue pessoas e não edita seu perfil. Só gerencia baralhos e cartas."],
+        ["Funciona no Claude Code na web ou no Codex?", "Sim, depois que o sandbox conseguir acessar os hosts do Loopky. Nenhum dos dois libera por padrão. Peça para o agente rodar loopky doctor: ele lista os hosts e onde adicioná-los. No Codex, deixe desligada a opção só GET/HEAD/OPTIONS. Um sandbox que inspeciona TLS ainda não funciona."]
       ]
     },
     "spaced-repetition": {

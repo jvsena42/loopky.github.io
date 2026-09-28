@@ -383,7 +383,8 @@
         [
           "Was kann das Tool nicht?",
           "Es kann nicht posten, Leuten folgen oder dein Profil ändern. Es verwaltet nur Stapel und Karten."
-        ]
+        ],
+        ["Funktioniert es in Claude Code im Web oder in Codex?", "Ja, sobald deine Sandbox die Hosts von Loopky erreicht. Keine der beiden lässt sie standardmäßig durch. Lass den Agenten loopky doctor ausführen: Es listet die Hosts auf und sagt, wo du sie einträgst. In Codex die Option „nur GET/HEAD/OPTIONS“ ausgeschaltet lassen. Eine Sandbox, die TLS prüft, funktioniert noch nicht."]
       ]
     },
     "spaced-repetition": {

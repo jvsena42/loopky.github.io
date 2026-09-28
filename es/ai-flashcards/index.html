@@ -66,7 +66,7 @@
       "url": "https://loopky.app/es/ai-flashcards/",
       "inLanguage": "es",
       "datePublished": "2026-09-26",
-      "dateModified": "2026-09-26",
+      "dateModified": "2026-09-28",
       "image": "https://loopky.app/assets/img/og.png",
       "author": {
         "@type": "Person",
@@ -126,6 +126,14 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "No puede publicar, seguir a personas ni editar tu perfil. Solo gestiona mazos y tarjetas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Funciona en Claude Code en la web o en Codex?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sí, cuando tu sandbox pueda llegar a los hosts de Loopky. Ninguno de los dos los deja pasar por defecto. Pide al agente que ejecute loopky doctor: lista los hosts y dónde añadirlos. En Codex, deja desactivada la opción de solo GET/HEAD/OPTIONS. Un sandbox que inspecciona TLS todavía no funciona."
           }
         }
       ]
@@ -243,17 +251,22 @@ Steps:
    curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
    Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
 2. Read the command surface first: loopky commands --json
-3. Log in: loopky login
-   It prints a QR code. I approve it in Pubky Ring on my phone.
-4. Write the cards to cards.tsv, one card per line:
+3. Check the network: loopky doctor --json
+   If it exits 14 or 15, stop. Your sandbox blocks hosts Loopky needs.
+   Show me its next_step: the hosts to add to your allowlist, and where.
+4. Log in: loopky login --json --timeout 300
+   Show me the QR code, and also the auth_url link it prints, in a code block.
+   If Pubky Ring is on the device I am chatting from, I open the link there instead.
+   The link is a login secret until I approve it: only show it to me here.
+5. Write the cards to cards.tsv, one card per line:
    front &lt;TAB&gt; back
    Two more columns are optional: an https image URL for each side.
-5. Check before you write anything:
+6. Check before you write anything:
    loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
-6. Publish it:
+7. Publish it:
    loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
    Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
-7. Show me the result: loopky deck show &lt;deckId&gt; --json
+8. Show me the result: loopky deck show &lt;deckId&gt; --json
 
 I already have an Anki file? Import it instead:
    loopky import deck.apkg --dry-run --json
@@ -262,6 +275,7 @@ I already have an Anki file? Import it instead:
 Rules:
 - Every command takes --json, and the result sits under &quot;data&quot;.
 - Always run --dry-run before a command that writes.
+- Exit 14 or 15 is the network, not your input: never retry it. Ask me.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
 - Do not invent cards I did not ask for. Show me the list before publishing.</code></pre></div>
     </div>
@@ -305,6 +319,10 @@ Rules:
       <details class="card">
         <summary>¿Qué no puede hacer la herramienta?</summary>
         <p>No puede publicar, seguir a personas ni editar tu perfil. Solo gestiona mazos y tarjetas.</p>
+      </details>
+      <details class="card">
+        <summary>¿Funciona en Claude Code en la web o en Codex?</summary>
+        <p>Sí, cuando tu sandbox pueda llegar a los hosts de Loopky. Ninguno de los dos los deja pasar por defecto. Pide al agente que ejecute loopky doctor: lista los hosts y dónde añadirlos. En Codex, deja desactivada la opción de solo GET/HEAD/OPTIONS. Un sandbox que inspecciona TLS todavía no funciona.</p>
       </details>
     </div>
   </div>

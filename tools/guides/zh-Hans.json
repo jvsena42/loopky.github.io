@@ -174,7 +174,8 @@
       "faq": [
         ["我需要会写代码吗？", "不需要。把提示词粘贴到能用终端的 AI 智能体里，比如 Claude Code、Codex 或 Gemini CLI。命令由它来运行。"],
         ["AI 能导入我的 Anki 卡组吗？", "能。loopky import deck.apkg 会导入 Anki 卡组包，加上 --dry-run 可以先看结果。"],
-        ["这个工具不能做什么？", "它不能发帖、关注别人或修改你的资料。它只管理卡组和卡片。"]
+        ["这个工具不能做什么？", "它不能发帖、关注别人或修改你的资料。它只管理卡组和卡片。"],
+        ["能在网页版 Claude Code 或 Codex 里用吗？", "可以，只要你的沙盒能访问 Loopky 的主机。两者默认都不放行。让智能体运行 loopky doctor：它会列出这些主机，并说明在哪里添加。在 Codex 中，请保持“仅 GET/HEAD/OPTIONS”选项关闭。会检查 TLS 的沙盒目前还不能用。"]
       ]
     },
     "spaced-repetition": {

@@ -383,7 +383,8 @@
         [
           "Que ne peut pas faire l’outil ?",
           "Il ne peut pas poster, suivre des personnes ou modifier votre profil. Il gère seulement les paquets et les cartes."
-        ]
+        ],
+        ["Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?", "Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Un sandbox qui inspecte le TLS ne fonctionne pas encore."]
       ]
     },
     "spaced-repetition": {
