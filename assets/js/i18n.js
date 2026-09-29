@@ -58,6 +58,22 @@ function aiPrompt(ask) {
     function () { return 'What I want:\n' + String(ask).trim(); });
 }
 
+/* The AI apps the prompt box opens directly, each with the prompt already typed in. */
+var AI_APPS = [
+  ['claude', 'Claude', 'https://claude.ai/new?q='],
+  ['chatgpt', 'ChatGPT', 'https://chatgpt.com/?q='],
+  ['gemini', 'Gemini', 'https://gemini.google.com/app?q='],
+  ['grok', 'Grok', 'https://grok.com/?q='],
+  ['cursor', 'Cursor', 'https://cursor.com/link/prompt?text=']
+];
+
+function aiAppUrl(id, prompt) {
+  for (var i = 0; i < AI_APPS.length; i++) {
+    if (AI_APPS[i][0] === id) return AI_APPS[i][2] + encodeURIComponent(prompt);
+  }
+  return null;
+}
+
 var USES_EN = ['Language learning', 'Vocabulary', 'Anki decks', 'Exam prep', 'Medicine',
   'Law', 'Kanji and Hanzi', 'Coding', 'Geography', 'Music theory', 'History', 'Job interviews'];
 
@@ -106,6 +122,7 @@ var I18N = {
   'cli.t3': 'You approve the sign-in on your phone, and it only touches your decks.',
   'cli.docs': 'Read the CLI docs', 'cli.promptlabel': 'Prompt for your AI',
   'cli.copy': 'Copy', 'cli.copied': 'Copied',
+  'cli.open': 'Open in',
   'cli.pick': 'Start from an idea', 'cli.asklabel': 'Your request',
   'cli.hint': 'Copy adds the setup steps, so your AI can install Loopky, write the cards and publish the deck.',
   'cli.full': 'See the full prompt',
@@ -197,6 +214,7 @@ var I18N = {
   'cli.t3': 'Você aprova o login no celular, e ela só mexe nos seus baralhos.',
   'cli.docs': 'Ler a documentação da CLI', 'cli.promptlabel': 'Prompt para sua IA',
   'cli.copy': 'Copiar', 'cli.copied': 'Copiado',
+  'cli.open': 'Abrir em',
   'cli.pick': 'Comece por uma ideia', 'cli.asklabel': 'Seu pedido',
   'cli.hint': 'Ao copiar, entram os passos de instalação, para a sua IA instalar o Loopky, escrever as cartas e publicar o baralho.',
   'cli.full': 'Ver o prompt completo',
@@ -288,6 +306,7 @@ var I18N = {
   'cli.t3': 'Apruebas el inicio de sesión en tu teléfono, y solo toca tus mazos.',
   'cli.docs': 'Ver la documentación de la CLI', 'cli.promptlabel': 'Prompt para tu IA',
   'cli.copy': 'Copiar', 'cli.copied': 'Copiado',
+  'cli.open': 'Abrir en',
   'cli.pick': 'Empieza con una idea', 'cli.asklabel': 'Tu pedido',
   'cli.hint': 'Al copiar se añaden los pasos de instalación, para que tu IA instale Loopky, escriba las tarjetas y publique el mazo.',
   'cli.full': 'Ver el prompt completo',
@@ -379,6 +398,7 @@ var I18N = {
   'cli.t3': 'Tu valides la connexion sur ton téléphone, et l’outil ne touche qu’à tes paquets.',
   'cli.docs': 'Lire la doc de la CLI', 'cli.promptlabel': 'Prompt pour ton IA',
   'cli.copy': 'Copier', 'cli.copied': 'Copié',
+  'cli.open': 'Ouvrir dans',
   'cli.pick': 'Pars d’une idée', 'cli.asklabel': 'Ta demande',
   'cli.hint': 'La copie ajoute les étapes d’installation, pour que ton IA installe Loopky, écrive les cartes et publie le paquet.',
   'cli.full': 'Voir le prompt complet',
@@ -470,6 +490,7 @@ var I18N = {
   'cli.t3': 'Die Anmeldung bestätigst du auf dem Handy, und das Tool rührt nur deine Stapel an.',
   'cli.docs': 'CLI-Doku lesen', 'cli.promptlabel': 'Prompt für deine KI',
   'cli.copy': 'Kopieren', 'cli.copied': 'Kopiert',
+  'cli.open': 'Öffnen in',
   'cli.pick': 'Starte mit einer Idee', 'cli.asklabel': 'Deine Anfrage',
   'cli.hint': 'Beim Kopieren kommen die Einrichtungsschritte dazu, damit deine KI Loopky installiert, die Karten schreibt und den Stapel veröffentlicht.',
   'cli.full': 'Ganzen Prompt anzeigen',
@@ -561,6 +582,7 @@ var I18N = {
   'cli.t3': 'Approvi l’accesso dal telefono, e tocca solo i tuoi mazzi.',
   'cli.docs': 'Leggi la documentazione della CLI', 'cli.promptlabel': 'Prompt per la tua IA',
   'cli.copy': 'Copia', 'cli.copied': 'Copiato',
+  'cli.open': 'Apri in',
   'cli.pick': 'Parti da un’idea', 'cli.asklabel': 'La tua richiesta',
   'cli.hint': 'Copiando si aggiungono i passaggi di installazione, così la tua IA installa Loopky, scrive le carte e pubblica il mazzo.',
   'cli.full': 'Vedi il prompt completo',
@@ -652,6 +674,7 @@ var I18N = {
   'cli.t3': 'ログインはスマートフォンで承認。触れるのはあなたのデッキだけです。',
   'cli.docs': 'CLI のドキュメント', 'cli.promptlabel': 'AI に渡すプロンプト',
   'cli.copy': 'コピー', 'cli.copied': 'コピーしました',
+  'cli.open': 'AIで開く',
   'cli.pick': 'アイデアから始める', 'cli.asklabel': 'あなたのリクエスト',
   'cli.hint': 'コピーするとセットアップ手順も付くので、AI が Loopky をインストールし、カードを書いてデッキを公開します。',
   'cli.full': 'プロンプト全文を見る',
@@ -743,6 +766,7 @@ var I18N = {
   'cli.t3': '로그인은 휴대폰에서 승인하고, 건드리는 건 내 덱뿐입니다.',
   'cli.docs': 'CLI 문서 보기', 'cli.promptlabel': 'AI에게 줄 프롬프트',
   'cli.copy': '복사', 'cli.copied': '복사됨',
+  'cli.open': 'AI에서 열기',
   'cli.pick': '아이디어로 시작하기', 'cli.asklabel': '내 요청',
   'cli.hint': '복사하면 설치 단계가 함께 붙어서, AI가 Loopky를 설치하고 카드를 쓰고 덱을 공개합니다.',
   'cli.full': '전체 프롬프트 보기',
@@ -834,6 +858,7 @@ var I18N = {
   'cli.t3': 'Bạn duyệt đăng nhập trên điện thoại, và nó chỉ đụng đến bộ thẻ của bạn.',
   'cli.docs': 'Đọc tài liệu CLI', 'cli.promptlabel': 'Prompt cho AI của bạn',
   'cli.copy': 'Sao chép', 'cli.copied': 'Đã sao chép',
+  'cli.open': 'Mở trong',
   'cli.pick': 'Bắt đầu từ một ý tưởng', 'cli.asklabel': 'Yêu cầu của bạn',
   'cli.hint': 'Khi sao chép sẽ kèm các bước cài đặt, để AI cài Loopky, viết thẻ và đăng bộ thẻ.',
   'cli.full': 'Xem toàn bộ prompt',
@@ -925,6 +950,7 @@ var I18N = {
   'cli.t3': '登录由你在手机上确认，它只动你的卡组。',
   'cli.docs': '查看 CLI 文档', 'cli.promptlabel': '给 AI 的提示词',
   'cli.copy': '复制', 'cli.copied': '已复制',
+  'cli.open': '在 AI 中打开',
   'cli.pick': '从一个点子开始', 'cli.asklabel': '你的请求',
   'cli.hint': '复制时会带上安装步骤，AI 会安装 Loopky、写好卡片并发布卡组。',
   'cli.full': '查看完整提示词',
@@ -1016,6 +1042,7 @@ var I18N = {
   'cli.t3': '登入由你在手機上確認，它只動你的牌組。',
   'cli.docs': '查看 CLI 文件', 'cli.promptlabel': '給 AI 的提示詞',
   'cli.copy': '複製', 'cli.copied': '已複製',
+  'cli.open': '在 AI 中開啟',
   'cli.pick': '從一個點子開始', 'cli.asklabel': '你的請求',
   'cli.hint': '複製時會附上安裝步驟，AI 會安裝 Loopky、寫好卡片並發布牌組。',
   'cli.full': '查看完整提示詞',

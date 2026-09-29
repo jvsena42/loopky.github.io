@@ -457,7 +457,13 @@
 
   function paintPrompt() {
     var code = document.querySelector('#ai-prompt code');
-    if (code) code.textContent = currentPrompt();
+    var text = currentPrompt();
+    if (code) code.textContent = text;
+    /* The Claude, ChatGPT and Cursor links open with this same prompt typed in. */
+    document.querySelectorAll('.ai-app[data-ai]').forEach(function (a) {
+      var href = aiAppUrl(a.getAttribute('data-ai'), text);
+      if (href) a.href = href;
+    });
   }
 
   function paintIdea() {
