@@ -554,6 +554,25 @@ img { max-width: 100%; height: auto; display: block; }
 .cli-full summary:hover { color: #fff; }
 .cli-full pre { padding-top: 0; max-height: 360px; }
 
+/* Open the prompt straight in an AI app, like the Copy button but one click less. */
+.cli-open {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding: 12px 18px 14px; border-top: 1px solid rgba(255, 255, 255, .08);
+  color: rgba(255, 255, 255, .6);
+  font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+}
+.cli-open span { margin-right: 2px; }
+.ai-app {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06);
+  transition: background .15s, border-color .15s, transform .15s;
+}
+.ai-app img { display: block; width: 20px; height: 20px; }
+.ai-app:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .28); transform: translateY(-1px); }
+.cli-openhint { margin: -4px 0 0; padding: 0 18px 14px; color: rgba(255, 255, 255, .55); font-size: .82rem; }
+.ai-app:focus-visible { outline: 2px solid #FF8A3D; outline-offset: 2px; }
+
 /* ---------- steps ---------- */
 .steps {
   list-style: none; padding: 0; margin: 0;

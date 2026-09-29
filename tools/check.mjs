@@ -43,11 +43,11 @@ for (const f of scripts) {
 /* ---- 2. the eleven dictionaries hold the same keys ---- */
 
 const i18nSrc = read('assets/js/i18n.js');
-let I18N, AI_PROMPT, IDEAS, aiPrompt;
+let I18N, AI_PROMPT, IDEAS, aiPrompt, AI_APPS, aiAppUrl;
 try {
   // The file is a plain script, so it is evaluated rather than imported.
-  ({ I18N, AI_PROMPT, IDEAS, aiPrompt } =
-    new Function(i18nSrc + '\nreturn { I18N, AI_PROMPT, IDEAS, aiPrompt };')());
+  ({ I18N, AI_PROMPT, IDEAS, aiPrompt, AI_APPS, aiAppUrl } =
+    new Function(i18nSrc + '\nreturn { I18N, AI_PROMPT, IDEAS, aiPrompt, AI_APPS, aiAppUrl };')());
 } catch (e) {
   fail(`assets/js/i18n.js could not be evaluated: ${e.message}`);
 }
@@ -365,6 +365,12 @@ if (AI_PROMPT) {
     ?.replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
   if (shipped !== aiPrompt(I18N.en[`idea.${IDEAS[0]}.p`])) {
     fail('the AI prompt in index.html differs from aiPrompt() with the first idea; copy it across');
+  }
+  const want = aiPrompt(I18N.en[`idea.${IDEAS[0]}.p`]);
+  for (const [id] of AI_APPS ?? []) {
+    const href = new RegExp(`<a class="ai-app" data-ai="${id}" href="([^"]*)"`).exec(html)?.[1]
+      ?.replace(/&amp;/g, '&');
+    if (href !== aiAppUrl(id, want)) fail(`the ${id} link in index.html does not open the first idea's prompt; copy it across`);
   }
 }
 if (I18N) {

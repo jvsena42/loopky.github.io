@@ -457,7 +457,13 @@
 
   function paintPrompt() {
     var code = document.querySelector('#ai-prompt code');
-    if (code) code.textContent = currentPrompt();
+    var text = currentPrompt();
+    if (code) code.textContent = text;
+    /* The Claude, ChatGPT and Cursor links open with this same prompt typed in. */
+    document.querySelectorAll('.ai-app[data-ai]').forEach(function (a) {
+      var href = aiAppUrl(a.getAttribute('data-ai'), text);
+      if (href) a.href = href;
+    });
   }
 
   function paintIdea() {
@@ -513,20 +519,25 @@
     }
 
     var copy = document.getElementById('copy-prompt');
-    if (copy) {
-      copy.addEventListener('click', function () {
-        var done = function () {
-          copy.textContent = tf('cli.copied', 'Copied');
-          setTimeout(function () { copy.textContent = tf('cli.copy', 'Copy'); }, 1800);
-        };
-        var text = currentPrompt();
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(text).then(done, selectPrompt);
-        } else {
-          selectPrompt();
-        }
-      });
+    function copyPrompt(fallback) {
+      var done = function () {
+        if (!copy) return;
+        copy.textContent = tf('cli.copied', 'Copied');
+        setTimeout(function () { copy.textContent = tf('cli.copy', 'Copy'); }, 1800);
+      };
+      var text = currentPrompt();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, fallback);
+      } else if (fallback) {
+        fallback();
+      }
     }
+    if (copy) copy.addEventListener('click', function () { copyPrompt(selectPrompt); });
+
+    /* An agent link copies the prompt as it opens, for the ones that open empty. */
+    document.querySelectorAll('.ai-app').forEach(function (a) {
+      a.addEventListener('click', function () { copyPrompt(null); });
+    });
 
     function selectPrompt() {
       var pre = document.getElementById('ai-prompt');

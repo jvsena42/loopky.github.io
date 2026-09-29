@@ -37,7 +37,7 @@ const SITE = /<link rel="canonical" href="([^"]+)"/.exec(read('index.html'))[1];
 
 /* The same prompt the home page shows, and the home page's dictionaries, read from
    the one place they are written. */
-const { AI_PROMPT, I18N, IDEAS, aiPrompt } = new Function(read('assets/js/i18n.js') + '\nreturn { AI_PROMPT, I18N, IDEAS, aiPrompt };')();
+const { AI_PROMPT, I18N, IDEAS, aiPrompt, AI_APPS, aiAppUrl } = new Function(read('assets/js/i18n.js') + '\nreturn { AI_PROMPT, I18N, IDEAS, aiPrompt, AI_APPS, aiAppUrl };')();
 
 /* ---------------------------------------------------------------- layout */
 
@@ -164,16 +164,21 @@ const COPY_SCRIPT = `
     s.removeAllRanges();
     s.addRange(r);
   };
-  btn.addEventListener('click', function () {
+  var copy = function (fallback) {
     var done = function () {
       btn.textContent = btn.getAttribute('data-copied');
       setTimeout(function () { btn.textContent = label; }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(code.textContent).then(done, select);
-    } else {
-      select();
+      navigator.clipboard.writeText(code.textContent).then(done, fallback);
+    } else if (fallback) {
+      fallback();
     }
+  };
+  btn.addEventListener('click', function () { copy(select); });
+  /* An agent link copies the prompt as it opens, for the ones that open empty. */
+  document.querySelectorAll('.ai-app').forEach(function (a) {
+    a.addEventListener('click', function () { copy(null); });
   });
 })();
 `;
@@ -263,6 +268,11 @@ ${p.features.map((f, i) => `      <article class="card feat">
           <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="${esc(tr('cli.copied'))}">${esc(tr('cli.copy'))}</button>
         </div>
         <pre id="ai-prompt"><code>${esc(AI_PROMPT)}</code></pre>
+        <div class="cli-open">
+          <span>${esc(tr('cli.open'))}</span>
+${AI_APPS.map(([id, name]) => `          <a class="ai-app" data-ai="${id}" href="${esc(aiAppUrl(id, AI_PROMPT))}" target="_blank" rel="noopener" title="${esc(name)}"><img src="${prefix}assets/img/ai/${id}.svg" alt="${esc(name)}" width="22" height="22"></a>`).join('\n')}
+        </div>
+        <p class="cli-openhint">${esc(tr('cli.openhint'))}</p>
       </div>
     </div>
   </div>
@@ -514,6 +524,9 @@ function homePage(locale) {
   /* The full prompt carries the first idea's request, in this language. */
   html = html.replace(/(<pre id="ai-prompt"><code>)[\s\S]*?(<\/code><\/pre>)/,
     (_, a, b) => a + esc(aiPrompt(t(`idea.${IDEAS[0]}.p`))) + b);
+  /* And so do the links that open it in Claude, ChatGPT and Cursor. */
+  html = html.replace(/(<a class="ai-app" data-ai="([\w-]+)" href=")[^"]*"/g,
+    (_, a, id) => a + esc(aiAppUrl(id, aiPrompt(t(`idea.${IDEAS[0]}.p`)))) + '"');
 
   html = html
     .replace('<html lang="en" data-home="en">', `<html lang="${locale.code}" data-home="${locale.code}">`)
