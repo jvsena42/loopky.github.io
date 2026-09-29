@@ -265,7 +265,7 @@ ${p.features.map((f, i) => `      <article class="card feat">
         <pre id="ai-prompt"><code>${esc(AI_PROMPT)}</code></pre>
         <div class="cli-open">
           <span>${esc(tr('cli.open'))}</span>
-${AI_APPS.map(([id, name]) => `          <a class="ai-app" data-ai="${id}" href="${esc(aiAppUrl(id, AI_PROMPT))}" target="_blank" rel="noopener">${esc(name)}</a>`).join('\n')}
+${AI_APPS.map(([id, name]) => `          <a class="ai-app" data-ai="${id}" href="${esc(aiAppUrl(id, AI_PROMPT))}" target="_blank" rel="noopener" title="${esc(name)}"><img src="${prefix}assets/img/ai/${id}.svg" alt="${esc(name)}" width="22" height="22"></a>`).join('\n')}
         </div>
       </div>
     </div>

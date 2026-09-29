@@ -563,14 +563,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .cli-open span { margin-right: 2px; }
 .ai-app {
-  display: inline-flex; align-items: center;
-  padding: 6px 13px; border-radius: var(--r-pill);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 38px; height: 38px; border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .06);
-  color: #EDEBF1; text-decoration: none;
-  font-size: .88rem; font-weight: 600; text-transform: none; letter-spacing: 0;
-  transition: background .15s, border-color .15s;
+  transition: background .15s, border-color .15s, transform .15s;
 }
-.ai-app:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .28); color: #fff; }
+.ai-app img { display: block; width: 20px; height: 20px; }
+.ai-app:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .28); transform: translateY(-1px); }
 .ai-app:focus-visible { outline: 2px solid #FF8A3D; outline-offset: 2px; }
 
 /* ---------- steps ---------- */
