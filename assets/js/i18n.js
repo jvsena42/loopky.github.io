@@ -58,18 +58,20 @@ function aiPrompt(ask) {
     function () { return 'What I want:\n' + String(ask).trim(); });
 }
 
-/* The AI apps the prompt box opens directly, each with the prompt already typed in. */
+/* The coding agents the prompt box opens, each in a sandbox that can run the Loopky
+   CLI rather than a plain chat. The last field says whether the link fills in the
+   prompt; the others open empty, and the click copies the prompt to paste. */
 var AI_APPS = [
-  ['claude', 'Claude', 'https://claude.ai/new?q='],
-  ['chatgpt', 'ChatGPT', 'https://chatgpt.com/?q='],
-  ['gemini', 'Gemini', 'https://gemini.google.com/app?q='],
-  ['grok', 'Grok', 'https://grok.com/?q='],
-  ['cursor', 'Cursor', 'https://cursor.com/link/prompt?text=']
+  ['claude-code', 'Claude Code', 'https://claude.ai/code?prompt=', true],
+  ['codex', 'Codex', 'https://chatgpt.com/codex', false],
+  ['jules', 'Jules', 'https://jules.google.com/', false],
+  ['cursor', 'Cursor', 'https://cursor.com/link/prompt?text=', true]
 ];
 
 function aiAppUrl(id, prompt) {
   for (var i = 0; i < AI_APPS.length; i++) {
-    if (AI_APPS[i][0] === id) return AI_APPS[i][2] + encodeURIComponent(prompt);
+    var app = AI_APPS[i];
+    if (app[0] === id) return app[3] ? app[2] + encodeURIComponent(prompt) : app[2];
   }
   return null;
 }
@@ -123,6 +125,7 @@ var I18N = {
   'cli.docs': 'Read the CLI docs', 'cli.promptlabel': 'Prompt for your AI',
   'cli.copy': 'Copy', 'cli.copied': 'Copied',
   'cli.open': 'Open in',
+  'cli.openhint': 'Claude Code and Cursor open with the prompt filled in. Codex and Jules open empty: the prompt is copied, so paste it.',
   'cli.pick': 'Start from an idea', 'cli.asklabel': 'Your request',
   'cli.hint': 'Copy adds the setup steps, so your AI can install Loopky, write the cards and publish the deck.',
   'cli.full': 'See the full prompt',
@@ -215,6 +218,7 @@ var I18N = {
   'cli.docs': 'Ler a documentação da CLI', 'cli.promptlabel': 'Prompt para sua IA',
   'cli.copy': 'Copiar', 'cli.copied': 'Copiado',
   'cli.open': 'Abrir em',
+  'cli.openhint': 'Claude Code e Cursor abrem com o prompt preenchido. Codex e Jules abrem vazios: o prompt é copiado, é só colar.',
   'cli.pick': 'Comece por uma ideia', 'cli.asklabel': 'Seu pedido',
   'cli.hint': 'Ao copiar, entram os passos de instalação, para a sua IA instalar o Loopky, escrever as cartas e publicar o baralho.',
   'cli.full': 'Ver o prompt completo',
@@ -307,6 +311,7 @@ var I18N = {
   'cli.docs': 'Ver la documentación de la CLI', 'cli.promptlabel': 'Prompt para tu IA',
   'cli.copy': 'Copiar', 'cli.copied': 'Copiado',
   'cli.open': 'Abrir en',
+  'cli.openhint': 'Claude Code y Cursor se abren con el prompt ya escrito. Codex y Jules se abren vacíos: el prompt se copia, solo pégalo.',
   'cli.pick': 'Empieza con una idea', 'cli.asklabel': 'Tu pedido',
   'cli.hint': 'Al copiar se añaden los pasos de instalación, para que tu IA instale Loopky, escriba las tarjetas y publique el mazo.',
   'cli.full': 'Ver el prompt completo',
@@ -399,6 +404,7 @@ var I18N = {
   'cli.docs': 'Lire la doc de la CLI', 'cli.promptlabel': 'Prompt pour ton IA',
   'cli.copy': 'Copier', 'cli.copied': 'Copié',
   'cli.open': 'Ouvrir dans',
+  'cli.openhint': 'Claude Code et Cursor s’ouvrent avec le prompt déjà rempli. Codex et Jules s’ouvrent vides : le prompt est copié, il suffit de le coller.',
   'cli.pick': 'Pars d’une idée', 'cli.asklabel': 'Ta demande',
   'cli.hint': 'La copie ajoute les étapes d’installation, pour que ton IA installe Loopky, écrive les cartes et publie le paquet.',
   'cli.full': 'Voir le prompt complet',
@@ -491,6 +497,7 @@ var I18N = {
   'cli.docs': 'CLI-Doku lesen', 'cli.promptlabel': 'Prompt für deine KI',
   'cli.copy': 'Kopieren', 'cli.copied': 'Kopiert',
   'cli.open': 'Öffnen in',
+  'cli.openhint': 'Claude Code und Cursor öffnen sich mit dem Prompt. Codex und Jules öffnen sich leer: Der Prompt wird kopiert, füge ihn einfach ein.',
   'cli.pick': 'Starte mit einer Idee', 'cli.asklabel': 'Deine Anfrage',
   'cli.hint': 'Beim Kopieren kommen die Einrichtungsschritte dazu, damit deine KI Loopky installiert, die Karten schreibt und den Stapel veröffentlicht.',
   'cli.full': 'Ganzen Prompt anzeigen',
@@ -583,6 +590,7 @@ var I18N = {
   'cli.docs': 'Leggi la documentazione della CLI', 'cli.promptlabel': 'Prompt per la tua IA',
   'cli.copy': 'Copia', 'cli.copied': 'Copiato',
   'cli.open': 'Apri in',
+  'cli.openhint': 'Claude Code e Cursor si aprono con il prompt già inserito. Codex e Jules si aprono vuoti: il prompt viene copiato, basta incollarlo.',
   'cli.pick': 'Parti da un’idea', 'cli.asklabel': 'La tua richiesta',
   'cli.hint': 'Copiando si aggiungono i passaggi di installazione, così la tua IA installa Loopky, scrive le carte e pubblica il mazzo.',
   'cli.full': 'Vedi il prompt completo',
@@ -675,6 +683,7 @@ var I18N = {
   'cli.docs': 'CLI のドキュメント', 'cli.promptlabel': 'AI に渡すプロンプト',
   'cli.copy': 'コピー', 'cli.copied': 'コピーしました',
   'cli.open': 'AIで開く',
+  'cli.openhint': 'Claude Code と Cursor はプロンプトが入力された状態で開きます。Codex と Jules は空で開くので、コピーされたプロンプトを貼り付けてください。',
   'cli.pick': 'アイデアから始める', 'cli.asklabel': 'あなたのリクエスト',
   'cli.hint': 'コピーするとセットアップ手順も付くので、AI が Loopky をインストールし、カードを書いてデッキを公開します。',
   'cli.full': 'プロンプト全文を見る',
@@ -767,6 +776,7 @@ var I18N = {
   'cli.docs': 'CLI 문서 보기', 'cli.promptlabel': 'AI에게 줄 프롬프트',
   'cli.copy': '복사', 'cli.copied': '복사됨',
   'cli.open': 'AI에서 열기',
+  'cli.openhint': 'Claude Code와 Cursor는 프롬프트가 입력된 채로 열립니다. Codex와 Jules는 빈 화면으로 열리니, 복사된 프롬프트를 붙여넣으세요.',
   'cli.pick': '아이디어로 시작하기', 'cli.asklabel': '내 요청',
   'cli.hint': '복사하면 설치 단계가 함께 붙어서, AI가 Loopky를 설치하고 카드를 쓰고 덱을 공개합니다.',
   'cli.full': '전체 프롬프트 보기',
@@ -859,6 +869,7 @@ var I18N = {
   'cli.docs': 'Đọc tài liệu CLI', 'cli.promptlabel': 'Prompt cho AI của bạn',
   'cli.copy': 'Sao chép', 'cli.copied': 'Đã sao chép',
   'cli.open': 'Mở trong',
+  'cli.openhint': 'Claude Code và Cursor mở ra với prompt đã điền sẵn. Codex và Jules mở trống: prompt đã được sao chép, bạn chỉ cần dán vào.',
   'cli.pick': 'Bắt đầu từ một ý tưởng', 'cli.asklabel': 'Yêu cầu của bạn',
   'cli.hint': 'Khi sao chép sẽ kèm các bước cài đặt, để AI cài Loopky, viết thẻ và đăng bộ thẻ.',
   'cli.full': 'Xem toàn bộ prompt',
@@ -951,6 +962,7 @@ var I18N = {
   'cli.docs': '查看 CLI 文档', 'cli.promptlabel': '给 AI 的提示词',
   'cli.copy': '复制', 'cli.copied': '已复制',
   'cli.open': '在 AI 中打开',
+  'cli.openhint': 'Claude Code 和 Cursor 打开时已填好提示词。Codex 和 Jules 打开时是空的：提示词已复制，粘贴即可。',
   'cli.pick': '从一个点子开始', 'cli.asklabel': '你的请求',
   'cli.hint': '复制时会带上安装步骤，AI 会安装 Loopky、写好卡片并发布卡组。',
   'cli.full': '查看完整提示词',
@@ -1043,6 +1055,7 @@ var I18N = {
   'cli.docs': '查看 CLI 文件', 'cli.promptlabel': '給 AI 的提示詞',
   'cli.copy': '複製', 'cli.copied': '已複製',
   'cli.open': '在 AI 中開啟',
+  'cli.openhint': 'Claude Code 和 Cursor 開啟時已填好提示詞。Codex 和 Jules 開啟時是空的：提示詞已複製，貼上即可。',
   'cli.pick': '從一個點子開始', 'cli.asklabel': '你的請求',
   'cli.hint': '複製時會附上安裝步驟，AI 會安裝 Loopky、寫好卡片並發布牌組。',
   'cli.full': '查看完整提示詞',

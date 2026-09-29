@@ -570,6 +570,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .ai-app img { display: block; width: 20px; height: 20px; }
 .ai-app:hover { background: rgba(255, 255, 255, .12); border-color: rgba(255, 255, 255, .28); transform: translateY(-1px); }
+.cli-openhint { margin: -4px 0 0; padding: 0 18px 14px; color: rgba(255, 255, 255, .55); font-size: .82rem; }
 .ai-app:focus-visible { outline: 2px solid #FF8A3D; outline-offset: 2px; }
 
 /* ---------- steps ---------- */

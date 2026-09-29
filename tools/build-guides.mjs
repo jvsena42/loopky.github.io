@@ -164,16 +164,21 @@ const COPY_SCRIPT = `
     s.removeAllRanges();
     s.addRange(r);
   };
-  btn.addEventListener('click', function () {
+  var copy = function (fallback) {
     var done = function () {
       btn.textContent = btn.getAttribute('data-copied');
       setTimeout(function () { btn.textContent = label; }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(code.textContent).then(done, select);
-    } else {
-      select();
+      navigator.clipboard.writeText(code.textContent).then(done, fallback);
+    } else if (fallback) {
+      fallback();
     }
+  };
+  btn.addEventListener('click', function () { copy(select); });
+  /* An agent link copies the prompt as it opens, for the ones that open empty. */
+  document.querySelectorAll('.ai-app').forEach(function (a) {
+    a.addEventListener('click', function () { copy(null); });
   });
 })();
 `;
@@ -267,6 +272,7 @@ ${p.features.map((f, i) => `      <article class="card feat">
           <span>${esc(tr('cli.open'))}</span>
 ${AI_APPS.map(([id, name]) => `          <a class="ai-app" data-ai="${id}" href="${esc(aiAppUrl(id, AI_PROMPT))}" target="_blank" rel="noopener" title="${esc(name)}"><img src="${prefix}assets/img/ai/${id}.svg" alt="${esc(name)}" width="22" height="22"></a>`).join('\n')}
         </div>
+        <p class="cli-openhint">${esc(tr('cli.openhint'))}</p>
       </div>
     </div>
   </div>
