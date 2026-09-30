@@ -263,51 +263,24 @@
           <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="Copied">Copy</button>
         </div>
         <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
-If you have the loopky skill (the Loopky plugin for Claude Code or Codex),
-follow it instead of the steps below: it is the maintained version of them.
 
 Topic: &lt;WHAT I WANT TO LEARN&gt;
 Cards: &lt;HOW MANY&gt;
 
-Steps:
-1. Install the CLI if it is missing:
-   curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
-   Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
-2. Read the command surface first: loopky commands --json
-3. Check the network: loopky doctor --json
-   If it exits 14 or 15, stop. Your sandbox blocks hosts Loopky needs.
-   Show me its next_step: the hosts to add to your allowlist, and where.
-4. Log in: loopky login --json --timeout 300
-   Show me the QR code, and also the auth_url link it prints, in a code block.
-   If Pubky Ring is on the device I am chatting from, I open the link there instead.
-   The link is a login secret until I approve it: only show it to me here.
-5. Write the cards to cards.tsv, one card per line:
-   front &lt;TAB&gt; back
-   Two more columns are optional: an https image URL for each side.
-6. Check before you write anything:
-   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --from-file cards.tsv --dry-run --json
-7. Publish it:
-   loopky deck create --title &quot;&lt;TITLE&gt;&quot; --tag &lt;TOPIC&gt; --from-file cards.tsv
-   Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
-8. Show me the result: loopky deck show &lt;deckId&gt; --json
-
-I already have an Anki file? Import it instead:
-   loopky import deck.apkg --dry-run --json
-   loopky import deck.apkg --title &quot;&lt;TITLE&gt;&quot;
-
-Rules:
-- Every command takes --json, and the result sits under &quot;data&quot;.
-- Always run --dry-run before a command that writes.
-- Exit 14 or 15 is the network, not your input: never retry it. Ask me.
-- Image URLs must be https, and no SVG or TIFF. Those do not render.
-- One fact per card. If a card breaks a rule, fix it before you show me the list.
-- Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
+Use the loopky skill from the Loopky plugin for Claude Code. It installs with:
+   /plugin marketplace add jvsena42/loopky
+   /plugin install loopky@loopky
+Not installed? Read the skill and follow it:
+   https://github.com/jvsena42/loopky/blob/main/plugins/loopky/skills/loopky/SKILL.md
+   Its CLI installer is published with each release:
+   https://github.com/jvsena42/loopky/releases/latest/download/install.sh
+   Windows: https://github.com/jvsena42/loopky/releases/latest/download/install.ps1</code></pre>
         <div class="cli-open">
           <span>Open in</span>
-          <a class="ai-app" data-ai="claude-code" href="https://claude.ai/code?prompt=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0AIf%20you%20have%20the%20loopky%20skill%20(the%20Loopky%20plugin%20for%20Claude%20Code%20or%20Codex)%2C%0Afollow%20it%20instead%20of%20the%20steps%20below%3A%20it%20is%20the%20maintained%20version%20of%20them.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0ASteps%3A%0A1.%20Install%20the%20CLI%20if%20it%20is%20missing%3A%0A%20%20%20curl%20-fsSL%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%20%7C%20sh%0A%20%20%20Windows%3A%20irm%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1%20%7C%20iex%0A2.%20Read%20the%20command%20surface%20first%3A%20loopky%20commands%20--json%0A3.%20Check%20the%20network%3A%20loopky%20doctor%20--json%0A%20%20%20If%20it%20exits%2014%20or%2015%2C%20stop.%20Your%20sandbox%20blocks%20hosts%20Loopky%20needs.%0A%20%20%20Show%20me%20its%20next_step%3A%20the%20hosts%20to%20add%20to%20your%20allowlist%2C%20and%20where.%0A4.%20Log%20in%3A%20loopky%20login%20--json%20--timeout%20300%0A%20%20%20Show%20me%20the%20QR%20code%2C%20and%20also%20the%20auth_url%20link%20it%20prints%2C%20in%20a%20code%20block.%0A%20%20%20If%20Pubky%20Ring%20is%20on%20the%20device%20I%20am%20chatting%20from%2C%20I%20open%20the%20link%20there%20instead.%0A%20%20%20The%20link%20is%20a%20login%20secret%20until%20I%20approve%20it%3A%20only%20show%20it%20to%20me%20here.%0A5.%20Write%20the%20cards%20to%20cards.tsv%2C%20one%20card%20per%20line%3A%0A%20%20%20front%20%3CTAB%3E%20back%0A%20%20%20Two%20more%20columns%20are%20optional%3A%20an%20https%20image%20URL%20for%20each%20side.%0A6.%20Check%20before%20you%20write%20anything%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--from-file%20cards.tsv%20--dry-run%20--json%0A7.%20Publish%20it%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--tag%20%3CTOPIC%3E%20--from-file%20cards.tsv%0A%20%20%20Language%20deck%3A%20add%20--front-lang%20en-US%20--back-lang%20es-ES%20--listen%20--speak%0A8.%20Show%20me%20the%20result%3A%20loopky%20deck%20show%20%3CdeckId%3E%20--json%0A%0AI%20already%20have%20an%20Anki%20file%3F%20Import%20it%20instead%3A%0A%20%20%20loopky%20import%20deck.apkg%20--dry-run%20--json%0A%20%20%20loopky%20import%20deck.apkg%20--title%20%22%3CTITLE%3E%22%0A%0ARules%3A%0A-%20Every%20command%20takes%20--json%2C%20and%20the%20result%20sits%20under%20%22data%22.%0A-%20Always%20run%20--dry-run%20before%20a%20command%20that%20writes.%0A-%20Exit%2014%20or%2015%20is%20the%20network%2C%20not%20your%20input%3A%20never%20retry%20it.%20Ask%20me.%0A-%20Image%20URLs%20must%20be%20https%2C%20and%20no%20SVG%20or%20TIFF.%20Those%20do%20not%20render.%0A-%20One%20fact%20per%20card.%20If%20a%20card%20breaks%20a%20rule%2C%20fix%20it%20before%20you%20show%20me%20the%20list.%0A-%20Do%20not%20invent%20cards%20I%20did%20not%20ask%20for.%20Show%20me%20the%20list%20before%20publishing." target="_blank" rel="noopener" title="Claude Code"><img src="../assets/img/ai/claude-code.svg" alt="Claude Code" width="22" height="22"></a>
+          <a class="ai-app" data-ai="claude-code" href="https://claude.ai/code?prompt=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0AUse%20the%20loopky%20skill%20from%20the%20Loopky%20plugin%20for%20Claude%20Code.%20It%20installs%20with%3A%0A%20%20%20%2Fplugin%20marketplace%20add%20jvsena42%2Floopky%0A%20%20%20%2Fplugin%20install%20loopky%40loopky%0ANot%20installed%3F%20Read%20the%20skill%20and%20follow%20it%3A%0A%20%20%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Fblob%2Fmain%2Fplugins%2Floopky%2Fskills%2Floopky%2FSKILL.md%0A%20%20%20Its%20CLI%20installer%20is%20published%20with%20each%20release%3A%0A%20%20%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%0A%20%20%20Windows%3A%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1" target="_blank" rel="noopener" title="Claude Code"><img src="../assets/img/ai/claude-code.svg" alt="Claude Code" width="22" height="22"></a>
           <a class="ai-app" data-ai="codex" href="https://chatgpt.com/codex" target="_blank" rel="noopener" title="Codex"><img src="../assets/img/ai/codex.svg" alt="Codex" width="22" height="22"></a>
           <a class="ai-app" data-ai="jules" href="https://jules.google.com/" target="_blank" rel="noopener" title="Jules"><img src="../assets/img/ai/jules.svg" alt="Jules" width="22" height="22"></a>
-          <a class="ai-app" data-ai="cursor" href="https://cursor.com/link/prompt?text=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0AIf%20you%20have%20the%20loopky%20skill%20(the%20Loopky%20plugin%20for%20Claude%20Code%20or%20Codex)%2C%0Afollow%20it%20instead%20of%20the%20steps%20below%3A%20it%20is%20the%20maintained%20version%20of%20them.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0ASteps%3A%0A1.%20Install%20the%20CLI%20if%20it%20is%20missing%3A%0A%20%20%20curl%20-fsSL%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%20%7C%20sh%0A%20%20%20Windows%3A%20irm%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1%20%7C%20iex%0A2.%20Read%20the%20command%20surface%20first%3A%20loopky%20commands%20--json%0A3.%20Check%20the%20network%3A%20loopky%20doctor%20--json%0A%20%20%20If%20it%20exits%2014%20or%2015%2C%20stop.%20Your%20sandbox%20blocks%20hosts%20Loopky%20needs.%0A%20%20%20Show%20me%20its%20next_step%3A%20the%20hosts%20to%20add%20to%20your%20allowlist%2C%20and%20where.%0A4.%20Log%20in%3A%20loopky%20login%20--json%20--timeout%20300%0A%20%20%20Show%20me%20the%20QR%20code%2C%20and%20also%20the%20auth_url%20link%20it%20prints%2C%20in%20a%20code%20block.%0A%20%20%20If%20Pubky%20Ring%20is%20on%20the%20device%20I%20am%20chatting%20from%2C%20I%20open%20the%20link%20there%20instead.%0A%20%20%20The%20link%20is%20a%20login%20secret%20until%20I%20approve%20it%3A%20only%20show%20it%20to%20me%20here.%0A5.%20Write%20the%20cards%20to%20cards.tsv%2C%20one%20card%20per%20line%3A%0A%20%20%20front%20%3CTAB%3E%20back%0A%20%20%20Two%20more%20columns%20are%20optional%3A%20an%20https%20image%20URL%20for%20each%20side.%0A6.%20Check%20before%20you%20write%20anything%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--from-file%20cards.tsv%20--dry-run%20--json%0A7.%20Publish%20it%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--tag%20%3CTOPIC%3E%20--from-file%20cards.tsv%0A%20%20%20Language%20deck%3A%20add%20--front-lang%20en-US%20--back-lang%20es-ES%20--listen%20--speak%0A8.%20Show%20me%20the%20result%3A%20loopky%20deck%20show%20%3CdeckId%3E%20--json%0A%0AI%20already%20have%20an%20Anki%20file%3F%20Import%20it%20instead%3A%0A%20%20%20loopky%20import%20deck.apkg%20--dry-run%20--json%0A%20%20%20loopky%20import%20deck.apkg%20--title%20%22%3CTITLE%3E%22%0A%0ARules%3A%0A-%20Every%20command%20takes%20--json%2C%20and%20the%20result%20sits%20under%20%22data%22.%0A-%20Always%20run%20--dry-run%20before%20a%20command%20that%20writes.%0A-%20Exit%2014%20or%2015%20is%20the%20network%2C%20not%20your%20input%3A%20never%20retry%20it.%20Ask%20me.%0A-%20Image%20URLs%20must%20be%20https%2C%20and%20no%20SVG%20or%20TIFF.%20Those%20do%20not%20render.%0A-%20One%20fact%20per%20card.%20If%20a%20card%20breaks%20a%20rule%2C%20fix%20it%20before%20you%20show%20me%20the%20list.%0A-%20Do%20not%20invent%20cards%20I%20did%20not%20ask%20for.%20Show%20me%20the%20list%20before%20publishing." target="_blank" rel="noopener" title="Cursor"><img src="../assets/img/ai/cursor.svg" alt="Cursor" width="22" height="22"></a>
+          <a class="ai-app" data-ai="cursor" href="https://cursor.com/link/prompt?text=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0AUse%20the%20loopky%20skill%20from%20the%20Loopky%20plugin%20for%20Claude%20Code.%20It%20installs%20with%3A%0A%20%20%20%2Fplugin%20marketplace%20add%20jvsena42%2Floopky%0A%20%20%20%2Fplugin%20install%20loopky%40loopky%0ANot%20installed%3F%20Read%20the%20skill%20and%20follow%20it%3A%0A%20%20%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Fblob%2Fmain%2Fplugins%2Floopky%2Fskills%2Floopky%2FSKILL.md%0A%20%20%20Its%20CLI%20installer%20is%20published%20with%20each%20release%3A%0A%20%20%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%0A%20%20%20Windows%3A%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1" target="_blank" rel="noopener" title="Cursor"><img src="../assets/img/ai/cursor.svg" alt="Cursor" width="22" height="22"></a>
         </div>
         <p class="cli-openhint">Claude Code and Cursor open with the prompt filled in. Codex and Jules open empty: the prompt is copied, so paste it.</p>
       </div>

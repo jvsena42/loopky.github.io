@@ -276,26 +276,21 @@ Writing cards is the slow part of flashcards. An AI is good at it: it can turn a
 
 ### The prompt
 
-Copy this into your AI agent, fill in the topic, and let it run. It installs the tool if needed, logs in (you approve with a QR code in Pubky Ring), writes the cards, checks them, and publishes.
+Copy this into your AI agent and fill in the topic. It points the agent to the Loopky plugin's skill, which installs the tool if needed, logs in (you approve with a QR code in Pubky Ring), writes the cards, checks them, and publishes.
 ```
 Build me a Loopky flashcard deck with the Loopky CLI.
-If you have the loopky skill (the Loopky plugin for Claude Code or Codex),
-follow it instead of the steps below: it is the maintained version of them.
 
 Topic: <WHAT I WANT TO LEARN>
 Cards: <HOW MANY>
 
-Steps:
-1. Install the CLI if it is missing:
-curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh
-Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex
-2. Read the command surface first: loopky commands --json
-3. Check the network: loopky doctor --json (exit 14 or 15: stop, show me its next_step)
-4. Log in: loopky login --json --timeout 300 (show me the QR and the auth_url link in a code block: on a phone with Pubky Ring, I open the link; it is a login secret until approved, so only in this chat)
-5. Write the cards to cards.tsv, one card per line: front <TAB> back
-6. Check: loopky deck create --title &quot;<TITLE>&quot; --from-file cards.tsv --dry-run --json
-7. Publish: loopky deck create --title &quot;<TITLE>&quot; --tag <TOPIC> --from-file cards.tsv
-Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
+Use the loopky skill from the Loopky plugin for Claude Code. It installs with:
+   /plugin marketplace add jvsena42/loopky
+   /plugin install loopky@loopky
+Not installed? Read the skill and follow it:
+   https://github.com/jvsena42/loopky/blob/main/plugins/loopky/skills/loopky/SKILL.md
+   Its CLI installer is published with each release:
+   https://github.com/jvsena42/loopky/releases/latest/download/install.sh
+   Windows: https://github.com/jvsena42/loopky/releases/latest/download/install.ps1
 ```
 The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
 

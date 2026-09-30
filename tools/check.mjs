@@ -126,10 +126,10 @@ if (I18N) {
   if (unused.length) note(`defined but never used: ${unused.join(', ')}`);
 }
 
-/* ---- 4. the AI prompt still names the real commands ---- */
+/* ---- 4. the AI prompt still points to the plugin and its skill ---- */
 
 if (AI_PROMPT) {
-  const required = ['loopky login', 'loopky deck create', 'loopky import', '--dry-run', '--json'];
+  const required = ['/plugin install loopky@loopky', 'plugins/loopky/skills/loopky/SKILL.md'];
   for (const cmd of required) {
     if (!AI_PROMPT.includes(cmd)) fail(`the AI prompt no longer mentions \`${cmd}\``);
   }

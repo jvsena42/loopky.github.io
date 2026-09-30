@@ -6,48 +6,22 @@
 var SLOGAN = 'Learn anything, remember everything.';
 
 /* The prompt stays in English in every locale: it is read by an agent, and the
-   commands it names are literal. */
+   commands it names are literal. The workflow itself lives in the plugin's skill,
+   so the prompt only points there. */
 var AI_PROMPT = [
   'Build me a Loopky flashcard deck with the Loopky CLI.',
-  'If you have the loopky skill (the Loopky plugin for Claude Code or Codex),',
-  'follow it instead of the steps below: it is the maintained version of them.',
   '',
   'Topic: <WHAT I WANT TO LEARN>',
   'Cards: <HOW MANY>',
   '',
-  'Steps:',
-  '1. Install the CLI if it is missing:',
-  '   curl -fsSL https://github.com/jvsena42/loopky/releases/latest/download/install.sh | sh',
-  '   Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install.ps1 | iex',
-  '2. Read the command surface first: loopky commands --json',
-  '3. Check the network: loopky doctor --json',
-  '   If it exits 14 or 15, stop. Your sandbox blocks hosts Loopky needs.',
-  '   Show me its next_step: the hosts to add to your allowlist, and where.',
-  '4. Log in: loopky login --json --timeout 300',
-  '   Show me the QR code, and also the auth_url link it prints, in a code block.',
-  '   If Pubky Ring is on the device I am chatting from, I open the link there instead.',
-  '   The link is a login secret until I approve it: only show it to me here.',
-  '5. Write the cards to cards.tsv, one card per line:',
-  '   front <TAB> back',
-  '   Two more columns are optional: an https image URL for each side.',
-  '6. Check before you write anything:',
-  '   loopky deck create --title "<TITLE>" --from-file cards.tsv --dry-run --json',
-  '7. Publish it:',
-  '   loopky deck create --title "<TITLE>" --tag <TOPIC> --from-file cards.tsv',
-  '   Language deck: add --front-lang en-US --back-lang es-ES --listen --speak',
-  '8. Show me the result: loopky deck show <deckId> --json',
-  '',
-  'I already have an Anki file? Import it instead:',
-  '   loopky import deck.apkg --dry-run --json',
-  '   loopky import deck.apkg --title "<TITLE>"',
-  '',
-  'Rules:',
-  '- Every command takes --json, and the result sits under "data".',
-  '- Always run --dry-run before a command that writes.',
-  '- Exit 14 or 15 is the network, not your input: never retry it. Ask me.',
-  '- Image URLs must be https, and no SVG or TIFF. Those do not render.',
-  '- One fact per card. If a card breaks a rule, fix it before you show me the list.',
-  '- Do not invent cards I did not ask for. Show me the list before publishing.'
+  'Use the loopky skill from the Loopky plugin for Claude Code. It installs with:',
+  '   /plugin marketplace add jvsena42/loopky',
+  '   /plugin install loopky@loopky',
+  'Not installed? Read the skill and follow it:',
+  '   https://github.com/jvsena42/loopky/blob/main/plugins/loopky/skills/loopky/SKILL.md',
+  '   Its CLI installer is published with each release:',
+  '   https://github.com/jvsena42/loopky/releases/latest/download/install.sh',
+  '   Windows: https://github.com/jvsena42/loopky/releases/latest/download/install.ps1'
 ].join('\n');
 
 /* The ideas the home page offers, in the order it shows them. Each has a title and a
