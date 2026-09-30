@@ -150,8 +150,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini · Loopky",
-      "desc": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, slide hay ảnh chụp ghi chú. AI sẽ viết và đăng một bộ thẻ để bạn học trên điện thoại với lặp lại ngắt quãng.",
+      "title": "Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini, nhập được Anki · Loopky",
+      "desc": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có plugin cho Claude Code và Codex.",
       "crumb": "Thẻ ghi nhớ do AI tạo",
       "card": "Thẻ ghi nhớ do AI tạo",
       "blurb": "Claude, ChatGPT hoặc Gemini viết bộ thẻ giúp bạn.",
@@ -173,9 +173,10 @@
       ],
       "faq": [
         ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được trong các ứng dụng chat AI và với agent như Claude Code, Codex, Gemini CLI."],
+        ["Có plugin cho Claude Code hoặc Codex không?", "Có. Trong Claude Code, chạy /plugin marketplace add jvsena42/loopky, rồi /plugin install loopky@loopky. Trong Codex, chạy codex plugin marketplace add jvsena42/loopky, rồi codex plugin add loopky@loopky. Sau đó chỉ cần yêu cầu flashcard: plugin biết mọi bước nên bạn không cần prompt."],
         ["AI có nhập được bộ thẻ Anki của tôi không?", "Có. loopky import deck.apkg nhập một gói Anki, và --dry-run cho xem kết quả trước."],
         ["Công cụ này không làm được gì?", "Nó không thể đăng bài, theo dõi người khác hay sửa hồ sơ của bạn. Nó chỉ quản lý bộ thẻ và thẻ."],
-        ["Có chạy được trong Claude Code trên web hoặc Codex không?", "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox có kiểm tra TLS thì hiện chưa dùng được."],
+        ["Có chạy được trong Claude Code trên web hoặc Codex không?", "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Với plugin, Claude Code bản web tự cài CLI. Sandbox có kiểm tra TLS sẽ dùng được khi chứng chỉ của nó được chỉ định bằng SSL_CERT_FILE."],
         ["Nó có thể biến những tệp nào thành thẻ?", "Bất cứ thứ gì AI của bạn đọc được: PDF, tệp Word và PowerPoint, bảng tính, ảnh chụp ghi chú, phụ đề và trang web."]
       ]
     },

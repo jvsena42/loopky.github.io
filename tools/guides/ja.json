@@ -150,8 +150,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "AI で単語カードを作る：Claude、ChatGPT、Gemini · Loopky",
-      "desc": "トピック、PDF、スライド、ノートの写真を Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードのデッキを書いて公開し、スマートフォンで間隔反復を使って学べます。",
+      "title": "AI で単語カードを作る：Claude、ChatGPT、Gemini、Anki インポート対応 · Loopky",
+      "desc": "トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude Code と Codex 用のプラグインもあります。",
       "crumb": "AI が作る単語カード",
       "card": "AI が作る単語カード",
       "blurb": "Claude、ChatGPT、Gemini がデッキを書いてくれます。",
@@ -173,9 +173,10 @@
       ],
       "faq": [
         ["プログラミングの知識は必要ですか？", "いいえ。プロンプトを AI に貼り付けて、トピックかファイルを渡せば、あとは AI がすべて進めます。AI チャットアプリや、Claude Code、Codex、Gemini CLI などのエージェントで使えます。"],
+        ["Claude Code や Codex 用のプラグインはありますか？", "はい。Claude Code では /plugin marketplace add jvsena42/loopky を実行してから /plugin install loopky@loopky を実行します。Codex では codex plugin marketplace add jvsena42/loopky を実行してから codex plugin add loopky@loopky を実行します。あとは単語カードを頼むだけ。プラグインが手順をすべて把握しているので、プロンプトは不要です。"],
         ["AI は Anki デッキを取り込めますか？", "はい。loopky import deck.apkg で Anki パッケージを取り込めます。--dry-run を付けると先に結果を確認できます。"],
         ["このツールにできないことは？", "投稿、フォロー、プロフィール編集はできません。管理するのはデッキとカードだけです。"],
-        ["Claude Code on the web や Codex でも使えますか？", "はい。サンドボックスから Loopky のホストに接続できれば使えます。どちらも初期設定では許可されていません。エージェントに loopky doctor を実行させると、必要なホストと追加する場所が表示されます。Codex では「GET/HEAD/OPTIONS のみ」の設定をオフのままにしてください。TLS を検査するサンドボックスではまだ動きません。"],
+        ["Claude Code on the web や Codex でも使えますか？", "はい。サンドボックスから Loopky のホストに接続できれば使えます。どちらも初期設定では許可されていません。エージェントに loopky doctor を実行させると、必要なホストと追加する場所が表示されます。Codex では「GET/HEAD/OPTIONS のみ」の設定をオフのままにしてください。プラグインがあれば、Web 版 Claude Code は CLI を自動でインストールします。TLS を検査するサンドボックスも、その証明書を SSL_CERT_FILE で指定すれば動きます。"],
         ["どんなファイルをカードにできますか？", "AI が読めるものなら何でも。PDF、Word や PowerPoint のファイル、表計算、ノートの写真、字幕、Web ページなど。"]
       ]
     },

@@ -150,8 +150,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky",
-      "desc": "把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。",
+      "title": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky",
+      "desc": "把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。",
       "crumb": "AI 製作的記憶卡",
       "card": "AI 製作的記憶卡",
       "blurb": "讓 Claude、ChatGPT 或 Gemini 替你寫牌組。",
@@ -173,9 +173,10 @@
       ],
       "faq": [
         ["我需要會寫程式嗎？", "不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。AI 聊天應用，以及 Claude Code、Codex、Gemini CLI 等代理都能用。"],
+        ["有適用於 Claude Code 或 Codex 的外掛嗎？", "有。在 Claude Code 中執行 /plugin marketplace add jvsena42/loopky，然後執行 /plugin install loopky@loopky。在 Codex 中執行 codex plugin marketplace add jvsena42/loopky，然後執行 codex plugin add loopky@loopky。之後直接要記憶卡就行：外掛知道每一步，不需要提示詞。"],
         ["AI 能匯入我的 Anki 牌組嗎？", "能。loopky import deck.apkg 會匯入 Anki 牌組套件，加上 --dry-run 可以先看結果。"],
         ["這個工具不能做什麼？", "它不能發文、追蹤別人或修改你的個人資料。它只管理牌組和卡片。"],
-        ["能在網頁版 Claude Code 或 Codex 裡用嗎？", "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。會檢查 TLS 的沙盒目前還無法使用。"],
+        ["能在網頁版 Claude Code 或 Codex 裡用嗎？", "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。裝了外掛後，網頁版 Claude Code 會自動安裝 CLI。會檢查 TLS 的沙盒，只要用 SSL_CERT_FILE 指定它的憑證就能用。"],
         ["它能把哪些檔案變成卡片？", "只要 AI 能讀的都行：PDF、Word 和 PowerPoint 檔案、試算表、筆記照片、字幕和網頁。"]
       ]
     },

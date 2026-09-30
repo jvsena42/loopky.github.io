@@ -330,8 +330,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "Karteikarten mit KI: Claude, ChatGPT und Gemini · Loopky",
-      "desc": "Gib Claude, ChatGPT oder Gemini ein Thema, ein PDF, Folien oder ein Foto deiner Notizen. Die KI schreibt und veröffentlicht einen Karteikartenstapel, den du auf dem Handy mit verteilter Wiederholung lernst.",
+      "title": "Karteikarten mit KI in Claude, ChatGPT und Gemini, mit Anki-Import · Loopky",
+      "desc": "Gib Claude, ChatGPT oder Gemini ein Thema, ein PDF, deine Notizen oder einen Anki-Stapel. Die KI schreibt und veröffentlicht Karteikarten, die du auf dem Handy mit verteilter Wiederholung lernst. Plugin für Claude Code und Codex.",
       "crumb": "Karteikarten von der KI",
       "card": "Karteikarten von der KI",
       "blurb": "Claude, ChatGPT oder Gemini schreiben den Stapel für dich.",
@@ -377,6 +377,10 @@
           "Nein. Füg den Prompt in deine KI ein, gib dein Thema oder deine Datei dazu, und sie erledigt jeden Schritt selbst. Das klappt in KI-Chat-Apps und mit Agenten wie Claude Code, Codex und Gemini CLI."
         ],
         [
+          "Gibt es ein Plugin für Claude Code oder Codex?",
+          "Ja. In Claude Code führst du /plugin marketplace add jvsena42/loopky und dann /plugin install loopky@loopky aus. In Codex führst du codex plugin marketplace add jvsena42/loopky und dann codex plugin add loopky@loopky aus. Danach bittest du einfach um Karteikarten: Das Plugin kennt jeden Schritt, du brauchst keinen Prompt."
+        ],
+        [
           "Kann die KI meine Anki-Stapel importieren?",
           "Ja. loopky import deck.apkg importiert ein Anki-Paket, und --dry-run zeigt vorher das Ergebnis."
         ],
@@ -384,7 +388,7 @@
           "Was kann das Tool nicht?",
           "Es kann nicht posten, Leuten folgen oder dein Profil ändern. Es verwaltet nur Stapel und Karten."
         ],
-        ["Funktioniert es in Claude Code im Web oder in Codex?", "Ja, sobald deine Sandbox die Hosts von Loopky erreicht. Keine der beiden lässt sie standardmäßig durch. Lass den Agenten loopky doctor ausführen: Es listet die Hosts auf und sagt, wo du sie einträgst. In Codex die Option „nur GET/HEAD/OPTIONS“ ausgeschaltet lassen. Eine Sandbox, die TLS prüft, funktioniert noch nicht."],
+        ["Funktioniert es in Claude Code im Web oder in Codex?", "Ja, sobald deine Sandbox die Hosts von Loopky erreicht. Keine der beiden lässt sie standardmäßig durch. Lass den Agenten loopky doctor ausführen: Es listet die Hosts auf und sagt, wo du sie einträgst. In Codex die Option „nur GET/HEAD/OPTIONS“ ausgeschaltet lassen. Mit dem Plugin installiert Claude Code im Web die CLI selbst. Eine Sandbox, die TLS prüft, funktioniert, sobald ihr Zertifikat mit SSL_CERT_FILE angegeben ist."],
         ["Welche Dateien kann sie in Karten verwandeln?", "Alles, was deine KI lesen kann: PDFs, Word- und PowerPoint-Dateien, Tabellen, Fotos von Notizen, Untertitel und Webseiten."]
       ]
     },

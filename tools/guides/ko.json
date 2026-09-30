@@ -150,8 +150,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "AI로 플래시카드 만들기: Claude, ChatGPT, Gemini · Loopky",
-      "desc": "주제, PDF, 슬라이드, 노트 사진을 Claude, ChatGPT, Gemini에게 주세요. AI가 플래시카드 덱을 쓰고 공개해 주면, 휴대폰에서 간격 반복으로 공부하면 됩니다.",
+      "title": "AI로 플래시카드 만들기: Claude, ChatGPT, Gemini, Anki 가져오기 지원 · Loopky",
+      "desc": "주제, PDF, 노트, Anki 덱을 Claude, ChatGPT, Gemini에게 주세요. AI가 플래시카드를 쓰고 공개해 주면, 휴대폰에서 간격 반복으로 공부하면 됩니다. Claude Code와 Codex용 플러그인도 있습니다.",
       "crumb": "AI가 만드는 플래시카드",
       "card": "AI가 만드는 플래시카드",
       "blurb": "Claude, ChatGPT, Gemini가 덱을 써 줍니다.",
@@ -173,9 +173,10 @@
       ],
       "faq": [
         ["코딩을 알아야 하나요?", "아니요. 프롬프트를 AI에 붙여넣고 주제나 파일을 주면, 나머지는 AI가 모두 알아서 합니다. AI 채팅 앱과 Claude Code, Codex, Gemini CLI 같은 에이전트에서 쓸 수 있습니다."],
+        ["Claude Code나 Codex용 플러그인이 있나요?", "네. Claude Code에서는 /plugin marketplace add jvsena42/loopky을 실행한 다음 /plugin install loopky@loopky을 실행하세요. Codex에서는 codex plugin marketplace add jvsena42/loopky을 실행한 다음 codex plugin add loopky@loopky을 실행하세요. 그다음엔 플래시카드를 요청하기만 하면 됩니다. 플러그인이 모든 단계를 알고 있어서 프롬프트가 필요 없습니다."],
         ["AI가 내 Anki 덱을 가져올 수 있나요?", "예. loopky import deck.apkg로 Anki 패키지를 가져오고, --dry-run으로 결과를 먼저 볼 수 있습니다."],
         ["이 도구가 못 하는 것은?", "글쓰기, 다른 사람 팔로우, 프로필 수정은 못 합니다. 덱과 카드만 관리합니다."],
-        ["웹용 Claude Code나 Codex에서도 되나요?", "네, 샌드박스가 Loopky의 호스트에 접속할 수 있으면 됩니다. 두 서비스 모두 기본값으로는 허용하지 않습니다. 에이전트에게 loopky doctor를 실행하게 하면 필요한 호스트와 추가할 위치를 알려 줍니다. Codex에서는 GET/HEAD/OPTIONS 전용 옵션을 끈 채로 두세요. TLS를 검사하는 샌드박스에서는 아직 작동하지 않습니다."],
+        ["웹용 Claude Code나 Codex에서도 되나요?", "네, 샌드박스가 Loopky의 호스트에 접속할 수 있으면 됩니다. 두 서비스 모두 기본값으로는 허용하지 않습니다. 에이전트에게 loopky doctor를 실행하게 하면 필요한 호스트와 추가할 위치를 알려 줍니다. Codex에서는 GET/HEAD/OPTIONS 전용 옵션을 끈 채로 두세요. 플러그인이 있으면 웹용 Claude Code가 CLI를 직접 설치합니다. TLS를 검사하는 샌드박스도 인증서를 SSL_CERT_FILE로 지정하면 작동합니다."],
         ["어떤 파일을 카드로 만들 수 있나요?", "AI가 읽을 수 있는 것이라면 무엇이든요. PDF, Word와 PowerPoint 파일, 스프레드시트, 노트 사진, 자막, 웹 페이지까지."]
       ]
     },

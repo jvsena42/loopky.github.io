@@ -150,8 +150,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "Make flashcards with AI: Claude, ChatGPT and Gemini · Loopky",
-      "desc": "Give Claude, ChatGPT or Gemini a topic, a PDF, slides or a photo of your notes. It writes and publishes a flashcard deck you study on your phone with spaced repetition.",
+      "title": "AI flashcard maker for Claude, ChatGPT and Gemini, with Anki import · Loopky",
+      "desc": "Give Claude, ChatGPT or Gemini a topic, a PDF, your notes or an Anki deck. It writes and publishes flashcards you study on your phone with spaced repetition. Plugin for Claude Code and Codex.",
       "crumb": "Flashcards made by AI",
       "card": "Flashcards made by AI",
       "blurb": "Claude, ChatGPT or Gemini write the deck for you.",
@@ -173,9 +173,10 @@
       ],
       "faq": [
         ["Do I need to know how to code?", "No. Paste the prompt into your AI, add your topic or file, and it does every step itself. It works in AI chat apps and in agents like Claude Code, Codex and Gemini CLI."],
+        ["Is there a plugin for Claude Code or Codex?", "Yes. In Claude Code, run /plugin marketplace add jvsena42/loopky, then /plugin install loopky@loopky. In Codex, run codex plugin marketplace add jvsena42/loopky, then codex plugin add loopky@loopky. Then just ask for flashcards: the plugin knows every step, so you need no prompt."],
         ["Can the AI import my Anki decks?", "Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first."],
         ["What can the tool not do?", "It cannot post, follow people or edit your profile. It only manages decks and cards."],
-        ["Does it work in Claude Code on the web or Codex?", "Yes, once your sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS does not work yet."],
+        ["Does it work in Claude Code on the web or Codex?", "Yes, once your sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. With the plugin, Claude Code on the web installs the CLI by itself. A sandbox that inspects TLS works once its certificate is named with SSL_CERT_FILE."],
         ["What files can it turn into cards?", "Anything your AI can read: PDFs, Word and PowerPoint files, spreadsheets, photos of notes, subtitles and web pages."]
       ]
     },
