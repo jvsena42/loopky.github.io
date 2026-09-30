@@ -518,6 +518,23 @@ img { max-width: 100%; height: auto; display: block; }
   white-space: pre-wrap; word-break: break-word;
 }
 @media (max-width: 900px) { .cli-in { grid-template-columns: 1fr; } }
+/* The agent plugin (#388): the same deck, one install instead of a pasted prompt. */
+.cli-plugin {
+  margin: 0 0 18px; padding: 16px 18px;
+  background: var(--surface-card); border: 1px solid var(--border); border-radius: var(--r-sm);
+}
+.cli-plugin-h { margin: 0 0 4px; font-weight: 800; color: var(--fg); }
+.cli-plugin-p { margin: 0 0 10px; color: var(--fg-2); font-size: .93rem; }
+.cli-plugin-app {
+  margin: 10px 0 4px; color: var(--fg-muted);
+  font-size: .74rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em;
+}
+.cli-plugin pre {
+  margin: 0; padding: 10px 12px; border-radius: 10px;
+  background: var(--surface-secondary); color: var(--fg);
+  font: 400 12.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  white-space: pre-wrap; word-break: break-word;
+}
 
 /* The idea picker and the request above the full prompt. Dark in both themes, like
    the box it sits in. */
