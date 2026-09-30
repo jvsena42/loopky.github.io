@@ -330,8 +330,8 @@
       ]
     },
     "ai-flashcards": {
-      "title": "Créer des flashcards avec Claude, ChatGPT et Gemini · Loopky",
-      "desc": "Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, des diapos ou une photo de vos notes. L’IA écrit et publie un paquet de flashcards à réviser sur votre téléphone avec la répétition espacée.",
+      "title": "Flashcards par IA avec Claude, ChatGPT et Gemini, import Anki inclus · Loopky",
+      "desc": "Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Plugin pour Claude Code et Codex.",
       "crumb": "Flashcards créées par l’IA",
       "card": "Flashcards créées par l’IA",
       "blurb": "Claude, ChatGPT ou Gemini écrivent le paquet pour vous.",
@@ -377,6 +377,10 @@
           "Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Ça marche dans les apps de chat IA et avec des agents comme Claude Code, Codex et Gemini CLI."
         ],
         [
+          "Existe-t-il un plugin pour Claude Code ou Codex ?",
+          "Oui. Dans Claude Code, lancez /plugin marketplace add jvsena42/loopky, puis /plugin install loopky@loopky. Dans Codex, lancez codex plugin marketplace add jvsena42/loopky, puis codex plugin add loopky@loopky. Ensuite, demandez simplement des flashcards : le plugin connaît chaque étape, vous n'avez besoin d'aucun prompt."
+        ],
+        [
           "L’IA peut-elle importer mes paquets Anki ?",
           "Oui. loopky import deck.apkg importe un paquet Anki, et --dry-run montre d’abord le résultat."
         ],
@@ -384,7 +388,7 @@
           "Que ne peut pas faire l’outil ?",
           "Il ne peut pas poster, suivre des personnes ou modifier votre profil. Il gère seulement les paquets et les cartes."
         ],
-        ["Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?", "Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Un sandbox qui inspecte le TLS ne fonctionne pas encore."],
+        ["Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?", "Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Avec le plugin, Claude Code sur le web installe la CLI tout seul. Un sandbox qui inspecte le TLS fonctionne dès que son certificat est indiqué avec SSL_CERT_FILE."],
         ["Quels fichiers peut-elle transformer en cartes ?", "Tout ce que votre IA sait lire : PDF, fichiers Word et PowerPoint, tableurs, photos de notes, sous-titres et pages web."]
       ]
     },

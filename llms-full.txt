@@ -279,6 +279,8 @@ Writing cards is the slow part of flashcards. An AI is good at it: it can turn a
 Copy this into your AI agent, fill in the topic, and let it run. It installs the tool if needed, logs in (you approve with a QR code in Pubky Ring), writes the cards, checks them, and publishes.
 ```
 Build me a Loopky flashcard deck with the Loopky CLI.
+If you have the loopky skill (the Loopky plugin for Claude Code or Codex),
+follow it instead of the steps below: it is the maintained version of them.
 
 Topic: <WHAT I WANT TO LEARN>
 Cards: <HOW MANY>
@@ -296,6 +298,15 @@ Windows: irm https://github.com/jvsena42/loopky/releases/latest/download/install
 Language deck: add --front-lang en-US --back-lang es-ES --listen --speak
 ```
 The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
+
+### The plugin for Claude Code and Codex
+
+If you use Claude Code or Codex, install the Loopky plugin once instead of pasting the prompt:
+
+- **Claude Code:** `/plugin marketplace add jvsena42/loopky`, then `/plugin install loopky@loopky`.
+- **Codex:** `codex plugin marketplace add jvsena42/loopky`, then `codex plugin add loopky@loopky`.
+
+Then ask for flashcards. The plugin carries the `loopky` skill: the same steps as the prompt, what to do on every exit code, and how to write cards that work with Loopky's typing, Listen and Speak modes. On Claude Code on the web it also installs the CLI when a session starts. The plugin is served from each release's tag, so the skill always matches the CLI it installs. The skill is plain text at [SKILL.md](https://github.com/jvsena42/loopky/blob/main/plugins/loopky/skills/loopky/SKILL.md), and any agent can follow it.
 
 ### Any file becomes a deck
 
@@ -319,7 +330,7 @@ A cloud agent reaches the internet through an allowlist, and neither Claude Code
 - **Claude Code on the web:** environment settings, Network access: Custom, keep the default domains, add the hosts under Allowed domains.
 - **Codex:** environment settings, Agent internet access: On, add the hosts as allowed domains. Leave the "GET, HEAD and OPTIONS only" option off: every write is a PUT or DELETE.
 
-The hosts (production): `httprelay.pubky.app` (login), `pkarr.pubky.app` or `pkarr.pubky.org` (either one is enough), `homeserver.pubky.app` (every deck read and write), `nexus.pubky.app` (tags), `github.com` and `release-assets.githubusercontent.com` (install and update). `loopky doctor` checks each one through the sandbox's proxy, needs no login, and ends with a `next_step` telling the agent exactly what to ask for. Exit code 14 (`proxy_refused`) means a host is blocked; 15 (`tls_untrusted`) means the proxy re-signs TLS, which Loopky cannot work through yet. Neither is worth retrying. To skip the phone step in a sandbox, sign in on a computer with `loopky login --export` and give the sandbox the printed secret as `LOOPKY_SESSION`.
+The hosts (production): `httprelay.pubky.app` (login), `pkarr.pubky.app` or `pkarr.pubky.org` (either one is enough), `homeserver.pubky.app` (every deck read and write), `nexus.pubky.app` (tags), `github.com` and `release-assets.githubusercontent.com` (install and update). `loopky doctor` checks each one through the sandbox's proxy, needs no login, and ends with a `next_step` telling the agent exactly what to ask for. Exit code 14 (`proxy_refused`) means a host is blocked; 15 (`tls_untrusted`) means the proxy re-signs TLS; name its CA certificate with `SSL_CERT_FILE` or `SSL_CERT_DIR` and Loopky works through it. Neither is worth retrying unchanged. To skip the phone step in a sandbox, sign in on a computer with `loopky login --export` and give the sandbox the printed secret as `LOOPKY_SESSION`.
 
 ### Then study it on your phone
 
@@ -340,7 +351,10 @@ Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the re
 It cannot post, follow people or edit your profile. It only manages your decks and cards.
 
 **Does it work in Claude Code on the web or Codex?**
-Yes, once the sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS does not work yet.
+Yes, once the sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. With the plugin, Claude Code on the web installs the CLI by itself. A sandbox that inspects TLS works once its certificate is named with SSL_CERT_FILE.
+
+**Is there a plugin for Claude Code or Codex?**
+Yes. In Claude Code, run /plugin marketplace add jvsena42/loopky, then /plugin install loopky@loopky. In Codex, run codex plugin marketplace add jvsena42/loopky, then codex plugin add loopky@loopky. Then just ask for flashcards: the plugin knows every step, so you need no prompt.
 
 
 ## What is spaced repetition?

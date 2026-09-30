@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky</title>
-<meta name="description" content="把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。">
+<title>用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky</title>
+<meta name="description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -29,15 +29,15 @@
 <meta property="og:site_name" content="Loopky">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:url" content="https://loopky.app/zh-hant/ai-flashcards/">
-<meta property="og:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky">
-<meta property="og:description" content="把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。">
+<meta property="og:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky">
+<meta property="og:description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky">
-<meta name="twitter:description" content="把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。">
+<meta name="twitter:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky">
+<meta name="twitter:description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
 
@@ -51,7 +51,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="../../assets/css/style.css?v=4a8e4a2e">
+<link rel="stylesheet" href="../../assets/css/style.css?v=1f7e92df">
 
 <script type="application/ld+json">
 {
@@ -61,8 +61,8 @@
       "@type": "Article",
       "@id": "https://loopky.app/zh-hant/ai-flashcards/#page",
       "headline": "讓你的 AI 來寫記憶卡",
-      "name": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini · Loopky",
-      "description": "把主題、PDF、投影片或筆記照片交給 Claude、ChatGPT 或 Gemini，它會寫好並發布一套記憶卡牌組，你在手機上用間隔重複來學。",
+      "name": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky",
+      "description": "把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。",
       "url": "https://loopky.app/zh-hant/ai-flashcards/",
       "inLanguage": "zh-Hant",
       "datePublished": "2026-09-26",
@@ -114,6 +114,14 @@
         },
         {
           "@type": "Question",
+          "name": "有適用於 Claude Code 或 Codex 的外掛嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有。在 Claude Code 中執行 /plugin marketplace add jvsena42/loopky，然後執行 /plugin install loopky@loopky。在 Codex 中執行 codex plugin marketplace add jvsena42/loopky，然後執行 codex plugin add loopky@loopky。之後直接要記憶卡就行：外掛知道每一步，不需要提示詞。"
+          }
+        },
+        {
+          "@type": "Question",
           "name": "AI 能匯入我的 Anki 牌組嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -133,7 +141,7 @@
           "name": "能在網頁版 Claude Code 或 Codex 裡用嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。會檢查 TLS 的沙盒目前還無法使用。"
+            "text": "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。裝了外掛後，網頁版 Claude Code 會自動安裝 CLI。會檢查 TLS 的沙盒，只要用 SSL_CERT_FILE 指定它的憑證就能用。"
           }
         },
         {
@@ -255,6 +263,8 @@
           <button type="button" class="btn btn-sm" id="copy-prompt" data-copied="已複製">複製</button>
         </div>
         <pre id="ai-prompt"><code>Build me a Loopky flashcard deck with the Loopky CLI.
+If you have the loopky skill (the Loopky plugin for Claude Code or Codex),
+follow it instead of the steps below: it is the maintained version of them.
 
 Topic: &lt;WHAT I WANT TO LEARN&gt;
 Cards: &lt;HOW MANY&gt;
@@ -290,13 +300,14 @@ Rules:
 - Always run --dry-run before a command that writes.
 - Exit 14 or 15 is the network, not your input: never retry it. Ask me.
 - Image URLs must be https, and no SVG or TIFF. Those do not render.
+- One fact per card. If a card breaks a rule, fix it before you show me the list.
 - Do not invent cards I did not ask for. Show me the list before publishing.</code></pre>
         <div class="cli-open">
           <span>在 AI 中開啟</span>
-          <a class="ai-app" data-ai="claude-code" href="https://claude.ai/code?prompt=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0ASteps%3A%0A1.%20Install%20the%20CLI%20if%20it%20is%20missing%3A%0A%20%20%20curl%20-fsSL%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%20%7C%20sh%0A%20%20%20Windows%3A%20irm%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1%20%7C%20iex%0A2.%20Read%20the%20command%20surface%20first%3A%20loopky%20commands%20--json%0A3.%20Check%20the%20network%3A%20loopky%20doctor%20--json%0A%20%20%20If%20it%20exits%2014%20or%2015%2C%20stop.%20Your%20sandbox%20blocks%20hosts%20Loopky%20needs.%0A%20%20%20Show%20me%20its%20next_step%3A%20the%20hosts%20to%20add%20to%20your%20allowlist%2C%20and%20where.%0A4.%20Log%20in%3A%20loopky%20login%20--json%20--timeout%20300%0A%20%20%20Show%20me%20the%20QR%20code%2C%20and%20also%20the%20auth_url%20link%20it%20prints%2C%20in%20a%20code%20block.%0A%20%20%20If%20Pubky%20Ring%20is%20on%20the%20device%20I%20am%20chatting%20from%2C%20I%20open%20the%20link%20there%20instead.%0A%20%20%20The%20link%20is%20a%20login%20secret%20until%20I%20approve%20it%3A%20only%20show%20it%20to%20me%20here.%0A5.%20Write%20the%20cards%20to%20cards.tsv%2C%20one%20card%20per%20line%3A%0A%20%20%20front%20%3CTAB%3E%20back%0A%20%20%20Two%20more%20columns%20are%20optional%3A%20an%20https%20image%20URL%20for%20each%20side.%0A6.%20Check%20before%20you%20write%20anything%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--from-file%20cards.tsv%20--dry-run%20--json%0A7.%20Publish%20it%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--tag%20%3CTOPIC%3E%20--from-file%20cards.tsv%0A%20%20%20Language%20deck%3A%20add%20--front-lang%20en-US%20--back-lang%20es-ES%20--listen%20--speak%0A8.%20Show%20me%20the%20result%3A%20loopky%20deck%20show%20%3CdeckId%3E%20--json%0A%0AI%20already%20have%20an%20Anki%20file%3F%20Import%20it%20instead%3A%0A%20%20%20loopky%20import%20deck.apkg%20--dry-run%20--json%0A%20%20%20loopky%20import%20deck.apkg%20--title%20%22%3CTITLE%3E%22%0A%0ARules%3A%0A-%20Every%20command%20takes%20--json%2C%20and%20the%20result%20sits%20under%20%22data%22.%0A-%20Always%20run%20--dry-run%20before%20a%20command%20that%20writes.%0A-%20Exit%2014%20or%2015%20is%20the%20network%2C%20not%20your%20input%3A%20never%20retry%20it.%20Ask%20me.%0A-%20Image%20URLs%20must%20be%20https%2C%20and%20no%20SVG%20or%20TIFF.%20Those%20do%20not%20render.%0A-%20Do%20not%20invent%20cards%20I%20did%20not%20ask%20for.%20Show%20me%20the%20list%20before%20publishing." target="_blank" rel="noopener" title="Claude Code"><img src="../../assets/img/ai/claude-code.svg" alt="Claude Code" width="22" height="22"></a>
+          <a class="ai-app" data-ai="claude-code" href="https://claude.ai/code?prompt=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0AIf%20you%20have%20the%20loopky%20skill%20(the%20Loopky%20plugin%20for%20Claude%20Code%20or%20Codex)%2C%0Afollow%20it%20instead%20of%20the%20steps%20below%3A%20it%20is%20the%20maintained%20version%20of%20them.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0ASteps%3A%0A1.%20Install%20the%20CLI%20if%20it%20is%20missing%3A%0A%20%20%20curl%20-fsSL%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%20%7C%20sh%0A%20%20%20Windows%3A%20irm%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1%20%7C%20iex%0A2.%20Read%20the%20command%20surface%20first%3A%20loopky%20commands%20--json%0A3.%20Check%20the%20network%3A%20loopky%20doctor%20--json%0A%20%20%20If%20it%20exits%2014%20or%2015%2C%20stop.%20Your%20sandbox%20blocks%20hosts%20Loopky%20needs.%0A%20%20%20Show%20me%20its%20next_step%3A%20the%20hosts%20to%20add%20to%20your%20allowlist%2C%20and%20where.%0A4.%20Log%20in%3A%20loopky%20login%20--json%20--timeout%20300%0A%20%20%20Show%20me%20the%20QR%20code%2C%20and%20also%20the%20auth_url%20link%20it%20prints%2C%20in%20a%20code%20block.%0A%20%20%20If%20Pubky%20Ring%20is%20on%20the%20device%20I%20am%20chatting%20from%2C%20I%20open%20the%20link%20there%20instead.%0A%20%20%20The%20link%20is%20a%20login%20secret%20until%20I%20approve%20it%3A%20only%20show%20it%20to%20me%20here.%0A5.%20Write%20the%20cards%20to%20cards.tsv%2C%20one%20card%20per%20line%3A%0A%20%20%20front%20%3CTAB%3E%20back%0A%20%20%20Two%20more%20columns%20are%20optional%3A%20an%20https%20image%20URL%20for%20each%20side.%0A6.%20Check%20before%20you%20write%20anything%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--from-file%20cards.tsv%20--dry-run%20--json%0A7.%20Publish%20it%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--tag%20%3CTOPIC%3E%20--from-file%20cards.tsv%0A%20%20%20Language%20deck%3A%20add%20--front-lang%20en-US%20--back-lang%20es-ES%20--listen%20--speak%0A8.%20Show%20me%20the%20result%3A%20loopky%20deck%20show%20%3CdeckId%3E%20--json%0A%0AI%20already%20have%20an%20Anki%20file%3F%20Import%20it%20instead%3A%0A%20%20%20loopky%20import%20deck.apkg%20--dry-run%20--json%0A%20%20%20loopky%20import%20deck.apkg%20--title%20%22%3CTITLE%3E%22%0A%0ARules%3A%0A-%20Every%20command%20takes%20--json%2C%20and%20the%20result%20sits%20under%20%22data%22.%0A-%20Always%20run%20--dry-run%20before%20a%20command%20that%20writes.%0A-%20Exit%2014%20or%2015%20is%20the%20network%2C%20not%20your%20input%3A%20never%20retry%20it.%20Ask%20me.%0A-%20Image%20URLs%20must%20be%20https%2C%20and%20no%20SVG%20or%20TIFF.%20Those%20do%20not%20render.%0A-%20One%20fact%20per%20card.%20If%20a%20card%20breaks%20a%20rule%2C%20fix%20it%20before%20you%20show%20me%20the%20list.%0A-%20Do%20not%20invent%20cards%20I%20did%20not%20ask%20for.%20Show%20me%20the%20list%20before%20publishing." target="_blank" rel="noopener" title="Claude Code"><img src="../../assets/img/ai/claude-code.svg" alt="Claude Code" width="22" height="22"></a>
           <a class="ai-app" data-ai="codex" href="https://chatgpt.com/codex" target="_blank" rel="noopener" title="Codex"><img src="../../assets/img/ai/codex.svg" alt="Codex" width="22" height="22"></a>
           <a class="ai-app" data-ai="jules" href="https://jules.google.com/" target="_blank" rel="noopener" title="Jules"><img src="../../assets/img/ai/jules.svg" alt="Jules" width="22" height="22"></a>
-          <a class="ai-app" data-ai="cursor" href="https://cursor.com/link/prompt?text=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0ASteps%3A%0A1.%20Install%20the%20CLI%20if%20it%20is%20missing%3A%0A%20%20%20curl%20-fsSL%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%20%7C%20sh%0A%20%20%20Windows%3A%20irm%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1%20%7C%20iex%0A2.%20Read%20the%20command%20surface%20first%3A%20loopky%20commands%20--json%0A3.%20Check%20the%20network%3A%20loopky%20doctor%20--json%0A%20%20%20If%20it%20exits%2014%20or%2015%2C%20stop.%20Your%20sandbox%20blocks%20hosts%20Loopky%20needs.%0A%20%20%20Show%20me%20its%20next_step%3A%20the%20hosts%20to%20add%20to%20your%20allowlist%2C%20and%20where.%0A4.%20Log%20in%3A%20loopky%20login%20--json%20--timeout%20300%0A%20%20%20Show%20me%20the%20QR%20code%2C%20and%20also%20the%20auth_url%20link%20it%20prints%2C%20in%20a%20code%20block.%0A%20%20%20If%20Pubky%20Ring%20is%20on%20the%20device%20I%20am%20chatting%20from%2C%20I%20open%20the%20link%20there%20instead.%0A%20%20%20The%20link%20is%20a%20login%20secret%20until%20I%20approve%20it%3A%20only%20show%20it%20to%20me%20here.%0A5.%20Write%20the%20cards%20to%20cards.tsv%2C%20one%20card%20per%20line%3A%0A%20%20%20front%20%3CTAB%3E%20back%0A%20%20%20Two%20more%20columns%20are%20optional%3A%20an%20https%20image%20URL%20for%20each%20side.%0A6.%20Check%20before%20you%20write%20anything%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--from-file%20cards.tsv%20--dry-run%20--json%0A7.%20Publish%20it%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--tag%20%3CTOPIC%3E%20--from-file%20cards.tsv%0A%20%20%20Language%20deck%3A%20add%20--front-lang%20en-US%20--back-lang%20es-ES%20--listen%20--speak%0A8.%20Show%20me%20the%20result%3A%20loopky%20deck%20show%20%3CdeckId%3E%20--json%0A%0AI%20already%20have%20an%20Anki%20file%3F%20Import%20it%20instead%3A%0A%20%20%20loopky%20import%20deck.apkg%20--dry-run%20--json%0A%20%20%20loopky%20import%20deck.apkg%20--title%20%22%3CTITLE%3E%22%0A%0ARules%3A%0A-%20Every%20command%20takes%20--json%2C%20and%20the%20result%20sits%20under%20%22data%22.%0A-%20Always%20run%20--dry-run%20before%20a%20command%20that%20writes.%0A-%20Exit%2014%20or%2015%20is%20the%20network%2C%20not%20your%20input%3A%20never%20retry%20it.%20Ask%20me.%0A-%20Image%20URLs%20must%20be%20https%2C%20and%20no%20SVG%20or%20TIFF.%20Those%20do%20not%20render.%0A-%20Do%20not%20invent%20cards%20I%20did%20not%20ask%20for.%20Show%20me%20the%20list%20before%20publishing." target="_blank" rel="noopener" title="Cursor"><img src="../../assets/img/ai/cursor.svg" alt="Cursor" width="22" height="22"></a>
+          <a class="ai-app" data-ai="cursor" href="https://cursor.com/link/prompt?text=Build%20me%20a%20Loopky%20flashcard%20deck%20with%20the%20Loopky%20CLI.%0AIf%20you%20have%20the%20loopky%20skill%20(the%20Loopky%20plugin%20for%20Claude%20Code%20or%20Codex)%2C%0Afollow%20it%20instead%20of%20the%20steps%20below%3A%20it%20is%20the%20maintained%20version%20of%20them.%0A%0ATopic%3A%20%3CWHAT%20I%20WANT%20TO%20LEARN%3E%0ACards%3A%20%3CHOW%20MANY%3E%0A%0ASteps%3A%0A1.%20Install%20the%20CLI%20if%20it%20is%20missing%3A%0A%20%20%20curl%20-fsSL%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.sh%20%7C%20sh%0A%20%20%20Windows%3A%20irm%20https%3A%2F%2Fgithub.com%2Fjvsena42%2Floopky%2Freleases%2Flatest%2Fdownload%2Finstall.ps1%20%7C%20iex%0A2.%20Read%20the%20command%20surface%20first%3A%20loopky%20commands%20--json%0A3.%20Check%20the%20network%3A%20loopky%20doctor%20--json%0A%20%20%20If%20it%20exits%2014%20or%2015%2C%20stop.%20Your%20sandbox%20blocks%20hosts%20Loopky%20needs.%0A%20%20%20Show%20me%20its%20next_step%3A%20the%20hosts%20to%20add%20to%20your%20allowlist%2C%20and%20where.%0A4.%20Log%20in%3A%20loopky%20login%20--json%20--timeout%20300%0A%20%20%20Show%20me%20the%20QR%20code%2C%20and%20also%20the%20auth_url%20link%20it%20prints%2C%20in%20a%20code%20block.%0A%20%20%20If%20Pubky%20Ring%20is%20on%20the%20device%20I%20am%20chatting%20from%2C%20I%20open%20the%20link%20there%20instead.%0A%20%20%20The%20link%20is%20a%20login%20secret%20until%20I%20approve%20it%3A%20only%20show%20it%20to%20me%20here.%0A5.%20Write%20the%20cards%20to%20cards.tsv%2C%20one%20card%20per%20line%3A%0A%20%20%20front%20%3CTAB%3E%20back%0A%20%20%20Two%20more%20columns%20are%20optional%3A%20an%20https%20image%20URL%20for%20each%20side.%0A6.%20Check%20before%20you%20write%20anything%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--from-file%20cards.tsv%20--dry-run%20--json%0A7.%20Publish%20it%3A%0A%20%20%20loopky%20deck%20create%20--title%20%22%3CTITLE%3E%22%20--tag%20%3CTOPIC%3E%20--from-file%20cards.tsv%0A%20%20%20Language%20deck%3A%20add%20--front-lang%20en-US%20--back-lang%20es-ES%20--listen%20--speak%0A8.%20Show%20me%20the%20result%3A%20loopky%20deck%20show%20%3CdeckId%3E%20--json%0A%0AI%20already%20have%20an%20Anki%20file%3F%20Import%20it%20instead%3A%0A%20%20%20loopky%20import%20deck.apkg%20--dry-run%20--json%0A%20%20%20loopky%20import%20deck.apkg%20--title%20%22%3CTITLE%3E%22%0A%0ARules%3A%0A-%20Every%20command%20takes%20--json%2C%20and%20the%20result%20sits%20under%20%22data%22.%0A-%20Always%20run%20--dry-run%20before%20a%20command%20that%20writes.%0A-%20Exit%2014%20or%2015%20is%20the%20network%2C%20not%20your%20input%3A%20never%20retry%20it.%20Ask%20me.%0A-%20Image%20URLs%20must%20be%20https%2C%20and%20no%20SVG%20or%20TIFF.%20Those%20do%20not%20render.%0A-%20One%20fact%20per%20card.%20If%20a%20card%20breaks%20a%20rule%2C%20fix%20it%20before%20you%20show%20me%20the%20list.%0A-%20Do%20not%20invent%20cards%20I%20did%20not%20ask%20for.%20Show%20me%20the%20list%20before%20publishing." target="_blank" rel="noopener" title="Cursor"><img src="../../assets/img/ai/cursor.svg" alt="Cursor" width="22" height="22"></a>
         </div>
         <p class="cli-openhint">Claude Code 和 Cursor 開啟時已填好提示詞。Codex 和 Jules 開啟時是空的：提示詞已複製，貼上即可。</p>
       </div>
@@ -335,6 +346,10 @@ Rules:
         <p>不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。AI 聊天應用，以及 Claude Code、Codex、Gemini CLI 等代理都能用。</p>
       </details>
       <details class="card">
+        <summary>有適用於 Claude Code 或 Codex 的外掛嗎？</summary>
+        <p>有。在 Claude Code 中執行 /plugin marketplace add jvsena42/loopky，然後執行 /plugin install loopky@loopky。在 Codex 中執行 codex plugin marketplace add jvsena42/loopky，然後執行 codex plugin add loopky@loopky。之後直接要記憶卡就行：外掛知道每一步，不需要提示詞。</p>
+      </details>
+      <details class="card">
         <summary>AI 能匯入我的 Anki 牌組嗎？</summary>
         <p>能。loopky import deck.apkg 會匯入 Anki 牌組套件，加上 --dry-run 可以先看結果。</p>
       </details>
@@ -344,7 +359,7 @@ Rules:
       </details>
       <details class="card">
         <summary>能在網頁版 Claude Code 或 Codex 裡用嗎？</summary>
-        <p>可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。會檢查 TLS 的沙盒目前還無法使用。</p>
+        <p>可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。裝了外掛後，網頁版 Claude Code 會自動安裝 CLI。會檢查 TLS 的沙盒，只要用 SSL_CERT_FILE 指定它的憑證就能用。</p>
       </details>
       <details class="card">
         <summary>它能把哪些檔案變成卡片？</summary>
