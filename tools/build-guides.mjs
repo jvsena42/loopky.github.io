@@ -29,6 +29,7 @@ const read = (p) => readFileSync(new URL(p, root), 'utf8');
 const LASTMOD = '2026-09-28';
 
 const PLAY = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
+const TESTFLIGHT = 'https://testflight.apple.com/join/n2TzwMTu';
 const GH = 'https://github.com/jvsena42/loopky';
 const SLOGAN = 'Learn anything, remember everything.';
 
@@ -419,7 +420,7 @@ ${ld}
       <p class="lead">${esc(p.lead)}</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="${PLAY}">${esc(ui.play)}</a>
-        <span class="soon">${esc(ui.ios)}</span>
+        <a class="soon" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
       </div>
       <p class="fineprint">${esc(ui.free)}</p>
     </div>
@@ -437,7 +438,7 @@ ${blocks.join('\n\n')}
     <p>${esc(ui.ctaSub)}</p>
     <div class="cta-row center">
       <a class="btn btn-lg btn-invert" href="${PLAY}">${esc(ui.play)}</a>
-      <span class="soon soon-invert">${esc(ui.ios)}</span>
+      <a class="soon soon-invert" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
     </div>
   </div>
 </section>
@@ -462,6 +463,7 @@ ${others}
     <nav class="footlinks">
       <a href="${home}">${esc(ui.home)}</a>
       <a href="${PLAY}">Google Play</a>
+      <a href="${TESTFLIGHT}">TestFlight</a>
       <a href="${GH}">${esc(ui.source)}</a>
       <a href="${GH}/blob/main/PRIVACY.md">${esc(ui.privacy)}</a>
       <a href="${prefix}llms.txt">llms.txt</a>
