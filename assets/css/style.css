@@ -236,16 +236,6 @@ img { max-width: 100%; height: auto; display: block; }
 .lead { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--fg-2); max-width: 54ch; }
 .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 26px 0 12px; }
 .cta-row.center { justify-content: center; }
-.soon {
-  display: inline-flex; align-items: center; gap: 7px;
-  color: var(--fg-2); font-size: .92rem; font-weight: 600;
-}
-.soon::before {
-  content: ""; width: 7px; height: 7px; border-radius: 50%;
-  background: var(--accent-2);
-}
-.soon-invert { color: rgba(255, 255, 255, .88); }
-.soon-invert::before { background: rgba(255, 255, 255, .8); }
 .fineprint { font-size: .88rem; color: var(--fg-muted); margin: 0; }
 
 .hero-art { position: relative; min-height: 440px; display: flex; justify-content: center; }
