@@ -263,6 +263,24 @@ try {
   fail(`.well-known/assetlinks.json is missing or not JSON: ${e.message}`);
 }
 
+/* The iOS counterpart. Same silent failure: an app ID that does not match the
+   signed build, or a missing path, just opens Safari on the web page. */
+try {
+  const aasa = JSON.parse(read('.well-known/apple-app-site-association'));
+  const ios = aasa?.applinks?.details?.find((d) =>
+    d.appIDs?.includes('WFQWFBS5H7.com.github.jvsena42.loopky'));
+  if (!ios) {
+    fail('.well-known/apple-app-site-association has no applinks entry for WFQWFBS5H7.com.github.jvsena42.loopky');
+  } else {
+    const paths = (ios.components ?? []).map((c) => c['/']);
+    for (const p of ['/deck/*', '/profile/*']) {
+      if (!paths.includes(p)) fail(`.well-known/apple-app-site-association does not cover ${p}`);
+    }
+  }
+} catch (e) {
+  fail(`.well-known/apple-app-site-association is missing or not JSON: ${e.message}`);
+}
+
 /* upload-pages-artifact@v4 leaves dotfiles out of the artifact unless told otherwise,
    so bumping it would quietly stop publishing .well-known and every App Link with it. */
 const workflow = read('.github/workflows/pages.yml');
