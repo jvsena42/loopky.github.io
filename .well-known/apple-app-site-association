@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["WFQWFBS5H7.com.github.jvsena42.loopky"],
+        "components": [
+          { "/": "/deck" },
+          { "/": "/deck/*" },
+          { "/": "/profile" },
+          { "/": "/profile/*" }
+        ]
+      }
+    ]
+  }
+}

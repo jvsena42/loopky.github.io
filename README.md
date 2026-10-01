@@ -11,6 +11,7 @@ index.html            the landing page
 deck/index.html       where a shared deck link lands
 profile/index.html    where a shared profile link lands
 .well-known/assetlinks.json  lets Android open those links in the app
+.well-known/apple-app-site-association  the same for iOS
 assets/css/style.css  the app's own palette, from LoopkyColors.kt
 assets/js/i18n.js     copy in the 11 languages the app ships
 assets/js/discover.js the live Discover feed, and the deck and profile reads
@@ -189,12 +190,20 @@ artifact. v4 drops them unless the step sets `include-hidden-files: true`, and
 `tools/check.mjs` fails on that combination, because the result would be every App
 Link quietly turning back into a web page.
 
-**There is no `apple-app-site-association` yet.** Universal Links need the Apple
-Team ID in it, and the iOS project has none set
-(`iosApp/Configuration/Config.xcconfig` in the app repository leaves `TEAM_ID`
-empty). Once there is one, the file goes at
-`.well-known/apple-app-site-association` with an `applinks` entry for `/deck/*`
-and `/profile/*`, beside the app's associated-domains entitlement.
+### apple-app-site-association
+
+The iOS equivalent. It names one app, `WFQWFBS5H7.com.github.jvsena42.loopky`
+(the Apple Team ID, then the bundle identifier), for `/deck` and `/profile` with
+or without anything after them. It has to agree with the app's
+`applinks:loopky.app` entitlement and with the team that signs the build: a
+TestFlight or App Store build from any other team, or one under another bundle
+identifier, is not verified and the link opens this site instead.
+
+Pages serves the extensionless file as `application/octet-stream`, which Apple
+accepts, and without a redirect, which it does not. iOS does not fetch the file
+from here: Apple's CDN does, and caches it for up to a day. What the CDN holds is
+at `https://app-site-association.cdn-apple.com/a/v1/loopky.app`; check that after
+changing the file, before blaming the app. `tools/check.mjs` validates it.
 
 ## Caching
 
@@ -287,7 +296,7 @@ node tools/check.mjs
 It parses every script, holds the eleven dictionaries against each other and against
 the page, confirms the AI prompt still names real CLI commands, checks that every
 asset and `hreflang` the page references exists, holds the two dark palettes in the
-stylesheet against each other, validates `assetlinks.json`, and refuses an em dash in anything a visitor reads. It covers the deck and profile pages as well as the home page.
+stylesheet against each other, validates `assetlinks.json` and `apple-app-site-association`, and refuses an em dash in anything a visitor reads. It covers the deck and profile pages as well as the home page.
 
 ```shell
 node tools/layout-check.mjs
