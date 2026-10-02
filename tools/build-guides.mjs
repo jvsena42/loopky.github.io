@@ -30,6 +30,8 @@ const LASTMOD = '2026-09-28';
 
 const PLAY = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
 const TESTFLIGHT = 'https://testflight.apple.com/join/n2TzwMTu';
+const PLAY_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22.02 13.3 18.1 15.52l-3.52-3.5 3.55-3.52 3.89 2.2a1.49 1.49 0 0 1 0 2.6ZM1.34.92a1.49 1.49 0 0 0-.11.57v21.02c0 .22.04.42.12.6l11.16-11.09L1.34.92Zm12.2 10.07 3.26-3.24L3.45.2A1.47 1.47 0 0 0 2.5.02l11.04 10.97Zm0 2.07-11 10.93c.3.04.61-.02.9-.18l13.33-7.54-3.23-3.21Z"/></svg>';
+const APPLE_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>';
 const GH = 'https://github.com/jvsena42/loopky';
 const SLOGAN = 'Learn anything, remember everything.';
 
@@ -419,8 +421,8 @@ ${ld}
       <h1>${esc(p.h1)}</h1>
       <p class="lead">${esc(p.lead)}</p>
       <div class="cta-row">
-        <a class="btn btn-lg" href="${PLAY}">${esc(ui.play)}</a>
-        <a class="soon" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
+        <a class="btn btn-lg" href="${PLAY}">${PLAY_ICON}<span>${esc(ui.play)}</span></a>
+        <a class="btn btn-lg btn-ios" href="${TESTFLIGHT}">${APPLE_ICON}<span>${esc(ui.ios)}</span></a>
       </div>
       <p class="fineprint">${esc(ui.free)}</p>
     </div>
@@ -437,8 +439,8 @@ ${blocks.join('\n\n')}
     <h2>${SLOGAN}</h2>
     <p>${esc(ui.ctaSub)}</p>
     <div class="cta-row center">
-      <a class="btn btn-lg btn-invert" href="${PLAY}">${esc(ui.play)}</a>
-      <a class="soon soon-invert" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
+      <a class="btn btn-lg btn-invert" href="${PLAY}">${PLAY_ICON}<span>${esc(ui.play)}</span></a>
+      <a class="btn btn-lg btn-invert btn-ios" href="${TESTFLIGHT}">${APPLE_ICON}<span>${esc(ui.ios)}</span></a>
     </div>
   </div>
 </section>
