@@ -239,6 +239,12 @@ img { max-width: 100%; height: auto; display: block; }
 .lead { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--fg-2); max-width: 54ch; }
 .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 26px 0 12px; }
 .cta-row.center { justify-content: center; }
+/* The store buttons share one width, wide enough for the longer label, so Google
+   Play and TestFlight read as a pair whether they sit side by side or stack. */
+.cta-row .btn { flex: 0 1 21.5em; }
+@media (max-width: 480px) {
+  .cta-row .btn { flex-basis: 100%; white-space: normal; text-align: center; }
+}
 .fineprint { font-size: .88rem; color: var(--fg-muted); margin: 0; }
 
 .hero-art { position: relative; min-height: 440px; display: flex; justify-content: center; }
