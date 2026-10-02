@@ -143,6 +143,9 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-ghost:hover { background: var(--accent-2-soft); box-shadow: none; }
 .btn-invert { background: #fff; color: #FF5C00; }
 .btn-invert:hover { box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
+.btn-ios { background: #7A4CFF; }
+.btn-ios:hover { box-shadow: 0 10px 30px rgba(122, 76, 255, .28); }
+.btn-invert.btn-ios { background: #fff; color: #7A4CFF; }
 
 /* ---------- top bar ---------- */
 .topbar {
