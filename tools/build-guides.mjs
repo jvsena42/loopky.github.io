@@ -420,7 +420,7 @@ ${ld}
       <p class="lead">${esc(p.lead)}</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="${PLAY}">${esc(ui.play)}</a>
-        <a class="soon" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
+        <a class="btn btn-lg" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
       </div>
       <p class="fineprint">${esc(ui.free)}</p>
     </div>
@@ -438,7 +438,7 @@ ${blocks.join('\n\n')}
     <p>${esc(ui.ctaSub)}</p>
     <div class="cta-row center">
       <a class="btn btn-lg btn-invert" href="${PLAY}">${esc(ui.play)}</a>
-      <a class="soon soon-invert" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
+      <a class="btn btn-lg btn-invert" href="${TESTFLIGHT}">${esc(ui.ios)}</a>
     </div>
   </div>
 </section>
