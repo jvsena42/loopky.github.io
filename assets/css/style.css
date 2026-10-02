@@ -534,6 +534,9 @@ img { max-width: 100%; height: auto; display: block; }
   font: 400 12.5px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
   white-space: pre-wrap; word-break: break-word;
 }
+/* One command per block: Claude Code's "Add Marketplace" box takes only the source, so a
+   two-line block copied whole is refused as one bad owner/repo. */
+.cli-plugin pre + pre { margin-top: 6px; }
 
 /* The idea picker and the request above the full prompt. Dark in both themes, like
    the box it sits in. */
