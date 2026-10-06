@@ -157,9 +157,17 @@ On an Android browser the page adds an **Open in Loopky** button. It is an
 `intent://` link wrapping the `pubky://` address with the package named and Google
 Play as the fallback, so one tap opens the app if it is there and the store if it
 is not. That button matters where App Links do not fire, which is mostly in-app
-browsers. Elsewhere there is no Loopky to open (the iOS app is not out and the
-desktop only has the CLI), so the button is not drawn and Google Play is the
-primary action.
+browsers.
+
+On iOS the same button is the bare `pubky://` address, which the app claims as a URL
+scheme. There is no iOS link that falls back to a store, and a link to this same
+domain never leaves Safari, so without the app the tap does nothing useful: the hint
+under it names TestFlight, and the Google Play button is hidden. Whoever sees the
+page on an iPhone is someone the universal link did not catch, which is an in-app
+browser or a Loopky installed after the page loaded.
+
+On a desktop there is no Loopky to open (only the CLI), so the button is not drawn
+and Google Play is the primary action.
 
 **Query parameters, not paths**, because Pages is static. `/deck/{pubky}/{id}`
 would exist only as a `404.html` fallback, served with a 404 status that link

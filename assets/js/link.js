@@ -1,9 +1,10 @@
 /* The pages a shared link lands on: /deck/?author=…&id=… and /profile/?pubky=….
  *
  * The app shares these instead of a bare pubky:// address because nothing on the web
- * linkifies that scheme. With Loopky installed, Android opens the link in the app and
- * this page is never seen (assetlinks.json is what lets it). Without it, this page is
- * the landing site with the deck or the person on top, and a way to get the app.
+ * linkifies that scheme. With Loopky installed, Android and iOS open the link in the
+ * app and this page is never seen (assetlinks.json and apple-app-site-association are
+ * what let them). Without it, this page is the landing site with the deck or the person
+ * on top, and a way to get the app.
  *
  * Everything shown here was written by a stranger. Nothing is ever put in innerHTML.
  */
@@ -29,11 +30,22 @@
   }
 
   /* On Android an intent:// link opens Loopky when it is installed and falls through
-     to Google Play when it is not, so one button does both. Anywhere else there is no
-     Loopky to open: iOS has no build yet and the desktop only has the CLI. */
+     to Google Play when it is not, so one button does both.
+
+     iOS has no such link. A visitor who is reading this page there is one the universal
+     link did not catch (an in-app browser, or Loopky installed after the page loaded),
+     and a link back to this same domain never leaves Safari, so the button is the bare
+     pubky:// address the app claims as a URL scheme. Without the app that tap does
+     nothing useful, which is why the hint names TestFlight.
+
+     The desktop only has the CLI, so there the button is not drawn. An iPad asking for
+     the desktop site calls itself a Mac; touch points are what tell the two apart. */
   var isAndroid = /Android/i.test(navigator.userAgent);
+  var isIOS = !isAndroid && (/iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+    (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1));
 
   function openHref(pubkyUri) {
+    if (isIOS) return pubkyUri;
     var rest = pubkyUri.replace(/^pubky:\/\//, '');
     return 'intent://' + rest + '#Intent;scheme=pubky;package=' + PACKAGE +
       ';S.browser_fallback_url=' + encodeURIComponent(window.loopkyPlayUrl) + ';end';
@@ -83,14 +95,20 @@
   }
 
   function paintOpen(uri) {
-    var canOpen = isAndroid && state !== 'missing' && !!uri;
+    var canOpen = (isAndroid || isIOS) && state !== 'missing' && !!uri;
     openBtn.hidden = !canOpen;
     if (canOpen) openBtn.href = openHref(uri);
     /* Only one filled button: Open when it can do something, Google Play otherwise. */
     playBtn.classList.toggle('btn-ghost', canOpen);
-    hint.textContent = isAndroid
-      ? tf('link.hint', 'Opens in the app if you have it, or takes you to Google Play if you do not.')
-      : tf('link.elsewhere', 'Loopky is on Android for now. Open this link on an Android phone to see it in the app.');
+    /* Google Play has nothing for an iPhone; the TestFlight button beside it does. */
+    playBtn.hidden = isIOS;
+    if (isAndroid) {
+      hint.textContent = tf('link.hint', 'Opens in the app if you have it, or takes you to Google Play if you do not.');
+    } else if (isIOS) {
+      hint.textContent = tf('link.hint.ios', 'Opens in the app if you have it. If not, get the iOS beta on TestFlight first.');
+    } else {
+      hint.textContent = tf('link.elsewhere', 'Loopky is on Android and iOS. Open this link on your phone to see it in the app.');
+    }
     hint.hidden = state === 'missing';
   }
 
