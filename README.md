@@ -24,6 +24,10 @@ pt-br/ es/ fr/ de/ it/ ja/ ko/ vi/ zh-hans/ zh-hant/
 tools/guides/*.json   the guides' words, one file per language
 tools/build-guides.mjs  builds the guide pages and sitemap.xml from them
 assets/img/guides/    app screenshots the guides show
+privacy/ terms/ support/  the privacy policy, the terms and the support page, English only
+tools/legal/*.md      their text; privacy.md and terms.md are copies from the app repository
+tools/legal.mjs       turns that Markdown into the three pages
+tools/sync-legal.mjs  refreshes the two copies, and reports when they have drifted
 llms.txt              a summary of Loopky for language models
 llms-full.txt         every guide as plain text, for language models
 tools/check.mjs       the pre-flight CI runs
@@ -132,6 +136,32 @@ painting them from script, so a reader that runs no JavaScript still sees them.
 the sitemap, indexable, has one `<h1>`, a title and a description; every JSON-LD
 block parses; every loopky.app address in the two llms files exists; and the
 prompt and topic list in the markup match `i18n.js`.
+
+## Privacy, terms and support
+
+`/privacy/`, `/terms/` and `/support/` are the three addresses the app stores and the
+plugin directories ask for, and every footer on the site links them. They are English
+only and say so: legal text in a language nobody reviewed is worse than English.
+
+The policy and the terms are **not written here**. `PRIVACY.md` and `TERMS.md` in the
+app repository are the source, `tools/legal/privacy.md` and `terms.md` are copies, and
+each page links back to its file and carries its "Last updated" date. After either
+changes there:
+
+```shell
+node tools/sync-legal.mjs      # or: node tools/sync-legal.mjs ../loopky
+node tools/build-guides.mjs
+```
+
+`pages.yml` runs `node tools/sync-legal.mjs --check` and warns when the copies have
+drifted, so drift never blocks a deploy. That only runs when this repository changes,
+so `legal-drift.yml` asks again every Monday and **fails**, which emails the owner. Never edit the two copies by hand, since the next sync
+overwrites them. `tools/legal/support.md` has no upstream and is edited here.
+
+`tools/legal.mjs` reads a small subset of Markdown (headings, paragraphs, flat lists,
+tables, links, bold, code), which is everything those files use. Anything else, a
+`###` heading or a numbered list, fails the build instead of rendering as text. The privacy page is
+exempt from the em dash rule because it is `PRIVACY.md` word for word.
 
 ## Shared links
 

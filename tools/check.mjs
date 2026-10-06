@@ -10,7 +10,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { stamp, PAGES, GUIDES, ALL_PAGES } from './stamp-assets.mjs';
-import { SLUGS, LOCALES, HOME_FILES } from './guides.mjs';
+import { SLUGS, LOCALES, HOME_FILES, LEGAL, LEGAL_FILES } from './guides.mjs';
 
 const problems = [];
 const notes = [];
@@ -26,7 +26,9 @@ const pages = Object.fromEntries(PAGES.map((p) => [p, read(p)]));
 const guides = Object.fromEntries(GUIDES.map((p) => [p, read(p)]));
 /* The home page's copies in the other ten languages, built from index.html. */
 const homes = Object.fromEntries(HOME_FILES.map((p) => [p, read(p)]));
-const everyPage = { ...pages, ...guides, ...homes };
+/* The privacy policy, the terms and the support page, English only. */
+const legal = Object.fromEntries(LEGAL_FILES.map((p) => [p, read(p)]));
+const everyPage = { ...pages, ...guides, ...homes, ...legal };
 
 /* ---- 1. every script parses ---- */
 
@@ -289,8 +291,9 @@ if (upload && Number(upload[1]) >= 4 && !/include-hidden-files:\s*true/.test(wor
   fail('upload-pages-artifact v4+ drops .well-known unless the step sets include-hidden-files: true');
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-/* One home page per language, one guide page per language and guide. */
-const expected = SUPPORTED.length + GUIDES.length;
+/* One home page per language, one guide page per language and guide, and the three
+   English legal pages. */
+const expected = SUPPORTED.length + GUIDES.length + LEGAL_FILES.length;
 if (locs.length !== expected) {
   fail(`sitemap.xml lists ${locs.length} URLs, expected ${expected}`);
 }
@@ -313,7 +316,7 @@ if (!canonical) {
     ...locs.map((l) => ['sitemap.xml', l]),
     ...[...sitemap.matchAll(/<xhtml:link[^>]*href="([^"]+)"/g)].map((m) => ['sitemap.xml hreflang', m[1]]),
     ...[...read('robots.txt').matchAll(/^Sitemap:\s*(\S+)/gm)].map((m) => ['robots.txt', m[1]]),
-    ...Object.entries(guides).flatMap(([page, src]) => [
+    ...Object.entries({ ...guides, ...legal }).flatMap(([page, src]) => [
       ...src.matchAll(/<link rel="canonical" href="([^"]+)"/g),
       ...src.matchAll(/<meta property="og:(?:url|image)" content="([^"]+)"/g),
     ].map((m) => [page, m[1]])),
@@ -330,7 +333,7 @@ if (!canonical) {
 
 /* The opposite of the deck and profile pages: each guide is one real page, so it
    carries its own canonical, sits in the sitemap, and must not carry noindex. */
-for (const [page, src] of Object.entries(guides)) {
+for (const [page, src] of Object.entries({ ...guides, ...legal })) {
   const url = canonical && canonical + page.replace('index.html', '');
   const own = /<link rel="canonical" href="([^"]+)"/.exec(src)?.[1];
   if (own !== url) fail(`${page} has canonical ${own}, expected ${url}`);
@@ -338,10 +341,30 @@ for (const [page, src] of Object.entries(guides)) {
   if (/noindex/.test(src)) fail(`${page} is a guide and must not carry noindex`);
   if (!/<title>[^<]{10,}<\/title>/.test(src)) fail(`${page} has no real <title>`);
   if (!/<meta name="description" content="[^"]{20,}">/.test(src)) fail(`${page} has no meta description`);
-  for (const l of LOCALES) {
+  for (const l of page in legal ? [] : LOCALES) {
     if (!src.includes(`hreflang="${l.code}"`)) fail(`${page} has no hreflang for "${l.code}"`);
   }
   if ((src.match(/<h1[\s>]/g) ?? []).length !== 1) fail(`${page} should have exactly one <h1>`);
+}
+
+/* ---- 6b'. the legal pages are reachable, and the two policies name their source ---- */
+
+/* OpenAI's plugin directory and both app stores are handed these three addresses, so
+   a footer that drops one is a submission that points at a page nobody can find. */
+for (const [page, src] of Object.entries(everyPage)) {
+  for (const slug of LEGAL) {
+    if (!new RegExp(`<a href="(?:\\.\\./)*${slug}/"`).test(src)) fail(`${page}'s footer does not link ${slug}/`);
+  }
+}
+for (const [slug, source] of [['privacy', 'PRIVACY.md'], ['terms', 'TERMS.md']]) {
+  const src = legal[`${slug}/index.html`];
+  if (!src.includes(`https://github.com/jvsena42/loopky/blob/main/${source}`)) {
+    fail(`${slug}/index.html does not link back to ${source}, which is its source`);
+  }
+  const updated = /^\*\*Last updated:\*\* (.+)$/m.exec(read(`tools/legal/${slug}.md`))?.[1];
+  if (!updated || !src.includes(`Last updated ${updated}.`)) {
+    fail(`${slug}/index.html does not carry the "Last updated" date of tools/legal/${slug}.md`);
+  }
 }
 
 /* Structured data that does not parse is ignored by every reader, silently. */
@@ -455,6 +478,8 @@ try {
 /* Em and en dashes read as machine-written, and the app's own strings avoid them.
    Only the parts a visitor reads are checked; source comments are free to use them. */
 for (const [page, src] of Object.entries(everyPage)) {
+  /* The policy is PRIVACY.md word for word, and that file is not written here. */
+  if (page === 'privacy/index.html') continue;
   const visible = src.replace(/<!--[\s\S]*?-->/g, '');
   if (/[—–]/.test(visible)) fail(`${page} has an em or en dash in visible copy`);
 }
