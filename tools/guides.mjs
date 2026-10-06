@@ -35,3 +35,8 @@ export const HOME_FILES = LOCALES.filter((l) => l.dir).map((l) => l.dir + '/inde
 
 /* Every guide file, English first. */
 export const GUIDE_FILES = LOCALES.flatMap((l) => SLUGS.map((s) => guidePath(l, s) + 'index.html'));
+
+/* The privacy policy, the terms and the support page: English only, one page each,
+   built by tools/legal.mjs from the Markdown in tools/legal/. */
+export const LEGAL = ['privacy', 'terms', 'support'];
+export const LEGAL_FILES = LEGAL.map((s) => s + '/index.html');

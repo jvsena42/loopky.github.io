@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Support · Loopky</title>
+<meta name="description" content="Where to get help with Loopky: the FAQ, the public issue tracker, fixes for common problems, and loopky doctor for the command line tool.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://loopky.app/support/">
+<link rel="icon" href="../assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/img/logo.png">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://loopky.app/support/">
+<meta property="og:title" content="Support · Loopky">
+<meta property="og:description" content="Where to get help with Loopky: the FAQ, the public issue tracker, fixes for common problems, and loopky doctor for the command line tool.">
+<meta property="og:image" content="https://loopky.app/assets/img/og.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Support · Loopky">
+<meta name="twitter:description" content="Where to get help with Loopky: the FAQ, the public issue tracker, fixes for common problems, and loopky doctor for the command line tool.">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="../assets/css/style.css?v=9681c391">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://loopky.app/support/#page",
+      "headline": "Loopky support",
+      "name": "Support · Loopky",
+      "description": "Where to get help with Loopky: the FAQ, the public issue tracker, fixes for common problems, and loopky doctor for the command line tool.",
+      "url": "https://loopky.app/support/",
+      "inLanguage": "en",
+      "datePublished": "2026-10-06",
+      "dateModified": "2026-10-06",
+      "author": {
+        "@type": "Person",
+        "name": "João Victor Sena",
+        "url": "https://github.com/jvsena42"
+      },
+      "publisher": {
+        "@id": "https://loopky.app/#org"
+      },
+      "isPartOf": {
+        "@id": "https://loopky.app/#website"
+      },
+      "about": {
+        "@id": "https://loopky.app/#app"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Loopky",
+          "item": "https://loopky.app/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Support",
+          "item": "https://loopky.app/support/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="../">
+      <img src="../assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <a class="btn btn-sm" href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Get the app</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="section">
+  <div class="wrap">
+    <article class="prose">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="../">Loopky</a></li>
+          <li aria-current="page">Support</li>
+        </ol>
+      </nav>
+      <h1>Loopky support</h1>
+      <p class="fineprint prose-meta">Last updated 6 October 2026. This page is in English only.</p>
+      <p>Loopky is a free, open-source project with no support desk. Help comes from the pages below and from the project's public issue tracker.</p>
+      <h2 id="start-with-the-faq">Start with the FAQ</h2>
+      <p>The <a href="../faq/">FAQ</a> answers the common questions: price, where Loopky runs, what an Anki import brings across, how cards are scheduled, signing in and privacy.</p>
+      <h2 id="report-a-bug-or-ask-a-question">Report a bug or ask a question</h2>
+      <p>Open an issue at <a href="https://github.com/jvsena42/loopky/issues">github.com/jvsena42/loopky/issues</a>. It helps to say:</p>
+      <ul>
+        <li>the app version (shown in Settings) or the output of <code>loopky --version</code>;</li>
+        <li>your device and its Android or iOS version;</li>
+        <li>what you did, what you expected, and what happened instead.</li>
+      </ul>
+      <p><strong>Issues are public.</strong> Never include your recovery phrase, a recovery file, or a <code>pubkyauth://</code> sign-in link: each of them is a way into your account.</p>
+      <h2 id="common-problems">Common problems</h2>
+      <ul>
+        <li><strong>Loopky asks you to sign in again, or a change will not save.</strong> Sessions are time limited and can expire after about an hour. Reading keeps working, writing does not. Sign in again and repeat the change.</li>
+        <li><strong>Storage is full.</strong> The default homeserver gives each account 1 GB. Once it is full, writes are refused until you delete a deck or some images. Pictures imported from an Anki deck count against it; a picture added by web address does not.</li>
+        <li><strong>An Anki deck will not import.</strong> Loopky reads <code>.apkg</code> files holding <code>collection.anki2</code> or <code>.anki21</code>. For the newer <code>.anki21b</code>, export again from Anki with &quot;Support older Anki versions&quot; ticked. Audio, LaTeX and review history are not imported.</li>
+        <li><strong>You lost your key or recovery phrase.</strong> Nobody can recover it for you, the project included. Set up a backup in Settings before you need one.</li>
+      </ul>
+      <h2 id="the-command-line-tool-and-ai-agents">The command line tool and AI agents</h2>
+      <p><code>loopky doctor</code> is the first thing to run when the command line tool cannot reach the network, which is the usual case in a cloud sandbox. It needs no sign-in, asks every host Loopky needs through your proxy, and prints the ones to add to the allowlist. <code>loopky doctor --json</code> gives an agent the same answer with a <code>next_step</code> to follow.</p>
+      <ul>
+        <li>Exit code 4 (<code>session_expired</code>): run <code>loopky login</code> again and approve it, then repeat what failed.</li>
+        <li>Exit code 14 (<code>proxy_refused</code>) or 15 (<code>tls_untrusted</code>): the sandbox's network is blocking Loopky. Retrying will not help; follow what <code>loopky doctor</code> reports.</li>
+      </ul>
+      <p>The <a href="https://github.com/jvsena42/loopky/tree/main/cli">command line documentation</a> covers installing, every command and every exit code, and <code>loopky commands --json</code> lists what your installed version supports.</p>
+      <h2 id="what-the-project-cannot-help-with">What the project cannot help with</h2>
+      <p>The Loopky project runs no servers and holds none of your data, so it cannot restore a deck, reset an account or lift a storage limit. Those belong to the operator of your Pubky homeserver, which is Synonym, through <a href="https://pubky.app">pubky.app</a>, if you signed up in Loopky. Questions about the Pubky Ring app go to Pubky as well.</p>
+      <h2 id="privacy-and-terms">Privacy and terms</h2>
+      <p>The <a href="../privacy/">privacy policy</a> says what leaves your device and who receives it. The <a href="../terms/">terms of service</a> say what you can expect from the project and what you are responsible for when you publish.</p>
+    </article>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="../assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="../">Home</a>
+      <a href="https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky">Google Play</a>
+      <a href="https://testflight.apple.com/join/n2TzwMTu">TestFlight</a>
+      <a href="https://github.com/jvsena42/loopky">Source code</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="../terms/">Terms</a>
+      <a href="../support/">Support</a>
+    </nav>
+    <p class="foot-note">Built on Pubky. MIT licensed.</p>
+  </div>
+</footer>
+
+</body>
+</html>

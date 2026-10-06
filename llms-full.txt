@@ -515,7 +515,7 @@ With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by crea
 On your Pubky homeserver, under your key, not on a Loopky server. There is no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own.
 
 **Does Loopky track me?**
-No. There is no analytics, no telemetry, no crash reporting and no ads. [Privacy policy](https://github.com/jvsena42/loopky/blob/main/PRIVACY.md).
+No. There is no analytics, no telemetry, no crash reporting and no ads. [Privacy policy](https://loopky.app/privacy/).
 
 **Does it work offline?**
 Partly. Reviews you make offline are queued on the device and sent later, but decks live on your homeserver, so loading and syncing need a connection.

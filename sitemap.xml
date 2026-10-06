@@ -1783,4 +1783,28 @@
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://loopky.app/zh-hans/faq/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://loopky.app/zh-hant/faq/"/>
   </url>
+  <url>
+    <loc>https://loopky.app/privacy/</loc>
+    <lastmod>2026-08-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/privacy/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/terms/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/terms/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/terms/"/>
+  </url>
+  <url>
+    <loc>https://loopky.app/support/</loc>
+    <lastmod>2026-10-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://loopky.app/support/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://loopky.app/support/"/>
+  </url>
 </urlset>

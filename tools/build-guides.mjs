@@ -19,7 +19,8 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { SLUGS, LOCALES, guidePath } from './guides.mjs';
+import { SLUGS, LOCALES, LEGAL, guidePath } from './guides.mjs';
+import { legalPage, legalLastmod } from './legal.mjs';
 import { stampFor } from './stamp-assets.mjs';
 
 const root = new URL('../', import.meta.url);
@@ -467,7 +468,9 @@ ${others}
       <a href="${PLAY}">Google Play</a>
       <a href="${TESTFLIGHT}">TestFlight</a>
       <a href="${GH}">${esc(ui.source)}</a>
-      <a href="${GH}/blob/main/PRIVACY.md">${esc(ui.privacy)}</a>
+      <a href="${prefix}privacy/">${esc(ui.privacy)}</a>
+      <a href="${prefix}terms/">${esc(ui.terms)}</a>
+      <a href="${prefix}support/">${esc(ui.support)}</a>
       <a href="${prefix}llms.txt">llms.txt</a>
     </nav>
     <p class="foot-note">${esc(ui.note)}</p>
@@ -553,9 +556,9 @@ function sitemap() {
   const homeAlts = [`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}"/>`,
     ...LOCALES.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${homeUrl(l)}"/>`)]
     .join('\n');
-  const entry = (loc, alts, freq, prio) => `  <url>
+  const entry = (loc, alts, freq, prio, lastmod = LASTMOD) => `  <url>
     <loc>${loc}</loc>
-    <lastmod>${LASTMOD}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>${freq}</changefreq>
     <priority>${prio}</priority>
 ${alts}
@@ -568,10 +571,16 @@ ${alts}
     ].join('\n');
     return BUILT.map((l) => entry(url(l, slug), alts, 'monthly', l.code === 'en' ? '0.8' : '0.7'));
   });
+  /* English only, so each is its own single alternate. */
+  const legal = LEGAL.map((slug) => {
+    const loc = SITE + slug + '/';
+    const alts = ['x-default', 'en'].map((h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${loc}"/>`).join('\n');
+    return entry(loc, alts, 'yearly', '0.3', legalLastmod(slug));
+  });
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${[...homes, ...guides].join('\n')}
+${[...homes, ...guides, ...legal].join('\n')}
 </urlset>
 `;
 }
@@ -582,6 +591,7 @@ export function build() {
   const out = new Map();
   for (const l of BUILT) for (const s of SLUGS) out.set(guidePath(l, s) + 'index.html', page(l, s));
   for (const l of LOCALES.filter((x) => x.dir)) out.set(l.dir + '/index.html', homePage(l));
+  for (const slug of LEGAL) out.set(slug + '/index.html', legalPage(slug, SITE));
   out.set('sitemap.xml', sitemap());
   return out;
 }

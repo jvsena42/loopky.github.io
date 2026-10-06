@@ -747,3 +747,15 @@ h2.h3 { font-size: 1.12rem; letter-spacing: -.01em; }
   .split-rev .split-art { order: 0; }
   .ghero .shot:not(.shot-tablet) { transform: none; }
 }
+
+/* The privacy policy, the terms and the support page: one column of prose. */
+.prose { max-width: 760px; }
+.prose h1 { font-size: clamp(2rem, 4.6vw, 3.1rem); }
+.prose h2 { font-size: clamp(1.25rem, 2.4vw, 1.5rem); margin: 2em 0 .6em; }
+.prose p, .prose li { color: var(--fg-2); }
+.prose strong { color: var(--fg); }
+.prose ul { padding-left: 1.3em; margin: 0 0 1em; display: grid; gap: 8px; }
+.prose code { font-size: .9em; background: var(--surface-secondary); border-radius: 6px; padding: 1px 5px; overflow-wrap: anywhere; }
+.prose a { overflow-wrap: anywhere; }
+.prose .dtable { min-width: 560px; }
+.prose-meta { margin: 0 0 2em; }

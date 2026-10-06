@@ -15,7 +15,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { GUIDE_FILES } from './guides.mjs';
+import { GUIDE_FILES, LEGAL_FILES } from './guides.mjs';
 
 const root = new URL('../', import.meta.url);
 
@@ -27,7 +27,7 @@ export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
    them itself; they are listed here so a stale stamp is caught the same way. */
 export const GUIDES = GUIDE_FILES;
 
-export const ALL_PAGES = [...PAGES, ...GUIDES];
+export const ALL_PAGES = [...PAGES, ...GUIDES, ...LEGAL_FILES];
 /* The translated home pages are copies of index.html, stamps included, so they are
    checked through tools/build-guides.mjs --check rather than stamped here. */
 

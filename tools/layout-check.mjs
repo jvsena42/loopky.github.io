@@ -17,6 +17,7 @@ import { spawn, spawnSync } from 'node:child_process';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { GUIDES } from './stamp-assets.mjs';
+import { LEGAL_FILES } from './guides.mjs';
 
 const WIDTHS = [390, 600, 900, 1440];
 
@@ -34,6 +35,8 @@ const PAGES = [
      Japanese (no spaces to wrap at) and German (long compounds). */
   ...GUIDES.filter((g) => !/^(?:[a-z-]+\/){2}/.test(g) || /^(?:ja|de)\//.test(g))
     .map((g) => g.replace('index.html', '')),
+  /* The privacy policy carries the one wide table outside the guides. */
+  ...LEGAL_FILES.map((f) => f.replace('index.html', '')),
 ];
 /* One chip of slack: a sub-pixel layout width rounds up and is not a broken page. */
 const TOLERANCE = 1;
