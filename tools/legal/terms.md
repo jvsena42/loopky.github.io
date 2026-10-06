@@ -153,5 +153,5 @@ document is public in the repository, so every change is inspectable.
 ## 12. Contact
 
 Questions about these terms: open an issue at
-[github.com/jvsena42/loopky/issues](https://github.com/jvsena42/loopky/issues). That is also where
-to ask for help using Loopky.
+[github.com/jvsena42/loopky/issues](https://github.com/jvsena42/loopky/issues). For help using
+Loopky, see [loopky.app/support](https://loopky.app/support/).

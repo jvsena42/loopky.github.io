@@ -26,7 +26,7 @@ const pages = Object.fromEntries(PAGES.map((p) => [p, read(p)]));
 const guides = Object.fromEntries(GUIDES.map((p) => [p, read(p)]));
 /* The home page's copies in the other ten languages, built from index.html. */
 const homes = Object.fromEntries(HOME_FILES.map((p) => [p, read(p)]));
-/* The privacy policy and the terms, English only. */
+/* The privacy policy, the terms and the support page, English only. */
 const legal = Object.fromEntries(LEGAL_FILES.map((p) => [p, read(p)]));
 const everyPage = { ...pages, ...guides, ...homes, ...legal };
 
@@ -291,7 +291,7 @@ if (upload && Number(upload[1]) >= 4 && !/include-hidden-files:\s*true/.test(wor
   fail('upload-pages-artifact v4+ drops .well-known unless the step sets include-hidden-files: true');
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
-/* One home page per language, one guide page per language and guide, and the two
+/* One home page per language, one guide page per language and guide, and the three
    English legal pages. */
 const expected = SUPPORTED.length + GUIDES.length + LEGAL_FILES.length;
 if (locs.length !== expected) {
@@ -349,14 +349,12 @@ for (const [page, src] of Object.entries({ ...guides, ...legal })) {
 
 /* ---- 6b'. the legal pages are reachable, and the two policies name their source ---- */
 
-/* OpenAI's plugin directory and both app stores are handed these addresses, so a
-   footer that drops one is a submission that points at a page nobody can find.
-   Support is the app repository's issues rather than a page here. */
+/* OpenAI's plugin directory and both app stores are handed these three addresses, so
+   a footer that drops one is a submission that points at a page nobody can find. */
 for (const [page, src] of Object.entries(everyPage)) {
   for (const slug of LEGAL) {
     if (!new RegExp(`<a href="(?:\\.\\./)*${slug}/"`).test(src)) fail(`${page}'s footer does not link ${slug}/`);
   }
-  if (!/<a href="https:\/\/github\.com\/jvsena42\/loopky\/issues"/.test(src)) fail(`${page}'s footer does not link the issue tracker for support`);
 }
 for (const [slug, source] of [['privacy', 'PRIVACY.md'], ['terms', 'TERMS.md']]) {
   const src = legal[`${slug}/index.html`];

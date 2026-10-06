@@ -24,9 +24,9 @@ pt-br/ es/ fr/ de/ it/ ja/ ko/ vi/ zh-hans/ zh-hant/
 tools/guides/*.json   the guides' words, one file per language
 tools/build-guides.mjs  builds the guide pages and sitemap.xml from them
 assets/img/guides/    app screenshots the guides show
-privacy/ terms/        the privacy policy and the terms of service, English only
+privacy/ terms/ support/  the privacy policy, the terms and the support page, English only
 tools/legal/*.md      their text; privacy.md and terms.md are copies from the app repository
-tools/legal.mjs       turns that Markdown into the two pages
+tools/legal.mjs       turns that Markdown into the three pages
 tools/sync-legal.mjs  refreshes the two copies, and reports when they have drifted
 llms.txt              a summary of Loopky for language models
 llms-full.txt         every guide as plain text, for language models
@@ -139,10 +139,9 @@ prompt and topic list in the markup match `i18n.js`.
 
 ## Privacy, terms and support
 
-`/privacy/` and `/terms/` are addresses the app stores and the plugin directories ask
-for, and every footer on the site links them. They are English only and say so: legal
-text in a language nobody reviewed is worse than English. Support has no page: the
-footer's Support link is the app repository's issue tracker.
+`/privacy/`, `/terms/` and `/support/` are the three addresses the app stores and the
+plugin directories ask for, and every footer on the site links them. They are English
+only and say so: legal text in a language nobody reviewed is worse than English.
 
 The policy and the terms are **not written here**. `PRIVACY.md` and `TERMS.md` in the
 app repository are the source, `tools/legal/privacy.md` and `terms.md` are copies, and
@@ -157,7 +156,7 @@ node tools/build-guides.mjs
 CI runs `node tools/sync-legal.mjs --check` and warns when the copies have drifted. It
 is a warning for the same reason the Discover check is: GitHub being unreachable is no
 reason to block a deploy. Never edit the two copies by hand, since the next sync
-overwrites them.
+overwrites them. `tools/legal/support.md` has no upstream and is edited here.
 
 `tools/legal.mjs` reads a small subset of Markdown (headings, paragraphs, flat lists,
 tables, links, bold, code), which is everything those files use. The privacy page is

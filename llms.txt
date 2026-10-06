@@ -57,6 +57,6 @@ Each guide is also published in Portuguese (Brazil), Spanish, French, German, It
 - [Full text of every guide](https://loopky.app/llms-full.txt)
 - [Privacy policy](https://loopky.app/privacy/)
 - [Terms of service](https://loopky.app/terms/)
-- [Support](https://github.com/jvsena42/loopky/issues): the public issue tracker, for bugs and questions
+- [Support](https://loopky.app/support/): where to get help, common problems, and `loopky doctor` for the command line tool
 - [App source and architecture](https://github.com/jvsena42/loopky)
 - [Pubky](https://pubky.org)

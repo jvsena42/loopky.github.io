@@ -1,11 +1,10 @@
-/* The privacy policy and the terms of service.
+/* The privacy policy, the terms of service and the support page.
  *
- * Two English pages, built from the Markdown in tools/legal/. privacy.md and
+ * Three English pages, built from the Markdown in tools/legal/. privacy.md and
  * terms.md are copies of PRIVACY.md and TERMS.md in the app repository, which stay
  * the source: each page links back to its file and carries its "Last updated" date,
  * and tools/sync-legal.mjs refreshes the copies and reports when they have drifted.
- *
- * Support has no page: every footer sends it to the app repository's issues.
+ * support.md is written here.
  *
  * They are not translated. Legal text in a language nobody reviewed is worse than
  * English that says it is English, so each page says so.
@@ -41,6 +40,12 @@ export const META = {
     desc: 'The terms for the Loopky apps, command line tool and agent plugin: MIT licensed with no warranty, no Loopky servers, and published decks are public.',
     source: 'TERMS.md',
   },
+  support: {
+    crumb: 'Support',
+    title: 'Support · Loopky',
+    desc: 'Where to get help with Loopky: the FAQ, the public issue tracker, fixes for common problems, and loopky doctor for the command line tool.',
+    source: null,
+  },
 };
 
 const esc = (s) => String(s)
@@ -57,7 +62,7 @@ function isoDate(written) {
   return `${m[3]}-${String(month).padStart(2, '0')}-${m[1].padStart(2, '0')}`;
 }
 
-/* Only what the two files use: code, links, bold and emphasis. The text is escaped
+/* Only what the three files use: code, links, bold and emphasis. The text is escaped
    first, so nothing in a file can add markup of its own. */
 function inline(text) {
   return esc(text)
@@ -139,6 +144,9 @@ export function legalPage(slug, SITE) {
   const doc = docs[slug];
   const self = SITE + slug + '/';
   const css = `../assets/css/style.css?v=${stampFor('assets/css/style.css')}`;
+  const source = m.source
+    ? ` It is published from <a href="${GH}/blob/main/${m.source}">${m.source}</a> in the Loopky repository, which is the source and holds every earlier version.`
+    : '';
 
   const ld = JSON.stringify({
     '@context': 'https://schema.org',
@@ -233,7 +241,7 @@ ${ld}
         </ol>
       </nav>
       <h1>${esc(doc.h1)}</h1>
-      <p class="fineprint prose-meta">Last updated ${esc(doc.updated)}. This page is in English only. It is published from <a href="${GH}/blob/main/${m.source}">${m.source}</a> in the Loopky repository, which is the source and holds every earlier version.</p>
+      <p class="fineprint prose-meta">Last updated ${esc(doc.updated)}. This page is in English only.${source}</p>
       ${doc.html.join('\n      ')}
     </article>
   </div>
@@ -255,7 +263,7 @@ ${ld}
       <a href="../faq/">FAQ</a>
       <a href="../privacy/">Privacy</a>
       <a href="../terms/">Terms</a>
-      <a href="${GH}/issues">Support</a>
+      <a href="../support/">Support</a>
     </nav>
     <p class="foot-note">Built on Pubky. MIT licensed.</p>
   </div>

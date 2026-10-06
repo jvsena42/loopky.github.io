@@ -470,7 +470,7 @@ ${others}
       <a href="${GH}">${esc(ui.source)}</a>
       <a href="${prefix}privacy/">${esc(ui.privacy)}</a>
       <a href="${prefix}terms/">${esc(ui.terms)}</a>
-      <a href="${GH}/issues">${esc(ui.support)}</a>
+      <a href="${prefix}support/">${esc(ui.support)}</a>
       <a href="${prefix}llms.txt">llms.txt</a>
     </nav>
     <p class="foot-note">${esc(ui.note)}</p>
