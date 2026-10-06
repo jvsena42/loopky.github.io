@@ -39,7 +39,8 @@ jobs:
         run: node tools/layout-check.mjs
 
       # The privacy policy and the terms are copies of PRIVACY.md and TERMS.md in the
-      # app repository. A warning and not a failure, for the same reason as below.
+      # app repository. A warning here, so drift never blocks a deploy; legal-drift.yml
+      # runs the same check weekly and fails, which is what gets noticed.
       - name: Do the privacy policy and the terms match the app repository?
         continue-on-error: true
         run: node tools/sync-legal.mjs --check || echo "::warning::tools/legal/ has drifted from the app repository. Run node tools/sync-legal.mjs and rebuild."

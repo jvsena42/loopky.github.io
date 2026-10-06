@@ -75,6 +75,11 @@ function inline(text) {
     .replace(/(^|[\s(])\*([^*\s][^*]*)\*/g, '$1<em>$2</em>');
 }
 
+/* Sub-headings, numbered lists, quotes, code fences and nested lists. The policies
+   are edited in the app repository by someone not looking at this parser, so one of
+   these fails the build at the sync that brings it in rather than rendering as text. */
+const UNSUPPORTED = /^(#{3,} |\d+\. |> |```|\s+[-*] |\* )/;
+
 const cells = (row) => row.trim().replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
 
 /* Headings, paragraphs, flat lists and tables. Anything else in a source file is a
@@ -122,6 +127,7 @@ function parse(markdown) {
       out.html.push('<ul>\n' + items.map((x) => `        <li>${inline(x)}</li>`).join('\n') + '\n      </ul>');
       continue;
     }
+    if (UNSUPPORTED.test(line)) throw new Error(`tools/legal.mjs does not read this Markdown: ${line.trim()}`);
     const text = rest(prose).map((l) => l.trim()).join(' ');
     const updated = /^\*\*Last updated:\*\* (.+)$/.exec(text);
     if (updated) out.updated = updated[1];
@@ -156,7 +162,8 @@ export function legalPage(slug, SITE) {
         '@id': self + '#page',
         headline: doc.h1, name: m.title, description: m.desc, url: self,
         inLanguage: 'en',
-        datePublished: doc.iso, dateModified: doc.iso,
+        /* No datePublished: the files carry only the day they last changed. */
+        dateModified: doc.iso,
         author: { '@type': 'Person', name: 'João Victor Sena', url: 'https://github.com/jvsena42' },
         publisher: { '@id': SITE + '#org' },
         isPartOf: { '@id': SITE + '#website' },

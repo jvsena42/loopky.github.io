@@ -1,0 +1,26 @@
+name: Policy drift
+
+# The privacy policy and the terms are written in the app repository and copied here.
+# pages.yml only runs when this repository changes, so a policy edited over there
+# would go unnoticed until the next push. This asks weekly, and fails rather than
+# warns: a failed scheduled run emails the owner, and no deploy depends on it.
+on:
+  schedule:
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Do the privacy policy and the terms match the app repository?
+        run: node tools/sync-legal.mjs --check

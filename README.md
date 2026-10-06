@@ -153,13 +153,14 @@ node tools/sync-legal.mjs      # or: node tools/sync-legal.mjs ../loopky
 node tools/build-guides.mjs
 ```
 
-CI runs `node tools/sync-legal.mjs --check` and warns when the copies have drifted. It
-is a warning for the same reason the Discover check is: GitHub being unreachable is no
-reason to block a deploy. Never edit the two copies by hand, since the next sync
+`pages.yml` runs `node tools/sync-legal.mjs --check` and warns when the copies have
+drifted, so drift never blocks a deploy. That only runs when this repository changes,
+so `legal-drift.yml` asks again every Monday and **fails**, which emails the owner. Never edit the two copies by hand, since the next sync
 overwrites them. `tools/legal/support.md` has no upstream and is edited here.
 
 `tools/legal.mjs` reads a small subset of Markdown (headings, paragraphs, flat lists,
-tables, links, bold, code), which is everything those files use. The privacy page is
+tables, links, bold, code), which is everything those files use. Anything else, a
+`###` heading or a numbered list, fails the build instead of rendering as text. The privacy page is
 exempt from the em dash rule because it is `PRIVACY.md` word for word.
 
 ## Shared links
