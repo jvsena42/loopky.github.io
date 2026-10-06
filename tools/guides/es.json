@@ -66,7 +66,7 @@
         ["¿Loopky puede reemplazar a Anki por completo?", "Para la mayoría, sí. Revisa antes si dependes de archivos de audio, LaTeX, plantillas de tarjeta personalizadas o FSRS."],
         ["¿Loopky usa FSRS?", "No. Cada botón de calificación tiene un intervalo fijo que tú defines, de 1 a 365 días."],
         ["¿Es gratis?", "Sí. Sin anuncios, sin suscripción y de código abierto con licencia MIT."],
-        ["¿Hay app para iPhone?", "Loopky está en Android por ahora. La app de iOS ya está hecha y llega muy pronto."]
+        ["¿Hay app para iPhone?", "Sí. La app de iOS está en beta pública en TestFlight, y Loopky está en Google Play para Android."]
       ]
     },
     "language-learning": {
@@ -146,7 +146,7 @@
       "faq": [
         ["¿Mis alumnos necesitan una cuenta de correo?", "No. Entran con una clave Pubky o crean una cuenta en la app."],
         ["¿Puedo ver el progreso de mis alumnos?", "No. El progreso es de cada alumno y no hay panel para docentes."],
-        ["¿Pueden unirse alumnos con iPhone?", "Ya pueden abrir la página del mazo en el navegador, y podrán estudiarlo cuando salga la app de iOS."]
+        ["¿Pueden unirse alumnos con iPhone?", "Sí. Pueden unirse a la beta de iOS en TestFlight o abrir la página del mazo en el navegador."]
       ]
     },
     "ai-flashcards": {
@@ -257,7 +257,7 @@
       "faq": [
         ["¿Qué es Loopky?", "Una app de flashcards gratis con repetición espaciada. Creas o importas mazos, estudias unos minutos al día y cada tarjeta vuelve justo antes de que la olvides."],
         ["¿De verdad es gratis?", "Sí. Sin precio, sin suscripción, sin anuncios y sin compras dentro de la app. El código es abierto con licencia MIT."],
-        ["¿Dónde funciona?", "Android 10 o posterior, en teléfonos y tabletas. La app de iOS llega muy pronto. En la computadora, una herramienta de línea de comandos gestiona los mazos."],
+        ["¿Dónde funciona?", "Android 10 o posterior, en teléfonos y tabletas. En iPhone y iPad, la app de iOS está en beta pública en TestFlight. En la computadora, una herramienta de línea de comandos gestiona los mazos."],
         ["¿Puedo importar mazos de Anki?", "Sí: .apkg con texto, imágenes y cloze, además de .txt, .csv y listas pegadas. El audio, LaTeX y el historial de repasos no se importan."],
         ["¿Cómo programa las tarjetas?", "Intervalos fijos por botón: menos de 10 minutos para Otra vez, luego 1, 3 y 7 días por defecto, cada uno ajustable hasta 365."],
         ["¿Puede leer las tarjetas en voz alta?", "Sí, en 35 idiomas y variantes, y el modo Hablar revisa tu pronunciación."],
