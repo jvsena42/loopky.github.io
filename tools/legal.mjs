@@ -43,7 +43,7 @@ export const META = {
   support: {
     crumb: 'Support',
     title: 'Support · Loopky',
-    desc: 'Where to get help with Loopky: the FAQ, the public issue tracker, fixes for common problems, and loopky doctor for the command line tool.',
+    desc: 'Help with Loopky happens in the public issue tracker on GitHub. What to put in an issue, fixes for common problems, and loopky doctor for the command line tool.',
     source: null,
   },
 };

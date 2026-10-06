@@ -2,18 +2,12 @@
 
 **Last updated:** 6 October 2026
 
-Loopky is a free, open-source project with no support desk. Help comes from the pages below and
-from the project's public issue tracker.
+Loopky is a free, open-source project with no support desk. **Help happens in the project's public
+issue tracker:
+[github.com/jvsena42/loopky/issues](https://github.com/jvsena42/loopky/issues).** Open an issue
+there to report a bug or to ask a question.
 
-## Start with the FAQ
-
-The [FAQ](https://loopky.app/faq/) answers the common questions: price, where Loopky runs, what an
-Anki import brings across, how cards are scheduled, signing in and privacy.
-
-## Report a bug or ask a question
-
-Open an issue at
-[github.com/jvsena42/loopky/issues](https://github.com/jvsena42/loopky/issues). It helps to say:
+## What to put in an issue
 
 - the app version (shown in Settings) or the output of `loopky --version`;
 - your device and its Android or iOS version;
@@ -22,7 +16,11 @@ Open an issue at
 **Issues are public.** Never include your recovery phrase, a recovery file, or a `pubkyauth://`
 sign-in link: each of them is a way into your account.
 
-## Common problems
+## Before you open one
+
+The [FAQ](https://loopky.app/faq/) answers the common questions: price, where Loopky runs, what an
+Anki import brings across, how cards are scheduled, signing in and privacy. The problems below are
+the ones people meet most.
 
 - **Loopky asks you to sign in again, or a change will not save.** Sessions are time limited and
   can expire after about an hour. Reading keeps working, writing does not. Sign in again and repeat
