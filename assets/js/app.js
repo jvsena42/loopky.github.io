@@ -539,6 +539,69 @@
       a.addEventListener('click', function () { copyPrompt(null); });
     });
 
+    /* Each plugin command gets its own copy button, since each one is pasted on its
+       own. Built here so the eleven home pages need no extra markup. */
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+    function icon(paths, width) {
+      var svg = document.createElementNS(SVG_NS, 'svg');
+      svg.setAttribute('viewBox', '0 0 24 24');
+      svg.setAttribute('width', '16');
+      svg.setAttribute('height', '16');
+      svg.setAttribute('aria-hidden', 'true');
+      svg.setAttribute('fill', 'none');
+      svg.setAttribute('stroke', 'currentColor');
+      svg.setAttribute('stroke-width', width);
+      svg.setAttribute('stroke-linecap', 'round');
+      svg.setAttribute('stroke-linejoin', 'round');
+      paths.forEach(function (d) {
+        var el = document.createElementNS(SVG_NS, 'path');
+        el.setAttribute('d', d);
+        svg.appendChild(el);
+      });
+      return svg;
+    }
+    var COPY_PATHS = ['M11 9h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2z', 'M5 15V5a2 2 0 0 1 2-2h10'];
+    var DONE_PATHS = ['M5 12.5l4.5 4.5L19 7.5'];
+    document.querySelectorAll('.cli-plugin pre').forEach(function (pre) {
+      var code = pre.querySelector('code') || pre;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cmd-copy';
+      btn.appendChild(icon(COPY_PATHS, '2'));
+      btn.setAttribute('aria-label', tf('cli.copy', 'Copy'));
+      btn.title = tf('cli.copy', 'Copy');
+      var timer;
+      function done() {
+        btn.replaceChildren(icon(DONE_PATHS, '2.4'));
+        btn.classList.add('is-done');
+        btn.setAttribute('aria-label', tf('cli.copied', 'Copied'));
+        btn.title = tf('cli.copied', 'Copied');
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          btn.replaceChildren(icon(COPY_PATHS, '2'));
+          btn.classList.remove('is-done');
+          btn.setAttribute('aria-label', tf('cli.copy', 'Copy'));
+          btn.title = tf('cli.copy', 'Copy');
+        }, 1800);
+      }
+      function select() {
+        var range = document.createRange();
+        range.selectNodeContents(code);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+      btn.addEventListener('click', function () {
+        var text = code.textContent.trim();
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done, select);
+        } else {
+          select();
+        }
+      });
+      pre.appendChild(btn);
+    });
+
     function selectPrompt() {
       var pre = document.getElementById('ai-prompt');
       if (!pre) return;

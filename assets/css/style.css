@@ -537,6 +537,18 @@ img { max-width: 100%; height: auto; display: block; }
 /* One command per block: Claude Code's "Add Marketplace" box takes only the source, so a
    two-line block copied whole is refused as one bad owner/repo. */
 .cli-plugin pre + pre { margin-top: 6px; }
+/* app.js adds a copy button to each command, pinned to the block's right edge. */
+.cli-plugin pre { position: relative; padding-right: 44px; }
+.cmd-copy {
+  position: absolute; top: 50%; right: 6px; transform: translateY(-50%);
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; padding: 0;
+  background: transparent; color: var(--fg-muted);
+  border: 0; border-radius: 8px; cursor: pointer;
+}
+.cmd-copy:hover { background: var(--accent-2-soft); color: var(--accent-2); }
+.cmd-copy:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 1px; }
+.cmd-copy.is-done { color: var(--accent-2); }
 
 /* The idea picker and the request above the full prompt. Dark in both themes, like
    the box it sits in. */
