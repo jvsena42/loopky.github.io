@@ -25,7 +25,6 @@ const checkout = args.find((a) => !a.startsWith('--'));
 
 const drifted = [];
 for (const [slug, { source }] of Object.entries(META)) {
-  if (!source) continue;
   let upstream;
   if (checkout) {
     upstream = readFileSync(join(checkout, source), 'utf8');
