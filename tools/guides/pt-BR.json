@@ -66,7 +66,7 @@
         ["O Loopky substitui o Anki por completo?", "Para a maioria das pessoas, sim. Confira antes se você depende de arquivos de áudio, LaTeX, modelos de carta personalizados ou FSRS."],
         ["O Loopky usa FSRS?", "Não. Cada botão de nota tem um intervalo fixo que você define, de 1 a 365 dias."],
         ["É grátis?", "Sim. Sem anúncios, sem assinatura e open source com licença MIT."],
-        ["Tem app para iPhone?", "O Loopky está no Android agora. O app de iOS já está pronto e chega em breve."]
+        ["Tem app para iPhone?", "Sim. O app de iOS está em beta público no TestFlight, e o Loopky está no Google Play para Android."]
       ]
     },
     "language-learning": {
@@ -146,7 +146,7 @@
       "faq": [
         ["Os alunos precisam de e-mail?", "Não. Eles entram com uma chave Pubky ou criam uma conta no app."],
         ["Consigo ver o progresso dos alunos?", "Não. O progresso é de cada aluno, e não existe painel do professor."],
-        ["Alunos com iPhone podem participar?", "Já podem abrir a página do baralho no navegador e vão poder estudar quando o app de iOS sair."]
+        ["Alunos com iPhone podem participar?", "Sim. Podem entrar no beta de iOS pelo TestFlight ou abrir a página do baralho no navegador."]
       ]
     },
     "ai-flashcards": {
@@ -257,7 +257,7 @@
       "faq": [
         ["O que é o Loopky?", "Um app de flashcards grátis com repetição espaçada. Você cria ou importa baralhos, estuda alguns minutos por dia, e cada carta volta pouco antes de você esquecer."],
         ["É grátis mesmo?", "Sim. Sem preço, sem assinatura, sem anúncios e sem compras no app. O código é open source com licença MIT."],
-        ["Onde ele roda?", "Android 10 ou mais recente, em celulares e tablets. O app de iOS chega em breve. No computador, uma ferramenta de linha de comando gerencia os baralhos."],
+        ["Onde ele roda?", "Android 10 ou mais recente, em celulares e tablets. No iPhone e no iPad, o app de iOS está em beta público no TestFlight. No computador, uma ferramenta de linha de comando gerencia os baralhos."],
         ["Posso importar baralhos do Anki?", "Sim: .apkg com texto, imagens e cloze, além de .txt, .csv e listas coladas. Áudio, LaTeX e histórico de revisões não são importados."],
         ["Como ele agenda as cartas?", "Intervalos fixos por botão: menos de 10 minutos para De novo, depois 1, 3 e 7 dias por padrão, cada um ajustável até 365."],
         ["Ele lê as cartas em voz alta?", "Sim, em 35 idiomas e variantes, e o modo Falar confere sua pronúncia."],

@@ -66,7 +66,7 @@
         ["Loopky può sostituire del tutto Anki?", "Per la maggior parte di chi studia, sì. Controlla prima se ti servono file audio, LaTeX, modelli di carta personalizzati o FSRS."],
         ["Loopky usa FSRS?", "No. Ogni pulsante di voto ha un intervallo fisso che imposti tu, da 1 a 365 giorni."],
         ["È gratis?", "Sì. Senza pubblicità, senza abbonamento e open source con licenza MIT."],
-        ["C’è un’app per iPhone?", "Loopky è su Android ora. L’app iOS è pronta e arriva presto."]
+        ["C’è un’app per iPhone?", "Sì. L’app iOS è in beta pubblica su TestFlight, e Loopky è su Google Play per Android."]
       ]
     },
     "language-learning": {
@@ -146,7 +146,7 @@
       "faq": [
         ["Gli studenti hanno bisogno di un account email?", "No. Entrano con una chiave Pubky, o creano un account nell’app."],
         ["Posso vedere i progressi dei miei studenti?", "No. I progressi appartengono a ogni studente e non c’è un pannello per l’insegnante."],
-        ["Possono partecipare gli studenti con iPhone?", "Possono già aprire la pagina del mazzo nel browser, e studiarlo quando uscirà l’app iOS."]
+        ["Possono partecipare gli studenti con iPhone?", "Sì. Possono entrare nella beta iOS su TestFlight o aprire la pagina del mazzo nel browser."]
       ]
     },
     "ai-flashcards": {
@@ -257,7 +257,7 @@
       "faq": [
         ["Cos’è Loopky?", "Un’app di flashcard gratuita con ripetizione dilazionata. Crei o importi mazzi, studi pochi minuti al giorno e ogni carta torna poco prima che tu la dimentichi."],
         ["È davvero gratis?", "Sì. Nessun prezzo, nessun abbonamento, nessuna pubblicità e nessun acquisto in app. Il codice è open source con licenza MIT."],
-        ["Dove funziona?", "Android 10 e successivi, su telefoni e tablet. L’app iOS è in arrivo. Sul computer, uno strumento da riga di comando gestisce i mazzi."],
+        ["Dove funziona?", "Android 10 e successivi, su telefoni e tablet. Su iPhone e iPad, l’app iOS è in beta pubblica su TestFlight. Sul computer, uno strumento da riga di comando gestisce i mazzi."],
         ["Posso importare mazzi Anki?", "Sì: .apkg con testo, immagini e cloze, più .txt, .csv e liste incollate. Audio, LaTeX e cronologia dei ripassi non vengono importati."],
         ["Come pianifica le carte?", "Intervalli fissi per pulsante: meno di 10 minuti per Ancora, poi 1, 3 e 7 giorni per impostazione predefinita, ognuno regolabile fino a 365."],
         ["Può leggere le carte ad alta voce?", "Sì, in 35 lingue e varianti, e la modalità Parla controlla la tua pronuncia."],

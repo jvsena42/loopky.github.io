@@ -66,7 +66,7 @@
         ["Loopky có thay thế hoàn toàn Anki được không?", "Với phần lớn người học, có. Hãy kiểm tra trước nếu bạn cần tệp âm thanh, LaTeX, mẫu thẻ tùy chỉnh hoặc FSRS."],
         ["Loopky có dùng FSRS không?", "Không. Mỗi nút chấm điểm có một khoảng cách cố định do bạn đặt, từ 1 đến 365 ngày."],
         ["Có miễn phí không?", "Có. Không quảng cáo, không thuê bao, và là mã nguồn mở theo giấy phép MIT."],
-        ["Có ứng dụng cho iPhone không?", "Hiện Loopky có trên Android. Ứng dụng iOS đã làm xong và sắp ra mắt."]
+        ["Có ứng dụng cho iPhone không?", "Có. Ứng dụng iOS đang ở bản beta công khai trên TestFlight, và Loopky có trên Google Play cho Android."]
       ]
     },
     "language-learning": {
@@ -146,7 +146,7 @@
       "faq": [
         ["Học sinh có cần tài khoản email không?", "Không. Các em đăng nhập bằng khóa Pubky, hoặc tạo tài khoản trong ứng dụng."],
         ["Tôi có xem được tiến độ của học sinh không?", "Không. Tiến độ thuộc về từng học sinh, và không có bảng điều khiển cho giáo viên."],
-        ["Học sinh dùng iPhone có tham gia được không?", "Các em có thể mở trang bộ thẻ trên trình duyệt ngay bây giờ, và học khi ứng dụng iOS ra mắt."]
+        ["Học sinh dùng iPhone có tham gia được không?", "Có. Các em có thể tham gia bản beta iOS trên TestFlight hoặc mở trang bộ thẻ trên trình duyệt."]
       ]
     },
     "ai-flashcards": {
@@ -257,7 +257,7 @@
       "faq": [
         ["Loopky là gì?", "Một ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng. Bạn tạo hoặc nhập bộ thẻ, học vài phút mỗi ngày, và mỗi thẻ quay lại ngay trước khi bạn quên."],
         ["Có thật sự miễn phí không?", "Có. Không tốn tiền, không thuê bao, không quảng cáo và không mua trong ứng dụng. Mã nguồn mở theo giấy phép MIT."],
-        ["Chạy trên thiết bị nào?", "Android 10 trở lên, trên điện thoại và máy tính bảng. Ứng dụng iOS sắp có. Trên máy tính, một công cụ dòng lệnh quản lý bộ thẻ."],
+        ["Chạy trên thiết bị nào?", "Android 10 trở lên, trên điện thoại và máy tính bảng. Trên iPhone và iPad, ứng dụng iOS đang ở bản beta công khai trên TestFlight. Trên máy tính, một công cụ dòng lệnh quản lý bộ thẻ."],
         ["Tôi có nhập được bộ thẻ Anki không?", "Có: .apkg với văn bản, hình ảnh và điền chỗ trống, cùng .txt, .csv và danh sách dán vào. Âm thanh, LaTeX và lịch sử ôn tập không được nhập."],
         ["Thẻ được xếp lịch thế nào?", "Khoảng cách cố định cho từng nút: dưới 10 phút cho Lại, rồi mặc định 1, 3 và 7 ngày, mỗi mức chỉnh được tới 365."],
         ["Có đọc to thẻ được không?", "Có, bằng 35 ngôn ngữ và biến thể, và chế độ Nói kiểm tra phát âm của bạn."],

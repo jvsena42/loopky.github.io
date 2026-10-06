@@ -150,7 +150,7 @@
         ],
         [
           "Y a-t-il une appli iPhone ?",
-          "Loopky est sur Android pour l’instant. L’appli iOS est prête et arrive bientôt."
+          "Oui. L’appli iOS est en bêta publique sur TestFlight, et Loopky est sur Google Play pour Android."
         ]
       ]
     },
@@ -325,7 +325,7 @@
         ],
         [
           "Les élèves sur iPhone peuvent-ils suivre ?",
-          "Ils peuvent déjà ouvrir la page du paquet dans un navigateur, et le réviser dès la sortie de l’appli iOS."
+          "Oui. Ils peuvent rejoindre la bêta iOS sur TestFlight ou ouvrir la page du paquet dans un navigateur."
         ]
       ]
     },
@@ -577,7 +577,7 @@
         ],
         [
           "Sur quoi ça fonctionne ?",
-          "Android 10 et plus, sur téléphones et tablettes. L’appli iOS arrive bientôt. Sur ordinateur, un outil en ligne de commande gère les paquets."
+          "Android 10 et plus, sur téléphones et tablettes. Sur iPhone et iPad, l’appli iOS est en bêta publique sur TestFlight. Sur ordinateur, un outil en ligne de commande gère les paquets."
         ],
         [
           "Puis-je importer des paquets Anki ?",

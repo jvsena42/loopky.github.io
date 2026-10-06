@@ -66,7 +66,7 @@
         ["Can Loopky fully replace Anki?", "For most learners, yes. Check first if you rely on audio files, LaTeX, custom card templates or FSRS."],
         ["Does Loopky use FSRS?", "No. Each grade button has a fixed interval that you set, from 1 to 365 days."],
         ["Is it free?", "Yes. No ads, no subscription, and open source under the MIT license."],
-        ["Is there an iPhone app?", "Loopky is on Android now. The iOS app is built and coming soon."]
+        ["Is there an iPhone app?", "Yes. The iOS app is in public beta on TestFlight, and Loopky is on Google Play for Android."]
       ]
     },
     "language-learning": {
@@ -146,7 +146,7 @@
       "faq": [
         ["Do students need an email account?", "No. They sign in with a Pubky key, or create an account in the app."],
         ["Can I see my students' progress?", "No. Progress belongs to each student, and there is no teacher dashboard."],
-        ["Can students on iPhone join?", "They can open the deck page in a browser now, and study it once the iOS app is out."]
+        ["Can students on iPhone join?", "Yes. They can join the iOS beta on TestFlight, or open the deck page in a browser."]
       ]
     },
     "ai-flashcards": {
@@ -257,7 +257,7 @@
       "faq": [
         ["What is Loopky?", "A free flashcards app with spaced repetition. You make or import decks, study a few minutes a day, and each card comes back right before you forget it."],
         ["Is it really free?", "Yes. No price, no subscription, no ads and no in-app purchases. The code is open source under MIT."],
-        ["Where does it run?", "Android 10 and later, on phones and tablets. The iOS app is coming soon. On computers, a command line tool manages decks."],
+        ["Where does it run?", "Android 10 and later, on phones and tablets. On iPhone and iPad, the iOS app is in public beta on TestFlight. On computers, a command line tool manages decks."],
         ["Can I import Anki decks?", "Yes: .apkg with text, images and cloze, plus .txt, .csv and pasted lists. Audio, LaTeX and review history are not imported."],
         ["How does it schedule cards?", "Fixed intervals per button: under 10 minutes for Again, then 1, 3 and 7 days by default, each adjustable up to 365."],
         ["Can it read cards aloud?", "Yes, in 35 languages and variants, and Speak mode checks your pronunciation."],
