@@ -279,6 +279,11 @@ try {
       if (!paths.includes(p)) fail(`.well-known/apple-app-site-association does not cover ${p}`);
     }
   }
+  /* The app saves the recovery phrase as a loopky.app password. Without this entry the
+     save is refused on the device, and the app's backup button fails with no reason given. */
+  if (!aasa?.webcredentials?.apps?.includes('WFQWFBS5H7.com.github.jvsena42.loopky')) {
+    fail('.well-known/apple-app-site-association has no webcredentials entry for WFQWFBS5H7.com.github.jvsena42.loopky');
+  }
 } catch (e) {
   fail(`.well-known/apple-app-site-association is missing or not JSON: ${e.message}`);
 }
