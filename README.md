@@ -212,16 +212,18 @@ the sitemap for the same reason: each is a template that answers for every deck.
 
 ### assetlinks.json
 
-It lists two certificates today: the upload key and the debug key. **The Play App
-Signing certificate still has to be added**, from Play Console under *Test and
-release › App integrity › App signing key certificate* (the *Deep links* page
-there shows the whole statement). A Play-installed app is signed with that key,
-not the upload key, so until its SHA-256 is in the list, Android will refuse to
-verify the domain for anyone who installed from the store and every link will
-open the browser. That failure is silent: the browser shows this web page, which
-looks like it works. On a device,
+It lists two certificates. The first, `09:81:13:…:80:48`, is the Play App Signing
+certificate and also the upload key: Play Console shows that SHA-256 under *Test and
+release › App integrity › App signing key certificate*, and the APK attached to
+each GitHub release is signed with it too. So a Play install and a release APK both
+verify. The second, `FB:07:11:…:4F:7C`, is a debug key.
+
+A build signed with any other key, a debug build from a machine whose debug key is
+not listed for one, is not verified, and every link opens the browser. That failure
+is silent: the browser shows this web page, which looks like it works. On a device,
 `adb shell pm get-app-links com.github.jvsena42.loopky` shows whether `loopky.app`
-reads `verified`.
+reads `verified`. If Play's signing key is ever rotated, the new SHA-256 has to be
+added here.
 
 The deploy uses `upload-pages-artifact@v3`, which keeps dot-directories in the
 artifact. v4 drops them unless the step sets `include-hidden-files: true`, and
