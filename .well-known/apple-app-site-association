@@ -11,5 +11,8 @@
         ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["WFQWFBS5H7.com.github.jvsena42.loopky"]
   }
 }

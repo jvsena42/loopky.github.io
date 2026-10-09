@@ -237,6 +237,11 @@ or without anything after them. It has to agree with the app's
 TestFlight or App Store build from any other team, or one under another bundle
 identifier, is not verified and the link opens this site instead.
 
+It also lists the same app under `webcredentials`, paired with the app's
+`webcredentials:loopky.app` entitlement. That is what lets the iOS app save a
+recovery phrase to the Passwords app as a `loopky.app` entry and read it back.
+There is no login form on this site and the entry is not for one.
+
 Pages serves the extensionless file as `application/octet-stream`, which Apple
 accepts, and without a redirect, which it does not. iOS does not fetch the file
 from here: Apple's CDN does, and caches it for up to a day. What the CDN holds is
