@@ -114,7 +114,7 @@ if (I18N) {
     .flatMap((page) => [...page.matchAll(/data-i18n="([^"]+)"/g)].map((m) => m[1])));
   /* Keys the scripts reach for directly, which never appear as an attribute. */
   const fromJs = new Set();
-  for (const f of ['assets/js/app.js', 'assets/js/link.js']) {
+  for (const f of ['assets/js/app.js', 'assets/js/link.js', 'assets/js/recap.js']) {
     /* t(key) and tf(key, fallback) both count as a use. */
     for (const m of read(f).matchAll(/(?<![\w$])tf?\('([^']+)'\s*[,)]/g)) fromJs.add(m[1]);
   }

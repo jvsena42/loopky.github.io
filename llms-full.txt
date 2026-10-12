@@ -528,3 +528,9 @@ No. Loopky is a separate app that imports Anki decks. It includes several things
 
 **Who makes Loopky?**
 Loopky is an open source project by João Victor Sena. Issues and contributions are welcome on [GitHub](https://github.com/jvsena42/loopky).
+
+## Loopky Recap: your year in flashcards
+
+From 16 to 31 December the app offers a recap of the year: cards studied, cards mastered, decks studied and created, the deck you studied most, the languages and topics you worked on, and a title that sums it up (Polyglot, Creator, Master or Explorer). You can share it as a picture or as a link, `https://loopky.app/recap/?pubky=...&year=...`, which shows the same numbers in a browser to anyone you send it to.
+
+It is one year, not a running total, and it is built only from what your account already holds. Loopky keeps no study history, so the recap has no streak and no count of total reviews. Like every deck on Loopky, the numbers behind it are public.

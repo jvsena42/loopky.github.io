@@ -21,7 +21,7 @@ const root = new URL('../', import.meta.url);
 
 /* The pages that carry the language picker and the i18n dictionaries. The deck and
    profile pages sit one directory down and reach the same files through `../`. */
-export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html'];
+export const PAGES = ['index.html', 'deck/index.html', 'profile/index.html', 'recap/index.html'];
 
 /* The guide pages, every language. Built by tools/build-guides.mjs, which stamps
    them itself; they are listed here so a stale stamp is caught the same way. */

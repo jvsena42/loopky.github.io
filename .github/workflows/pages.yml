@@ -32,6 +32,11 @@ jobs:
       - name: Check
         run: node tools/check.mjs
 
+      # The recap page computes what the app computes. Both are held to one fixture,
+      # so a rule that drifts on either side fails that side's suite.
+      - name: Recap
+        run: node tools/recap.test.mjs
+
       # Loads the page in the runner's Chrome and fails if it scrolls sideways.
       # A cropped screenshot of an overflowing page looks exactly like a cropped
       # screenshot of a correct one, which is how one shipped.

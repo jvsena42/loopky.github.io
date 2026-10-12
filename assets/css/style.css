@@ -612,6 +612,97 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .steps li { padding-top: 6px; }
 .steps p { color: var(--fg-2); font-size: .97rem; margin: 0; }
+/* ---------- a shared recap ---------- */
+
+/* One person's year, on the brand's two accents. The same picture the app shares, laid
+   out for a browser: the numbers first, then who they are and what they studied. The
+   card is the same in both themes on purpose, like the image it mirrors. */
+.recap-hero { padding: clamp(24px, 5vw, 56px) 0 clamp(36px, 6vw, 72px); }
+.recap-card {
+  position: relative; overflow: hidden; max-width: 980px; margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px);
+  border-radius: var(--r-lg); box-shadow: var(--shadow-high);
+  background: linear-gradient(135deg, #FF5C00, #C4557C 55%, #7A4CFF);
+  color: #fff;
+}
+.recap-card::before, .recap-card::after {
+  content: ""; position: absolute; border-radius: 50%; pointer-events: none;
+  background: rgba(255, 255, 255, .1);
+}
+.recap-card::before { width: 380px; height: 380px; right: -120px; top: -160px; }
+.recap-card::after { width: 260px; height: 260px; left: -110px; bottom: -130px; }
+.recap-card > * { position: relative; z-index: 1; }
+.recap-eyebrow {
+  margin: 0 0 8px; font-size: .82rem; font-weight: 800; letter-spacing: .1em;
+  text-transform: uppercase; color: rgba(255, 255, 255, .88);
+}
+.recap-title {
+  margin: 0; color: #fff; font-size: clamp(1.9rem, 5.4vw, 3.2rem); line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+.recap-who { display: flex; align-items: center; gap: 10px; margin: 14px 0 0; min-height: 0; }
+.recap-who:empty { display: none; }
+.recap-avatar { border-radius: 50%; object-fit: cover; background: rgba(255, 255, 255, .2); }
+.recap-profile { color: #fff; font-weight: 700; text-decoration: underline; overflow-wrap: anywhere; }
+.recap-status { margin: 18px 0 0; color: rgba(255, 255, 255, .92); font-size: 1.05rem; }
+.recap-status:empty { display: none; }
+.recap-retry { background: #fff; color: #B23F00; }
+.recap-retry:hover { background: #FFE8D6; }
+
+.recap-grid {
+  display: grid; gap: 14px; margin-top: clamp(22px, 4vw, 36px);
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+.recap-grid:empty, .recap-extra:empty { display: none; }
+.recap-stat {
+  display: flex; flex-direction: column; gap: 2px; min-width: 0;
+  padding: 18px 18px 16px; border-radius: var(--r-md);
+  background: rgba(255, 255, 255, .16);
+}
+.recap-stat-emoji { font-size: 1.5rem; line-height: 1; margin-bottom: 6px; }
+.recap-stat-n { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; }
+.recap-stat-n.is-long { font-size: clamp(1.5rem, 3.6vw, 2.2rem); line-height: 1.25; }
+.recap-stat-label { font-size: .95rem; font-weight: 600; color: rgba(255, 255, 255, .92); overflow-wrap: anywhere; }
+
+.recap-extra { display: grid; gap: 22px; margin-top: clamp(22px, 4vw, 34px); }
+.recap-persona { display: flex; align-items: center; gap: 16px; }
+.recap-persona-emoji {
+  flex: none; display: grid; place-items: center; width: 68px; height: 68px;
+  border-radius: 22px; background: #fff; font-size: 2.1rem;
+}
+.recap-persona-title { margin: 0; color: #fff; font-size: clamp(1.3rem, 3.2vw, 1.8rem); }
+.recap-persona-body { margin: 2px 0 0; color: rgba(255, 255, 255, .92); }
+.recap-group-title {
+  margin: 0 0 8px; color: rgba(255, 255, 255, .88);
+  font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+}
+/* The Discover tile, on the gradient. It inherits its text colour, which here would be
+   the card's white on its own white surface. */
+.recap-topdeck { max-width: 280px; }
+.recap-topdeck .deck { color: var(--fg); }
+.recap-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.recap-pill {
+  padding: 7px 15px; border-radius: var(--r-pill); background: #fff; color: #B23F00;
+  font-weight: 700; font-size: .95rem; overflow-wrap: anywhere;
+}
+
+/* The numbers arrive one after another, once, when the year has loaded. */
+@media (prefers-reduced-motion: no-preference) {
+  .recap-hero[data-state="ready"] .recap-stat,
+  .recap-hero[data-state="ready"] .recap-extra > * {
+    animation: recap-rise .5s cubic-bezier(.2, .7, .2, 1) both;
+  }
+  .recap-hero[data-state="ready"] .recap-stat:nth-child(2) { animation-delay: .08s; }
+  .recap-hero[data-state="ready"] .recap-stat:nth-child(3) { animation-delay: .16s; }
+  .recap-hero[data-state="ready"] .recap-stat:nth-child(4) { animation-delay: .24s; }
+  .recap-hero[data-state="ready"] .recap-stat:nth-child(5) { animation-delay: .32s; }
+  .recap-hero[data-state="ready"] .recap-extra > * { animation-delay: .42s; }
+}
+@keyframes recap-rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
 .num {
   display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px;
   border-radius: 50%; background: var(--accent); color: #fff; font-weight: 800; font-size: 1.05rem;

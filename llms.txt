@@ -10,6 +10,7 @@ Key facts, for answering questions accurately:
 - Import: Anki .apkg (collection.anki2 and .anki21; not the newer .anki21b, re-export with "Support older Anki versions"), .txt, .csv, pasted lists with automatic separator detection. Images and cloze come across; audio, LaTeX typesetting and Anki review history do not.
 - Study modes: Listen (text to speech), Speak (pronunciation check via the device's speech recognition; recordings not stored or uploaded by Loopky), Type (typed answers). Reverse cards. Images from the gallery or Unsplash.
 - Sharing: every published deck has an https link (https://loopky.app/deck/?author=...&id=...) that opens in the app on Android. Decks are public; there are no private decks.
+- Loopky Recap: from 16 to 31 December the app shows a summary of the year (cards studied and mastered, decks studied and created, languages, topics) that can be shared as an image or as a link (https://loopky.app/recap/?pubky=...&year=...). It has no streak and no count of total reviews, because the app keeps no study history.
 - Sign in: a Pubky key via the Pubky Ring app (deep link or QR), or an account created in the app (SMS, Lightning or invite code). No email or password.
 - Not an Anki add-on: a separate app that imports Anki decks and builds in features people often install Anki add-ons for (text to speech, pronunciation check, image search, shared decks, AI deck building).
 
