@@ -10,6 +10,7 @@ serves this repository as it is.
 index.html            the landing page
 deck/index.html       where a shared deck link lands
 profile/index.html    where a shared profile link lands
+recap/index.html      where a shared yearly recap lands
 .well-known/assetlinks.json  lets Android open those links in the app
 .well-known/apple-app-site-association  the same for iOS
 assets/css/style.css  the app's own palette, from LoopkyColors.kt
@@ -17,6 +18,8 @@ assets/js/i18n.js     copy in the 11 languages the app ships
 assets/js/discover.js the live Discover feed, and the deck and profile reads
 assets/js/app.js      language switching, filtering, rendering
 assets/js/link.js     the deck and profile pages
+assets/js/recap-core.js  the recap's arithmetic, the same rules as the app's
+assets/js/recap.js    the recap page: what it reads and how it draws it
 assets/img/           icon, screenshots, share image
 anki-alternative/ … faq/   the guide pages in English, one per kind of learner
 pt-br/ es/ fr/ de/ it/ ja/ ko/ vi/ zh-hans/ zh-hant/
@@ -250,6 +253,38 @@ from here: Apple's CDN does, and caches it for up to a day. What the CDN holds i
 at `https://app-site-association.cdn-apple.com/a/v1/loopky.app`; check that after
 changing the file, before blaming the app. `tools/check.mjs` validates it.
 
+## The recap page
+
+Each December the app offers a "Loopky Recap" of the year, and its share buttons hand
+out `https://loopky.app/recap/?pubky={pubky}&year={year}`. That link lands on
+`recap/index.html`.
+
+**The link carries who and which year, and nothing else.** The numbers are worked out
+on the page from the account's own public records: its deck manifests, the decks it
+follows, every review-state chunk under `/pub/loopky/srs/`, and its settings record
+for where "mastered" sits. So a link cannot be edited into a better year than the
+account had, and nothing new is published to make the page work.
+
+**The arithmetic exists twice and has to agree.** `assets/js/recap-core.js` is
+`YearRecap.from` from the app, ported. Three rules are there only to keep the two
+equal: the recap counts review states rather than cards (the page will not fetch every
+card to learn which were deleted), the year runs in UTC on both sides, and ties are
+broken by code unit, never `localeCompare`. `tools/recap-fixture.json` is a
+byte-for-byte copy of the file the app's `YearRecapFixtureJvmTest` reads, and
+`node tools/recap.test.mjs` holds this side to it. Change a rule in both repositories,
+with the fixture, or in neither.
+
+**It is not an App Link**, unlike a deck or a profile. Someone holding the app already
+has their recap in it. This page is for whoever was sent one, and what it asks of them
+is the band underneath: get the app.
+
+Like the deck and profile pages it is `noindex`, stays out of the sitemap, reads only
+the one public homeserver, and shows every recap behind the same generic link preview
+(`assets/img/og-recap.png`), since a static host cannot put one person's numbers in
+the page a preview bot fetches. An account with nothing studied and nothing created
+that year gets "Nothing to recap yet" rather than a row of zeroes, and a link without
+a usable pubky and year goes to the home page.
+
 ## Caching
 
 Pages serves the page and its assets with the same `max-age=600` and no
@@ -265,7 +300,7 @@ contents, so new markup names a script the cache has never seen:
 node tools/stamp-assets.mjs
 ```
 
-It covers `index.html`, `deck/index.html`, `profile/index.html` and the guide pages. Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
+It covers `index.html`, `deck/index.html`, `profile/index.html`, `recap/index.html` and the guide pages. Run it after touching any file under `assets/`; an unchanged file keeps its stamp, so
 it is safe to run always, and `tools/check.mjs` fails when a stamp and its file
 disagree. And a key that resolves nowhere now leaves the markup's own English
 standing rather than painting its name, so the worst case is an untranslated card

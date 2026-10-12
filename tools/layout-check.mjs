@@ -29,6 +29,7 @@ const PAGES = [
   'index.html',
   `deck/?author=${AUTHOR}&id=viageming2026a`,
   `profile/?pubky=${AUTHOR}`,
+  `recap/?pubky=${AUTHOR}&year=2026`,
   /* Translated home pages: the longest words and the no-space script. */
   'de/', 'ja/', 'pt-br/',
   /* Every guide in English, plus the two languages most likely to break a layout:
