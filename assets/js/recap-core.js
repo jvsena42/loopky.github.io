@@ -144,9 +144,11 @@ var loopkyRecap = (function () {
       cardsMastered += s.states.filter(function (st) {
         return st.intervalDays >= input.thresholdDays;
       }).length;
+      /* A blank tag is no language: a manifest can carry "front_lang": "". */
       languageList = languageList.concat(distinct([s.deck.frontLang, s.deck.backLang]
         .filter(function (l) { return typeof l === 'string'; })
-        .map(baseSubtag)));
+        .map(baseSubtag)
+        .filter(function (l) { return l !== ''; })));
       var derived = languageTags(s.deck.frontLang, s.deck.backLang);
       topicList = topicList.concat(distinct((s.deck.tags || []).filter(function (t) {
         return !isReserved(t) && derived.indexOf(t) === -1;
@@ -163,7 +165,7 @@ var loopkyRecap = (function () {
 
     var persona = 'Explorer';
     if (languages.length >= POLYGLOT_LANGUAGES) persona = 'Polyglot';
-    else if (created.length && cardsCreated >= cardsStudied) persona = 'Creator';
+    else if (cardsCreated > 0 && cardsCreated >= cardsStudied) persona = 'Creator';
     else if (cardsStudied > 0 && cardsMastered * 2 >= cardsStudied) persona = 'Master';
 
     return {

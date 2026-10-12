@@ -90,6 +90,15 @@ test('created counts owned decks only', () => {
   assert.equal(r.isEmpty, false);
 });
 
+test('an empty deck made this year does not make a Creator', () => {
+  assert.equal(run([deck({ createdAt: MID, cardCount: 0 })]).persona, 'Explorer');
+});
+
+test('a blank language tag is no language', () => {
+  const r = run([deck({ frontLang: '', backLang: ' es-ES ', states: [state(MID)] })]);
+  assert.deepEqual(r.languages, ['es']);
+});
+
 test('a year with nothing in it is empty', () => {
   assert.equal(run([deck({})]).isEmpty, true);
 });

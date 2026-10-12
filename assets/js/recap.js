@@ -157,13 +157,19 @@
           return deck ? { deck: deck, path: line.slice(line.indexOf('/pub/')) } : null;
         }).filter(Boolean);
 
+        /* One state per card, as the app has it: its cache is keyed by card id, so a card
+           whose state sits in two chunk records counts once there. Pushing every entry
+           of every chunk would count it twice here, with the fixture none the wiser. */
+        var seenCards = {};
         return pooled(chunks, FETCH_CONCURRENCY, function (c) {
           return read(pubky, c.path, true);
         }, function (c, chunk) {
           ((chunk && chunk.states) || []).forEach(function (s) {
-            if (typeof s.due_at === 'number' && typeof s.interval_days === 'number') {
-              c.deck.states.push({ dueAt: s.due_at, intervalDays: s.interval_days });
-            }
+            if (typeof s.due_at !== 'number' || typeof s.interval_days !== 'number') return;
+            var card = c.deck.author + '/' + c.deck.id + '/' + s.card_id;
+            if (typeof s.card_id === 'string' && seenCards[card]) return;
+            seenCards[card] = true;
+            c.deck.states.push({ dueAt: s.due_at, intervalDays: s.interval_days });
           });
         }).then(function () {
           var result = loopkyRecap.compute({
