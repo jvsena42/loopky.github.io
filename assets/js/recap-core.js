@@ -171,6 +171,9 @@ var loopkyRecap = (function () {
       cardsStudied: cardsStudied,
       cardsMastered: cardsMastered,
       decksStudied: studied.length,
+      /* Which deck [topDeck] is, for a caller that wants to link to it. Kept beside the
+         summary rather than in it: the summary is what the app's own recap carries. */
+      topDeckId: top ? top.deck.id : null,
       topDeck: top ? {
         title: top.deck.title,
         coverEmoji: top.deck.coverEmoji || null,

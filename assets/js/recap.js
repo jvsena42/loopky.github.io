@@ -166,10 +166,18 @@
             }
           });
         }).then(function () {
-          return loopkyRecap.compute({
+          var result = loopkyRecap.compute({
             year: year,
             thresholdDays: loopkyRecap.thresholdDays(found[3] && found[3].study),
             decks: decks,
+          });
+          var top = decks.filter(function (d) { return d.id === result.topDeckId; })[0];
+          if (!top) return result;
+          /* The deck again, as the tile wants it: cover, card count, topics. One more
+             read, and the tile is left out if it fails. */
+          return fetchDeck(top.author, top.id).catch(function () { return null; }).then(function (tile) {
+            result.topDeckTile = tile;
+            return result;
           });
         });
       });
@@ -221,7 +229,9 @@
   function stat(n, label, emoji) {
     var card = el('div', 'recap-stat');
     if (emoji) card.appendChild(el('span', 'recap-stat-emoji', emoji)).setAttribute('aria-hidden', 'true');
-    card.appendChild(el('strong', 'recap-stat-n', n.toLocaleString(document.documentElement.lang || undefined)));
+    var shown = n.toLocaleString(document.documentElement.lang || undefined);
+    /* Five digits and their separator do not fit a tile at the size four do. */
+    card.appendChild(el('strong', 'recap-stat-n' + (shown.length > 4 ? ' is-long' : ''), shown));
     card.appendChild(el('span', 'recap-stat-label', label));
     return card;
   }
@@ -265,6 +275,8 @@
       img.src = avatarUrl(pubky);
       who.appendChild(img);
     }
+    /* A name when the account has one. An account without one is shown by the start of
+       its key, which is all anyone has to call it. */
     var link = el('a', 'recap-profile', name || pubky.slice(0, 8) + '…');
     link.href = root + 'profile/?pubky=' + encodeURIComponent(pubky);
     who.appendChild(link);
@@ -313,7 +325,24 @@
     persona.appendChild(words);
     extra.appendChild(persona);
 
-    if (recap.topDeck) {
+    if (recap.topDeckTile) {
+      /* The same tile Discover draws, cover and all, linking to the deck's own page. */
+      var tile = recap.topDeckTile;
+      if (tile.author === pubky && profile && profile.name) tile.authorName = profile.name;
+      var group = el('div', 'recap-group');
+      group.appendChild(el('h2', 'recap-group-title', tf('recap.top', 'Most studied')));
+      var holder = el('div', 'recap-topdeck');
+      holder.appendChild(window.loopkyDeckCard(tile));
+      group.appendChild(holder);
+      extra.appendChild(group);
+      if (tile.author !== pubky) {
+        resolveNames([tile.author], function (author, name) {
+          tile.authorName = name;
+          var who = holder.querySelector('.deck-meta b');
+          if (who) who.textContent = name;
+        });
+      }
+    } else if (recap.topDeck) {
       var top = (recap.topDeck.coverEmoji ? recap.topDeck.coverEmoji + ' ' : '') + recap.topDeck.title;
       extra.appendChild(pills(tf('recap.top', 'Most studied'), [top]));
     }
@@ -338,7 +367,23 @@
     });
   }
 
-  fetchProfile(pubky).then(function (p) { profile = p; paintTitle(); });
+  /* Who this is. The indexer first, since it also says whether there is a picture to
+     show; then the account's own profile record, which has the name the moment it is
+     written while the indexer may be minutes behind or not following this account. */
+  function loadProfile() {
+    return fetchProfile(pubky).then(function (indexed) {
+      if (indexed && indexed.name) return indexed;
+      return read(pubky, '/pub/pubky.app/profile.json', true).then(function (own) {
+        var name = own && typeof own.name === 'string' && !PUBKY_RE.test(own.name) ? own.name.trim() : '';
+        return {
+          name: name,
+          hasImage: (indexed && indexed.hasImage) || !!(own && typeof own.image === 'string' && own.image),
+        };
+      }).catch(function () { return indexed; });
+    });
+  }
+
+  loadProfile().then(function (p) { profile = p; paint(); });
   document.addEventListener('loopky:lang', paint);
   load();
 })();

@@ -661,6 +661,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 .recap-stat-emoji { font-size: 1.5rem; line-height: 1; margin-bottom: 6px; }
 .recap-stat-n { font-size: clamp(2.2rem, 6vw, 3.4rem); font-weight: 800; line-height: 1; letter-spacing: -.02em; }
+.recap-stat-n.is-long { font-size: clamp(1.5rem, 3.6vw, 2.2rem); line-height: 1.25; }
 .recap-stat-label { font-size: .95rem; font-weight: 600; color: rgba(255, 255, 255, .92); overflow-wrap: anywhere; }
 
 .recap-extra { display: grid; gap: 22px; margin-top: clamp(22px, 4vw, 34px); }
@@ -675,6 +676,10 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0 0 8px; color: rgba(255, 255, 255, .88);
   font-size: .82rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
 }
+/* The Discover tile, on the gradient. It inherits its text colour, which here would be
+   the card's white on its own white surface. */
+.recap-topdeck { max-width: 280px; }
+.recap-topdeck .deck { color: var(--fg); }
 .recap-pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .recap-pill {
   padding: 7px 15px; border-radius: var(--r-pill); background: #fff; color: #B23F00;

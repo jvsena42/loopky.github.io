@@ -40,7 +40,8 @@ const deck = (over) => ({
 const run = (decks, thresholdDays = 7) => recap.compute({ year: 2026, thresholdDays, decks });
 
 test('matches the fixture the app is held to', () => {
-  const { year: _year, ...actual } = recap.compute(fixture);
+  const { year: _year, topDeckId, ...actual } = recap.compute(fixture);
+  assert.equal(topDeckId, 'd3');
   assert.deepEqual(actual, fixture.expected);
 });
 
