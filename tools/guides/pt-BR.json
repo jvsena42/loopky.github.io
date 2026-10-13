@@ -202,7 +202,7 @@
         { "h": "Cartas que ficam na memória", "p": "Boas cartas são pequenas e específicas.", "points": ["Um fato por carta", "Faça uma pergunta, não afirme um fato", "Acrescente uma frase ou uma imagem", "Dê notas honestas"], "alt": "As cartas de um baralho, um fato em cada" }
       ],
       "faq": [
-        ["Quantas cartas devo estudar por dia?", "Comece com 10 a 20 cartas novas e todas as revisões pendentes. A meta padrão do Loopky é 20 cartas novas."],
+        ["Quantas cartas devo estudar por dia?", "Comece com 10 a 20 cartas novas e todas as revisões pendentes. A meta padrão do Loopky é 10 cartas novas."],
         ["É melhor que reler as anotações?", "Sim. Pesquisas sobre espaçamento e teste mostram que lembrar em intervalos espaçados ganha de reler e de estudar tudo na véspera."],
         ["Que algoritmo o Loopky usa?", "Intervalos fixos por botão: menos de 10 minutos, depois 1, 3 e 7 dias por padrão, cada um ajustável até 365."]
       ]

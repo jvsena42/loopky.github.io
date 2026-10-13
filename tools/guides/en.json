@@ -202,7 +202,7 @@
         { "h": "Cards that stick", "p": "Good cards are small and specific.", "points": ["One fact per card", "Ask a question, do not state a fact", "Add a sentence or a picture", "Grade yourself honestly"], "alt": "A deck's cards, one fact each" }
       ],
       "faq": [
-        ["How many cards should I study a day?", "Start with 10 to 20 new cards and all your due reviews. Loopky's default goal is 20 new cards."],
+        ["How many cards should I study a day?", "Start with 10 to 20 new cards and all your due reviews. Loopky's default goal is 10 new cards."],
         ["Is it better than rereading notes?", "Yes. Research on spacing and testing shows recall at spaced intervals beats rereading and cramming."],
         ["What algorithm does Loopky use?", "Fixed intervals per button: under 10 minutes, then 1, 3 and 7 days by default, each adjustable up to 365."]
       ]
