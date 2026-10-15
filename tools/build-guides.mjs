@@ -19,6 +19,7 @@
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { createHash } from 'node:crypto';
 import { SLUGS, LOCALES, LEGAL, guidePath } from './guides.mjs';
 import { legalPage, legalLastmod } from './legal.mjs';
 import { stampFor } from './stamp-assets.mjs';
@@ -26,8 +27,17 @@ import { stampFor } from './stamp-assets.mjs';
 const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
 
-/* Bump when the guides' content changes, so the sitemap says so. */
-const LASTMOD = '2026-09-28';
+/* Each page's lastmod is the day its content last changed, kept in
+   tools/lastmod.json beside a hash of the page. A hand-bumped constant sat at
+   2026-09-28 for every page through weeks of edits, which tells a crawler with
+   a queue of discovered pages that none of them is worth recrawling. The hash
+   leaves out the date itself and the stylesheet stamp, so restamping the CSS is
+   not a content change. */
+const LASTMOD_FILE = 'tools/lastmod.json';
+const DATE_TOKEN = '__LASTMOD__';
+const today = () => new Date().toISOString().slice(0, 10);
+const contentHash = (html) => createHash('sha256')
+  .update(html.replace(/\?v=[0-9a-f]+/g, '')).digest('hex').slice(0, 16);
 
 const PLAY = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
 const TESTFLIGHT = 'https://testflight.apple.com/join/n2TzwMTu';
@@ -216,7 +226,7 @@ function page(locale, slug) {
       '@id': self + '#page',
       headline: p.h1, name: p.title, description: p.desc, url: self,
       inLanguage: locale.code,
-      datePublished: '2026-09-26', dateModified: LASTMOD,
+      datePublished: '2026-09-26', dateModified: DATE_TOKEN,
       image: SITE + 'assets/img/og.png',
       author: { '@type': 'Person', name: 'João Victor Sena', url: 'https://github.com/jvsena42' },
       publisher: { '@id': SITE + '#org' },
@@ -552,24 +562,26 @@ function homePage(locale) {
 
 /* ---------------------------------------------------------------- sitemap */
 
-function sitemap() {
+function sitemap(lastmodOf) {
   const homeAlts = [`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}"/>`,
     ...LOCALES.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${homeUrl(l)}"/>`)]
     .join('\n');
-  const entry = (loc, alts, freq, prio, lastmod = LASTMOD) => `  <url>
+  const entry = (loc, alts, freq, prio, lastmod) => `  <url>
     <loc>${loc}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${freq}</changefreq>
     <priority>${prio}</priority>
 ${alts}
   </url>`;
-  const homes = LOCALES.map((l) => entry(homeUrl(l), homeAlts, 'weekly', l.dir ? '0.9' : '1.0'));
+  const homes = LOCALES.map((l) => entry(homeUrl(l), homeAlts, 'weekly', l.dir ? '0.9' : '1.0',
+    lastmodOf((l.dir ? l.dir + '/' : '') + 'index.html')));
   const guides = SLUGS.flatMap((slug) => {
     const alts = [
       `    <xhtml:link rel="alternate" hreflang="x-default" href="${url(LOCALES[0], slug)}"/>`,
       ...BUILT.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${url(l, slug)}"/>`),
     ].join('\n');
-    return BUILT.map((l) => entry(url(l, slug), alts, 'monthly', l.code === 'en' ? '0.8' : '0.7'));
+    return BUILT.map((l) => entry(url(l, slug), alts, 'monthly', l.code === 'en' ? '0.8' : '0.7',
+      lastmodOf(guidePath(l, slug) + 'index.html')));
   });
   /* English only, so each is its own single alternate. */
   const legal = LEGAL.map((slug) => {
@@ -588,11 +600,23 @@ ${[...homes, ...guides, ...legal].join('\n')}
 /* ---------------------------------------------------------------- run */
 
 export function build() {
+  const pages = new Map();
+  for (const l of BUILT) for (const s of SLUGS) pages.set(guidePath(l, s) + 'index.html', page(l, s));
+  for (const l of LOCALES.filter((x) => x.dir)) pages.set(l.dir + '/index.html', homePage(l));
+
+  /* index.html is written by hand, so it is dated from the file as it stands. */
+  const known = existsSync(new URL(LASTMOD_FILE, root)) ? JSON.parse(read(LASTMOD_FILE)) : {};
+  const dates = {};
+  for (const [file, html] of [['index.html', read('index.html')], ...pages]) {
+    const hash = contentHash(html);
+    dates[file] = known[file]?.hash === hash ? known[file] : { hash, date: today() };
+  }
+
   const out = new Map();
-  for (const l of BUILT) for (const s of SLUGS) out.set(guidePath(l, s) + 'index.html', page(l, s));
-  for (const l of LOCALES.filter((x) => x.dir)) out.set(l.dir + '/index.html', homePage(l));
+  for (const [file, html] of pages) out.set(file, html.replaceAll(DATE_TOKEN, dates[file].date));
   for (const slug of LEGAL) out.set(slug + '/index.html', legalPage(slug, SITE));
-  out.set('sitemap.xml', sitemap());
+  out.set('sitemap.xml', sitemap((file) => dates[file].date));
+  out.set(LASTMOD_FILE, JSON.stringify(dates, null, 2) + '\n');
   return out;
 }
 
