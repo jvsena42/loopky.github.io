@@ -202,7 +202,7 @@
         { "h": "Tarjetas que se quedan", "p": "Las buenas tarjetas son pequeñas y concretas.", "points": ["Un dato por tarjeta", "Haz una pregunta, no afirmes un dato", "Agrega una frase o una imagen", "Califícate con honestidad"], "alt": "Las tarjetas de un mazo, un dato en cada una" }
       ],
       "faq": [
-        ["¿Cuántas tarjetas debo estudiar al día?", "Empieza con 10 a 20 tarjetas nuevas y todos tus repasos pendientes. La meta por defecto de Loopky es 20 tarjetas nuevas."],
+        ["¿Cuántas tarjetas debo estudiar al día?", "Empieza con 10 a 20 tarjetas nuevas y todos tus repasos pendientes. La meta por defecto de Loopky es 10 tarjetas nuevas."],
         ["¿Es mejor que releer los apuntes?", "Sí. Las investigaciones sobre espaciado y prueba muestran que recordar a intervalos espaciados supera a releer y a estudiar todo de golpe."],
         ["¿Qué algoritmo usa Loopky?", "Intervalos fijos por botón: menos de 10 minutos, luego 1, 3 y 7 días por defecto, cada uno ajustable hasta 365."]
       ]

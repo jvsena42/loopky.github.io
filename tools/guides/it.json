@@ -202,7 +202,7 @@
         { "h": "Carte che restano", "p": "Le carte buone sono piccole e precise.", "points": ["Un fatto per carta", "Fai una domanda, non enunciare un fatto", "Aggiungi una frase o un’immagine", "Datti voti onesti"], "alt": "Le carte di un mazzo, un fatto ciascuna" }
       ],
       "faq": [
-        ["Quante carte dovrei studiare al giorno?", "Inizia con 10 o 20 carte nuove più tutti i ripassi in scadenza. L’obiettivo predefinito di Loopky è 20 carte nuove."],
+        ["Quante carte dovrei studiare al giorno?", "Inizia con 10 o 20 carte nuove più tutti i ripassi in scadenza. L’obiettivo predefinito di Loopky è 10 carte nuove."],
         ["È meglio che rileggere gli appunti?", "Sì. La ricerca su spaziatura e test mostra che richiamare a intervalli distanziati batte rileggere e studiare tutto all’ultimo."],
         ["Che algoritmo usa Loopky?", "Intervalli fissi per pulsante: meno di 10 minuti, poi 1, 3 e 7 giorni per impostazione predefinita, ognuno regolabile fino a 365."]
       ]

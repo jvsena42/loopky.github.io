@@ -133,7 +133,7 @@ The Discover tab lists decks published by people using Loopky, searchable by top
 
 - **Put words in a sentence.** "el perro ladra" teaches more than "perro".
 - **Say it every time.** Speak mode feels slow for a day and then becomes the part you remember best.
-- **Keep new cards small.** The default goal is 20 new cards a day. Fewer, every day, beats a big batch once a week.
+- **Keep new cards small.** The default goal is 10 new cards a day. Fewer, every day, beats a big batch once a week.
 - **Kanji and Hanzi:** keep one character or one word per card, with the reading on the back and an example word or sentence.
 
 ### Questions
@@ -181,7 +181,7 @@ Every grade button shows the real next date, and you set the intervals yourself:
 | Hard | 1 day | Yes, 1 to 365 days |
 | Good | 3 days | Yes, 1 to 365 days |
 | Easy | 7 days | Yes, 1 to 365 days |
-Intervals are fixed: a card graded Good comes back after your Good interval every time, instead of growing to months as in Anki's FSRS or SM-2. Close to an exam that is handy, because shortening Good and Easy tightens the whole deck at once. For material you need to hold for years, keep Easy long. There is no cap on daily reviews, and new cards default to a goal of 20 a day, adjustable from 1 to 999.
+Intervals are fixed: a card graded Good comes back after your Good interval every time, instead of growing to months as in Anki's FSRS or SM-2. Close to an exam that is handy, because shortening Good and Easy tightens the whole deck at once. For material you need to hold for years, keep Easy long. There is no cap on daily reviews, and new cards default to a goal of 10 a day, adjustable from 1 to 999.
 
 ### Turn lecture notes into cards with AI
 
@@ -204,7 +204,7 @@ Yes. Export the deck from Anki as .apkg with media and import it in Loopky. Text
 No. Loopky uses fixed intervals per grade button that you can set from 1 to 365 days. If you rely on FSRS for very long term retention, Anki is still the stronger scheduler.
 
 **Is there a limit on reviews per day?**
-No. There is no daily review cap. New cards have a daily goal, 20 by default, which you can change.
+No. There is no daily review cap. New cards have a daily goal, 10 by default, which you can change.
 
 **Are my decks private?**
 No. Decks on Loopky are public and can be discovered by others. Do not put patient data or anything confidential on a card.
@@ -379,7 +379,7 @@ After you reveal the answer, you grade yourself with one of four buttons. Each b
 | Good | 3 days | Yes, 1 to 365 days |
 | Easy | 7 days | Yes, 1 to 365 days |
 Loopky uses **fixed intervals**: the interval you set for a button is the interval you get, every review. That keeps the schedule predictable and easy to tune, for example shortening everything before an exam. The trade off is that intervals do not grow on their own the way they do in SM-2 or FSRS, so a card you know well keeps returning on its Easy interval. If you want reviews spaced out to months, set Easy to 30 days or more.
-New cards are separate from reviews. The default goal is 20 new cards a day, and you can set it anywhere from 1 to 999. Your intervals and goals sync across your devices.
+New cards are separate from reviews. The default goal is 10 new cards a day, and you can set it anywhere from 1 to 999. Your intervals and goals sync across your devices.
 
 ### How much to study
 
@@ -407,7 +407,7 @@ It is reviewing information at increasing gaps, timed so you review each item ri
 Yes. Research on the spacing and testing effects consistently shows that recalling answers at spaced intervals leads to much better long term memory than rereading or cramming.
 
 **How many flashcards should I study a day?**
-Start with 10 to 20 new cards a day and do all your due reviews. Loopky's default new card goal is 20.
+Start with 10 to 20 new cards a day and do all your due reviews. Loopky's default new card goal is 10.
 
 **What algorithm does Loopky use?**
 Fixed intervals per grade button. Again returns the card within 10 minutes; Hard, Good and Easy default to 1, 3 and 7 days and can each be set from 1 to 365 days.
