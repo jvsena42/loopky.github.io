@@ -1,7 +1,7 @@
 {
   "index.html": {
-    "hash": "767d524aa0e94ef8",
-    "date": "2026-10-06"
+    "hash": "4e0fbdf31a5951ee",
+    "date": "2026-10-18"
   },
   "anki-alternative/index.html": {
     "hash": "5b5161747af1b502",
@@ -20,12 +20,12 @@
     "date": "2026-10-06"
   },
   "ai-flashcards/index.html": {
-    "hash": "6538fb1e612acadd",
-    "date": "2026-10-06"
+    "hash": "7b25816016319f55",
+    "date": "2026-10-18"
   },
   "spaced-repetition/index.html": {
-    "hash": "bdac3b7810bf16f7",
-    "date": "2026-10-06"
+    "hash": "f0beaf3291358484",
+    "date": "2026-10-18"
   },
   "compare/index.html": {
     "hash": "ef0fb11b528aa8a8",
@@ -52,12 +52,12 @@
     "date": "2026-10-06"
   },
   "pt-br/ai-flashcards/index.html": {
-    "hash": "86a34a26895d1418",
-    "date": "2026-10-06"
+    "hash": "4521196c38f8a9d8",
+    "date": "2026-10-18"
   },
   "pt-br/spaced-repetition/index.html": {
-    "hash": "c868a15bb157adf9",
-    "date": "2026-10-06"
+    "hash": "fcde830646d5d9dd",
+    "date": "2026-10-18"
   },
   "pt-br/compare/index.html": {
     "hash": "73c096c136dd0d15",
@@ -84,12 +84,12 @@
     "date": "2026-10-06"
   },
   "es/ai-flashcards/index.html": {
-    "hash": "81e2e17cd5ec786f",
-    "date": "2026-10-06"
+    "hash": "ff64d127a45845b6",
+    "date": "2026-10-18"
   },
   "es/spaced-repetition/index.html": {
-    "hash": "c25b42087c7760e2",
-    "date": "2026-10-06"
+    "hash": "0609f6f597c31adb",
+    "date": "2026-10-18"
   },
   "es/compare/index.html": {
     "hash": "7c2a4844c8cc6a80",
@@ -116,12 +116,12 @@
     "date": "2026-10-06"
   },
   "fr/ai-flashcards/index.html": {
-    "hash": "07441c31d3324483",
-    "date": "2026-10-06"
+    "hash": "ba9b84881971fb55",
+    "date": "2026-10-18"
   },
   "fr/spaced-repetition/index.html": {
-    "hash": "298660dddaa8a21e",
-    "date": "2026-10-06"
+    "hash": "7c7e82ee6e2c7b3f",
+    "date": "2026-10-18"
   },
   "fr/compare/index.html": {
     "hash": "36841804c646043b",
@@ -148,12 +148,12 @@
     "date": "2026-10-06"
   },
   "de/ai-flashcards/index.html": {
-    "hash": "4ee71ee2b91aa6a9",
-    "date": "2026-10-06"
+    "hash": "d216652bb191d2e1",
+    "date": "2026-10-18"
   },
   "de/spaced-repetition/index.html": {
-    "hash": "22fb6f01847f2927",
-    "date": "2026-10-06"
+    "hash": "aaf8a02d00ec4995",
+    "date": "2026-10-18"
   },
   "de/compare/index.html": {
     "hash": "bbbce5ba92c6d931",
@@ -180,12 +180,12 @@
     "date": "2026-10-06"
   },
   "it/ai-flashcards/index.html": {
-    "hash": "2e15b8d1acf28ddb",
-    "date": "2026-10-06"
+    "hash": "3d6c1730a81845dc",
+    "date": "2026-10-18"
   },
   "it/spaced-repetition/index.html": {
-    "hash": "caf7844f9b0ee1f9",
-    "date": "2026-10-06"
+    "hash": "cfe31e69baf7dc6a",
+    "date": "2026-10-18"
   },
   "it/compare/index.html": {
     "hash": "1fe389194a60442f",
@@ -212,12 +212,12 @@
     "date": "2026-10-06"
   },
   "ja/ai-flashcards/index.html": {
-    "hash": "e1a8b79ef892ea6e",
-    "date": "2026-10-06"
+    "hash": "3272fa7382917bc4",
+    "date": "2026-10-18"
   },
   "ja/spaced-repetition/index.html": {
-    "hash": "b3a473ba35dece7f",
-    "date": "2026-10-06"
+    "hash": "03ca30573380bb54",
+    "date": "2026-10-18"
   },
   "ja/compare/index.html": {
     "hash": "a616bae18bcd6270",
@@ -244,12 +244,12 @@
     "date": "2026-10-06"
   },
   "ko/ai-flashcards/index.html": {
-    "hash": "856b208e5f8f7c85",
-    "date": "2026-10-06"
+    "hash": "617fcf9c9c4f40c5",
+    "date": "2026-10-18"
   },
   "ko/spaced-repetition/index.html": {
-    "hash": "60ac4d4fd4e80cde",
-    "date": "2026-10-06"
+    "hash": "bc6a69ed613d3c57",
+    "date": "2026-10-18"
   },
   "ko/compare/index.html": {
     "hash": "74a8ca3212d3c0ea",
@@ -276,12 +276,12 @@
     "date": "2026-10-06"
   },
   "vi/ai-flashcards/index.html": {
-    "hash": "028a99034ed2440f",
-    "date": "2026-10-06"
+    "hash": "c5347db992cc4317",
+    "date": "2026-10-18"
   },
   "vi/spaced-repetition/index.html": {
-    "hash": "ea832cec6fdade5c",
-    "date": "2026-10-06"
+    "hash": "0bc02b076adaa0c9",
+    "date": "2026-10-18"
   },
   "vi/compare/index.html": {
     "hash": "1813a550ce574ab4",
@@ -308,12 +308,12 @@
     "date": "2026-10-06"
   },
   "zh-hans/ai-flashcards/index.html": {
-    "hash": "e996d16fc557d3f7",
-    "date": "2026-10-06"
+    "hash": "58447ecb564df20d",
+    "date": "2026-10-18"
   },
   "zh-hans/spaced-repetition/index.html": {
-    "hash": "0dd6f7ab08a9351d",
-    "date": "2026-10-06"
+    "hash": "ee6486952613b150",
+    "date": "2026-10-18"
   },
   "zh-hans/compare/index.html": {
     "hash": "e582aa60a3b1657e",
@@ -340,12 +340,12 @@
     "date": "2026-10-06"
   },
   "zh-hant/ai-flashcards/index.html": {
-    "hash": "dec2ab2eb9f72b13",
-    "date": "2026-10-06"
+    "hash": "9b74c48a9bf79633",
+    "date": "2026-10-18"
   },
   "zh-hant/spaced-repetition/index.html": {
-    "hash": "d14159bd5b3e734a",
-    "date": "2026-10-06"
+    "hash": "dc3b98c71a607477",
+    "date": "2026-10-18"
   },
   "zh-hant/compare/index.html": {
     "hash": "8912972ef0fe81fd",
@@ -356,43 +356,43 @@
     "date": "2026-10-06"
   },
   "pt-br/index.html": {
-    "hash": "7ca9f11dacabf70b",
-    "date": "2026-10-06"
+    "hash": "1a6afabc4e884b95",
+    "date": "2026-10-18"
   },
   "es/index.html": {
-    "hash": "b667b554dcf38a29",
-    "date": "2026-10-06"
+    "hash": "b0d17649f0fc9a0a",
+    "date": "2026-10-18"
   },
   "fr/index.html": {
-    "hash": "71ce3b0857645d40",
-    "date": "2026-10-06"
+    "hash": "53b946ed8387a083",
+    "date": "2026-10-18"
   },
   "de/index.html": {
-    "hash": "d0f246d2bff2ed76",
-    "date": "2026-10-06"
+    "hash": "f4113b28e22627ff",
+    "date": "2026-10-18"
   },
   "it/index.html": {
-    "hash": "0ed486687863ac1e",
-    "date": "2026-10-06"
+    "hash": "c73c626f19211c59",
+    "date": "2026-10-18"
   },
   "ja/index.html": {
-    "hash": "7c8ae39a9f1f9064",
-    "date": "2026-10-06"
+    "hash": "4388b73784793119",
+    "date": "2026-10-18"
   },
   "ko/index.html": {
-    "hash": "679b61bc4ff09116",
-    "date": "2026-10-06"
+    "hash": "dba16d7313b6572f",
+    "date": "2026-10-18"
   },
   "vi/index.html": {
-    "hash": "12721d63912849fc",
-    "date": "2026-10-06"
+    "hash": "4abf7b19da2fb0d3",
+    "date": "2026-10-18"
   },
   "zh-hans/index.html": {
-    "hash": "443116e0fb0c363a",
-    "date": "2026-10-06"
+    "hash": "079a818d7b4e9daf",
+    "date": "2026-10-18"
   },
   "zh-hant/index.html": {
-    "hash": "e6bb9f571f260df4",
-    "date": "2026-10-06"
+    "hash": "18ea7569280e230b",
+    "date": "2026-10-18"
   }
 }

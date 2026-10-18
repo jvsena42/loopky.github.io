@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini, nhập được Anki · Loopky</title>
-<meta name="description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có plugin cho Claude Code và Codex.">
+<meta name="description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có connector cho Claude, và plugin cho Claude Code và Codex.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="vi_VN">
 <meta property="og:url" content="https://loopky.app/vi/ai-flashcards/">
 <meta property="og:title" content="Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini, nhập được Anki · Loopky">
-<meta property="og:description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có plugin cho Claude Code và Codex.">
+<meta property="og:description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có connector cho Claude, và plugin cho Claude Code và Codex.">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini, nhập được Anki · Loopky">
-<meta name="twitter:description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có plugin cho Claude Code và Codex.">
+<meta name="twitter:description" content="Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có connector cho Claude, và plugin cho Claude Code và Codex.">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky, ứng dụng thẻ ghi nhớ miễn phí với lặp lại ngắt quãng">
 
@@ -62,11 +62,11 @@
       "@id": "https://loopky.app/vi/ai-flashcards/#page",
       "headline": "Để AI của bạn viết thẻ ghi nhớ",
       "name": "Tạo thẻ ghi nhớ bằng AI: Claude, ChatGPT và Gemini, nhập được Anki · Loopky",
-      "description": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có plugin cho Claude Code và Codex.",
+      "description": "Đưa cho Claude, ChatGPT hoặc Gemini một chủ đề, một tệp PDF, ghi chú hay bộ thẻ Anki. AI sẽ viết và đăng thẻ để bạn học trên điện thoại với lặp lại ngắt quãng. Có connector cho Claude, và plugin cho Claude Code và Codex.",
       "url": "https://loopky.app/vi/ai-flashcards/",
       "inLanguage": "vi",
       "datePublished": "2026-09-26",
-      "dateModified": "2026-10-06",
+      "dateModified": "2026-10-18",
       "image": "https://loopky.app/assets/img/og.png",
       "author": {
         "@type": "Person",
@@ -114,6 +114,14 @@
         },
         {
           "@type": "Question",
+          "name": "Có connector Loopky cho Claude không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có, cho Claude trên trình duyệt, ứng dụng máy tính và ứng dụng điện thoại. Mở Cài đặt → Connectors, thêm một connector tùy chỉnh với https://mcp.loopky.app/mcp, rồi duyệt đăng nhập một lần trong Pubky Ring. Sau đó chỉ cần nhờ Claude làm flashcard. Không cần cài gì. Nó chỉ quản lý bộ thẻ và thẻ của Loopky, nhận thẻ qua cuộc trò chuyện chứ không đọc tệp trên máy bạn, và không tải lên được tệp .apkg của Anki."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Có plugin cho Claude Code hoặc Codex không?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -141,7 +149,7 @@
           "name": "Có chạy được trong Claude Code trên web hoặc Codex không?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Với plugin, Claude Code bản web tự cài CLI. Sandbox có kiểm tra TLS sẽ dùng được khi chứng chỉ của nó được chỉ định bằng SSL_CERT_FILE."
+            "text": "Có. Trong Claude Code trên web, connector Loopky là cách dễ nhất: không cần cài gì và không cần cho phép host nào. CLI cũng chạy được khi sandbox của bạn kết nối được tới các host của Loopky, mà cả hai mặc định đều chặn: hãy để agent chạy loopky doctor, lệnh này liệt kê các host và chỉ chỗ để thêm. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox kiểm tra TLS sẽ chạy được khi chứng chỉ của nó được chỉ định bằng SSL_CERT_FILE."
           }
         },
         {
@@ -319,6 +327,10 @@ Not installed? Read the skill and follow it:
         <p>Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được trong các ứng dụng chat AI và với agent như Claude Code, Codex, Gemini CLI.</p>
       </details>
       <details class="card">
+        <summary>Có connector Loopky cho Claude không?</summary>
+        <p>Có, cho Claude trên trình duyệt, ứng dụng máy tính và ứng dụng điện thoại. Mở Cài đặt → Connectors, thêm một connector tùy chỉnh với https://mcp.loopky.app/mcp, rồi duyệt đăng nhập một lần trong Pubky Ring. Sau đó chỉ cần nhờ Claude làm flashcard. Không cần cài gì. Nó chỉ quản lý bộ thẻ và thẻ của Loopky, nhận thẻ qua cuộc trò chuyện chứ không đọc tệp trên máy bạn, và không tải lên được tệp .apkg của Anki.</p>
+      </details>
+      <details class="card">
         <summary>Có plugin cho Claude Code hoặc Codex không?</summary>
         <p>Có. Trong Claude Code, chạy /plugin marketplace add jvsena42/loopky, rồi /plugin install loopky@loopky. Trong Codex, chạy codex plugin marketplace add jvsena42/loopky, rồi codex plugin add loopky@loopky. Sau đó chỉ cần yêu cầu flashcard: plugin biết mọi bước nên bạn không cần prompt.</p>
       </details>
@@ -332,7 +344,7 @@ Not installed? Read the skill and follow it:
       </details>
       <details class="card">
         <summary>Có chạy được trong Claude Code trên web hoặc Codex không?</summary>
-        <p>Có, khi sandbox của bạn truy cập được các máy chủ của Loopky. Mặc định cả hai đều không cho phép. Hãy để agent chạy loopky doctor: lệnh này liệt kê các máy chủ và nơi cần thêm chúng. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Với plugin, Claude Code bản web tự cài CLI. Sandbox có kiểm tra TLS sẽ dùng được khi chứng chỉ của nó được chỉ định bằng SSL_CERT_FILE.</p>
+        <p>Có. Trong Claude Code trên web, connector Loopky là cách dễ nhất: không cần cài gì và không cần cho phép host nào. CLI cũng chạy được khi sandbox của bạn kết nối được tới các host của Loopky, mà cả hai mặc định đều chặn: hãy để agent chạy loopky doctor, lệnh này liệt kê các host và chỉ chỗ để thêm. Trong Codex, hãy tắt tùy chọn chỉ GET/HEAD/OPTIONS. Sandbox kiểm tra TLS sẽ chạy được khi chứng chỉ của nó được chỉ định bằng SSL_CERT_FILE.</p>
       </details>
       <details class="card">
         <summary>Nó có thể biến những tệp nào thành thẻ?</summary>
