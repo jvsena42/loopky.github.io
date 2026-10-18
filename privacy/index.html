@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Privacy policy · Loopky</title>
-<meta name="description" content="What happens to your information when you use Loopky: no Loopky servers, no analytics, and your decks on a Pubky homeserver you hold the key to.">
+<meta name="description" content="What happens to your information when you use Loopky: no analytics, your decks on a Pubky homeserver you hold the key to, and what the optional connector for Claude keeps.">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -17,11 +17,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://loopky.app/privacy/">
 <meta property="og:title" content="Privacy policy · Loopky">
-<meta property="og:description" content="What happens to your information when you use Loopky: no Loopky servers, no analytics, and your decks on a Pubky homeserver you hold the key to.">
+<meta property="og:description" content="What happens to your information when you use Loopky: no analytics, your decks on a Pubky homeserver you hold the key to, and what the optional connector for Claude keeps.">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Privacy policy · Loopky">
-<meta name="twitter:description" content="What happens to your information when you use Loopky: no Loopky servers, no analytics, and your decks on a Pubky homeserver you hold the key to.">
+<meta name="twitter:description" content="What happens to your information when you use Loopky: no analytics, your decks on a Pubky homeserver you hold the key to, and what the optional connector for Claude keeps.">
 
 <script>
 /* The theme a visitor picked on the home page, before the first paint. */
@@ -44,10 +44,10 @@
       "@id": "https://loopky.app/privacy/#page",
       "headline": "Loopky Privacy Policy",
       "name": "Privacy policy · Loopky",
-      "description": "What happens to your information when you use Loopky: no Loopky servers, no analytics, and your decks on a Pubky homeserver you hold the key to.",
+      "description": "What happens to your information when you use Loopky: no analytics, your decks on a Pubky homeserver you hold the key to, and what the optional connector for Claude keeps.",
       "url": "https://loopky.app/privacy/",
       "inLanguage": "en",
-      "dateModified": "2026-08-30",
+      "dateModified": "2026-10-18",
       "author": {
         "@type": "Person",
         "name": "João Victor Sena",
@@ -112,16 +112,16 @@
         </ol>
       </nav>
       <h1>Loopky Privacy Policy</h1>
-      <p class="fineprint prose-meta">Last updated 30 August 2026. This page is in English only. It is published from <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">PRIVACY.md</a> in the Loopky repository, which is the source and holds every earlier version.</p>
+      <p class="fineprint prose-meta">Last updated 18 October 2026. This page is in English only. It is published from <a href="https://github.com/jvsena42/loopky/blob/main/PRIVACY.md">PRIVACY.md</a> in the Loopky repository, which is the source and holds every earlier version.</p>
       <p>Loopky is a flashcards app built on <a href="https://pubky.org">Pubky</a>. This policy describes what happens to your information when you use it.</p>
-      <p>The short version: <strong>the Loopky project runs no servers of its own.</strong> There is no Loopky account, no Loopky database, and no analytics.</p>
+      <p>The short version: <strong>the Loopky app, the command line tool and the agent plugin send nothing to the Loopky project.</strong> There is no Loopky account and no analytics. The one server the project runs is the <strong>Loopky connector</strong> for Claude, and it holds data only for people who connect it — see section 6.</p>
       <p>That does not mean nothing receives your data. Your decks and study progress are written to a <strong>Pubky homeserver</strong>, and unless you run one yourself that server is operated by someone else — by default Synonym, who run the homeserver that Loopky's sign-up flow issues accounts on. You hold the key to that data and can delete it, but the server that stores it is not yours and not ours. See sections 4 and 5.</p>
       <h2 id="1-who-is-responsible">1. Who is responsible</h2>
       <p>Loopky is an open-source project by João Victor Sena. The source is at <a href="https://github.com/jvsena42/loopky">github.com/jvsena42/loopky</a>.</p>
       <p>Questions about this policy: open an issue at <a href="https://github.com/jvsena42/loopky/issues">github.com/jvsena42/loopky/issues</a>.</p>
       <h2 id="2-what-loopky-does-not-do">2. What Loopky does not do</h2>
       <ul>
-        <li><strong>No Loopky backend.</strong> The project runs no server, and none of your data is sent to us. It goes to your Pubky homeserver instead, which is a different party — see sections 4 and 5.</li>
+        <li><strong>No Loopky backend for the app.</strong> The app, the command line tool and the plugin send none of your data to us. It goes to your Pubky homeserver instead, which is a different party — see sections 4 and 5. The connector for Claude is the exception, and only if you add it — see section 6.</li>
         <li><strong>No analytics or telemetry.</strong> No usage tracking, no event logging, no advertising identifiers, no third-party SDKs for measurement or attribution.</li>
         <li><strong>No crash reporting.</strong> Nothing is transmitted when the app fails.</li>
         <li><strong>No automatic feedback.</strong> The agent plugin for Claude and Codex may offer, at the end of a session that hit a problem, to open a public GitHub issue about it. It shows you the text first, leaves out your cards and identifiers, and posts nothing unless you approve it, from your own GitHub account.</li>
@@ -131,7 +131,7 @@
       <h2 id="3-your-identity">3. Your identity</h2>
       <p>Your identity is a Pubky keypair. There are two ways to hold it, and which one you have changes what is on your device.</p>
       <p><strong>If you sign in with Pubky Ring</strong>, your key lives in that separate app and Loopky never sees your private key or your recovery phrase. When you sign in, Ring grants Loopky a <strong>session secret</strong> scoped to Loopky's own storage area. Copying an existing Loopky key <em>into</em> Ring is offered as a backup option, described below — Loopky keeps its own copy either way.</p>
-      <p><strong>If you created or restored your account inside Loopky</strong> — which is what &quot;Create account&quot; does — then Loopky holds your private key itself. It is stored in your device's own secure storage — the Android Keystore on Android, the Keychain on iOS — and is used to sign your own reads and writes. It is never sent to us (we run no server), never sent to any third party, and never written to a log.</p>
+      <p><strong>If you created or restored your account inside Loopky</strong> — which is what &quot;Create account&quot; does — then Loopky holds your private key itself. It is stored in your device's own secure storage — the Android Keystore on Android, the Keychain on iOS — and is used to sign your own reads and writes. It is never sent to us, never sent to any third party, and never written to a log.</p>
       <p>In both cases the session secret is kept in that same secure storage and is sent only to your homeserver. <strong>Signing out deletes both the session secret and any key Loopky is holding.</strong> If Loopky holds the only copy of your key, it warns you before doing that, because the account cannot be recovered afterwards.</p>
       <p>Backing up is your choice and your action. Loopky can show you a recovery phrase, create a passphrase-encrypted recovery file for you to save wherever you like, or hand your key to Pubky Ring. Anything that leaves the app — a file you save to Drive or Files, a phrase you write down — is outside Loopky's control from that moment, and is covered by the terms of wherever you put it. Exporting to Pubky Ring copies the key into Ring; Loopky keeps its copy too.</p>
       <p>Deleting your Loopky data does not delete your Pubky identity.</p>
@@ -157,7 +157,26 @@
         </table>
       </div>
       <p>Loopky does not contact any of these to report on you. It contacts them to do the thing you asked for.</p>
-      <h2 id="6-microphone">6. Microphone</h2>
+      <h2 id="6-the-loopky-connector-for-claude">6. The Loopky connector for Claude</h2>
+      <p>The connector (<code>https://mcp.loopky.app/mcp</code>) lets Claude build decks in your account when you add it to Claude under Settings → Connectors. It is the one server the Loopky project operates, on a virtual server rented from Contabo. <strong>If you never add it, none of this section applies to you.</strong></p>
+      <p><strong>What it stores, for as long as you stay connected:</strong></p>
+      <ul>
+        <li><strong>Your public key</strong>, and when you connected and last used it.</li>
+        <li><strong>The Pubky session secret</strong> that Pubky Ring grants it when you approve the connection. It can write only Loopky's own storage area (<code>/pub/loopky/</code>), never your profile, posts or follows. It is encrypted with AES-GCM under a key that is kept on the server outside the database and never leaves it.</li>
+        <li><strong>SHA-256 hashes of the tokens Claude uses to call it</strong>, with the Claude client they were issued to and when they expire. The tokens themselves are not stored.</li>
+        <li><strong>Claude's registration</strong> as a client: the name it gives, such as &quot;Claude&quot;, and its callback address. Nothing about you.</li>
+      </ul>
+      <p><strong>What it does not store:</strong> your decks and cards. A request from Claude carries the cards to write; the connector writes them to your homeserver and keeps them only while the request runs, in memory and in a temporary file deleted when the request finishes. It reads nothing from Claude: no conversations, memory or files beyond what Claude sends in a request.</p>
+      <p><strong>Logs.</strong> The server's log records when an account connects, disconnects or fails, by public key, with every token and secret removed. It is rotated, so it keeps about the last 50 MB. Addresses are held in memory to limit request rates, and are not logged.</p>
+      <p><strong>How long it is kept, and how to remove it.</strong> Claude's access tokens last an hour and are renewed with a refresh token that lasts 90 days from its last use.</p>
+      <ul>
+        <li><strong>Revoke the connector in Pubky Ring</strong>, where it appears as <code>mcp.loopky.app</code>. The connector's next request is refused, and it deletes everything above for your key.</li>
+        <li><strong>Disconnect it in Claude.</strong> That stops Claude using it.</li>
+        <li><strong>Either way, a connection nobody uses for 90 days ends on its own.</strong> The connector revokes the session on your homeserver and deletes everything above.</li>
+        <li><strong>To have it deleted sooner</strong>, open an issue asking for it.</li>
+      </ul>
+      <p>The connector also sends what Claude asks it to the homeserver and to the Nexus indexer, as described in section 5. What you say to Claude, and what Claude sends to the connector, is governed by Anthropic's privacy policy, not this one.</p>
+      <h2 id="7-microphone">7. Microphone</h2>
       <p>The <strong>Speak</strong> practice mode records audio so you can practise pronunciation.</p>
       <ul>
         <li>Audio is passed to your device's own speech recognition service and converted to text there.</li>
@@ -166,26 +185,27 @@
         <li>The permission is requested the first time you use Speak, and Speak is optional. Declining it leaves the rest of the app working normally.</li>
       </ul>
       <p>Depending on your device and its settings, your device's speech recognition may itself run in the cloud rather than on-device — on iOS through Apple's speech recognition, on Android through Google's. Loopky does not force either mode, so which one you get is your platform's decision. That processing is governed by Apple's or Google's privacy policy, not this one.</p>
-      <h2 id="7-camera-photos-and-images">7. Camera, photos and images</h2>
+      <h2 id="8-camera-photos-and-images">8. Camera, photos and images</h2>
       <p><strong>The camera is used for one thing: reading a QR code that holds someone's pubky</strong>, so you can add them without typing a long key by hand. Loopky reads only the text decoded from the code. No photo or video is captured, saved or uploaded, and the camera runs only while that scanner is open. The permission is requested the first time you open it, and scanning is optional — you can always type or paste a pubky instead.</p>
       <p>Choosing a picture for a card uses the system photo picker — <code>PhotosPicker</code> on iOS, the Android photo picker on Android. Both run outside Loopky and hand it only the one image you select, so Loopky requests no gallery or storage permission on either platform.</p>
       <p>Images you attach to a published deck are uploaded to your homeserver and are public along with the deck.</p>
-      <h2 id="8-content-from-other-people">8. Content from other people</h2>
+      <h2 id="9-content-from-other-people">9. Content from other people</h2>
       <p>Decks, profiles and tags published by other people are fetched from their homeservers and from the Nexus indexer. Loopky does not verify or moderate them. Treat text and links inside someone else's deck the way you would treat any content from a stranger on the internet.</p>
-      <h2 id="9-deleting-your-data">9. Deleting your data</h2>
+      <h2 id="10-deleting-your-data">10. Deleting your data</h2>
       <ul>
         <li><strong>Sign out</strong> (Settings) removes the session secret and your locally cached data from the device.</li>
         <li><strong>Delete a deck</strong> removes its records, cards and images from your homeserver.</li>
         <li><strong>Delete account</strong> (Settings) permanently removes everything Loopky has written to your homeserver, and removes your profile from Loopky's directory so that you no longer appear in search or discovery. It cannot be undone.</li>
       </ul>
       <p>Delete account does not delete your Pubky identity or your homeserver account, because Loopky does not own them. Those live in Pubky Ring, and your profile and social follows in the wider Pubky network are left untouched.</p>
+      <p>If you connected the Loopky connector, section 6 says how to remove what it holds.</p>
       <p>Copies that other people made of a deck you published are theirs, on their own homeservers, and cannot be recalled. This is a property of publishing to a public network.</p>
-      <h2 id="10-children">10. Children</h2>
-      <p>Loopky is not directed at children under 13, and we do not knowingly collect information from them. The Loopky project holds no user data, so there is nothing for us to delete on request. Data on a homeserver is removed with <strong>Delete account</strong> in Settings, or by contacting that homeserver's operator. An account created with Loopky's <strong>Create account</strong> is created on your own device; one you already had in Pubky Ring stays governed by Ring's own terms.</p>
-      <h2 id="11-changes-to-this-policy">11. Changes to this policy</h2>
+      <h2 id="11-children">11. Children</h2>
+      <p>Loopky is not directed at children under 13, and we do not knowingly collect information from them. Apart from the connector (section 6), the Loopky project holds no user data, so there is nothing for us to delete on request. Data on a homeserver is removed with <strong>Delete account</strong> in Settings, or by contacting that homeserver's operator. An account created with Loopky's <strong>Create account</strong> is created on your own device; one you already had in Pubky Ring stays governed by Ring's own terms.</p>
+      <h2 id="12-changes-to-this-policy">12. Changes to this policy</h2>
       <p>Material changes will be published here with an updated date above. The revision history of this document is public in the repository, so every change is inspectable.</p>
-      <h2 id="12-your-rights">12. Your rights</h2>
-      <p>The Loopky project holds no personal data, so requests to access, correct, export or delete data cannot be served by us — we have nothing to serve them from. Your content is written under your own key and <strong>Delete account</strong> in Settings removes it from your homeserver. For anything held by your homeserver's operator, including backups and server logs, address that operator. If you have a question about any of this, open an issue at <a href="https://github.com/jvsena42/loopky/issues">github.com/jvsena42/loopky/issues</a>.</p>
+      <h2 id="13-your-rights">13. Your rights</h2>
+      <p>Apart from what the connector holds for people who connect it (section 6), the Loopky project holds no personal data, so requests to access, correct, export or delete data cannot be served by us — we have nothing to serve them from. For the connector, open an issue and we will delete what it holds for your key. Your content is written under your own key and <strong>Delete account</strong> in Settings removes it from your homeserver. For anything held by your homeserver's operator, including backups and server logs, address that operator. If you have a question about any of this, open an issue at <a href="https://github.com/jvsena42/loopky/issues">github.com/jvsena42/loopky/issues</a>.</p>
     </article>
   </div>
 </section>
