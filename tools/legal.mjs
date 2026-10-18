@@ -31,13 +31,13 @@ export const META = {
   privacy: {
     crumb: 'Privacy',
     title: 'Privacy policy · Loopky',
-    desc: 'What happens to your information when you use Loopky: no Loopky servers, no analytics, and your decks on a Pubky homeserver you hold the key to.',
+    desc: 'What happens to your information when you use Loopky: no analytics, your decks on a Pubky homeserver you hold the key to, and what the optional connector for Claude keeps.',
     source: 'PRIVACY.md',
   },
   terms: {
     crumb: 'Terms',
     title: 'Terms of service · Loopky',
-    desc: 'The terms for the Loopky apps, command line tool and agent plugin: MIT licensed with no warranty, no Loopky servers, and published decks are public.',
+    desc: 'The terms for the Loopky apps, command line tool, agent plugin and connector for Claude: MIT licensed with no warranty, and published decks are public.',
     source: 'TERMS.md',
   },
   support: {

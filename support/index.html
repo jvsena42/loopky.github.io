@@ -129,15 +129,16 @@
         <li><strong>An Anki deck will not import.</strong> Loopky reads <code>.apkg</code> files holding <code>collection.anki2</code> or <code>.anki21</code>. For the newer <code>.anki21b</code>, export again from Anki with &quot;Support older Anki versions&quot; ticked. Audio, LaTeX and review history are not imported.</li>
         <li><strong>You lost your key or recovery phrase.</strong> Nobody can recover it for you, the project included. Set up a backup in Settings before you need one.</li>
       </ul>
-      <h2 id="the-command-line-tool-and-ai-agents">The command line tool and AI agents</h2>
+      <h2 id="the-command-line-tool-the-connector-and-ai-agents">The command line tool, the connector and AI agents</h2>
       <p><code>loopky doctor</code> is the first thing to run when the command line tool cannot reach the network, which is the usual case in a cloud sandbox. It needs no sign-in, asks every host Loopky needs through your proxy, and prints the ones to add to the allowlist. <code>loopky doctor --json</code> gives an agent the same answer with a <code>next_step</code> to follow.</p>
       <ul>
         <li>Exit code 4 (<code>session_expired</code>): run <code>loopky login</code> again and approve it, then repeat what failed.</li>
         <li>Exit code 14 (<code>proxy_refused</code>) or 15 (<code>tls_untrusted</code>): the sandbox's network is blocking Loopky. Retrying will not help; follow what <code>loopky doctor</code> reports.</li>
       </ul>
+      <p><strong>The connector for Claude</strong> (<code>https://mcp.loopky.app/mcp</code>) needs no install and no allowlist, which makes it the simpler route in a cloud sandbox. If Claude says the connector has to be reconnected, disconnect and add it again under Settings → Connectors and approve the sign-in in Pubky Ring. Nothing else fixes that, and your decks are not affected. To stop it acting for you, revoke <code>mcp.loopky.app</code> in Pubky Ring.</p>
       <p>The <a href="https://github.com/jvsena42/loopky/tree/main/cli">command line documentation</a> covers installing, every command and every exit code, and <code>loopky commands --json</code> lists what your installed version supports.</p>
       <h2 id="what-the-project-cannot-help-with">What the project cannot help with</h2>
-      <p>The Loopky project runs no servers and holds none of your data, so it cannot restore a deck, reset an account or lift a storage limit. Those belong to the operator of your Pubky homeserver, which is Synonym, through <a href="https://pubky.app">pubky.app</a>, if you signed up in Loopky. Questions about the Pubky Ring app go to Pubky as well.</p>
+      <p>The only data the Loopky project holds is what the connector for Claude keeps while you are connected, and none of it is your decks. So it cannot restore a deck, reset an account or lift a storage limit. Those belong to the operator of your Pubky homeserver, which is Synonym, through <a href="https://pubky.app">pubky.app</a>, if you signed up in Loopky. Questions about the Pubky Ring app go to Pubky as well.</p>
       <h2 id="privacy-and-terms">Privacy and terms</h2>
       <p>The <a href="../privacy/">privacy policy</a> says what leaves your device and who receives it. The <a href="../terms/">terms of service</a> say what you can expect from the project and what you are responsible for when you publish.</p>
     </article>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Flashcards com IA no Claude, ChatGPT e Gemini, com importação do Anki · Loopky</title>
-<meta name="description" content="Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Plugin para Claude Code e Codex.">
+<meta name="description" content="Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Conector para o Claude, plugin para Claude Code e Codex.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://loopky.app/pt-br/ai-flashcards/">
 <meta property="og:title" content="Flashcards com IA no Claude, ChatGPT e Gemini, com importação do Anki · Loopky">
-<meta property="og:description" content="Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Plugin para Claude Code e Codex.">
+<meta property="og:description" content="Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Conector para o Claude, plugin para Claude Code e Codex.">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky, um app de flashcards grátis com repetição espaçada">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Flashcards com IA no Claude, ChatGPT e Gemini, com importação do Anki · Loopky">
-<meta name="twitter:description" content="Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Plugin para Claude Code e Codex.">
+<meta name="twitter:description" content="Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Conector para o Claude, plugin para Claude Code e Codex.">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky, um app de flashcards grátis com repetição espaçada">
 
@@ -62,11 +62,11 @@
       "@id": "https://loopky.app/pt-br/ai-flashcards/#page",
       "headline": "Deixe sua IA escrever os flashcards",
       "name": "Flashcards com IA no Claude, ChatGPT e Gemini, com importação do Anki · Loopky",
-      "description": "Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Plugin para Claude Code e Codex.",
+      "description": "Dê ao Claude, ChatGPT ou Gemini um tema, um PDF, suas anotações ou um baralho do Anki. Ele escreve e publica flashcards para estudar no celular com repetição espaçada. Conector para o Claude, plugin para Claude Code e Codex.",
       "url": "https://loopky.app/pt-br/ai-flashcards/",
       "inLanguage": "pt-BR",
       "datePublished": "2026-09-26",
-      "dateModified": "2026-10-06",
+      "dateModified": "2026-10-18",
       "image": "https://loopky.app/assets/img/og.png",
       "author": {
         "@type": "Person",
@@ -114,6 +114,14 @@
         },
         {
           "@type": "Question",
+          "name": "Existe um conector do Loopky para o Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim, para o Claude no navegador, no app de desktop e no app de celular. Abra Configurações → Conectores, adicione um conector personalizado com https://mcp.loopky.app/mcp e aprove o login uma vez no Pubky Ring. Depois é só pedir flashcards ao Claude. Não há nada para instalar. Ele só gerencia baralhos e cartas do Loopky, recebe as cartas pelo chat e não por arquivos do seu computador, e não envia um .apkg do Anki."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Existe um plugin para Claude Code ou Codex?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -141,7 +149,7 @@
           "name": "Funciona no Claude Code na web ou no Codex?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Sim, depois que o sandbox conseguir acessar os hosts do Loopky. Nenhum dos dois libera por padrão. Peça para o agente rodar loopky doctor: ele lista os hosts e onde adicioná-los. No Codex, deixe desligada a opção só GET/HEAD/OPTIONS. Com o plugin, o Claude Code na web instala a CLI sozinho. Um sandbox que inspeciona TLS funciona depois que o certificado dele é indicado em SSL_CERT_FILE."
+            "text": "Sim. No Claude Code na web, o conector do Loopky é o caminho mais fácil: nada para instalar e nenhum host para liberar. A CLI também funciona, assim que o seu sandbox alcançar os hosts do Loopky, que nenhum dos dois libera por padrão: peça ao agente para rodar loopky doctor, que lista os hosts e diz onde adicioná-los. No Codex, deixe desligada a opção só GET/HEAD/OPTIONS. Um sandbox que inspeciona TLS funciona depois que o certificado dele é indicado com SSL_CERT_FILE."
           }
         },
         {
@@ -319,6 +327,10 @@ Not installed? Read the skill and follow it:
         <p>Não. Cole o prompt na sua IA, junte o tema ou o arquivo, e ela faz todos os passos sozinha. Funciona em apps de chat com IA e em agentes como Claude Code, Codex e Gemini CLI.</p>
       </details>
       <details class="card">
+        <summary>Existe um conector do Loopky para o Claude?</summary>
+        <p>Sim, para o Claude no navegador, no app de desktop e no app de celular. Abra Configurações → Conectores, adicione um conector personalizado com https://mcp.loopky.app/mcp e aprove o login uma vez no Pubky Ring. Depois é só pedir flashcards ao Claude. Não há nada para instalar. Ele só gerencia baralhos e cartas do Loopky, recebe as cartas pelo chat e não por arquivos do seu computador, e não envia um .apkg do Anki.</p>
+      </details>
+      <details class="card">
         <summary>Existe um plugin para Claude Code ou Codex?</summary>
         <p>Sim. No Claude Code, rode /plugin marketplace add jvsena42/loopky e depois /plugin install loopky@loopky. No Codex, rode codex plugin marketplace add jvsena42/loopky e depois codex plugin add loopky@loopky. Depois é só pedir flashcards: o plugin conhece cada passo, então você não precisa de prompt.</p>
       </details>
@@ -332,7 +344,7 @@ Not installed? Read the skill and follow it:
       </details>
       <details class="card">
         <summary>Funciona no Claude Code na web ou no Codex?</summary>
-        <p>Sim, depois que o sandbox conseguir acessar os hosts do Loopky. Nenhum dos dois libera por padrão. Peça para o agente rodar loopky doctor: ele lista os hosts e onde adicioná-los. No Codex, deixe desligada a opção só GET/HEAD/OPTIONS. Com o plugin, o Claude Code na web instala a CLI sozinho. Um sandbox que inspeciona TLS funciona depois que o certificado dele é indicado em SSL_CERT_FILE.</p>
+        <p>Sim. No Claude Code na web, o conector do Loopky é o caminho mais fácil: nada para instalar e nenhum host para liberar. A CLI também funciona, assim que o seu sandbox alcançar os hosts do Loopky, que nenhum dos dois libera por padrão: peça ao agente para rodar loopky doctor, que lista os hosts e diz onde adicioná-los. No Codex, deixe desligada a opção só GET/HEAD/OPTIONS. Um sandbox que inspeciona TLS funciona depois que o certificado dele é indicado com SSL_CERT_FILE.</p>
       </details>
       <details class="card">
         <summary>Que arquivos ela transforma em cartas?</summary>

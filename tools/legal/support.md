@@ -34,7 +34,7 @@ the ones people meet most.
 - **You lost your key or recovery phrase.** Nobody can recover it for you, the project included. Set
   up a backup in Settings before you need one.
 
-## The command line tool and AI agents
+## The command line tool, the connector and AI agents
 
 `loopky doctor` is the first thing to run when the command line tool cannot reach the network,
 which is the usual case in a cloud sandbox. It needs no sign-in, asks every host Loopky needs
@@ -45,14 +45,21 @@ agent the same answer with a `next_step` to follow.
 - Exit code 14 (`proxy_refused`) or 15 (`tls_untrusted`): the sandbox's network is blocking Loopky.
   Retrying will not help; follow what `loopky doctor` reports.
 
+**The connector for Claude** (`https://mcp.loopky.app/mcp`) needs no install and no allowlist,
+which makes it the simpler route in a cloud sandbox. If Claude says the connector has to be
+reconnected, disconnect and add it again under Settings → Connectors and approve the sign-in in
+Pubky Ring. Nothing else fixes that, and your decks are not affected. To stop it acting for you,
+revoke `mcp.loopky.app` in Pubky Ring.
+
 The [command line documentation](https://github.com/jvsena42/loopky/tree/main/cli) covers
 installing, every command and every exit code, and `loopky commands --json` lists what your
 installed version supports.
 
 ## What the project cannot help with
 
-The Loopky project runs no servers and holds none of your data, so it cannot restore a deck, reset
-an account or lift a storage limit. Those belong to the operator of your Pubky homeserver, which is
+The only data the Loopky project holds is what the connector for Claude keeps while you are
+connected, and none of it is your decks. So it cannot restore a deck, reset an account or lift a
+storage limit. Those belong to the operator of your Pubky homeserver, which is
 Synonym, through [pubky.app](https://pubky.app), if you signed up in Loopky. Questions about the
 Pubky Ring app go to Pubky as well.
 

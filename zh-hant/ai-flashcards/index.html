@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky</title>
-<meta name="description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。">
+<meta name="description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude 連接器，以及 Claude Code 和 Codex 外掛。">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="zh_TW">
 <meta property="og:url" content="https://loopky.app/zh-hant/ai-flashcards/">
 <meta property="og:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky">
-<meta property="og:description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。">
+<meta property="og:description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude 連接器，以及 Claude Code 和 Codex 外掛。">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky">
-<meta name="twitter:description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。">
+<meta name="twitter:description" content="把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude 連接器，以及 Claude Code 和 Codex 外掛。">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky，一款免費的間隔重複記憶卡應用程式">
 
@@ -62,11 +62,11 @@
       "@id": "https://loopky.app/zh-hant/ai-flashcards/#page",
       "headline": "讓你的 AI 來寫記憶卡",
       "name": "用 AI 做記憶卡：Claude、ChatGPT 和 Gemini，支援匯入 Anki · Loopky",
-      "description": "把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude Code 和 Codex 外掛。",
+      "description": "把主題、PDF、筆記或 Anki 牌組交給 Claude、ChatGPT 或 Gemini，它會寫好並發布記憶卡，你在手機上用間隔重複來學。另有 Claude 連接器，以及 Claude Code 和 Codex 外掛。",
       "url": "https://loopky.app/zh-hant/ai-flashcards/",
       "inLanguage": "zh-Hant",
       "datePublished": "2026-09-26",
-      "dateModified": "2026-10-06",
+      "dateModified": "2026-10-18",
       "image": "https://loopky.app/assets/img/og.png",
       "author": {
         "@type": "Person",
@@ -114,6 +114,14 @@
         },
         {
           "@type": "Question",
+          "name": "有給 Claude 用的 Loopky 連接器嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有，網頁版、桌面應用程式和手機應用程式裡的 Claude 都能用。打開 設定 → 連接器，用 https://mcp.loopky.app/mcp 新增一個自訂連接器，然後在 Pubky Ring 裡核准一次登入。之後直接請 Claude 做記憶卡就好，什麼都不用裝。它只管理 Loopky 的卡組和卡片，卡片從聊天裡取得，不讀你電腦上的檔案，也不能上傳 Anki 的 .apkg。"
+          }
+        },
+        {
+          "@type": "Question",
           "name": "有適用於 Claude Code 或 Codex 的外掛嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -141,7 +149,7 @@
           "name": "能在網頁版 Claude Code 或 Codex 裡用嗎？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。裝了外掛後，網頁版 Claude Code 會自動安裝 CLI。會檢查 TLS 的沙盒，只要用 SSL_CERT_FILE 指定它的憑證就能用。"
+            "text": "能。在網頁版 Claude Code 裡，最簡單的是用 Loopky 連接器：不用安裝，也不用放行任何主機。CLI 也能用，前提是你的沙盒能連到 Loopky 的主機，而這兩者預設都不放行：請代理程式執行 loopky doctor，它會列出這些主機並告訴你在哪裡新增。在 Codex 裡，請關閉「僅 GET/HEAD/OPTIONS」選項。會檢查 TLS 的沙盒，用 SSL_CERT_FILE 指定它的憑證後就能用。"
           }
         },
         {
@@ -319,6 +327,10 @@ Not installed? Read the skill and follow it:
         <p>不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。AI 聊天應用，以及 Claude Code、Codex、Gemini CLI 等代理都能用。</p>
       </details>
       <details class="card">
+        <summary>有給 Claude 用的 Loopky 連接器嗎？</summary>
+        <p>有，網頁版、桌面應用程式和手機應用程式裡的 Claude 都能用。打開 設定 → 連接器，用 https://mcp.loopky.app/mcp 新增一個自訂連接器，然後在 Pubky Ring 裡核准一次登入。之後直接請 Claude 做記憶卡就好，什麼都不用裝。它只管理 Loopky 的卡組和卡片，卡片從聊天裡取得，不讀你電腦上的檔案，也不能上傳 Anki 的 .apkg。</p>
+      </details>
+      <details class="card">
         <summary>有適用於 Claude Code 或 Codex 的外掛嗎？</summary>
         <p>有。在 Claude Code 中執行 /plugin marketplace add jvsena42/loopky，然後執行 /plugin install loopky@loopky。在 Codex 中執行 codex plugin marketplace add jvsena42/loopky，然後執行 codex plugin add loopky@loopky。之後直接要記憶卡就行：外掛知道每一步，不需要提示詞。</p>
       </details>
@@ -332,7 +344,7 @@ Not installed? Read the skill and follow it:
       </details>
       <details class="card">
         <summary>能在網頁版 Claude Code 或 Codex 裡用嗎？</summary>
-        <p>可以，只要你的沙盒能連到 Loopky 的主機。兩者預設都不放行。讓代理程式執行 loopky doctor：它會列出這些主機，並說明要在哪裡加入。在 Codex 中，請讓「僅 GET/HEAD/OPTIONS」選項保持關閉。裝了外掛後，網頁版 Claude Code 會自動安裝 CLI。會檢查 TLS 的沙盒，只要用 SSL_CERT_FILE 指定它的憑證就能用。</p>
+        <p>能。在網頁版 Claude Code 裡，最簡單的是用 Loopky 連接器：不用安裝，也不用放行任何主機。CLI 也能用，前提是你的沙盒能連到 Loopky 的主機，而這兩者預設都不放行：請代理程式執行 loopky doctor，它會列出這些主機並告訴你在哪裡新增。在 Codex 裡，請關閉「僅 GET/HEAD/OPTIONS」選項。會檢查 TLS 的沙盒，用 SSL_CERT_FILE 指定它的憑證後就能用。</p>
       </details>
       <details class="card">
         <summary>它能把哪些檔案變成卡片？</summary>

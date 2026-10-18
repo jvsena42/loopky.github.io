@@ -294,6 +294,12 @@ Not installed? Read the skill and follow it:
 ```
 The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
 
+### The Loopky connector for Claude
+
+For Claude in the browser, the desktop app or the phone app, and for Claude Code on the web, there is nothing to install: add the Loopky connector. In Settings → Connectors, add a custom connector with `https://mcp.loopky.app/mcp`, then approve the sign-in once in Pubky Ring. Then ask Claude for flashcards.
+
+It has the CLI's deck and card commands as tools (`deck_create`, `card_add`, `import` and the rest), with dry runs. Its session can write only Loopky's own data (`/pub/loopky/:rw`), so it cannot post, follow or edit your profile. It takes the cards from the chat, at most 2,000 cards and 1 MiB per call, so it cannot read files on your computer, upload an Anki .apkg or check picture URLs; use the CLI for those. It is the one server the Loopky project runs, and the [privacy policy](https://loopky.app/privacy/) (section 6) says what it keeps.
+
 ### The plugin for Claude Code and Codex
 
 If you use Claude Code or Codex, install the Loopky plugin once instead of pasting the prompt:
@@ -334,10 +340,13 @@ The deck shows up in the Loopky app, scheduled with [spaced repetition](https://
 ### Questions
 
 **Can ChatGPT or Claude make flashcards for me?**
-Yes. Any AI agent that can run shell commands can use the Loopky CLI to write cards and publish a deck. Give it the prompt on this page and your topic.
+Yes. Claude can, with the Loopky connector and no shell at all. Any AI agent that can run shell commands can use the Loopky CLI to write cards and publish a deck: give it the prompt on this page and your topic.
 
 **Do I need to know how to code?**
-No. You paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands.
+No. In Claude, add the Loopky connector and ask. Elsewhere, you paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands.
+
+**Is there a Loopky connector for Claude?**
+Yes, for Claude in the browser, the desktop app and the phone app. Open Settings → Connectors, add a custom connector with https://mcp.loopky.app/mcp, and approve the sign-in once in Pubky Ring. It only manages Loopky decks and cards, takes the cards from the chat rather than from files on your computer, and cannot upload an Anki .apkg.
 
 **Can the AI import my Anki decks?**
 Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first.
@@ -346,7 +355,7 @@ Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the re
 It cannot post, follow people or edit your profile. It only manages your decks and cards.
 
 **Does it work in Claude Code on the web or Codex?**
-Yes, once the sandbox can reach Loopky's hosts. Neither lets them through by default. Have the agent run loopky doctor: it lists the hosts, and where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. With the plugin, Claude Code on the web installs the CLI by itself. A sandbox that inspects TLS works once its certificate is named with SSL_CERT_FILE.
+Yes. In Claude Code on the web, the Loopky connector is the easy route: nothing to install and no hosts to allow. The CLI works too, once the sandbox can reach Loopky's hosts, which neither lets through by default: have the agent run loopky doctor, which lists them and says where to add them. In Codex, leave the GET/HEAD/OPTIONS-only option off. A sandbox that inspects TLS works once its certificate is named with SSL_CERT_FILE.
 
 **Is there a plugin for Claude Code or Codex?**
 Yes. In Claude Code, run /plugin marketplace add jvsena42/loopky, then /plugin install loopky@loopky. In Codex, run codex plugin marketplace add jvsena42/loopky, then codex plugin add loopky@loopky. Then just ask for flashcards: the plugin knows every step, so you need no prompt.
@@ -512,7 +521,7 @@ No. Loopky has no private decks: what you publish can be read by anyone and is i
 With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by creating an account in the app with SMS, a Lightning payment or an invite code. There is no email and password.
 
 **Where is my data stored?**
-On your Pubky homeserver, under your key, not on a Loopky server. There is no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own.
+On your Pubky homeserver, under your key, not on a Loopky server. The app uses no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own. The one server the Loopky project runs is the optional connector for Claude, which holds your public key and an encrypted Pubky session while you stay connected, and passes decks through without storing them ([privacy policy](https://loopky.app/privacy/), section 6).
 
 **Does Loopky track me?**
 No. There is no analytics, no telemetry, no crash reporting and no ads. [Privacy policy](https://loopky.app/privacy/).

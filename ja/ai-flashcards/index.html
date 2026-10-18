@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>AI で単語カードを作る：Claude、ChatGPT、Gemini、Anki インポート対応 · Loopky</title>
-<meta name="description" content="トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude Code と Codex 用のプラグインもあります。">
+<meta name="description" content="トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude 用のコネクタと、Claude Code・Codex 用のプラグインもあります。">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="ja_JP">
 <meta property="og:url" content="https://loopky.app/ja/ai-flashcards/">
 <meta property="og:title" content="AI で単語カードを作る：Claude、ChatGPT、Gemini、Anki インポート対応 · Loopky">
-<meta property="og:description" content="トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude Code と Codex 用のプラグインもあります。">
+<meta property="og:description" content="トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude 用のコネクタと、Claude Code・Codex 用のプラグインもあります。">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky、間隔反復で覚える無料の単語カードアプリ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="AI で単語カードを作る：Claude、ChatGPT、Gemini、Anki インポート対応 · Loopky">
-<meta name="twitter:description" content="トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude Code と Codex 用のプラグインもあります。">
+<meta name="twitter:description" content="トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude 用のコネクタと、Claude Code・Codex 用のプラグインもあります。">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky、間隔反復で覚える無料の単語カードアプリ">
 
@@ -62,11 +62,11 @@
       "@id": "https://loopky.app/ja/ai-flashcards/#page",
       "headline": "単語カードは AI に書かせる",
       "name": "AI で単語カードを作る：Claude、ChatGPT、Gemini、Anki インポート対応 · Loopky",
-      "description": "トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude Code と Codex 用のプラグインもあります。",
+      "description": "トピック、PDF、ノート、Anki デッキを Claude、ChatGPT、Gemini に渡すだけ。AI が単語カードを書いて公開し、スマートフォンで間隔反復を使って学べます。Claude 用のコネクタと、Claude Code・Codex 用のプラグインもあります。",
       "url": "https://loopky.app/ja/ai-flashcards/",
       "inLanguage": "ja",
       "datePublished": "2026-09-26",
-      "dateModified": "2026-10-06",
+      "dateModified": "2026-10-18",
       "image": "https://loopky.app/assets/img/og.png",
       "author": {
         "@type": "Person",
@@ -114,6 +114,14 @@
         },
         {
           "@type": "Question",
+          "name": "Claude 用の Loopky コネクタはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。ブラウザ、デスクトップアプリ、スマートフォンアプリの Claude で使えます。設定 → コネクタを開き、https://mcp.loopky.app/mcp でカスタムコネクタを追加して、Pubky Ring でサインインを一度承認します。あとは Claude に単語カードを頼むだけです。インストールは不要です。Loopky のデッキとカードの管理だけを行い、カードはパソコンのファイルではなくチャットから受け取り、Anki の .apkg はアップロードできません。"
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Claude Code や Codex 用のプラグインはありますか？",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -141,7 +149,7 @@
           "name": "Claude Code on the web や Codex でも使えますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "はい。サンドボックスから Loopky のホストに接続できれば使えます。どちらも初期設定では許可されていません。エージェントに loopky doctor を実行させると、必要なホストと追加する場所が表示されます。Codex では「GET/HEAD/OPTIONS のみ」の設定をオフのままにしてください。プラグインがあれば、Web 版 Claude Code は CLI を自動でインストールします。TLS を検査するサンドボックスも、その証明書を SSL_CERT_FILE で指定すれば動きます。"
+            "text": "はい。Claude Code on the web では Loopky コネクタがいちばん簡単です。インストールも、許可するホストもありません。CLI も、サンドボックスから Loopky のホストに届くようになれば使えます。どちらも初期設定では通さないので、エージェントに loopky doctor を実行させてください。ホストの一覧と追加する場所が表示されます。Codex では GET/HEAD/OPTIONS のみのオプションはオフのままにしてください。TLS を検査するサンドボックスでは、その証明書を SSL_CERT_FILE で指定すれば動きます。"
           }
         },
         {
@@ -319,6 +327,10 @@ Not installed? Read the skill and follow it:
         <p>いいえ。プロンプトを AI に貼り付けて、トピックかファイルを渡せば、あとは AI がすべて進めます。AI チャットアプリや、Claude Code、Codex、Gemini CLI などのエージェントで使えます。</p>
       </details>
       <details class="card">
+        <summary>Claude 用の Loopky コネクタはありますか？</summary>
+        <p>はい。ブラウザ、デスクトップアプリ、スマートフォンアプリの Claude で使えます。設定 → コネクタを開き、https://mcp.loopky.app/mcp でカスタムコネクタを追加して、Pubky Ring でサインインを一度承認します。あとは Claude に単語カードを頼むだけです。インストールは不要です。Loopky のデッキとカードの管理だけを行い、カードはパソコンのファイルではなくチャットから受け取り、Anki の .apkg はアップロードできません。</p>
+      </details>
+      <details class="card">
         <summary>Claude Code や Codex 用のプラグインはありますか？</summary>
         <p>はい。Claude Code では /plugin marketplace add jvsena42/loopky を実行してから /plugin install loopky@loopky を実行します。Codex では codex plugin marketplace add jvsena42/loopky を実行してから codex plugin add loopky@loopky を実行します。あとは単語カードを頼むだけ。プラグインが手順をすべて把握しているので、プロンプトは不要です。</p>
       </details>
@@ -332,7 +344,7 @@ Not installed? Read the skill and follow it:
       </details>
       <details class="card">
         <summary>Claude Code on the web や Codex でも使えますか？</summary>
-        <p>はい。サンドボックスから Loopky のホストに接続できれば使えます。どちらも初期設定では許可されていません。エージェントに loopky doctor を実行させると、必要なホストと追加する場所が表示されます。Codex では「GET/HEAD/OPTIONS のみ」の設定をオフのままにしてください。プラグインがあれば、Web 版 Claude Code は CLI を自動でインストールします。TLS を検査するサンドボックスも、その証明書を SSL_CERT_FILE で指定すれば動きます。</p>
+        <p>はい。Claude Code on the web では Loopky コネクタがいちばん簡単です。インストールも、許可するホストもありません。CLI も、サンドボックスから Loopky のホストに届くようになれば使えます。どちらも初期設定では通さないので、エージェントに loopky doctor を実行させてください。ホストの一覧と追加する場所が表示されます。Codex では GET/HEAD/OPTIONS のみのオプションはオフのままにしてください。TLS を検査するサンドボックスでは、その証明書を SSL_CERT_FILE で指定すれば動きます。</p>
       </details>
       <details class="card">
         <summary>どんなファイルをカードにできますか？</summary>

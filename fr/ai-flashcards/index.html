@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Flashcards par IA avec Claude, ChatGPT et Gemini, import Anki inclus · Loopky</title>
-<meta name="description" content="Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Plugin pour Claude Code et Codex.">
+<meta name="description" content="Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Connecteur pour Claude, plugin pour Claude Code et Codex.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
@@ -30,14 +30,14 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://loopky.app/fr/ai-flashcards/">
 <meta property="og:title" content="Flashcards par IA avec Claude, ChatGPT et Gemini, import Anki inclus · Loopky">
-<meta property="og:description" content="Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Plugin pour Claude Code et Codex.">
+<meta property="og:description" content="Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Connecteur pour Claude, plugin pour Claude Code et Codex.">
 <meta property="og:image" content="https://loopky.app/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:image:alt" content="Loopky, une appli de flashcards gratuite avec répétition espacée">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Flashcards par IA avec Claude, ChatGPT et Gemini, import Anki inclus · Loopky">
-<meta name="twitter:description" content="Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Plugin pour Claude Code et Codex.">
+<meta name="twitter:description" content="Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Connecteur pour Claude, plugin pour Claude Code et Codex.">
 <meta name="twitter:image" content="https://loopky.app/assets/img/og.png">
 <meta name="twitter:image:alt" content="Loopky, une appli de flashcards gratuite avec répétition espacée">
 
@@ -62,11 +62,11 @@
       "@id": "https://loopky.app/fr/ai-flashcards/#page",
       "headline": "Laissez votre IA écrire les flashcards",
       "name": "Flashcards par IA avec Claude, ChatGPT et Gemini, import Anki inclus · Loopky",
-      "description": "Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Plugin pour Claude Code et Codex.",
+      "description": "Donnez à Claude, ChatGPT ou Gemini un sujet, un PDF, vos notes ou un paquet Anki. L’IA écrit et publie des flashcards à réviser sur votre téléphone avec la répétition espacée. Connecteur pour Claude, plugin pour Claude Code et Codex.",
       "url": "https://loopky.app/fr/ai-flashcards/",
       "inLanguage": "fr",
       "datePublished": "2026-09-26",
-      "dateModified": "2026-10-06",
+      "dateModified": "2026-10-18",
       "image": "https://loopky.app/assets/img/og.png",
       "author": {
         "@type": "Person",
@@ -114,6 +114,14 @@
         },
         {
           "@type": "Question",
+          "name": "Existe-t-il un connecteur Loopky pour Claude ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, pour Claude dans le navigateur, l’application de bureau et l’application mobile. Ouvrez Paramètres → Connecteurs, ajoutez un connecteur personnalisé avec https://mcp.loopky.app/mcp et approuvez la connexion une fois dans Pubky Ring. Ensuite, demandez des flashcards à Claude. Rien à installer. Il ne gère que les paquets et les cartes Loopky, reçoit les cartes par le chat et non depuis les fichiers de votre ordinateur, et ne peut pas envoyer un .apkg d’Anki."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Existe-t-il un plugin pour Claude Code ou Codex ?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -141,7 +149,7 @@
           "name": "Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Avec le plugin, Claude Code sur le web installe la CLI tout seul. Un sandbox qui inspecte le TLS fonctionne dès que son certificat est indiqué avec SSL_CERT_FILE."
+            "text": "Oui. Dans Claude Code sur le web, le connecteur Loopky est la voie la plus simple : rien à installer et aucun hôte à autoriser. La CLI fonctionne aussi, une fois que votre sandbox peut joindre les hôtes de Loopky, ce qu’aucun des deux n’autorise par défaut : demandez à l’agent de lancer loopky doctor, qui les liste et indique où les ajouter. Dans Codex, laissez désactivée l’option GET/HEAD/OPTIONS uniquement. Une sandbox qui inspecte le TLS fonctionne une fois son certificat indiqué avec SSL_CERT_FILE."
           }
         },
         {
@@ -319,6 +327,10 @@ Not installed? Read the skill and follow it:
         <p>Non. Collez le prompt dans votre IA, ajoutez votre sujet ou votre fichier, et elle fait chaque étape toute seule. Ça marche dans les apps de chat IA et avec des agents comme Claude Code, Codex et Gemini CLI.</p>
       </details>
       <details class="card">
+        <summary>Existe-t-il un connecteur Loopky pour Claude ?</summary>
+        <p>Oui, pour Claude dans le navigateur, l’application de bureau et l’application mobile. Ouvrez Paramètres → Connecteurs, ajoutez un connecteur personnalisé avec https://mcp.loopky.app/mcp et approuvez la connexion une fois dans Pubky Ring. Ensuite, demandez des flashcards à Claude. Rien à installer. Il ne gère que les paquets et les cartes Loopky, reçoit les cartes par le chat et non depuis les fichiers de votre ordinateur, et ne peut pas envoyer un .apkg d’Anki.</p>
+      </details>
+      <details class="card">
         <summary>Existe-t-il un plugin pour Claude Code ou Codex ?</summary>
         <p>Oui. Dans Claude Code, lancez /plugin marketplace add jvsena42/loopky, puis /plugin install loopky@loopky. Dans Codex, lancez codex plugin marketplace add jvsena42/loopky, puis codex plugin add loopky@loopky. Ensuite, demandez simplement des flashcards : le plugin connaît chaque étape, vous n'avez besoin d'aucun prompt.</p>
       </details>
@@ -332,7 +344,7 @@ Not installed? Read the skill and follow it:
       </details>
       <details class="card">
         <summary>Est-ce que ça marche dans Claude Code sur le web ou dans Codex ?</summary>
-        <p>Oui, dès que votre sandbox peut joindre les hôtes de Loopky. Aucun des deux ne les autorise par défaut. Demandez à l'agent de lancer loopky doctor : il liste les hôtes et indique où les ajouter. Dans Codex, laissez désactivée l'option GET/HEAD/OPTIONS uniquement. Avec le plugin, Claude Code sur le web installe la CLI tout seul. Un sandbox qui inspecte le TLS fonctionne dès que son certificat est indiqué avec SSL_CERT_FILE.</p>
+        <p>Oui. Dans Claude Code sur le web, le connecteur Loopky est la voie la plus simple : rien à installer et aucun hôte à autoriser. La CLI fonctionne aussi, une fois que votre sandbox peut joindre les hôtes de Loopky, ce qu’aucun des deux n’autorise par défaut : demandez à l’agent de lancer loopky doctor, qui les liste et indique où les ajouter. Dans Codex, laissez désactivée l’option GET/HEAD/OPTIONS uniquement. Une sandbox qui inspecte le TLS fonctionne une fois son certificat indiqué avec SSL_CERT_FILE.</p>
       </details>
       <details class="card">
         <summary>Quels fichiers peut-elle transformer en cartes ?</summary>
