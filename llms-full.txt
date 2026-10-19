@@ -296,7 +296,7 @@ The full, always current version is on the [home page](https://loopky.app/#cli) 
 
 ### The Loopky connector for Claude
 
-For Claude in the browser, the desktop app or the phone app, and for Claude Code on the web, there is nothing to install: add the Loopky connector. In Settings → Connectors, add a custom connector with `https://mcp.loopky.app/mcp`, then approve the sign-in once in Pubky Ring. Then ask Claude for flashcards.
+For Claude in the browser, the desktop app or the phone app, and for Claude Code on the web, there is nothing to install: add the Loopky connector. It is listed in Claude's connector directory: in Settings → Connectors, find Loopky (https://claude.ai/directory/loopky) and connect it, then approve the sign-in once in Pubky Ring. Then ask Claude for flashcards.
 
 It has the CLI's deck and card commands as tools (`deck_create`, `card_add`, `import` and the rest), with dry runs. Its session can write only Loopky's own data (`/pub/loopky/:rw`), so it cannot post, follow or edit your profile. It takes the cards from the chat, at most 2,000 cards and 1 MiB per call, so it cannot read files on your computer, upload an Anki .apkg or check picture URLs; use the CLI for those. It is the one server the Loopky project runs, and the [privacy policy](https://loopky.app/privacy/) (section 6) says what it keeps.
 
@@ -346,7 +346,7 @@ Yes. Claude can, with the Loopky connector and no shell at all. Any AI agent tha
 No. In Claude, add the Loopky connector and ask. Elsewhere, you paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands.
 
 **Is there a Loopky connector for Claude?**
-Yes, for Claude in the browser, the desktop app and the phone app. Open Settings → Connectors, add a custom connector with https://mcp.loopky.app/mcp, and approve the sign-in once in Pubky Ring. It only manages Loopky decks and cards, takes the cards from the chat rather than from files on your computer, and cannot upload an Anki .apkg.
+Yes, for Claude in the browser, the desktop app and the phone app. Open Settings → Connectors, find Loopky in the connector directory (https://claude.ai/directory/loopky), connect it, and approve the sign-in once in Pubky Ring. It only manages Loopky decks and cards, takes the cards from the chat rather than from files on your computer, and cannot upload an Anki .apkg.
 
 **Can the AI import my Anki decks?**
 Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first.

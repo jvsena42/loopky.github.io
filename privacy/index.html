@@ -158,7 +158,7 @@
       </div>
       <p>Loopky does not contact any of these to report on you. It contacts them to do the thing you asked for.</p>
       <h2 id="6-the-loopky-connector-for-claude">6. The Loopky connector for Claude</h2>
-      <p>The connector (<code>https://mcp.loopky.app/mcp</code>) lets Claude build decks in your account when you add it to Claude under Settings → Connectors. It is the one server the Loopky project operates, on a virtual server rented from Contabo. <strong>If you never add it, none of this section applies to you.</strong></p>
+      <p>The connector (<code>https://mcp.loopky.app/mcp</code>) lets Claude build decks in your account when you add it to Claude from its connector directory. It is the one server the Loopky project operates, on a virtual server rented from Contabo. <strong>If you never add it, none of this section applies to you.</strong></p>
       <p><strong>What it stores, for as long as you stay connected:</strong></p>
       <ul>
         <li><strong>Your public key</strong>, and when you connected and last used it.</li>
@@ -170,10 +170,10 @@
       <p><strong>Logs.</strong> The server's log records when an account connects, disconnects or fails, by public key, with every token and secret removed. It is rotated, so it keeps about the last 50 MB. Addresses are held in memory to limit request rates, and are not logged.</p>
       <p><strong>How long it is kept, and how to remove it.</strong> Claude's access tokens last an hour and are renewed with a refresh token that lasts 90 days from its last use.</p>
       <ul>
-        <li><strong>Revoke the connector in Pubky Ring</strong>, where it appears as <code>mcp.loopky.app</code>. The connector's next request is refused, and it deletes everything above for your key.</li>
+        <li><strong>Revoke the connector in Pubky Ring</strong>, where it appears as <code>mcp.loopky.app</code>. From then on it cannot write anything for you. It finds out the next time Claude uses a Loopky tool, when your homeserver refuses the session, and then deletes everything above for your key. Until that happens the encrypted session stays on the server, though it no longer works.</li>
         <li><strong>Disconnect it in Claude.</strong> That stops Claude using it.</li>
-        <li><strong>Either way, a connection nobody uses for 90 days ends on its own.</strong> The connector revokes the session on your homeserver and deletes everything above.</li>
-        <li><strong>To have it deleted sooner</strong>, open an issue asking for it.</li>
+        <li><strong>A connection nobody uses for 90 days ends on its own.</strong> The connector revokes the session on your homeserver and deletes everything above.</li>
+        <li><strong>To have it deleted now</strong>, open an issue asking for it.</li>
       </ul>
       <p>The connector also sends what Claude asks it to the homeserver and to the Nexus indexer, as described in section 5. What you say to Claude, and what Claude sends to the connector, is governed by Anthropic's privacy policy, not this one.</p>
       <h2 id="7-microphone">7. Microphone</h2>

@@ -380,7 +380,7 @@
         ],
         [
           "Existe-t-il un connecteur Loopky pour Claude ?",
-          "Oui, pour Claude dans le navigateur, l’application de bureau et l’application mobile. Ouvrez Paramètres → Connecteurs, ajoutez un connecteur personnalisé avec https://mcp.loopky.app/mcp et approuvez la connexion une fois dans Pubky Ring. Ensuite, demandez des flashcards à Claude. Rien à installer. Il ne gère que les paquets et les cartes Loopky, reçoit les cartes par le chat et non depuis les fichiers de votre ordinateur, et ne peut pas envoyer un .apkg d’Anki."
+          "Oui, pour Claude dans le navigateur, l’application de bureau et l’application mobile. Ouvrez Paramètres → Connecteurs, trouvez Loopky dans l’annuaire des connecteurs (https://claude.ai/directory/loopky), connectez-le et approuvez la connexion une fois dans Pubky Ring. Ensuite, demandez des flashcards à Claude. Rien à installer. Il ne gère que les paquets et les cartes Loopky, reçoit les cartes par le chat et non depuis les fichiers de votre ordinateur, et ne peut pas envoyer un .apkg d’Anki."
         ],
         [
           "Existe-t-il un plugin pour Claude Code ou Codex ?",

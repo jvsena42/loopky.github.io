@@ -175,7 +175,7 @@
       ],
       "faq": [
         ["プログラミングの知識は必要ですか？", "いいえ。プロンプトを AI に貼り付けて、トピックかファイルを渡せば、あとは AI がすべて進めます。AI チャットアプリや、Claude Code、Codex、Gemini CLI などのエージェントで使えます。"],
-        ["Claude 用の Loopky コネクタはありますか？", "はい。ブラウザ、デスクトップアプリ、スマートフォンアプリの Claude で使えます。設定 → コネクタを開き、https://mcp.loopky.app/mcp でカスタムコネクタを追加して、Pubky Ring でサインインを一度承認します。あとは Claude に単語カードを頼むだけです。インストールは不要です。Loopky のデッキとカードの管理だけを行い、カードはパソコンのファイルではなくチャットから受け取り、Anki の .apkg はアップロードできません。"],
+        ["Claude 用の Loopky コネクタはありますか？", "はい。ブラウザ、デスクトップアプリ、スマートフォンアプリの Claude で使えます。設定 → コネクタを開き、コネクタディレクトリで Loopky を探して接続し（https://claude.ai/directory/loopky）、Pubky Ring でサインインを一度承認します。あとは Claude に単語カードを頼むだけです。インストールは不要です。Loopky のデッキとカードの管理だけを行い、カードはパソコンのファイルではなくチャットから受け取り、Anki の .apkg はアップロードできません。"],
         ["Claude Code や Codex 用のプラグインはありますか？", "はい。Claude Code では /plugin marketplace add jvsena42/loopky を実行してから /plugin install loopky@loopky を実行します。Codex では codex plugin marketplace add jvsena42/loopky を実行してから codex plugin add loopky@loopky を実行します。あとは単語カードを頼むだけ。プラグインが手順をすべて把握しているので、プロンプトは不要です。"],
         ["AI は Anki デッキを取り込めますか？", "はい。loopky import deck.apkg で Anki パッケージを取り込めます。--dry-run を付けると先に結果を確認できます。"],
         ["このツールにできないことは？", "投稿、フォロー、プロフィール編集はできません。管理するのはデッキとカードだけです。"],
