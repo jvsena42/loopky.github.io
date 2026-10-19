@@ -380,7 +380,7 @@
         ],
         [
           "Gibt es einen Loopky-Connector für Claude?",
-          "Ja, für Claude im Browser, in der Desktop-App und in der Handy-App. Öffne Einstellungen → Connectors, füge einen benutzerdefinierten Connector mit https://mcp.loopky.app/mcp hinzu und bestätige die Anmeldung einmal in Pubky Ring. Dann bitte Claude um Karteikarten. Es gibt nichts zu installieren. Er verwaltet nur Loopky-Decks und -Karten, bekommt die Karten aus dem Chat statt aus Dateien auf deinem Computer und kann kein Anki-.apkg hochladen."
+          "Ja, für Claude im Browser, in der Desktop-App und in der Handy-App. Öffne Einstellungen → Connectors, such Loopky im Connector-Verzeichnis (https://claude.ai/directory/loopky), verbinde ihn und bestätige die Anmeldung einmal in Pubky Ring. Dann bitte Claude um Karteikarten. Es gibt nichts zu installieren. Er verwaltet nur Loopky-Decks und -Karten, bekommt die Karten aus dem Chat statt aus Dateien auf deinem Computer und kann kein Anki-.apkg hochladen."
         ],
         [
           "Gibt es ein Plugin für Claude Code oder Codex?",
