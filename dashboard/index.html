@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Loopky adoption</title>
+<!-- An internal page. Nothing links here, it is not in sitemap.xml, and it is kept out
+     of robots.txt on purpose: a Disallow line would only advertise the address. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="../assets/img/logo.png" type="image/png">
+<link rel="preconnect" href="https://homeserver.pubky.app" crossorigin>
+<link rel="preconnect" href="https://nexus.pubky.app" crossorigin>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #FFFBF5;
+  --bg-2: #FFF4EA;
+  --card: #FFFFFF;
+  --accent: #FF5C00;
+  --accent-soft: #FFE8D6;
+  --fg: #1B1B1F;
+  --fg-2: #5A5A66;
+  --muted: #8B8B99;
+  --border: #F0E6D9;
+  --good: #158A55;
+  --bad: #D62A42;
+  --r: 16px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0D0B11;
+    --bg-2: #1E1A28;
+    --card: #2D2839;
+    --accent: #FF6B2C;
+    --accent-soft: #38221A;
+    --fg: #EDEBF1;
+    --fg-2: #B5AEBD;
+    --muted: #9C94A8;
+    --border: #3B3550;
+    --good: #3DD68C;
+    --bad: #FF6B7D;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+main { max-width: 1200px; margin: 0 auto; padding: 24px 16px 64px; }
+header.top { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; justify-content: space-between; }
+h1 { font-size: 24px; margin: 0; display: flex; align-items: center; gap: 10px; }
+h1 img { border-radius: 9px; }
+h2 { font-size: 17px; margin: 0 0 12px; }
+.sub { color: var(--fg-2); margin: 4px 0 0; font-size: 13px; }
+.controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.controls label { font-size: 13px; color: var(--fg-2); display: flex; gap: 6px; align-items: center; }
+button, select {
+  font: inherit; font-size: 14px; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--card); color: var(--fg); padding: 7px 14px; cursor: pointer;
+}
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+button:disabled { opacity: .55; cursor: default; }
+#progress { margin: 16px 0 0; font-size: 13px; color: var(--fg-2); min-height: 20px; }
+#bar { height: 4px; background: var(--bg-2); border-radius: 4px; overflow: hidden; margin-top: 6px; }
+#bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin: 20px 0; }
+.kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 14px 16px; }
+.kpi b { display: block; font-size: 28px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kpi span { color: var(--fg-2); font-size: 13px; }
+.kpi small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+.kpi.hl { border-color: var(--accent); background: var(--accent-soft); }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
+.panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; min-width: 0; }
+.panel.wide { grid-column: 1 / -1; }
+.note { color: var(--muted); font-size: 12px; margin: 8px 0 0; }
+
+.bars { display: grid; gap: 6px; }
+.brow { display: grid; grid-template-columns: minmax(90px, 38%) 1fr 56px; gap: 8px; align-items: center; font-size: 13px; }
+.brow .lbl { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--fg-2); }
+.brow .trk { height: 14px; position: relative; }
+.brow .trk i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--accent); border-radius: 0 4px 4px 0; min-width: 2px; }
+.brow .val { text-align: right; font-variant-numeric: tabular-nums; }
+.brow:hover .lbl, .brow:hover .val { color: var(--fg); }
+
+.cols { display: flex; align-items: flex-end; gap: 3px; height: 160px; padding-top: 18px; border-bottom: 1px solid var(--border); }
+.cols .c { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: relative; min-width: 0; }
+.cols .c i { display: block; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+.cols .c:hover i { filter: brightness(1.15); }
+.cols .c em { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-style: normal; font-size: 11px; color: var(--fg-2); visibility: hidden; white-space: nowrap; }
+.cols .c:hover em { visibility: visible; }
+.xlab { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+.tablewrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+th { color: var(--fg-2); font-weight: 600; cursor: pointer; user-select: none; position: sticky; top: 0; background: var(--card); }
+th.num, td.num { text-align: right; font-variant-numeric: tabular-nums; }
+td.t { white-space: normal; min-width: 180px; }
+tr:hover td { background: var(--bg-2); }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; }
+.pill { display: inline-block; padding: 1px 8px; border-radius: 999px; background: var(--bg-2); color: var(--fg-2); font-size: 12px; margin: 1px 2px 1px 0; }
+.ok { color: var(--good); }
+.err { color: var(--bad); }
+.src li { margin: 3px 0; font-size: 13px; }
+input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--bg); color: var(--fg); width: 220px; max-width: 100%; }
+.thead { display: flex; flex-wrap: wrap; gap: 8px; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.thead h2 { margin: 0; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <div>
+      <h1><img src="../assets/img/logo.png" width="32" height="32" alt="">Loopky adoption</h1>
+      <p class="sub" id="where"></p>
+    </div>
+    <div class="controls">
+      <label><input type="checkbox" id="deep" checked> Read review state (slower, adds activity)</label>
+      <button class="primary" id="run" type="button">Scan</button>
+      <button id="export" type="button" disabled>Export JSON</button>
+    </div>
+  </header>
+  <div id="progress">Press Scan. Everything is read live from Nexus and the homeserver, in this browser.</div>
+  <div id="bar"><i></i></div>
+
+  <section id="out" hidden>
+    <div class="kpis" id="kpis"></div>
+
+    <div class="grid">
+      <div class="panel">
+        <h2>Account segments</h2>
+        <div class="bars" id="segments"></div>
+        <p class="note">Each account is in exactly one segment. “Studying” means at least one review-state record under <span class="mono">/pub/loopky/srs/</span>.</p>
+      </div>
+      <div class="panel">
+        <h2>Last review</h2>
+        <div class="bars" id="recency"></div>
+        <p class="note" id="recency-note">Derived from each card's due date minus its interval: the same arithmetic the yearly recap uses.</p>
+      </div>
+      <div class="panel wide">
+        <h2>New accounts per month</h2>
+        <div id="signups"></div>
+        <p class="note">An account's month is its earliest trace: the oldest deck it created or card it reviewed (review dates need “Read review state”). Accounts with no dated record are left out.</p>
+      </div>
+      <div class="panel wide">
+        <h2>Decks created per month</h2>
+        <div id="decks-month"></div>
+      </div>
+
+      <div class="panel wide">
+        <div class="thead"><h2>Top decks</h2><input type="search" id="deck-filter" placeholder="Filter decks"></div>
+        <div class="tablewrap"><table id="decks-table"></table></div>
+        <p class="note">Studiers: accounts holding review state for the deck. Followers: <span class="mono">/pub/loopky/subscriptions/</span> records found on scanned accounts. Nexus followers: the deck's <span class="mono">loopky-followed</span> tagger count.</p>
+      </div>
+
+      <div class="panel">
+        <h2>Top tags</h2>
+        <div class="bars" id="tags"></div>
+        <p class="note">Decks carrying the label in their manifest. Reserved <span class="mono">loopky-*</span> labels and the <span class="mono">language</span> umbrella are left out.</p>
+      </div>
+      <div class="panel">
+        <h2>Top tags by studiers</h2>
+        <div class="bars" id="tags-study"></div>
+        <p class="note">Distinct accounts studying at least one deck with the label.</p>
+      </div>
+      <div class="panel">
+        <h2>Language pairs</h2>
+        <div class="bars" id="langs"></div>
+      </div>
+      <div class="panel">
+        <h2>Deck features</h2>
+        <div class="bars" id="features"></div>
+        <p class="note">Share of decks with each study opt-in turned on by the author, and where the deck came from (<span class="mono">source.kind</span>).</p>
+      </div>
+      <div class="panel">
+        <h2>Deck size</h2>
+        <div class="bars" id="sizes"></div>
+      </div>
+      <div class="panel">
+        <h2>Decks studied per studying account</h2>
+        <div class="bars" id="per-account"></div>
+      </div>
+
+      <div class="panel wide">
+        <div class="thead"><h2>Accounts</h2><input type="search" id="acct-filter" placeholder="Filter by name or pubky"></div>
+        <div class="tablewrap"><table id="accounts-table"></table></div>
+      </div>
+
+      <div class="panel wide">
+        <h2>Sources and coverage</h2>
+        <ul class="src" id="sources"></ul>
+        <p class="note">An account is counted when it carries a self-applied <span class="mono">loopky-user</span> profile tag, or when anything exists under its <span class="mono">/pub/loopky/</span>. Candidates come from Nexus (the user directory, deck authors, deck taggers, announcement authors) and are widened by following every deck author named in a scanned account's subscriptions and review state. An account that never published, never self-tagged and is not followed by anyone scanned cannot be found from public data. Accounts hosted on a homeserver other than the one above read as empty.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+/* Loopky adoption, read from public data only.
+ *
+ * Nothing here is privileged. The same unauthenticated reads the Discover and recap
+ * pages make, run over every account that can be found:
+ *
+ *   Nexus        who might be a Loopky account. The `loopky-user` profile directory,
+ *                the `loopky-deck` resource stream, every tagger of a deck manifest
+ *                (followers write `loopky-followed`) and the authors of announcement
+ *                posts. None of it is proof: anyone can tag anything.
+ *   Homeserver   what each candidate actually holds under /pub/loopky/: decks,
+ *                subscriptions, review state, settings. This is the proof, and every
+ *                deck author named in a subscription or a review-state path is a new
+ *                candidate, so the scan widens until nothing new turns up.
+ *
+ * `?nexus=` and `?homeserver=` point it at another deployment, e.g. staging.
+ * Everything read was written by a stranger. Nothing is ever put in innerHTML.
+ */
+(function () {
+  'use strict';
+
+  var params = new URLSearchParams(location.search);
+  var NEXUS = (params.get('nexus') || 'https://nexus.pubky.app').replace(/\/+$/, '');
+  var HOMESERVER = (params.get('homeserver') || 'https://homeserver.pubky.app').replace(/\/+$/, '');
+
+  var PUBKY_RE = /^[ybndrfg8ejkmcpqxot1uwisza345h769]{52}$/;
+  var DECK_ID_RE = /^(?!\.{1,2}$)[A-Za-z0-9._~-]{1,128}$/;
+  var DECK_URI_RE = /^pubky:\/\/([a-z0-9]{52})\/pub\/loopky\/decks\/([^/\s]+)\/manifest\.json$/;
+  var OWN_DECK_RE = /\/pub\/loopky\/decks\/([^/]+)\/?$/;
+  var SUBSCRIPTION_RE = /\/pub\/loopky\/subscriptions\/([a-z0-9]{52})\/([^/]+)\.json$/;
+  var SRS_RE = /\/pub\/loopky\/srs\/([a-z0-9]{52})\/([^/]+)\/[^/]+\.json$/;
+
+  var DAY = 86400000;
+  var AGAIN_DELAY_MS = 600000;
+  var CONCURRENCY = 8;
+  var LIST_PAGE = 500;
+  var MAX_LIST_PAGES = 40;
+  var NEXUS_WINDOW = 100;
+  var MAX_NEXUS_PAGES = 100;
+  var MAX_ACCOUNTS = 5000;
+
+  document.getElementById('where').textContent = 'Nexus ' + NEXUS.replace('https://', '') +
+    ' · homeserver ' + HOMESERVER.replace('https://', '');
+
+  /* ---------------- plumbing ---------------- */
+
+  var requests = 0;
+  var failures = 0;
+
+  function http(url, headers) {
+    requests++;
+    return fetch(url, { mode: 'cors', credentials: 'omit', headers: headers || undefined })
+      .catch(function (e) { failures++; throw e; });
+  }
+
+  function nexus(path) {
+    return http(NEXUS + path).then(function (r) {
+      if (!r.ok) { var e = new Error(path + ' -> ' + r.status); e.status = r.status; throw e; }
+      return r.json();
+    });
+  }
+
+  /* Null for a 404: an account that never wrote the path. */
+  function hs(owner, path, asJson) {
+    return http(HOMESERVER + path, { 'pubky-host': owner }).then(function (r) {
+      if (r.status === 404) return null;
+      if (!r.ok) { failures++; throw new Error(path + ' -> ' + r.status); }
+      return asJson ? r.json().catch(function () { return null; }) : r.text();
+    });
+  }
+
+  /* Every entry under [dir], following the cursor; stops on a page that adds nothing. */
+  function listAll(owner, dir, shallow) {
+    var seen = {};
+    var all = [];
+    var pages = 0;
+    function page(cursor) {
+      if (pages >= MAX_LIST_PAGES) return Promise.resolve(all);
+      pages++;
+      var q = '?limit=' + LIST_PAGE + (shallow ? '&shallow=true' : '') +
+        (cursor ? '&cursor=' + encodeURIComponent(cursor) : '');
+      return hs(owner, dir + q, false).then(function (text) {
+        var lines = (text || '').split('\n').map(function (l) { return l.trim(); })
+          .filter(function (l) { return l.indexOf('pubky://') === 0; });
+        var fresh = lines.filter(function (l) { return !seen[l]; });
+        fresh.forEach(function (l) { seen[l] = true; all.push(l); });
+        if (lines.length < LIST_PAGE || !fresh.length) return all;
+        return page(lines[lines.length - 1]);
+      });
+    }
+    return page(null);
+  }
+
+  function pooled(items, limit, work) {
+    var next = 0;
+    function run() {
+      if (next >= items.length) return Promise.resolve();
+      var item = items[next++];
+      return Promise.resolve().then(function () { return work(item); })
+        .catch(function () { /* one item never sinks the scan */ }).then(run);
+    }
+    var lanes = [];
+    for (var i = 0; i < Math.min(limit, items.length); i++) lanes.push(run());
+    return Promise.all(lanes);
+  }
+
+  function lastReviewedAt(s) {
+    return s.interval_days === 0 ? s.due_at - AGAIN_DELAY_MS : s.due_at - s.interval_days * DAY;
+  }
+
+  /* ---------------- progress ---------------- */
+
+  var progressEl = document.getElementById('progress');
+  var barEl = document.querySelector('#bar > i');
+  function progress(text, fraction) {
+    progressEl.textContent = text + ' · ' + requests + ' requests' + (failures ? ', ' + failures + ' failed' : '');
+    if (fraction !== undefined) barEl.style.width = Math.round(Math.min(1, fraction) * 100) + '%';
+  }
+
+  /* ---------------- the scan ---------------- */
+
+  function scan(deep) {
+    var sources = {};
+    var candidates = {};   /* pubky -> { via: {source: true} } */
+    var nexusDecks = {};   /* author/id -> { uri, followers, labels } */
+    var selfTagged = {};
+
+    function candidate(pubky, via) {
+      if (!PUBKY_RE.test(pubky || '')) return;
+      var c = candidates[pubky] || (candidates[pubky] = { via: {} });
+      c.via[via] = true;
+    }
+    function note(name, count, error) { sources[name] = { count: count, error: error || null }; }
+
+    /* 1. The loopky-deck stream, paged by the window asked for (an offset into the raw set). */
+    function deckStream() {
+      var skip = 0;
+      var pages = 0;
+      var found = 0;
+      function more() {
+        if (pages >= MAX_NEXUS_PAGES) return Promise.resolve();
+        pages++;
+        var at = skip;
+        skip += NEXUS_WINDOW;
+        progress('Nexus: loopky-deck stream, page ' + pages);
+        return nexus('/v0/stream/resources?app=loopky&tags=loopky-deck&sorting=timeline&limit=' +
+          NEXUS_WINDOW + '&skip=' + at).then(function (list) {
+          if (!Array.isArray(list) || !list.length) return;
+          list.forEach(function (r) {
+            var uri = (r.details && r.details.uri) || '';
+            var m = DECK_URI_RE.exec(uri);
+            if (!m || !DECK_ID_RE.test(m[2])) return;
+            var key = m[1] + '/' + m[2];
+            if (!nexusDecks[key]) { nexusDecks[key] = { uri: uri, author: m[1], id: m[2], followers: 0, indexedAt: (r.details && r.details.indexed_at) || 0 }; found++; }
+            candidate(m[1], 'deck author (Nexus)');
+          });
+          return more();
+        });
+      }
+      return more().then(function () { note('Nexus loopky-deck stream', found); },
+        function (e) { note('Nexus loopky-deck stream', found, e.message); });
+    }
+
+    /* 2. Every label on each deck, taggers included: followers tag loopky-followed. */
+    function deckTaggers() {
+      var keys = Object.keys(nexusDecks);
+      var done = 0;
+      var taggers = {};
+      return pooled(keys, CONCURRENCY, function (key) {
+        var d = nexusDecks[key];
+        return nexus('/v0/resource/by-uri?uri=' + encodeURIComponent(d.uri) + '&limit_tags=100&limit_taggers=200')
+          .then(function (res) {
+            (res.tags || []).forEach(function (t) {
+              if (t.label === 'loopky-followed') d.followers = t.taggers_count || (t.taggers || []).length;
+              (t.taggers || []).forEach(function (p) { taggers[p] = true; candidate(p, 'deck tagger (Nexus)'); });
+            });
+          })
+          .finally(function () { done++; progress('Nexus: deck taggers ' + done + '/' + keys.length, done / keys.length * 0.15); });
+      }).then(function () { note('Nexus deck taggers', Object.keys(taggers).length); });
+    }
+
+    /* 3. The loopky-user profile directory. 404 on an indexer that predates the endpoint. */
+    function userDirectory() {
+      var skip = 0;
+      var found = 0;
+      var pages = 0;
+      function more() {
+        if (pages >= MAX_NEXUS_PAGES) return Promise.resolve();
+        pages++;
+        var at = skip;
+        skip += 200;
+        return nexus('/v0/search/users/by_tags?tags=loopky-user&limit=200&skip=' + at).then(function (list) {
+          if (!Array.isArray(list) || !list.length) return;
+          var before = found;
+          list.forEach(function (u) {
+            if (u && PUBKY_RE.test(u.user_id || '') && !(candidates[u.user_id] && candidates[u.user_id].via['loopky-user directory'])) {
+              found++;
+              candidate(u.user_id, 'loopky-user directory');
+            }
+          });
+          if (found === before || list.length < 200) return;
+          return more();
+        });
+      }
+      progress('Nexus: loopky-user directory');
+      return more().then(function () { note('Nexus loopky-user directory', found); },
+        function (e) { note('Nexus loopky-user directory', found, e.status === 404 ? 'endpoint not deployed on this indexer (404)' : e.message); });
+    }
+
+    /* 4. Authors of deck announcement posts: a post_key is {author}:{post_id}. */
+    function announcers() {
+      var found = {};
+      var skip = 0;
+      var pages = 0;
+      function more() {
+        if (pages >= 20) return Promise.resolve();
+        pages++;
+        var at = skip;
+        skip += 200;
+        return nexus('/v0/search/posts/by_tag/loopky-deck?limit=200&skip=' + at).then(function (list) {
+          if (!Array.isArray(list) || !list.length) return;
+          var before = Object.keys(found).length;
+          list.forEach(function (p) {
+            var author = String((p && p.post_key) || '').split(':')[0];
+            if (PUBKY_RE.test(author)) { found[author] = true; candidate(author, 'announcement author'); }
+          });
+          if (Object.keys(found).length === before || list.length < 200) return;
+          return more();
+        });
+      }
+      progress('Nexus: announcement authors');
+      return more().then(function () { note('Nexus announcement authors', Object.keys(found).length); },
+        function (e) { note('Nexus announcement authors', Object.keys(found).length, e.message); });
+    }
+
+    /* 5. Verify the directory: a loopky-user tag counts only when the account put it on itself. */
+    function verifySelfTags() {
+      var dir = Object.keys(candidates).filter(function (p) { return candidates[p].via['loopky-user directory']; });
+      return pooled(dir, CONCURRENCY, function (p) {
+        return nexus('/v0/user/' + p + '/taggers/loopky-user?limit=100').then(function (res) {
+          var users = (res && res.users) || (Array.isArray(res) ? res : []);
+          if (users.indexOf(p) >= 0) selfTagged[p] = true;
+        });
+      });
+    }
+
+    /* 6. The homeserver, account by account, widening as new deck authors turn up. */
+    var accounts = {};
+    var queue = [];
+    var queued = {};
+    function enqueue(p) { if (!queued[p] && Object.keys(queued).length < MAX_ACCOUNTS) { queued[p] = true; queue.push(p); } }
+
+    function readAccount(p) {
+      var a = { pubky: p, name: '', decks: [], subs: [], srsChunks: [], studied: {}, states: 0,
+        lastReview: 0, firstSeen: 0, hasSettings: false, any: false, settings: null };
+      return Promise.all([
+        listAll(p, '/pub/loopky/decks/', true),
+        listAll(p, '/pub/loopky/subscriptions/', false),
+        listAll(p, '/pub/loopky/srs/', false),
+        hs(p, '/pub/loopky/settings.json', true).catch(function () { return null; }),
+        hs(p, '/pub/pubky.app/profile.json', true).catch(function () { return null; }),
+      ]).then(function (r) {
+        r[0].forEach(function (l) { var m = OWN_DECK_RE.exec(l); if (m && DECK_ID_RE.test(m[1])) a.decks.push(m[1]); });
+        r[1].forEach(function (l) {
+          var m = SUBSCRIPTION_RE.exec(l);
+          if (m && DECK_ID_RE.test(m[2])) { a.subs.push(m[1] + '/' + m[2]); enqueue(m[1]); }
+        });
+        r[2].forEach(function (l) {
+          var m = SRS_RE.exec(l);
+          if (!m || !DECK_ID_RE.test(m[2])) return;
+          var key = m[1] + '/' + m[2];
+          a.studied[key] = (a.studied[key] || 0) + 1;
+          a.srsChunks.push({ deck: key, path: l.slice(l.indexOf('/pub/')) });
+          enqueue(m[1]);
+        });
+        a.settings = r[3];
+        a.hasSettings = !!r[3];
+        var prof = r[4];
+        if (prof && typeof prof.name === 'string' && !PUBKY_RE.test(prof.name)) a.name = prof.name.trim();
+        a.any = a.decks.length > 0 || a.subs.length > 0 || a.srsChunks.length > 0 || a.hasSettings;
+        accounts[p] = a;
+      });
+    }
+
+    function homeserverPass() {
+      Object.keys(candidates).forEach(enqueue);
+      var done = 0;
+      function drain() {
+        if (!queue.length) return Promise.resolve();
+        var batch = queue.splice(0, queue.length);
+        return pooled(batch, CONCURRENCY, function (p) {
+          return readAccount(p).finally(function () {
+            done++;
+            progress('Homeserver: accounts ' + done + '/' + Object.keys(queued).length, 0.15 + 0.35 * done / Object.keys(queued).length);
+          });
+        }).then(drain);
+      }
+      return drain();
+    }
+
+    /* 7. Every deck any account owns, follows or studies: the manifest is the deck. */
+    var decks = {};
+    function manifests() {
+      var keys = {};
+      Object.keys(nexusDecks).forEach(function (k) { keys[k] = true; });
+      Object.keys(accounts).forEach(function (p) {
+        var a = accounts[p];
+        a.decks.forEach(function (id) { keys[p + '/' + id] = true; });
+        a.subs.forEach(function (k) { keys[k] = true; });
+        Object.keys(a.studied).forEach(function (k) { keys[k] = true; });
+      });
+      var list = Object.keys(keys);
+      var done = 0;
+      return pooled(list, CONCURRENCY, function (key) {
+        var author = key.slice(0, 52);
+        var id = key.slice(53);
+        return hs(author, '/pub/loopky/decks/' + encodeURIComponent(id) + '/manifest.json', true).then(function (d) {
+          if (!d || typeof d.title !== 'string') return;
+          if (d.author_pubky && d.author_pubky.replace(/^pk:/, '') !== author) return;
+          var study = d;
+          decks[key] = {
+            key: key, author: author, id: id,
+            title: d.title.trim() || '(untitled)',
+            emoji: typeof d.cover_emoji === 'string' && /[^\x00-\x7F]/.test(d.cover_emoji) ? d.cover_emoji : '',
+            cards: typeof d.card_count === 'number' ? d.card_count : 0,
+            tags: (Array.isArray(d.tags) ? d.tags : []).filter(function (t) { return typeof t === 'string' && t.trim(); })
+              .map(function (t) { return t.trim().toLowerCase(); }),
+            frontLang: typeof d.front_lang === 'string' ? d.front_lang : '',
+            backLang: typeof d.back_lang === 'string' ? d.back_lang : '',
+            createdAt: typeof d.created_at === 'number' ? d.created_at : 0,
+            updatedAt: typeof d.updated_at === 'number' ? d.updated_at : 0,
+            listen: study.listen_enabled !== false && !!(d.front_lang && d.back_lang),
+            speak: study.speak_enabled !== false && !!(d.front_lang && d.back_lang),
+            type: study.type_enabled === true,
+            reverse: study.reverse_enabled === true,
+            source: (d.source && typeof d.source.kind === 'string') ? d.source.kind : 'original',
+            indexed: !!nexusDecks[key],
+            nexusFollowers: nexusDecks[key] ? nexusDecks[key].followers : 0,
+            followers: 0, studiers: 0, states: 0,
+          };
+        }).finally(function () {
+          done++;
+          progress('Homeserver: manifests ' + done + '/' + list.length, 0.5 + 0.15 * done / list.length);
+        });
+      });
+    }
+
+    /* 8. Review state, chunk by chunk. One state per card, as the app keys it. */
+    function reviewState() {
+      if (!deep) return Promise.resolve();
+      var jobs = [];
+      Object.keys(accounts).forEach(function (p) {
+        accounts[p].srsChunks.forEach(function (c) { jobs.push({ p: p, c: c }); });
+      });
+      var seen = {};
+      var done = 0;
+      return pooled(jobs, CONCURRENCY, function (j) {
+        return hs(j.p, j.c.path, true).then(function (chunk) {
+          var a = accounts[j.p];
+          ((chunk && chunk.states) || []).forEach(function (s) {
+            if (typeof s.due_at !== 'number' || typeof s.interval_days !== 'number') return;
+            var k = j.p + '|' + j.c.deck + '|' + s.card_id;
+            if (typeof s.card_id === 'string' && seen[k]) return;
+            seen[k] = true;
+            a.states++;
+            a.perDeckStates = a.perDeckStates || {};
+            a.perDeckStates[j.c.deck] = (a.perDeckStates[j.c.deck] || 0) + 1;
+            var at = lastReviewedAt(s);
+            if (at > a.lastReview && at <= Date.now() + DAY) a.lastReview = at;
+            if (at > 0 && (!a.firstSeen || at < a.firstSeen)) a.firstSeen = at;
+          });
+        }).finally(function () {
+          done++;
+          if (done % 5 === 0 || done === jobs.length) progress('Homeserver: review state ' + done + '/' + jobs.length, 0.65 + 0.35 * done / jobs.length);
+        });
+      });
+    }
+
+    return Promise.all([deckStream().then(deckTaggers), userDirectory(), announcers()])
+      .then(verifySelfTags)
+      .then(homeserverPass)
+      .then(manifests)
+      .then(reviewState)
+      .then(function () {
+        return { candidates: candidates, accounts: accounts, decks: decks, selfTagged: selfTagged, sources: sources, nexusDecks: nexusDecks };
+      });
+  }
+
+  /* ---------------- the numbers ---------------- */
+
+  function summarize(raw, deep) {
+    var now = Date.now();
+    var decks = raw.decks;
+    var list = Object.keys(raw.accounts).map(function (p) { return raw.accounts[p]; })
+      .filter(function (a) { return a.any || raw.selfTagged[a.pubky]; });
+
+    list.forEach(function (a) {
+      a.via = Object.keys((raw.candidates[a.pubky] || { via: {} }).via);
+      if (!a.via.length) a.via = ['named by another account'];
+      a.selfTagged = !!raw.selfTagged[a.pubky];
+      a.ownedDecks = a.decks.filter(function (id) { return decks[a.pubky + '/' + id]; }).length || a.decks.length;
+      a.studiedDecks = Object.keys(a.studied).length;
+      a.isStudying = a.studiedDecks > 0;
+      a.decks.forEach(function (id) {
+        var d = decks[a.pubky + '/' + id];
+        if (d && d.createdAt && (!a.firstSeen || d.createdAt < a.firstSeen)) a.firstSeen = d.createdAt;
+      });
+      a.subs.forEach(function (k) { if (decks[k]) decks[k].followers++; });
+      Object.keys(a.studied).forEach(function (k) {
+        if (!decks[k]) return;
+        decks[k].studiers++;
+        decks[k].states += (a.perDeckStates && a.perDeckStates[k]) || 0;
+      });
+      if (!a.isStudying && a.ownedDecks) a.segment = 'Creates decks, studies none';
+      else if (!a.isStudying && a.subs.length) a.segment = 'Follows decks, studies none';
+      else if (!a.isStudying) a.segment = 'Signed in, nothing stored';
+      else if (a.ownedDecks) a.segment = 'Studies and creates';
+      else a.segment = 'Studies others’ decks only';
+    });
+
+    var deckList = Object.keys(decks).map(function (k) { return decks[k]; });
+    var studying = list.filter(function (a) { return a.isStudying; });
+    function activeWithin(days) {
+      return list.filter(function (a) { return a.lastReview && now - a.lastReview <= days * DAY; }).length;
+    }
+
+    return {
+      at: new Date(now).toISOString(),
+      nexus: NEXUS, homeserver: HOMESERVER, deep: deep,
+      accounts: list, decks: deckList, sources: raw.sources,
+      candidates: Object.keys(raw.candidates).length,
+      totals: {
+        accounts: list.length,
+        studying: studying.length,
+        notStudying: list.length - studying.length,
+        creators: list.filter(function (a) { return a.ownedDecks > 0; }).length,
+        followers: list.filter(function (a) { return a.subs.length > 0; }).length,
+        selfTagged: list.filter(function (a) { return a.selfTagged; }).length,
+        withSettings: list.filter(function (a) { return a.hasSettings; }).length,
+        decks: deckList.length,
+        indexedDecks: deckList.filter(function (d) { return d.indexed; }).length,
+        cards: deckList.reduce(function (s, d) { return s + d.cards; }, 0),
+        states: list.reduce(function (s, a) { return s + a.states; }, 0),
+        active1: activeWithin(1), active7: activeWithin(7), active30: activeWithin(30),
+      },
+    };
+  }
+
+  /* ---------------- drawing ---------------- */
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text !== undefined && text !== null) n.textContent = text;
+    return n;
+  }
+  function clear(n) { while (n.firstChild) n.removeChild(n.lastChild); }
+  function fmt(n) { return Number(n).toLocaleString('en'); }
+  function pct(n, of) { return of ? Math.round(n / of * 100) + '%' : '–'; }
+  function short(p) { return p.slice(0, 8) + '…' + p.slice(-4); }
+  function day(t) { return t ? new Date(t).toISOString().slice(0, 10) : '–'; }
+  function ago(t) {
+    if (!t) return '–';
+    var d = Math.floor((Date.now() - t) / DAY);
+    return d <= 0 ? 'today' : d === 1 ? '1 day ago' : d + ' days ago';
+  }
+
+  function kpi(value, label, small, hl) {
+    var k = el('div', 'kpi' + (hl ? ' hl' : ''));
+    k.appendChild(el('b', null, value));
+    k.appendChild(el('span', null, label));
+    if (small) k.appendChild(el('small', null, small));
+    return k;
+  }
+
+  /* Horizontal bars, one series, labelled directly: [label, value, title?]. */
+  function bars(node, rows, opts) {
+    clear(node);
+    opts = opts || {};
+    if (!rows.length) { node.appendChild(el('p', 'note', 'Nothing yet.')); return; }
+    var max = Math.max.apply(null, rows.map(function (r) { return r[1]; })) || 1;
+    rows.forEach(function (r) {
+      var row = el('div', 'brow');
+      row.title = r[2] || (r[0] + ': ' + fmt(r[1]));
+      row.appendChild(el('span', 'lbl', r[0]));
+      var trk = el('span', 'trk');
+      var bar = el('i');
+      bar.style.width = (r[1] / (opts.max || max) * 100) + '%';
+      trk.appendChild(bar);
+      row.appendChild(trk);
+      row.appendChild(el('span', 'val', opts.format ? opts.format(r[1]) : fmt(r[1])));
+      node.appendChild(row);
+    });
+  }
+
+  /* Monthly columns from a list of timestamps, empty months included. */
+  function months(node, stamps) {
+    clear(node);
+    stamps = stamps.filter(function (t) { return t > Date.UTC(2024, 0, 1) && t <= Date.now() + DAY; });
+    if (!stamps.length) { node.appendChild(el('p', 'note', 'No dated records.')); return; }
+    var counts = {};
+    stamps.forEach(function (t) { var k = new Date(t).toISOString().slice(0, 7); counts[k] = (counts[k] || 0) + 1; });
+    var keys = Object.keys(counts).sort();
+    var cur = new Date(keys[0] + '-01T00:00:00Z');
+    var end = new Date(new Date().toISOString().slice(0, 7) + '-01T00:00:00Z');
+    var all = [];
+    while (cur <= end) { all.push(cur.toISOString().slice(0, 7)); cur.setUTCMonth(cur.getUTCMonth() + 1); }
+    var max = Math.max.apply(null, all.map(function (k) { return counts[k] || 0; })) || 1;
+    var wrap = el('div', 'cols');
+    var running = 0;
+    all.forEach(function (k) {
+      var n = counts[k] || 0;
+      running += n;
+      var c = el('div', 'c');
+      c.title = k + ': ' + fmt(n) + ' (cumulative ' + fmt(running) + ')';
+      c.appendChild(el('em', null, fmt(n)));
+      var bar = el('i');
+      bar.style.height = (n / max * 100) + '%';
+      c.appendChild(bar);
+      wrap.appendChild(c);
+    });
+    node.appendChild(wrap);
+    var x = el('div', 'xlab');
+    x.appendChild(el('span', null, all[0]));
+    x.appendChild(el('span', null, fmt(running) + ' total'));
+    x.appendChild(el('span', null, all[all.length - 1]));
+    node.appendChild(x);
+  }
+
+  /* A sortable table. cols: [{ h, v(row), num?, cell(row)? }]. */
+  function table(node, cols, rows, sortIndex, filterInput, match) {
+    var state = { by: sortIndex, desc: true, limit: 50 };
+    function draw() {
+      clear(node);
+      var q = filterInput ? filterInput.value.trim().toLowerCase() : '';
+      var shown = rows.filter(function (r) { return !q || match(r).toLowerCase().indexOf(q) >= 0; });
+      var col = cols[state.by];
+      shown.sort(function (a, b) {
+        var x = col.v(a), y = col.v(b);
+        var c = x < y ? -1 : x > y ? 1 : 0;
+        return state.desc ? -c : c;
+      });
+      var thead = el('thead');
+      var tr = el('tr');
+      cols.forEach(function (c, i) {
+        var th = el('th', c.num ? 'num' : null, c.h + (i === state.by ? (state.desc ? ' ↓' : ' ↑') : ''));
+        th.addEventListener('click', function () {
+          if (state.by === i) state.desc = !state.desc; else { state.by = i; state.desc = !!c.num; }
+          draw();
+        });
+        tr.appendChild(th);
+      });
+      thead.appendChild(tr);
+      node.appendChild(thead);
+      var tbody = el('tbody');
+      shown.slice(0, state.limit).forEach(function (r) {
+        var row = el('tr');
+        cols.forEach(function (c) {
+          var td = el('td', c.cls || (c.num ? 'num' : null));
+          if (c.cell) td.appendChild(c.cell(r)); else td.textContent = c.num ? fmt(c.v(r)) : c.v(r);
+          row.appendChild(td);
+        });
+        tbody.appendChild(row);
+      });
+      node.appendChild(tbody);
+      if (shown.length > state.limit) {
+        var more = el('tr');
+        var td = el('td', null);
+        td.colSpan = cols.length;
+        var b = el('button', null, 'Show all ' + fmt(shown.length));
+        b.type = 'button';
+        b.addEventListener('click', function () { state.limit = Infinity; draw(); });
+        td.appendChild(b);
+        more.appendChild(td);
+        tbody.appendChild(more);
+      }
+    }
+    if (filterInput) filterInput.oninput = draw;
+    draw();
+  }
+
+  function link(text, href, cls) {
+    var a = el('a', cls, text);
+    a.href = href;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    return a;
+  }
+
+  function render(s) {
+    var t = s.totals;
+    var names = {};
+    s.accounts.forEach(function (a) { names[a.pubky] = a.name; });
+
+    var k = document.getElementById('kpis');
+    clear(k);
+    k.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', fmt(t.selfTagged) + ' self-tagged loopky-user', true));
+    k.appendChild(kpi(fmt(t.studying), 'Studying', pct(t.studying, t.accounts) + ' of accounts'));
+    k.appendChild(kpi(fmt(t.notStudying), 'Study no deck', pct(t.notStudying, t.accounts) + ' of accounts', true));
+    k.appendChild(kpi(fmt(t.creators), 'Created a deck', pct(t.creators, t.accounts) + ' of accounts'));
+    k.appendChild(kpi(fmt(t.followers), 'Follow a deck', pct(t.followers, t.accounts) + ' of accounts'));
+    if (s.deep) {
+      k.appendChild(kpi(fmt(t.active1), 'Reviewed in 24h'));
+      k.appendChild(kpi(fmt(t.active7), 'Reviewed in 7 days', pct(t.active7, t.accounts) + ' of accounts'));
+      k.appendChild(kpi(fmt(t.active30), 'Reviewed in 30 days', pct(t.active30, t.accounts) + ' of accounts'));
+    }
+    k.appendChild(kpi(fmt(t.decks), 'Decks', fmt(t.indexedDecks) + ' indexed by Nexus'));
+    k.appendChild(kpi(fmt(t.cards), 'Cards in decks'));
+    if (s.deep) k.appendChild(kpi(fmt(t.states), 'Cards with review state'));
+    k.appendChild(kpi(fmt(t.withSettings), 'Saved study settings', pct(t.withSettings, t.accounts) + ' of accounts'));
+
+    var seg = {};
+    s.accounts.forEach(function (a) { seg[a.segment] = (seg[a.segment] || 0) + 1; });
+    bars(document.getElementById('segments'), ['Studies and creates', 'Studies others’ decks only',
+      'Creates decks, studies none', 'Follows decks, studies none', 'Signed in, nothing stored']
+      .map(function (n) { return [n, seg[n] || 0, n + ': ' + fmt(seg[n] || 0) + ' (' + pct(seg[n] || 0, t.accounts) + ')']; }));
+
+    var recency = document.getElementById('recency');
+    if (s.deep) {
+      var buckets = [['Last 24 hours', 1], ['1–7 days', 7], ['8–30 days', 30], ['31–90 days', 90], ['Over 90 days', Infinity]];
+      var counts = buckets.map(function () { return 0; });
+      var never = 0;
+      s.accounts.forEach(function (a) {
+        if (!a.lastReview) { never++; return; }
+        var d = (Date.now() - a.lastReview) / DAY;
+        for (var i = 0; i < buckets.length; i++) if (d <= buckets[i][1]) { counts[i]++; break; }
+      });
+      bars(recency, buckets.map(function (b, i) { return [b[0], counts[i]]; }).concat([['Never reviewed', never]]));
+    } else {
+      clear(recency);
+      recency.appendChild(el('p', 'note', 'Turn on “Read review state” and scan again.'));
+    }
+
+    months(document.getElementById('signups'), s.accounts.map(function (a) { return a.firstSeen; }).filter(Boolean));
+    months(document.getElementById('decks-month'), s.decks.map(function (d) { return d.createdAt; }).filter(Boolean));
+
+    table(document.getElementById('decks-table'), [
+      { h: 'Deck', v: function (d) { return d.title.toLowerCase(); }, cls: 't', cell: function (d) {
+        return link((d.emoji ? d.emoji + ' ' : '') + d.title, '../deck/?author=' + encodeURIComponent(d.author) + '&id=' + encodeURIComponent(d.id));
+      } },
+      { h: 'Author', v: function (d) { return names[d.author] || d.author; }, cell: function (d) {
+        return link(names[d.author] || short(d.author), '../profile/?pubky=' + encodeURIComponent(d.author), names[d.author] ? null : 'mono');
+      } },
+      { h: 'Studiers', num: true, v: function (d) { return d.studiers; } },
+      { h: 'Followers', num: true, v: function (d) { return d.followers; } },
+      { h: 'Nexus followers', num: true, v: function (d) { return d.nexusFollowers; } },
+      { h: 'Cards', num: true, v: function (d) { return d.cards; } },
+      { h: 'Reviewed cards', num: true, v: function (d) { return d.states; } },
+      { h: 'Langs', v: function (d) { return d.frontLang && d.backLang ? d.frontLang + ' → ' + d.backLang : ''; } },
+      { h: 'Tags', v: function (d) { return d.tags.join(' '); }, cls: 't', cell: function (d) {
+        var f = document.createDocumentFragment();
+        d.tags.filter(function (x) { return x.indexOf('loopky-') !== 0; }).slice(0, 6)
+          .forEach(function (x) { f.appendChild(el('span', 'pill', x)); });
+        return f;
+      } },
+      { h: 'Created', v: function (d) { return d.createdAt; }, cell: function (d) { return document.createTextNode(day(d.createdAt)); } },
+      { h: 'Indexed', v: function (d) { return d.indexed ? 1 : 0; }, cell: function (d) { return el('span', d.indexed ? 'ok' : 'err', d.indexed ? 'yes' : 'no'); } },
+    ], s.decks, 2, document.getElementById('deck-filter'), function (d) {
+      return d.title + ' ' + d.tags.join(' ') + ' ' + (names[d.author] || '') + ' ' + d.author;
+    });
+
+    function isTopic(x) { return x.indexOf('loopky-') !== 0 && x !== 'language'; }
+    var tagDecks = {};
+    var tagStudiers = {};
+    var deckByKey = {};
+    s.decks.forEach(function (d) {
+      deckByKey[d.key] = d;
+      d.tags.filter(isTopic).forEach(function (x) { tagDecks[x] = (tagDecks[x] || 0) + 1; });
+    });
+    s.accounts.forEach(function (a) {
+      var mine = {};
+      Object.keys(a.studied).forEach(function (k) {
+        var d = deckByKey[k];
+        if (d) d.tags.filter(isTopic).forEach(function (x) { mine[x] = true; });
+      });
+      Object.keys(mine).forEach(function (x) { tagStudiers[x] = (tagStudiers[x] || 0) + 1; });
+    });
+    function top(map, n) {
+      return Object.keys(map).sort(function (a, b) { return map[b] - map[a] || (a < b ? -1 : 1); })
+        .slice(0, n).map(function (x) { return [x, map[x]]; });
+    }
+    bars(document.getElementById('tags'), top(tagDecks, 20));
+    bars(document.getElementById('tags-study'), top(tagStudiers, 20));
+
+    var langs = {};
+    s.decks.forEach(function (d) {
+      if (!d.frontLang || !d.backLang) return;
+      var p = d.frontLang.split('-')[0] + ' → ' + d.backLang.split('-')[0];
+      langs[p] = (langs[p] || 0) + 1;
+    });
+    var noPair = s.decks.filter(function (d) { return !d.frontLang || !d.backLang; }).length;
+    bars(document.getElementById('langs'), top(langs, 15).concat(noPair ? [['No pair declared', noPair]] : []));
+
+    var n = s.decks.length;
+    function share(f) { var c = s.decks.filter(f).length; return c; }
+    var kinds = {};
+    s.decks.forEach(function (d) { kinds[d.source] = (kinds[d.source] || 0) + 1; });
+    bars(document.getElementById('features'), [
+      ['Listen', share(function (d) { return d.listen; })],
+      ['Speak', share(function (d) { return d.speak; })],
+      ['Type the answer', share(function (d) { return d.type; })],
+      ['Reverse', share(function (d) { return d.reverse; })],
+    ].concat(top(kinds, 5).map(function (r) { return ['Source: ' + r[0], r[1]]; })),
+    { max: n || 1, format: function (v) { return pct(v, n); } });
+
+    var sizes = [['1–20', 20], ['21–100', 100], ['101–500', 500], ['501–2,000', 2000], ['Over 2,000', Infinity]];
+    var sc = sizes.map(function () { return 0; });
+    var empty = 0;
+    s.decks.forEach(function (d) {
+      if (!d.cards) { empty++; return; }
+      for (var i = 0; i < sizes.length; i++) if (d.cards <= sizes[i][1]) { sc[i]++; break; }
+    });
+    bars(document.getElementById('sizes'), [['Empty', empty]].concat(sizes.map(function (b, i) { return [b[0] + ' cards', sc[i]]; })));
+
+    var per = {};
+    s.accounts.forEach(function (a) {
+      if (!a.studiedDecks) return;
+      var b = a.studiedDecks >= 5 ? '5 or more' : String(a.studiedDecks);
+      per[b] = (per[b] || 0) + 1;
+    });
+    bars(document.getElementById('per-account'), ['1', '2', '3', '4', '5 or more'].map(function (b) {
+      return [b + (b === '1' ? ' deck' : ' decks'), per[b] || 0];
+    }));
+
+    table(document.getElementById('accounts-table'), [
+      { h: 'Account', v: function (a) { return (a.name || a.pubky).toLowerCase(); }, cell: function (a) {
+        return link(a.name || short(a.pubky), '../profile/?pubky=' + encodeURIComponent(a.pubky), a.name ? null : 'mono');
+      } },
+      { h: 'Segment', v: function (a) { return a.segment; } },
+      { h: 'Own decks', num: true, v: function (a) { return a.ownedDecks; } },
+      { h: 'Following', num: true, v: function (a) { return a.subs.length; } },
+      { h: 'Studying', num: true, v: function (a) { return a.studiedDecks; } },
+      { h: 'Reviewed cards', num: true, v: function (a) { return a.states; } },
+      { h: 'Last review', v: function (a) { return a.lastReview; }, cell: function (a) { return document.createTextNode(ago(a.lastReview)); } },
+      { h: 'First seen', v: function (a) { return a.firstSeen; }, cell: function (a) { return document.createTextNode(day(a.firstSeen)); } },
+      { h: 'Self-tag', v: function (a) { return a.selfTagged ? 1 : 0; }, cell: function (a) { return document.createTextNode(a.selfTagged ? 'yes' : ''); } },
+      { h: 'Found via', v: function (a) { return a.via.join(', '); }, cls: 't' },
+    ], s.accounts, s.deep ? 6 : 4, document.getElementById('acct-filter'), function (a) { return a.name + ' ' + a.pubky; });
+
+    var src = document.getElementById('sources');
+    clear(src);
+    Object.keys(s.sources).forEach(function (name) {
+      var x = s.sources[name];
+      var li = el('li');
+      li.appendChild(el('b', null, name + ': '));
+      li.appendChild(document.createTextNode(fmt(x.count) + ' '));
+      if (x.error) li.appendChild(el('span', 'err', '(' + x.error + ')'));
+      src.appendChild(li);
+    });
+    [['Candidates from Nexus', s.candidates],
+     ['Accounts read on the homeserver', s.scanned],
+     ['Confirmed Loopky accounts', t.accounts],
+     ['Requests made', requests],
+     ['Failed requests', failures],
+     ['Scanned at', s.at]].forEach(function (r) {
+      var li = el('li');
+      li.appendChild(el('b', null, r[0] + ': '));
+      li.appendChild(document.createTextNode(typeof r[1] === 'number' ? fmt(r[1]) : r[1]));
+      src.appendChild(li);
+    });
+
+    document.getElementById('out').hidden = false;
+  }
+
+  /* ---------------- wiring ---------------- */
+
+  var runBtn = document.getElementById('run');
+  var exportBtn = document.getElementById('export');
+  var last = null;
+
+  runBtn.addEventListener('click', function () {
+    var deep = document.getElementById('deep').checked;
+    runBtn.disabled = true;
+    exportBtn.disabled = true;
+    requests = 0;
+    failures = 0;
+    var started = Date.now();
+    progress('Starting', 0);
+    scan(deep).then(function (raw) {
+      last = summarize(raw, deep);
+      last.scanned = Object.keys(raw.accounts).length;
+      render(last);
+      progress('Done in ' + Math.round((Date.now() - started) / 1000) + 's', 1);
+      exportBtn.disabled = false;
+    }, function (e) {
+      progress('Scan failed: ' + (e && e.message ? e.message : e));
+    }).then(function () { runBtn.disabled = false; });
+  });
+
+  exportBtn.addEventListener('click', function () {
+    if (!last) return;
+    var out = JSON.parse(JSON.stringify(last, function (key, value) {
+      return key === 'srsChunks' || key === 'settings' ? undefined : value;
+    }));
+    var blob = new Blob([JSON.stringify(out, null, 2)], { type: 'application/json' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'loopky-adoption-' + last.at.slice(0, 10) + '.json';
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  });
+
+  if (params.get('autorun') === '1') runBtn.click();
+})();
+</script>
+</body>
+</html>

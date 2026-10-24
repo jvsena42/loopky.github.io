@@ -11,6 +11,8 @@ index.html            the landing page
 deck/index.html       where a shared deck link lands
 profile/index.html    where a shared profile link lands
 recap/index.html      where a shared yearly recap lands
+dashboard/index.html  adoption numbers, read live from Nexus and the homeserver;
+                      noindex, unlinked, kept out of the sitemap
 .well-known/assetlinks.json  lets Android open those links in the app
 .well-known/apple-app-site-association  the same for iOS
 assets/css/style.css  the app's own palette, from LoopkyColors.kt
