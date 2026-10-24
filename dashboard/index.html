@@ -62,9 +62,58 @@ button, select {
 }
 button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
 button:disabled { opacity: .55; cursor: default; }
-#progress { margin: 16px 0 0; font-size: 13px; color: var(--fg-2); min-height: 20px; }
-#bar { height: 4px; background: var(--bg-2); border-radius: 4px; overflow: hidden; margin-top: 6px; }
-#bar > i { display: block; height: 100%; width: 0; background: var(--accent); transition: width .2s; }
+#progress { margin: 12px 0 0; font-size: 12px; color: var(--muted); min-height: 18px; }
+
+/* The scan, while it runs. */
+.loading { margin: 20px 0 0; background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 28px 20px 22px; text-align: center; overflow: hidden; position: relative; }
+.loading::before { content: ""; position: absolute; inset: -40% -10% auto; height: 80%; background: radial-gradient(closest-side, var(--accent-soft), transparent); opacity: .9; pointer-events: none; }
+.loading > * { position: relative; }
+.orbit { width: 120px; height: 120px; margin: 0 auto 14px; position: relative; }
+.orbit img { position: absolute; inset: 34px; width: 52px; height: 52px; border-radius: 14px; animation: bob 2.4s ease-in-out infinite; box-shadow: 0 8px 24px rgba(255, 92, 0, .25); }
+.orbit .ring { position: absolute; inset: 0; border-radius: 50%; border: 2px dashed var(--border); animation: spin 14s linear infinite; }
+.orbit .pulse { position: absolute; inset: 30px; border-radius: 22px; border: 2px solid var(--accent); opacity: 0; animation: pulse 2.4s ease-out infinite; }
+.orbit .sat { position: absolute; inset: 0; animation: spin 3.2s linear infinite; }
+.orbit .sat i { position: absolute; top: -5px; left: 50%; width: 12px; height: 12px; margin-left: -6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.orbit .sat.s2 { animation-duration: 5s; animation-direction: reverse; }
+.orbit .sat.s2 i { width: 9px; height: 9px; margin-left: -4.5px; background: #7A4CFF; box-shadow: 0 0 10px #7A4CFF; }
+.orbit .sat.s3 { animation-duration: 7.5s; inset: 14px; }
+.orbit .sat.s3 i { width: 7px; height: 7px; margin-left: -3.5px; background: var(--good); box-shadow: 0 0 8px var(--good); }
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes bob { 50% { transform: translateY(-4px) scale(1.04); } }
+@keyframes pulse { 0% { transform: scale(.9); opacity: .7; } 100% { transform: scale(1.9); opacity: 0; } }
+.loading h2 { font-size: 20px; margin: 0; }
+.loading .what { color: var(--fg-2); font-size: 14px; margin: 4px 0 18px; min-height: 20px; }
+.counters { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; max-width: 720px; margin: 0 auto 18px; }
+.counter { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 10px 8px; }
+.counter b { display: block; font-size: 26px; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.counter span { font-size: 12px; color: var(--fg-2); }
+.counter.bump b { animation: bump .35s ease-out; }
+@keyframes bump { 40% { transform: scale(1.12); color: var(--accent); } }
+.track { height: 8px; background: var(--bg-2); border-radius: 8px; overflow: hidden; max-width: 720px; margin: 0 auto; }
+.track i { display: block; height: 100%; width: 0; border-radius: 8px; transition: width .35s ease;
+  background: linear-gradient(90deg, var(--accent) 0%, #FF9A5C 50%, var(--accent) 100%); background-size: 200% 100%; animation: sheen 1.6s linear infinite; }
+@keyframes sheen { to { background-position: -200% 0; } }
+.steps { list-style: none; padding: 0; margin: 18px auto 0; max-width: 720px; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; text-align: left; }
+.steps li { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--muted); padding: 8px 10px; border-radius: 12px; border: 1px solid transparent; }
+.steps li .dot { flex: none; width: 18px; height: 18px; border-radius: 50%; border: 2px solid var(--border); margin-top: 1px; display: grid; place-items: center; font-size: 11px; font-weight: 700; color: #fff; }
+.steps li small { display: block; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.steps li.active { color: var(--fg); border-color: var(--border); background: var(--bg); }
+.steps li.active .dot { border-color: var(--accent); border-top-color: transparent; animation: spin .8s linear infinite; }
+.steps li.done { color: var(--fg-2); }
+.steps li.done .dot { background: var(--good); border-color: var(--good); }
+.steps li.done .dot::after { content: "\2713"; }
+.steps li.skipped { opacity: .5; text-decoration: line-through; }
+.loading .meta { margin: 14px 0 0; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.loading.failed .orbit * { animation-play-state: paused; }
+.loading.failed .what { color: var(--bad); }
+.skeleton { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin: 16px 0 0; }
+.skeleton i { height: 82px; border-radius: var(--r); border: 1px solid var(--border);
+  background: linear-gradient(90deg, var(--card) 0%, var(--bg-2) 50%, var(--card) 100%); background-size: 200% 100%; animation: sheen 1.4s linear infinite; }
+.skeleton i.w { grid-column: 1 / -1; height: 180px; }
+@media (prefers-reduced-motion: reduce) {
+  .loading *, .skeleton i, .track i { animation: none !important; transition: none !important; }
+  .orbit .pulse { opacity: 0; }
+}
 
 .kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin: 20px 0; }
 .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 14px 16px; }
@@ -130,12 +179,40 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     </div>
     <div class="controls">
       <label><input type="checkbox" id="deep" checked> Read review state (slower, adds activity)</label>
-      <button class="primary" id="run" type="button">Scan</button>
+      <button class="primary" id="run" type="button" disabled>Rescan</button>
       <button id="export" type="button" disabled>Export JSON</button>
     </div>
   </header>
-  <div id="progress">Press Scan. Everything is read live from Nexus and the homeserver, in this browser.</div>
-  <div id="bar"><i></i></div>
+  <div id="progress" aria-live="polite"></div>
+
+  <section class="loading" id="loading" aria-busy="true">
+    <div class="orbit" aria-hidden="true">
+      <span class="ring"></span><span class="pulse"></span>
+      <span class="sat"><i></i></span><span class="sat s2"><i></i></span><span class="sat s3"><i></i></span>
+      <img src="../assets/img/logo.png" alt="">
+    </div>
+    <h2 id="load-title">Counting Loopky learners</h2>
+    <p class="what" id="load-what">Read live from Nexus and the homeserver, in this browser.</p>
+    <div class="counters">
+      <div class="counter" data-count="candidates"><b>0</b><span>candidates</span></div>
+      <div class="counter" data-count="accounts"><b>0</b><span>accounts confirmed</span></div>
+      <div class="counter" data-count="decks"><b>0</b><span>decks</span></div>
+      <div class="counter" data-count="reviews"><b>0</b><span>cards reviewed</span></div>
+    </div>
+    <div class="track"><i id="load-bar"></i></div>
+    <ol class="steps" id="steps">
+      <li data-step="nexus"><span class="dot"></span><span>Indexer<small></small></span></li>
+      <li data-step="accounts"><span class="dot"></span><span>Accounts<small></small></span></li>
+      <li data-step="decks"><span class="dot"></span><span>Decks<small></small></span></li>
+      <li data-step="reviews"><span class="dot"></span><span>Review state<small></small></span></li>
+      <li data-step="numbers"><span class="dot"></span><span>Numbers<small></small></span></li>
+    </ol>
+    <p class="meta" id="load-meta"></p>
+    <p hidden id="load-retry"><button class="primary" type="button">Try again</button></p>
+  </section>
+  <div class="skeleton" id="skeleton" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i><i></i><i class="w"></i>
+  </div>
 
   <section id="out" hidden>
     <div class="filter">
@@ -326,11 +403,54 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
   /* ---------------- progress ---------------- */
 
-  var progressEl = document.getElementById('progress');
-  var barEl = document.querySelector('#bar > i');
+  /* What the loading panel shows. The scan writes targets here; a frame loop eases
+     the counters toward them, so a burst of results reads as a count rather than a jump. */
+  var STEPS = ['nexus', 'accounts', 'decks', 'reviews', 'numbers'];
+  var STEP_WORDS = {
+    nexus: 'Asking Nexus who uses Loopky',
+    accounts: 'Visiting each account\u2019s homeserver',
+    decks: 'Opening every deck',
+    reviews: 'Reading review state',
+    numbers: 'Adding it all up',
+  };
+  var live = { step: null, fraction: 0, startedAt: 0, counts: { candidates: 0, accounts: 0, decks: 0, reviews: 0 } };
+  var shown = { candidates: 0, accounts: 0, decks: 0, reviews: 0 };
+
+  function step(name, skipped) {
+    var at = STEPS.indexOf(name);
+    document.querySelectorAll('#steps li').forEach(function (li, i) {
+      li.classList.toggle('done', i < at || (i === at && !!skipped));
+      li.classList.toggle('active', i === at && !skipped);
+    });
+    if (skipped) document.querySelector('#steps li[data-step="' + name + '"]').classList.add('skipped');
+    live.step = name;
+    document.getElementById('load-title').textContent = STEP_WORDS[name] + '\u2026';
+  }
+
   function progress(text, fraction) {
-    progressEl.textContent = text + ' · ' + requests + ' requests' + (failures ? ', ' + failures + ' failed' : '');
-    if (fraction !== undefined) barEl.style.width = Math.round(Math.min(1, fraction) * 100) + '%';
+    document.getElementById('load-what').textContent = text;
+    var detail = /(\d[\d,]*\/\d[\d,]*)/.exec(text);
+    var li = live.step && document.querySelector('#steps li[data-step="' + live.step + '"] small');
+    if (li) li.textContent = detail ? detail[1] : '';
+    if (fraction !== undefined) live.fraction = Math.max(live.fraction, Math.min(1, fraction));
+  }
+
+  function tick() {
+    if (!live.startedAt) return;
+    Object.keys(shown).forEach(function (k) {
+      var target = live.counts[k];
+      if (shown[k] === target) return;
+      var next = shown[k] + Math.max(1, Math.ceil((target - shown[k]) * 0.18));
+      shown[k] = Math.min(target, next);
+      var box = document.querySelector('.counter[data-count="' + k + '"]');
+      box.querySelector('b').textContent = shown[k].toLocaleString('en');
+      if (shown[k] === target) { box.classList.remove('bump'); void box.offsetWidth; box.classList.add('bump'); }
+    });
+    document.getElementById('load-bar').style.width = Math.round(live.fraction * 100) + '%';
+    document.getElementById('load-meta').textContent = requests.toLocaleString('en') + ' requests' +
+      (failures ? ' \u00b7 ' + failures + ' failed' : '') + ' \u00b7 ' +
+      Math.floor((Date.now() - live.startedAt) / 1000) + 's';
+    requestAnimationFrame(tick);
   }
 
   /* ---------------- the scan ---------------- */
@@ -343,6 +463,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
     function candidate(pubky, via) {
       if (!PUBKY_RE.test(pubky || '')) return;
+      if (!candidates[pubky]) live.counts.candidates++;
       var c = candidates[pubky] || (candidates[pubky] = { via: {} });
       c.via[via] = true;
     }
@@ -494,11 +615,13 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         var prof = r[4];
         if (prof && typeof prof.name === 'string' && !PUBKY_RE.test(prof.name)) a.name = prof.name.trim();
         a.any = a.decks.length > 0 || a.subs.length > 0 || a.srsChunks.length > 0 || a.hasSettings;
+        if (a.any || selfTagged[p]) live.counts.accounts++;
         accounts[p] = a;
       });
     }
 
     function homeserverPass() {
+      step('accounts');
       Object.keys(candidates).forEach(enqueue);
       var done = 0;
       function drain() {
@@ -517,6 +640,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     /* 7. Every deck any account owns, follows or studies: the manifest is the deck. */
     var decks = {};
     function manifests() {
+      step('decks');
       var keys = {};
       Object.keys(nexusDecks).forEach(function (k) { keys[k] = true; });
       Object.keys(accounts).forEach(function (p) {
@@ -534,6 +658,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
           if (!d || typeof d.title !== 'string') return;
           if (d.author_pubky && d.author_pubky.replace(/^pk:/, '') !== author) return;
           var study = d;
+          live.counts.decks++;
           decks[key] = {
             key: key, author: author, id: id,
             title: d.title.trim() || '(untitled)',
@@ -563,7 +688,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
     /* 8. Review state, chunk by chunk. One state per card, as the app keys it. */
     function reviewState() {
-      if (!deep) return Promise.resolve();
+      if (!deep) { step('reviews', true); return Promise.resolve(); }
+      step('reviews');
       var jobs = [];
       Object.keys(accounts).forEach(function (p) {
         accounts[p].srsChunks.forEach(function (c) { jobs.push({ p: p, c: c }); });
@@ -579,6 +705,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
             if (typeof s.card_id === 'string' && seen[k]) return;
             seen[k] = true;
             a.states++;
+            live.counts.reviews++;
             a.perDeckStates = a.perDeckStates || {};
             a.perDeckStates[j.c.deck] = (a.perDeckStates[j.c.deck] || 0) + 1;
             var at = lastReviewedAt(s);
@@ -594,6 +721,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       });
     }
 
+    step('nexus');
     return Promise.all([deckStream().then(deckTaggers), userDirectory(), announcers()])
       .then(verifySelfTags)
       .then(homeserverPass)
@@ -1079,7 +1207,6 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     periodSel.value = p.key;
     var url = new URL(location.href);
     if (p.key === 'all') url.searchParams.delete('period'); else url.searchParams.set('period', p.key);
-    url.searchParams.delete('autorun');
     history.replaceState(null, '', url);
     render(last, p);
   }
@@ -1095,25 +1222,65 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   }
   periodSel.addEventListener('change', function () { setPeriod(periodSel.value); });
 
-  runBtn.addEventListener('click', function () {
+  var loadingEl = document.getElementById('loading');
+  var skeletonEl = document.getElementById('skeleton');
+  var statusEl = document.getElementById('progress');
+  var outEl = document.getElementById('out');
+
+  function showLoading(on) {
+    loadingEl.hidden = !on;
+    loadingEl.setAttribute('aria-busy', on ? 'true' : 'false');
+    skeletonEl.hidden = !on;
+    if (on) outEl.hidden = true;
+  }
+
+  function start() {
     var deep = document.getElementById('deep').checked;
     runBtn.disabled = true;
     exportBtn.disabled = true;
     requests = 0;
     failures = 0;
-    var started = Date.now();
-    progress('Starting', 0);
+    live = { step: null, fraction: 0, startedAt: Date.now(), counts: { candidates: 0, accounts: 0, decks: 0, reviews: 0 } };
+    Object.keys(shown).forEach(function (k) { shown[k] = 0; });
+    document.querySelectorAll('.counter b').forEach(function (b) { b.textContent = '0'; });
+    document.querySelectorAll('#steps li').forEach(function (li) { li.className = ''; li.querySelector('small').textContent = ''; });
+    document.querySelector('.counter[data-count="reviews"]').hidden = !deep;
+    loadingEl.classList.remove('failed');
+    document.getElementById('load-retry').hidden = true;
+    statusEl.textContent = '';
+    showLoading(true);
+    progress('Read live from Nexus and the homeserver, in this browser.', 0);
+    requestAnimationFrame(tick);
+
     scan(deep).then(function (raw) {
-      last = summarize(raw, deep);
-      last.scanned = Object.keys(raw.accounts).length;
-      fillPeriods();
-      setPeriod(periodKey);
-      progress('Done in ' + Math.round((Date.now() - started) / 1000) + 's', 1);
-      exportBtn.disabled = false;
-    }, function (e) {
-      progress('Scan failed: ' + (e && e.message ? e.message : e));
+      step('numbers');
+      progress('Drawing the dashboard', 1);
+      /* One frame for the last counts and the full bar before the panel goes. */
+      return new Promise(function (done) { setTimeout(done, 450); }).then(function () {
+        last = summarize(raw, deep);
+        last.scanned = Object.keys(raw.accounts).length;
+        var took = Math.round((Date.now() - live.startedAt) / 1000);
+        live.startedAt = 0;
+        showLoading(false);
+        fillPeriods();
+        setPeriod(periodKey);
+        statusEl.textContent = 'Scanned ' + new Date().toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit' }) +
+          ' \u00b7 ' + took + 's \u00b7 ' + requests.toLocaleString('en') + ' requests' +
+          (failures ? ', ' + failures + ' failed' : '') + (deep ? '' : ' \u00b7 review state skipped');
+        exportBtn.disabled = false;
+      });
+    }).catch(function (e) {
+      live.startedAt = 0;
+      loadingEl.classList.add('failed');
+      document.getElementById('load-title').textContent = 'The scan stopped';
+      document.getElementById('load-what').textContent = (e && e.message) ? e.message : String(e);
+      document.getElementById('load-retry').hidden = false;
+      skeletonEl.hidden = true;
     }).then(function () { runBtn.disabled = false; });
-  });
+  }
+
+  runBtn.addEventListener('click', start);
+  document.querySelector('#load-retry button').addEventListener('click', start);
 
   exportBtn.addEventListener('click', function () {
     if (!last) return;
@@ -1128,7 +1295,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
   });
 
-  if (params.get('autorun') === '1') runBtn.click();
+  /* No confirmation step: opening the page is the request. */
+  start();
 })();
 </script>
 </body>
