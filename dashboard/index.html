@@ -331,6 +331,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   var NEXUS_WINDOW = 100;
   var MAX_NEXUS_PAGES = 100;
   var MAX_ACCOUNTS = 5000;
+  var RETRIES = 4;
 
   document.getElementById('where').textContent = 'Nexus ' + NEXUS.replace('https://', '') +
     ' · homeserver ' + HOMESERVER.replace('https://', '');
@@ -340,15 +341,34 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   var requests = 0;
   var failures = 0;
 
+  /* Rate limits (429), server errors and dropped connections are retried with backoff,
+     honouring Retry-After. Without this each scan lost a different few accounts to
+     transient errors, so the totals changed from one scan to the next. */
   function http(url, headers) {
-    requests++;
-    return fetch(url, { mode: 'cors', credentials: 'omit', headers: headers || undefined })
-      .catch(function (e) { failures++; throw e; });
+    var attempt = 0;
+    function later(r) {
+      var after = r && parseFloat(r.headers.get('retry-after'));
+      var ms = after >= 0 ? Math.min(after * 1000, 30000) : 500 * Math.pow(2, attempt) + Math.random() * 250;
+      attempt++;
+      return new Promise(function (done) { setTimeout(done, ms); }).then(go);
+    }
+    function go() {
+      requests++;
+      return fetch(url, { mode: 'cors', credentials: 'omit', headers: headers || undefined }).then(function (r) {
+        if ((r.status === 429 || r.status >= 500) && attempt < RETRIES) return later(r);
+        return r;
+      }, function (e) {
+        if (attempt < RETRIES) return later(null);
+        failures++;
+        throw e;
+      });
+    }
+    return go();
   }
 
   function nexus(path) {
     return http(NEXUS + path).then(function (r) {
-      if (!r.ok) { var e = new Error(path + ' -> ' + r.status); e.status = r.status; throw e; }
+      if (!r.ok) { failures++; var e = new Error(path + ' -> ' + r.status); e.status = r.status; throw e; }
       return r.json();
     });
   }
@@ -505,7 +525,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       var taggers = {};
       return pooled(keys, CONCURRENCY, function (key) {
         var d = nexusDecks[key];
-        return nexus('/v0/resource/by-uri?uri=' + encodeURIComponent(d.uri) + '&limit_tags=100&limit_taggers=200')
+        return nexus('/v0/resource/by-uri?uri=' + encodeURIComponent(d.uri) + '&limit_tags=100&limit_taggers=100')
           .then(function (res) {
             (res.tags || []).forEach(function (t) {
               if (t.label === 'loopky-followed') d.followers = t.taggers_count || (t.taggers || []).length;
@@ -583,6 +603,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
     /* 6. The homeserver, account by account, widening as new deck authors turn up. */
     var accounts = {};
+    var unread = {};
     var queue = [];
     var queued = {};
     function enqueue(p) { if (!queued[p] && Object.keys(queued).length < MAX_ACCOUNTS) { queued[p] = true; queue.push(p); } }
@@ -617,7 +638,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         a.any = a.decks.length > 0 || a.subs.length > 0 || a.srsChunks.length > 0 || a.hasSettings;
         if (a.any || selfTagged[p]) live.counts.accounts++;
         accounts[p] = a;
-      });
+        delete unread[p];
+      }, function (e) { unread[p] = true; throw e; });
     }
 
     function homeserverPass() {
@@ -634,7 +656,13 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
           });
         }).then(drain);
       }
-      return drain();
+      /* One more pass over accounts that still failed after their retries. */
+      return drain().then(function () {
+        var again = Object.keys(unread);
+        if (!again.length) return;
+        again.forEach(function (p) { queue.push(p); });
+        return drain();
+      });
     }
 
     /* 7. Every deck any account owns, follows or studies: the manifest is the deck. */
@@ -728,7 +756,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       .then(manifests)
       .then(reviewState)
       .then(function () {
-        return { candidates: candidates, accounts: accounts, decks: decks, selfTagged: selfTagged, sources: sources, nexusDecks: nexusDecks };
+        return { candidates: candidates, accounts: accounts, decks: decks, selfTagged: selfTagged, sources: sources, nexusDecks: nexusDecks, unread: Object.keys(unread).length };
       });
   }
 
@@ -773,7 +801,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     return {
       at: new Date(now).toISOString(),
       nexus: NEXUS, homeserver: HOMESERVER, deep: deep,
-      accounts: list, decks: deckList, sources: raw.sources,
+      accounts: list, decks: deckList, sources: raw.sources, unread: raw.unread,
       candidates: Object.keys(raw.candidates).length,
       totals: {
         accounts: list.length,
@@ -1012,7 +1040,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     clear(k);
     var dash = '–';
     if (all) {
-      k.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', fmt(t.selfTagged) + ' self-tagged loopky-user', true));
+      k.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', fmt(t.selfTagged) + ' self-tagged loopky-user' +
+        (s.unread ? ' \u00b7 ' + fmt(s.unread) + ' unreadable, a lower bound' : ''), true));
       k.appendChild(kpi(fmt(t.studying), 'Studying', pct(t.studying, t.accounts) + ' of accounts'));
       k.appendChild(kpi(fmt(t.notStudying), 'Study no deck', pct(t.notStudying, t.accounts) + ' of accounts', true));
       k.appendChild(kpi(fmt(t.creators), 'Created a deck', pct(t.creators, t.accounts) + ' of accounts'));
@@ -1179,6 +1208,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     });
     [['Candidates from Nexus', s.candidates],
      ['Accounts read on the homeserver', s.scanned],
+     ['Accounts that could not be read', s.unread],
      ['Confirmed Loopky accounts', t.accounts],
      ['Requests made', requests],
      ['Failed requests', failures],
@@ -1266,7 +1296,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         setPeriod(periodKey);
         statusEl.textContent = 'Scanned ' + new Date().toLocaleTimeString('en', { hour: '2-digit', minute: '2-digit' }) +
           ' \u00b7 ' + took + 's \u00b7 ' + requests.toLocaleString('en') + ' requests' +
-          (failures ? ', ' + failures + ' failed' : '') + (deep ? '' : ' \u00b7 review state skipped');
+          (failures ? ', ' + failures + ' failed' : '') + (deep ? '' : ' \u00b7 review state skipped') +
+          (last.unread ? ' \u00b7 ' + last.unread + ' accounts could not be read, rescan for a full count' : '');
         exportBtn.disabled = false;
       });
     }).catch(function (e) {
