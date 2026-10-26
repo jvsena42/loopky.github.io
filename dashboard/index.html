@@ -205,6 +205,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <li data-step="accounts"><span class="dot"></span><span>Accounts<small></small></span></li>
       <li data-step="decks"><span class="dot"></span><span>Decks<small></small></span></li>
       <li data-step="reviews"><span class="dot"></span><span>Review state<small></small></span></li>
+      <li data-step="pubkyapp"><span class="dot"></span><span>pubky.app use<small></small></span></li>
       <li data-step="numbers"><span class="dot"></span><span>Numbers<small></small></span></li>
     </ol>
     <p class="meta" id="load-meta"></p>
@@ -232,6 +233,13 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         <h2>Last review<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
         <div class="bars" id="recency"></div>
         <p class="note" id="recency-note">Derived from each card's due date minus its interval: the same arithmetic the yearly recap uses.</p>
+      </div>
+      <div class="panel">
+        <h2>pubky.app use<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
+        <div class="bars" id="pubkyapp"></div>
+        <h2 style="margin-top:16px">What showed direct use</h2>
+        <div class="bars" id="pubkyapp-why"></div>
+        <p class="note">Loopky writes into <span class="mono">/pub/pubky.app/</span> itself, so none of that counts: the profile (Loopky edits its name and bio), follows (Loopky follows people), the <span class="mono">loopky-user</span> self-tag, and its own posts (deck announcements, recaps, deck requests) with the labels on them. Direct use is anything else there: a post that is not Loopky's, a tag on anything but a Loopky post, or a record Loopky never writes, such as files, bookmarks, mutes or <span class="mono">last_read</span>. An account with only Loopky's records may still read pubky.app without writing; that cannot be seen from public data.</p>
       </div>
       <div class="panel wide">
         <h2>New accounts per month</h2>
@@ -322,6 +330,10 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   var OWN_DECK_RE = /\/pub\/loopky\/decks\/([^/]+)\/?$/;
   var SUBSCRIPTION_RE = /\/pub\/loopky\/subscriptions\/([a-z0-9]{52})\/([^/]+)\.json$/;
   var SRS_RE = /\/pub\/loopky\/srs\/([a-z0-9]{52})\/([^/]+)\/[^/]+\.json$/;
+  /* What Loopky itself writes under /pub/pubky.app/. Anything else there is another client. */
+  var PUBKY_APP_LOOPKY_ENTRIES = { 'profile.json': true, 'follows/': true, 'posts/': true, 'tags/': true };
+  var LOOPKY_LABEL_RE = /^(loopky($|-)|deck-request$)/;
+  var LOOPKY_LINK_RE = /^(pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/|https:\/\/(loopky\.app|jvsena42\.github\.io)\/)/;
 
   var DAY = 86400000;
   var AGAIN_DELAY_MS = 600000;
@@ -425,12 +437,13 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
   /* What the loading panel shows. The scan writes targets here; a frame loop eases
      the counters toward them, so a burst of results reads as a count rather than a jump. */
-  var STEPS = ['nexus', 'accounts', 'decks', 'reviews', 'numbers'];
+  var STEPS = ['nexus', 'accounts', 'decks', 'reviews', 'pubkyapp', 'numbers'];
   var STEP_WORDS = {
     nexus: 'Asking Nexus who uses Loopky',
     accounts: 'Visiting each account\u2019s homeserver',
     decks: 'Opening every deck',
     reviews: 'Reading review state',
+    pubkyapp: 'Checking who uses pubky.app',
     numbers: 'Adding it all up',
   };
   var live = { step: null, fraction: 0, startedAt: 0, counts: { candidates: 0, accounts: 0, decks: 0, reviews: 0 } };
@@ -744,7 +757,78 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
           });
         }).finally(function () {
           done++;
-          if (done % 5 === 0 || done === jobs.length) progress('Homeserver: review state ' + done + '/' + jobs.length, 0.65 + 0.35 * done / jobs.length);
+          if (done % 5 === 0 || done === jobs.length) progress('Homeserver: review state ' + done + '/' + jobs.length, 0.65 + 0.25 * done / jobs.length);
+        });
+      });
+    }
+
+    /* 9. Does the account use pubky.app itself, beyond what Loopky wrote there for it?
+       Stops at the first record that proves it. */
+    function isLoopkyPost(post) {
+      if (!post || typeof post !== 'object') return false;
+      var embed = post.embed && typeof post.embed.uri === 'string' ? post.embed.uri : '';
+      if (LOOPKY_LINK_RE.test(embed)) return true;
+      /* An announcement always carries its deck's URI in the body, embed or not. */
+      return typeof post.content === 'string' && /pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/decks\//.test(post.content);
+    }
+
+    function readPubkyApp(p) {
+      var a = accounts[p];
+      var own = 'pubky://' + p + '/pub/pubky.app/posts/';
+      var why = {};
+      function found(reason) { why[reason] = true; }
+      function verdict(state) { a.pubkyApp = state; a.pubkyAppWhy = Object.keys(why); }
+      return listAll(p, '/pub/pubky.app/', true).then(function (entries) {
+        var names = entries.map(function (l) { return l.slice(l.indexOf('/pub/pubky.app/') + 15); });
+        if (!names.length) return verdict('empty');
+        names.forEach(function (n) { if (!PUBKY_APP_LOOPKY_ENTRIES[n]) found(n.replace(/\/$/, '')); });
+        if (Object.keys(why).length) return verdict('direct');
+        var loopkyPosts = {};
+        var incomplete = false;
+        function missed() { incomplete = true; }
+        var tags = names.indexOf('tags/') >= 0 ? listAll(p, '/pub/pubky.app/tags/', false) : Promise.resolve([]);
+        return tags.then(function (list) {
+          return pooled(list, 2, function (l) {
+            if (Object.keys(why).length) return;
+            return hs(p, l.slice(l.indexOf('/pub/')), true).then(function (t) {
+              if (!t || typeof t.uri !== 'string' || typeof t.label !== 'string') return;
+              var label = t.label.trim().toLowerCase();
+              if (t.uri.indexOf(own) === 0) {
+                /* Topic labels on a post are judged with the post itself, below. */
+                if (LOOPKY_LABEL_RE.test(label)) loopkyPosts[t.uri] = true;
+              } else if (/\/pub\/loopky\//.test(t.uri)) {
+                /* Decks were tagged in this namespace before #40. */
+              } else if (!(t.uri === 'pubky://' + p + '/pub/pubky.app/profile.json' && label === 'loopky-user')) {
+                found('tags');
+              }
+            }, missed);
+          });
+        }).then(function () {
+          if (Object.keys(why).length) return;
+          return names.indexOf('posts/') >= 0 ? listAll(p, '/pub/pubky.app/posts/', false) : [];
+        }).then(function (posts) {
+          var unknown = (posts || []).map(function (l) { return 'pubky://' + p + l.slice(l.indexOf('/pub/')); })
+            .filter(function (u) { return !loopkyPosts[u]; });
+          return pooled(unknown, 2, function (u) {
+            if (Object.keys(why).length) return;
+            return hs(p, u.slice(u.indexOf('/pub/')), true).then(function (post) {
+              if (post && !isLoopkyPost(post)) found('posts');
+            }, missed);
+          });
+        }).then(function () {
+          verdict(Object.keys(why).length ? 'direct' : incomplete ? 'unknown' : 'loopky');
+        });
+      }).catch(function (e) { verdict('unknown'); throw e; });
+    }
+
+    function pubkyAppPass() {
+      step('pubkyapp');
+      var list = Object.keys(accounts).filter(function (p) { return accounts[p].any || selfTagged[p]; });
+      var done = 0;
+      return pooled(list, CONCURRENCY, function (p) {
+        return readPubkyApp(p).finally(function () {
+          done++;
+          progress('Homeserver: pubky.app ' + done + '/' + list.length, 0.9 + 0.1 * done / list.length);
         });
       });
     }
@@ -755,6 +839,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       .then(homeserverPass)
       .then(manifests)
       .then(reviewState)
+      .then(pubkyAppPass)
       .then(function () {
         return { candidates: candidates, accounts: accounts, decks: decks, selfTagged: selfTagged, sources: sources, nexusDecks: nexusDecks, unread: Object.keys(unread).length };
       });
@@ -811,6 +896,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         followers: list.filter(function (a) { return a.subs.length > 0; }).length,
         selfTagged: list.filter(function (a) { return a.selfTagged; }).length,
         withSettings: list.filter(function (a) { return a.hasSettings; }).length,
+        pubkyAppDirect: list.filter(function (a) { return a.pubkyApp === 'direct'; }).length,
+        pubkyAppNot: list.filter(function (a) { return a.pubkyApp === 'loopky' || a.pubkyApp === 'empty'; }).length,
+        pubkyAppUnknown: list.filter(function (a) { return a.pubkyApp !== 'direct' && a.pubkyApp !== 'loopky' && a.pubkyApp !== 'empty'; }).length,
         decks: deckList.length,
         indexedDecks: deckList.filter(function (d) { return d.indexed; }).length,
         cards: deckList.reduce(function (s, d) { return s + d.cards; }, 0),
@@ -1046,6 +1134,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       k.appendChild(kpi(fmt(t.notStudying), 'Study no deck', pct(t.notStudying, t.accounts) + ' of accounts', true));
       k.appendChild(kpi(fmt(t.creators), 'Created a deck', pct(t.creators, t.accounts) + ' of accounts'));
       k.appendChild(kpi(fmt(t.followers), 'Follow a deck', pct(t.followers, t.accounts) + ' of accounts'));
+      k.appendChild(kpi(fmt(t.pubkyAppNot), 'Not using pubky.app', pct(t.pubkyAppNot, t.accounts) + ' of accounts \u00b7 ' +
+        fmt(t.pubkyAppDirect) + ' use it directly' + (t.pubkyAppUnknown ? ' \u00b7 ' + fmt(t.pubkyAppUnknown) + ' unreadable' : ''), true));
       if (s.deep) {
         k.appendChild(kpi(fmt(t.active1), 'Reviewed in 24h'));
         k.appendChild(kpi(fmt(t.active7), 'Reviewed in 7 days', pct(t.active7, t.accounts) + ' of accounts'));
@@ -1090,6 +1180,23 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       clear(recency);
       recency.appendChild(el('p', 'note', 'Turn on “Read review state” and scan again.'));
     }
+
+    var pa = { direct: 0, loopky: 0, empty: 0, unknown: 0 };
+    var paWhy = {};
+    s.accounts.forEach(function (a) {
+      pa[pa.hasOwnProperty(a.pubkyApp) ? a.pubkyApp : 'unknown']++;
+      (a.pubkyAppWhy || []).forEach(function (w) { paWhy[w] = (paWhy[w] || 0) + 1; });
+    });
+    bars(document.getElementById('pubkyapp'), [
+      ['Uses it directly', pa.direct],
+      ['Loopky records only', pa.loopky],
+      ['Nothing there', pa.empty],
+    ].concat(pa.unknown ? [['Could not be read', pa.unknown]] : []).map(function (r) {
+      return [r[0], r[1], r[0] + ': ' + fmt(r[1]) + ' (' + pct(r[1], t.accounts) + ')'];
+    }));
+    bars(document.getElementById('pubkyapp-why'), top(paWhy, 10).map(function (r) {
+      return [r[0] === 'posts' ? 'Non-Loopky posts' : r[0] === 'tags' ? 'Non-Loopky tags' : r[0], r[1]];
+    }));
 
     var chosen = period && period.month;
     months(document.getElementById('signups'), s.accounts.map(function (a) { return a.firstSeen; }).filter(Boolean), chosen, setPeriod);
@@ -1193,6 +1300,12 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       { h: 'Last review', v: function (a) { return a.lastReview; }, cell: function (a) { return document.createTextNode(ago(a.lastReview)); } },
       { h: 'First seen', v: function (a) { return a.firstSeen; }, cell: function (a) { return document.createTextNode(day(a.firstSeen)); } },
       { h: 'Self-tag', v: function (a) { return a.selfTagged ? 1 : 0; }, cell: function (a) { return document.createTextNode(a.selfTagged ? 'yes' : ''); } },
+      { h: 'pubky.app', v: function (a) { return a.pubkyApp || ''; }, cell: function (a) {
+        var words = { direct: 'yes', loopky: 'Loopky only', empty: 'nothing', unknown: '?' };
+        var span = el('span', a.pubkyApp === 'direct' ? 'ok' : null, words[a.pubkyApp] || '?');
+        if (a.pubkyAppWhy && a.pubkyAppWhy.length) span.title = a.pubkyAppWhy.join(', ');
+        return span;
+      } },
       { h: 'Found via', v: function (a) { return a.via.join(', '); }, cls: 't' },
     ], accounts, s.deep ? (all ? 6 : 5) : 2, document.getElementById('acct-filter'), function (a) { return a.name + ' ' + a.pubky; });
 
