@@ -1,9 +1,10 @@
 /* The pages a shared link lands on: /deck/?author=…&id=… and /profile/?pubky=….
  *
  * The app shares these instead of a bare pubky:// address because nothing on the web
- * linkifies that scheme. With Loopky installed, Android opens the link in the app and
- * this page is never seen (assetlinks.json is what lets it). Without it, this page is
- * the landing site with the deck or the person on top, and a way to get the app.
+ * linkifies that scheme. With Loopky installed, the phone opens the link in the app and
+ * this page is never seen (assetlinks.json and apple-app-site-association let it).
+ * Without it, this page is the landing site with the deck or the person on top, and a
+ * way to get the app.
  *
  * Everything shown here was written by a stranger. Nothing is ever put in innerHTML.
  */
@@ -29,14 +30,34 @@
   }
 
   /* On Android an intent:// link opens Loopky when it is installed and falls through
-     to Google Play when it is not, so one button does both. Anywhere else there is no
-     Loopky to open: iOS has no build yet and the desktop only has the CLI. */
+     to Google Play when it is not, so one button does both. On iOS the button is the
+     pubky:// address itself, which the app registers; Safari has no fallback for a
+     scheme nothing handles, so openIos sends the visitor to TestFlight when the page is
+     still in front a moment later. The desktop has no Loopky to open, only the CLI.
+     The https link to this same page would not do: a tap on a link to the site you are
+     on stays in the browser on both systems, App Link or universal link. */
   var isAndroid = /Android/i.test(navigator.userAgent);
+  var isIos = /iPhone|iPad|iPod/.test(navigator.userAgent) ||
+    (/Macintosh/.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
 
   function openHref(pubkyUri) {
+    if (isIos) return pubkyUri;
     var rest = pubkyUri.replace(/^pubky:\/\//, '');
     return 'intent://' + rest + '#Intent;scheme=pubky;package=' + PACKAGE +
       ';S.browser_fallback_url=' + encodeURIComponent(window.loopkyPlayUrl) + ';end';
+  }
+
+  function openIos(e) {
+    if (!isIos || openBtn.hidden) return;
+    e.preventDefault();
+    var left = false;
+    function away() { if (document.hidden) left = true; }
+    document.addEventListener('visibilitychange', away);
+    location.href = openBtn.href;
+    setTimeout(function () {
+      document.removeEventListener('visibilitychange', away);
+      if (!left && !document.hidden) location.href = window.loopkyTestFlightUrl;
+    }, 1500);
   }
 
   function cardCount(n) {
@@ -83,14 +104,16 @@
   }
 
   function paintOpen(uri) {
-    var canOpen = isAndroid && state !== 'missing' && !!uri;
+    var canOpen = (isAndroid || isIos) && state !== 'missing' && !!uri;
     openBtn.hidden = !canOpen;
     if (canOpen) openBtn.href = openHref(uri);
     /* Only one filled button: Open when it can do something, Google Play otherwise. */
     playBtn.classList.toggle('btn-ghost', canOpen);
     hint.textContent = isAndroid
       ? tf('link.hint', 'Opens in the app if you have it, or takes you to Google Play if you do not.')
-      : tf('link.elsewhere', 'Loopky is on Android for now. Open this link on an Android phone to see it in the app.');
+      : isIos
+        ? tf('link.hint.ios', 'Opens in the app if you have it, or takes you to the TestFlight beta if you do not.')
+        : tf('link.elsewhere', 'Open this link on your phone to see it in the Loopky app.');
     hint.hidden = state === 'missing';
   }
 
@@ -279,6 +302,7 @@
     return;
   }
 
+  openBtn.addEventListener('click', openIos);
   document.addEventListener('loopky:lang', paint);
   load();
 })();

@@ -194,6 +194,7 @@
   /* ---------------- discover ---------------- */
 
   var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
+  var TESTFLIGHT_URL = 'https://testflight.apple.com/join/n2TzwMTu';
   var PAGE = 8;
   var decks = null;
   var failed = false;
@@ -493,6 +494,7 @@
   window.loopkyDeckCard = deckCard;
   window.loopkyTint = tintClass;
   window.loopkyPlayUrl = PLAY_URL;
+  window.loopkyTestFlightUrl = TESTFLIGHT_URL;
 
   /* ---------------- wiring ---------------- */
 
