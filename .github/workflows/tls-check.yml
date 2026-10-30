@@ -1,0 +1,44 @@
+name: Certificate
+
+# .app is on the browsers' HSTS preload list, so a bad certificate on loopky.app is a
+# hard block with no "accept the risk" button. GitHub Pages issues and renews the
+# certificate itself, and when renewal fails (a DNS change, a CAA record, a proxy in
+# front) it quietly falls back to the *.github.io one, which nothing here notices.
+# This asks daily, and fails rather than warns: a failed scheduled run emails the owner.
+# It also runs on a pull request that edits it, so the log shows what is served today.
+on:
+  schedule:
+    - cron: '41 7 * * *'
+  pull_request:
+    paths: ['.github/workflows/tls-check.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  certificate:
+    runs-on: ubuntu-latest
+    steps:
+      # Printed first, so a failure below comes with the records that explain it.
+      # Pages wants the apex on 185.199.108-111.153 only, and a CAA record, if there
+      # is one, has to allow letsencrypt.org.
+      - name: What does DNS say?
+        run: |
+          for type in A AAAA CAA; do
+            echo "loopky.app $type:"; dig +short loopky.app "$type"
+          done
+          echo "www.loopky.app:"; dig +short www.loopky.app
+
+      - name: Is the certificate valid for loopky.app for at least two more weeks?
+        run: |
+          set -o pipefail
+          cert=$(openssl s_client -connect loopky.app:443 -servername loopky.app </dev/null 2>/dev/null \
+            | openssl x509)
+          echo "$cert" | openssl x509 -noout -subject -issuer -dates -ext subjectAltName
+          echo "$cert" | openssl x509 -noout -checkhost loopky.app | grep -q 'does match' \
+            || { echo "::error::The certificate does not name loopky.app. Pages is serving its fallback; re-add the custom domain in Settings → Pages."; exit 1; }
+          echo "$cert" | openssl x509 -noout -checkend $((14 * 24 * 3600)) \
+            || { echo "::error::The certificate for loopky.app expires within two weeks, so renewal has failed."; exit 1; }
+          # Checks the chain as a browser would, with the runner's trust store.
+          curl -fsS -o /dev/null https://loopky.app/
