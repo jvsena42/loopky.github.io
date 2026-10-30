@@ -1,398 +1,478 @@
 {
   "index.html": {
-    "hash": "9dad40e6076c0e1b",
-    "date": "2026-10-19"
+    "hash": "9b177783901ab113",
+    "date": "2026-10-30"
   },
   "anki-alternative/index.html": {
-    "hash": "5b5161747af1b502",
-    "date": "2026-10-06"
+    "hash": "69f1c24b483d3bb7",
+    "date": "2026-10-30"
   },
   "language-learning/index.html": {
-    "hash": "341cce1637b9e670",
-    "date": "2026-10-06"
+    "hash": "17fc99419a94d267",
+    "date": "2026-10-30"
   },
   "medical-students/index.html": {
-    "hash": "7b15e384ff783d0f",
-    "date": "2026-10-06"
+    "hash": "63a34082b90d0b8f",
+    "date": "2026-10-30"
   },
   "teachers/index.html": {
-    "hash": "258831f9de61aa81",
-    "date": "2026-10-06"
+    "hash": "bc363552f6ad98d1",
+    "date": "2026-10-30"
   },
   "ai-flashcards/index.html": {
-    "hash": "73297015cd90881e",
-    "date": "2026-10-19"
+    "hash": "0b326863844b1ca3",
+    "date": "2026-10-30"
   },
   "spaced-repetition/index.html": {
-    "hash": "f0beaf3291358484",
-    "date": "2026-10-18"
+    "hash": "c5dec4e8b28d351e",
+    "date": "2026-10-30"
   },
   "compare/index.html": {
-    "hash": "ef0fb11b528aa8a8",
-    "date": "2026-10-06"
+    "hash": "1deaabb0792be58b",
+    "date": "2026-10-30"
   },
   "faq/index.html": {
-    "hash": "a352d759e318352e",
-    "date": "2026-10-06"
+    "hash": "47f8904aa8ab2015",
+    "date": "2026-10-30"
   },
   "pt-br/anki-alternative/index.html": {
-    "hash": "fb313675f3b5d429",
-    "date": "2026-10-06"
+    "hash": "af3e5f0c809fd044",
+    "date": "2026-10-30"
   },
   "pt-br/language-learning/index.html": {
-    "hash": "be9782240b0f41c9",
-    "date": "2026-10-06"
+    "hash": "3e757324b9ce28b2",
+    "date": "2026-10-30"
   },
   "pt-br/medical-students/index.html": {
-    "hash": "c2597818d4eebe4c",
-    "date": "2026-10-06"
+    "hash": "77a780dee6ceaf26",
+    "date": "2026-10-30"
   },
   "pt-br/teachers/index.html": {
-    "hash": "2a74a0ebb5ae5cb1",
-    "date": "2026-10-06"
+    "hash": "22be99bd50e2e4dd",
+    "date": "2026-10-30"
   },
   "pt-br/ai-flashcards/index.html": {
-    "hash": "a4607cc1df582b21",
-    "date": "2026-10-19"
+    "hash": "75e121107c2e31b0",
+    "date": "2026-10-30"
   },
   "pt-br/spaced-repetition/index.html": {
-    "hash": "fcde830646d5d9dd",
-    "date": "2026-10-18"
+    "hash": "00ded42194b2002c",
+    "date": "2026-10-30"
   },
   "pt-br/compare/index.html": {
-    "hash": "73c096c136dd0d15",
-    "date": "2026-10-06"
+    "hash": "a389127368c58793",
+    "date": "2026-10-30"
   },
   "pt-br/faq/index.html": {
-    "hash": "95c12da2aa91501f",
-    "date": "2026-10-06"
+    "hash": "c25e51810ab6603c",
+    "date": "2026-10-30"
   },
   "es/anki-alternative/index.html": {
-    "hash": "3c905e00a6d72737",
-    "date": "2026-10-06"
+    "hash": "646564144db2474c",
+    "date": "2026-10-30"
   },
   "es/language-learning/index.html": {
-    "hash": "3eedd4c195733c5d",
-    "date": "2026-10-06"
+    "hash": "50d5790dbef46536",
+    "date": "2026-10-30"
   },
   "es/medical-students/index.html": {
-    "hash": "307d5be59d036a55",
-    "date": "2026-10-06"
+    "hash": "1bee3baa312e0116",
+    "date": "2026-10-30"
   },
   "es/teachers/index.html": {
-    "hash": "450775cb037861cb",
-    "date": "2026-10-06"
+    "hash": "441c75d650cb1cf4",
+    "date": "2026-10-30"
   },
   "es/ai-flashcards/index.html": {
-    "hash": "c371e5b5ed0ac481",
-    "date": "2026-10-19"
+    "hash": "fedf6fa7402c8444",
+    "date": "2026-10-30"
   },
   "es/spaced-repetition/index.html": {
-    "hash": "0609f6f597c31adb",
-    "date": "2026-10-18"
+    "hash": "c9747830df6c862e",
+    "date": "2026-10-30"
   },
   "es/compare/index.html": {
-    "hash": "7c2a4844c8cc6a80",
-    "date": "2026-10-06"
+    "hash": "3516dda31f17bd0b",
+    "date": "2026-10-30"
   },
   "es/faq/index.html": {
-    "hash": "bb9a2e8f2308b147",
-    "date": "2026-10-06"
+    "hash": "76b4f282f04ccfdd",
+    "date": "2026-10-30"
   },
   "fr/anki-alternative/index.html": {
-    "hash": "c7b1129da1cbb45d",
-    "date": "2026-10-06"
+    "hash": "31512724381f68e2",
+    "date": "2026-10-30"
   },
   "fr/language-learning/index.html": {
-    "hash": "c62212765d7dae7b",
-    "date": "2026-10-06"
+    "hash": "4e7e5e9f622198dc",
+    "date": "2026-10-30"
   },
   "fr/medical-students/index.html": {
-    "hash": "2aee9f628a7124dd",
-    "date": "2026-10-06"
+    "hash": "fb66c507edf0e5d0",
+    "date": "2026-10-30"
   },
   "fr/teachers/index.html": {
-    "hash": "61e6d31fb5a69be6",
-    "date": "2026-10-06"
+    "hash": "81cb23cb7ba9b8e8",
+    "date": "2026-10-30"
   },
   "fr/ai-flashcards/index.html": {
-    "hash": "ec2ba1323ec8a993",
-    "date": "2026-10-19"
+    "hash": "e37ff1a9864987d6",
+    "date": "2026-10-30"
   },
   "fr/spaced-repetition/index.html": {
-    "hash": "7c7e82ee6e2c7b3f",
-    "date": "2026-10-18"
+    "hash": "32b614aeab3c634f",
+    "date": "2026-10-30"
   },
   "fr/compare/index.html": {
-    "hash": "36841804c646043b",
-    "date": "2026-10-06"
+    "hash": "c41c5aa9fef901a7",
+    "date": "2026-10-30"
   },
   "fr/faq/index.html": {
-    "hash": "f6cb9e48853604bd",
-    "date": "2026-10-06"
+    "hash": "6d3df2499ba3f6a9",
+    "date": "2026-10-30"
   },
   "de/anki-alternative/index.html": {
-    "hash": "cd4f987249411b0d",
-    "date": "2026-10-06"
+    "hash": "7661c3abe2084631",
+    "date": "2026-10-30"
   },
   "de/language-learning/index.html": {
-    "hash": "0b9f4ccaa761a358",
-    "date": "2026-10-06"
+    "hash": "a69c8805e9bdf099",
+    "date": "2026-10-30"
   },
   "de/medical-students/index.html": {
-    "hash": "c168cb82d8b3fb10",
-    "date": "2026-10-06"
+    "hash": "334abace3f3351af",
+    "date": "2026-10-30"
   },
   "de/teachers/index.html": {
-    "hash": "329fa52ccff3e224",
-    "date": "2026-10-06"
+    "hash": "510b2ad790316385",
+    "date": "2026-10-30"
   },
   "de/ai-flashcards/index.html": {
-    "hash": "96ddc205ec4b44b7",
-    "date": "2026-10-19"
+    "hash": "201e433f4748bdb5",
+    "date": "2026-10-30"
   },
   "de/spaced-repetition/index.html": {
-    "hash": "aaf8a02d00ec4995",
-    "date": "2026-10-18"
+    "hash": "df6f6517c0acf504",
+    "date": "2026-10-30"
   },
   "de/compare/index.html": {
-    "hash": "bbbce5ba92c6d931",
-    "date": "2026-10-06"
+    "hash": "3d633f0fa3feae29",
+    "date": "2026-10-30"
   },
   "de/faq/index.html": {
-    "hash": "9706a1af3ff07a9f",
-    "date": "2026-10-06"
+    "hash": "0485c20ac63ccadd",
+    "date": "2026-10-30"
   },
   "it/anki-alternative/index.html": {
-    "hash": "2c77cfc73c20fd95",
-    "date": "2026-10-06"
+    "hash": "0123046752242a8f",
+    "date": "2026-10-30"
   },
   "it/language-learning/index.html": {
-    "hash": "62af9c4b8d454de1",
-    "date": "2026-10-06"
+    "hash": "f8862c0c9c04fdeb",
+    "date": "2026-10-30"
   },
   "it/medical-students/index.html": {
-    "hash": "975aca76269e82a9",
-    "date": "2026-10-06"
+    "hash": "89f907050d5b8037",
+    "date": "2026-10-30"
   },
   "it/teachers/index.html": {
-    "hash": "7fed76c039f9173b",
-    "date": "2026-10-06"
+    "hash": "051dd14e6a055d77",
+    "date": "2026-10-30"
   },
   "it/ai-flashcards/index.html": {
-    "hash": "06c14157410f2eb1",
-    "date": "2026-10-19"
+    "hash": "a21c02d60a17ba12",
+    "date": "2026-10-30"
   },
   "it/spaced-repetition/index.html": {
-    "hash": "cfe31e69baf7dc6a",
-    "date": "2026-10-18"
+    "hash": "f3a7019902c468a5",
+    "date": "2026-10-30"
   },
   "it/compare/index.html": {
-    "hash": "1fe389194a60442f",
-    "date": "2026-10-06"
+    "hash": "4174988526684fd2",
+    "date": "2026-10-30"
   },
   "it/faq/index.html": {
-    "hash": "0846d34a94f7c15c",
-    "date": "2026-10-06"
+    "hash": "5e7d493b79dc8717",
+    "date": "2026-10-30"
   },
   "ja/anki-alternative/index.html": {
-    "hash": "978976b3ed0e6783",
-    "date": "2026-10-06"
+    "hash": "9a400f885ef959e0",
+    "date": "2026-10-30"
   },
   "ja/language-learning/index.html": {
-    "hash": "602c26ed32c22f2f",
-    "date": "2026-10-06"
+    "hash": "afa93508fe1a2d25",
+    "date": "2026-10-30"
   },
   "ja/medical-students/index.html": {
-    "hash": "07e1dd411c77df3f",
-    "date": "2026-10-06"
+    "hash": "e07aa1f40bf6b32a",
+    "date": "2026-10-30"
   },
   "ja/teachers/index.html": {
-    "hash": "f8137e97510d8c2b",
-    "date": "2026-10-06"
+    "hash": "3701e99617d03098",
+    "date": "2026-10-30"
   },
   "ja/ai-flashcards/index.html": {
-    "hash": "483a6d496286fd07",
-    "date": "2026-10-19"
+    "hash": "8c4c50ac489b8e7d",
+    "date": "2026-10-30"
   },
   "ja/spaced-repetition/index.html": {
-    "hash": "03ca30573380bb54",
-    "date": "2026-10-18"
+    "hash": "10a991b5da4665eb",
+    "date": "2026-10-30"
   },
   "ja/compare/index.html": {
-    "hash": "a616bae18bcd6270",
-    "date": "2026-10-06"
+    "hash": "13714c6aa80af1a4",
+    "date": "2026-10-30"
   },
   "ja/faq/index.html": {
-    "hash": "19f780d28810012d",
-    "date": "2026-10-06"
+    "hash": "cecbcb0741bebeb7",
+    "date": "2026-10-30"
   },
   "ko/anki-alternative/index.html": {
-    "hash": "b22f5b89c4b7ef13",
-    "date": "2026-10-06"
+    "hash": "0320af381cfc9a17",
+    "date": "2026-10-30"
   },
   "ko/language-learning/index.html": {
-    "hash": "c01626cf392c0575",
-    "date": "2026-10-06"
+    "hash": "2dc85f62bb298c85",
+    "date": "2026-10-30"
   },
   "ko/medical-students/index.html": {
-    "hash": "6f476fb14ee903ae",
-    "date": "2026-10-06"
+    "hash": "4b5a496dadb90da4",
+    "date": "2026-10-30"
   },
   "ko/teachers/index.html": {
-    "hash": "3e3861622c48d316",
-    "date": "2026-10-06"
+    "hash": "abfb6db2c7c825ae",
+    "date": "2026-10-30"
   },
   "ko/ai-flashcards/index.html": {
-    "hash": "773f202af00e9de7",
-    "date": "2026-10-19"
+    "hash": "e4c33dfee7b77f7c",
+    "date": "2026-10-30"
   },
   "ko/spaced-repetition/index.html": {
-    "hash": "bc6a69ed613d3c57",
-    "date": "2026-10-18"
+    "hash": "5e7748f4b5bb85fb",
+    "date": "2026-10-30"
   },
   "ko/compare/index.html": {
-    "hash": "74a8ca3212d3c0ea",
-    "date": "2026-10-06"
+    "hash": "a09a53f9ef51dc78",
+    "date": "2026-10-30"
   },
   "ko/faq/index.html": {
-    "hash": "8f84e734e49adb8b",
-    "date": "2026-10-06"
+    "hash": "37b2636f0540e5c8",
+    "date": "2026-10-30"
   },
   "vi/anki-alternative/index.html": {
-    "hash": "c8e0a4603abada07",
-    "date": "2026-10-06"
+    "hash": "c1c8371cc25dd147",
+    "date": "2026-10-30"
   },
   "vi/language-learning/index.html": {
-    "hash": "58ab686fba2d0395",
-    "date": "2026-10-06"
+    "hash": "06a41c14dd54fc04",
+    "date": "2026-10-30"
   },
   "vi/medical-students/index.html": {
-    "hash": "9083404a2cb1e626",
-    "date": "2026-10-06"
+    "hash": "a3f60fdf56387b3f",
+    "date": "2026-10-30"
   },
   "vi/teachers/index.html": {
-    "hash": "a3665c0c197195d1",
-    "date": "2026-10-06"
+    "hash": "3a834953f5d7dcc1",
+    "date": "2026-10-30"
   },
   "vi/ai-flashcards/index.html": {
-    "hash": "f75ddbfc68d73d46",
-    "date": "2026-10-19"
+    "hash": "d268c2c1e690024f",
+    "date": "2026-10-30"
   },
   "vi/spaced-repetition/index.html": {
-    "hash": "0bc02b076adaa0c9",
-    "date": "2026-10-18"
+    "hash": "46d287522952d1ce",
+    "date": "2026-10-30"
   },
   "vi/compare/index.html": {
-    "hash": "1813a550ce574ab4",
-    "date": "2026-10-06"
+    "hash": "fad932d2f35f3d79",
+    "date": "2026-10-30"
   },
   "vi/faq/index.html": {
-    "hash": "4dbab5f8c99f2aa9",
-    "date": "2026-10-06"
+    "hash": "b924c398700cf62f",
+    "date": "2026-10-30"
   },
   "zh-hans/anki-alternative/index.html": {
-    "hash": "789f07a265e5fc5d",
-    "date": "2026-10-06"
+    "hash": "cf68cab6f37b61bf",
+    "date": "2026-10-30"
   },
   "zh-hans/language-learning/index.html": {
-    "hash": "0c10f929121a2c9a",
-    "date": "2026-10-06"
+    "hash": "e2cfb4d66c921b63",
+    "date": "2026-10-30"
   },
   "zh-hans/medical-students/index.html": {
-    "hash": "1a0c39afe34ffac4",
-    "date": "2026-10-06"
+    "hash": "a1401a0a65e982f6",
+    "date": "2026-10-30"
   },
   "zh-hans/teachers/index.html": {
-    "hash": "d8c825211b113c01",
-    "date": "2026-10-06"
+    "hash": "6cfa00b5f3aad094",
+    "date": "2026-10-30"
   },
   "zh-hans/ai-flashcards/index.html": {
-    "hash": "7a9b61ee5bebde06",
-    "date": "2026-10-19"
+    "hash": "fa1be2beb359ffa6",
+    "date": "2026-10-30"
   },
   "zh-hans/spaced-repetition/index.html": {
-    "hash": "ee6486952613b150",
-    "date": "2026-10-18"
+    "hash": "b54a3c3129d5cb26",
+    "date": "2026-10-30"
   },
   "zh-hans/compare/index.html": {
-    "hash": "e582aa60a3b1657e",
-    "date": "2026-10-06"
+    "hash": "6965edc0d4f64e63",
+    "date": "2026-10-30"
   },
   "zh-hans/faq/index.html": {
-    "hash": "71dbf590a7b7d90d",
-    "date": "2026-10-06"
+    "hash": "f00d6ecf2f673298",
+    "date": "2026-10-30"
   },
   "zh-hant/anki-alternative/index.html": {
-    "hash": "50cd2905e1e9449d",
-    "date": "2026-10-06"
+    "hash": "32caced09b4dd965",
+    "date": "2026-10-30"
   },
   "zh-hant/language-learning/index.html": {
-    "hash": "a83f7885cdd8cdfa",
-    "date": "2026-10-06"
+    "hash": "157eaed484abb1ad",
+    "date": "2026-10-30"
   },
   "zh-hant/medical-students/index.html": {
-    "hash": "231a8da0ed0a94bc",
-    "date": "2026-10-06"
+    "hash": "768f13b6ccedb77e",
+    "date": "2026-10-30"
   },
   "zh-hant/teachers/index.html": {
-    "hash": "30c4cc4f0c5489e5",
-    "date": "2026-10-06"
+    "hash": "6175cf6efb9b924a",
+    "date": "2026-10-30"
   },
   "zh-hant/ai-flashcards/index.html": {
-    "hash": "878e6cfda1f87a61",
-    "date": "2026-10-19"
+    "hash": "83abade732e9fd1e",
+    "date": "2026-10-30"
   },
   "zh-hant/spaced-repetition/index.html": {
-    "hash": "dc3b98c71a607477",
-    "date": "2026-10-18"
+    "hash": "74022a9b23428c98",
+    "date": "2026-10-30"
   },
   "zh-hant/compare/index.html": {
-    "hash": "8912972ef0fe81fd",
-    "date": "2026-10-06"
+    "hash": "fc978fce4a990672",
+    "date": "2026-10-30"
   },
   "zh-hant/faq/index.html": {
-    "hash": "4afb15ba50776a97",
-    "date": "2026-10-06"
+    "hash": "a4d363b9e5f92336",
+    "date": "2026-10-30"
   },
   "pt-br/index.html": {
-    "hash": "26e3eff6c7c8319f",
-    "date": "2026-10-19"
+    "hash": "64b0ec9f6fce5e88",
+    "date": "2026-10-30"
   },
   "es/index.html": {
-    "hash": "4363fb2983aecb0a",
-    "date": "2026-10-19"
+    "hash": "70b228bc170a564e",
+    "date": "2026-10-30"
   },
   "fr/index.html": {
-    "hash": "180aec2e5a88275e",
-    "date": "2026-10-19"
+    "hash": "c15bc70b9cf1506c",
+    "date": "2026-10-30"
   },
   "de/index.html": {
-    "hash": "3880f01b3c00c3b0",
-    "date": "2026-10-19"
+    "hash": "88b8c2e6834fbc32",
+    "date": "2026-10-30"
   },
   "it/index.html": {
-    "hash": "9e9f632cbd11596c",
-    "date": "2026-10-19"
+    "hash": "5f4d2d624313c76f",
+    "date": "2026-10-30"
   },
   "ja/index.html": {
-    "hash": "165af2d764cfedc3",
-    "date": "2026-10-19"
+    "hash": "f406aa9dd28464dd",
+    "date": "2026-10-30"
   },
   "ko/index.html": {
-    "hash": "aa8edadf414ad194",
-    "date": "2026-10-19"
+    "hash": "12a29f2b6e1f043a",
+    "date": "2026-10-30"
   },
   "vi/index.html": {
-    "hash": "706fbb99959f43f4",
-    "date": "2026-10-19"
+    "hash": "af222abd14d7614d",
+    "date": "2026-10-30"
   },
   "zh-hans/index.html": {
-    "hash": "eff0ecab9344f1e9",
-    "date": "2026-10-19"
+    "hash": "bf19c82a5d4c75d2",
+    "date": "2026-10-30"
   },
   "zh-hant/index.html": {
-    "hash": "6131334cbfcb7610",
-    "date": "2026-10-19"
+    "hash": "55308879abe814b4",
+    "date": "2026-10-30"
+  },
+  "learn-english/index.html": {
+    "hash": "ed3f36f2710cebd2",
+    "date": "2026-10-30"
+  },
+  "learn-english/sw/index.html": {
+    "hash": "1786a79cb813618f",
+    "date": "2026-10-30"
+  },
+  "learn-english/ha/index.html": {
+    "hash": "6333a8c9af3b9525",
+    "date": "2026-10-30"
+  },
+  "learn-english/yo/index.html": {
+    "hash": "5c51394a5b190d27",
+    "date": "2026-10-30"
+  },
+  "learn-english/ig/index.html": {
+    "hash": "7e07798397912046",
+    "date": "2026-10-30"
+  },
+  "learn-english/am/index.html": {
+    "hash": "3285280a6bb921f0",
+    "date": "2026-10-30"
+  },
+  "learn-english/om/index.html": {
+    "hash": "c8bab740bd66b0c3",
+    "date": "2026-10-30"
+  },
+  "learn-english/zu/index.html": {
+    "hash": "4619e42d62320d8c",
+    "date": "2026-10-30"
+  },
+  "learn-english/ar/index.html": {
+    "hash": "d5593b65113b8fe1",
+    "date": "2026-10-30"
+  },
+  "learn-english/hi/index.html": {
+    "hash": "4ff76f8070bb9650",
+    "date": "2026-10-30"
+  },
+  "learn-english/ur/index.html": {
+    "hash": "5f4ec4b5628c0475",
+    "date": "2026-10-30"
+  },
+  "learn-english/bn/index.html": {
+    "hash": "53bc5bcf595437f2",
+    "date": "2026-10-30"
+  },
+  "learn-english/id/index.html": {
+    "hash": "be14df6d3083fa9f",
+    "date": "2026-10-30"
+  },
+  "learn-english/th/index.html": {
+    "hash": "d0015b7a380b9809",
+    "date": "2026-10-30"
+  },
+  "learn-english/vi/index.html": {
+    "hash": "b58be46b4bb63168",
+    "date": "2026-10-30"
+  },
+  "learn-english/zh-hans/index.html": {
+    "hash": "845a9f69f9ae0fc4",
+    "date": "2026-10-30"
+  },
+  "learn-english/ja/index.html": {
+    "hash": "0bd02a754015c81c",
+    "date": "2026-10-30"
+  },
+  "learn-english/ko/index.html": {
+    "hash": "df684d406a866340",
+    "date": "2026-10-30"
+  },
+  "learn-english/ru/index.html": {
+    "hash": "96248b6e58471a63",
+    "date": "2026-10-30"
+  },
+  "learn-english/uk/index.html": {
+    "hash": "a9b275cabcaf96aa",
+    "date": "2026-10-30"
   }
 }

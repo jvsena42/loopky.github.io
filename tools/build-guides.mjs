@@ -20,9 +20,10 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname } from 'node:path';
 import { createHash } from 'node:crypto';
-import { SLUGS, LOCALES, LEGAL, guidePath } from './guides.mjs';
+import { SLUGS, LOCALES, LEGAL, guidePath, hreflangs } from './guides.mjs';
 import { legalPage, legalLastmod } from './legal.mjs';
 import { stampFor } from './stamp-assets.mjs';
+import { AUTHOR, DECKS_FILE, HUB, learnPath, decksFor, builtLangs } from './learn-english.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
@@ -212,7 +213,7 @@ function page(locale, slug) {
   const css = `${prefix}assets/css/style.css?v=${stampFor('assets/css/style.css')}`;
 
   const alternates = [
-    ...BUILT.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${url(l, slug)}">`),
+    ...BUILT.flatMap((l) => hreflangs(l).map((h) => `<link rel="alternate" hreflang="${h}" href="${url(l, slug)}">`)),
     `<link rel="alternate" hreflang="x-default" href="${url(LOCALES[0], slug)}">`,
   ].join('\n');
 
@@ -478,6 +479,7 @@ ${others}
       <a href="${PLAY}">Google Play</a>
       <a href="${TESTFLIGHT}">TestFlight</a>
       <a href="${GH}">${esc(ui.source)}</a>
+      <a href="${prefix}${learnHref(locale)}">${esc(tr('foot.learn'))}</a>
       <a href="${prefix}privacy/">${esc(ui.privacy)}</a>
       <a href="${prefix}terms/">${esc(ui.terms)}</a>
       <a href="${prefix}support/">${esc(ui.support)}</a>
@@ -512,7 +514,7 @@ const homeUrl = (l) => SITE + (l.dir ? l.dir + '/' : '');
 /* The hreflang block every home page carries, the English one included. */
 export const HOME_ALTERNATES = [
   `<link rel="alternate" hreflang="x-default" href="${SITE}">`,
-  ...LOCALES.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${homeUrl(l)}">`),
+  ...LOCALES.flatMap((l) => hreflangs(l).map((h) => `<link rel="alternate" hreflang="${h}" href="${homeUrl(l)}">`)),
 ].join('\n');
 
 function homePage(locale) {
@@ -553,6 +555,8 @@ function homePage(locale) {
     .replace(/<option value="([^"]+)">/g, (o, v) => v === locale.code ? `<option value="${v}" selected>` : o)
     .replace('<body>', '<body data-root="../">');
 
+  html = html.replace('<a href="learn-english/" data-learn', `<a href="${learnHref(locale)}" data-learn`);
+
   /* One folder down: every local address climbs back to the root, except the guide
      links, which should land on this language's guides right beside it. */
   html = html.replace(/\b(src|href)="(?!https?:|#|mailto:|data:|\/)([^"]*)"/g, (whole, attr, path) =>
@@ -560,11 +564,270 @@ function homePage(locale) {
   return html;
 }
 
+/* ---------------------------------------------------------------- learn English */
+
+const snapshot = JSON.parse(read(DECKS_FILE));
+const LEARN = builtLangs(snapshot);
+const learnUrl = (l) => SITE + (l ? learnPath(l) : HUB);
+/* Where a page in one of the site's own languages sends someone who wants English:
+   their language's page when it has one, the hub otherwise. */
+const learnHref = (locale) => {
+  const own = LEARN.find((l) => l.code === locale.code);
+  return own ? learnPath(own) : HUB;
+};
+const deckUrl = (id) => `${SITE}deck/?author=${AUTHOR}&id=${encodeURIComponent(id)}`;
+
+/* A dash between two things is a hyphen and one between clauses a comma: the site
+   writes neither dash, and the decks' own descriptions sometimes do. */
+const undash = (s) => String(s).replace(/(\S)[–—](\S)/g, '$1-$2').replace(/\s*[–—]\s*/g, ', ');
+
+/* Thousands separated the way each language writes them; Arabic and Urdu keep the
+   Western digits their deck titles use. */
+const count = (l, n) => {
+  const tag = l.rtl ? `${l.code}-u-nu-latn` : l.code;
+  return l.cards.replace('{n}', new Intl.NumberFormat(tag).format(n));
+};
+
+/* The hub and every language's page point at one another. The hub is English, so it
+   answers for English and for anyone whose language has no page. */
+const LEARN_ALTERNATES = [
+  `<link rel="alternate" hreflang="x-default" href="${learnUrl()}">`,
+  `<link rel="alternate" hreflang="en" href="${learnUrl()}">`,
+  ...LEARN.map((l) => `<link rel="alternate" hreflang="${l.code}" href="${learnUrl(l)}">`),
+].join('\n');
+
+function learnShell({ lang, dir, title, desc, self, og, prefix, ld, body, crumbs, cta }) {
+  return `<!doctype html>
+<html lang="${lang}"${dir ? ` dir="${dir}"` : ''}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(desc)}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="${self}">
+${LEARN_ALTERNATES}
+<link rel="icon" href="${prefix}assets/img/logo.png" type="image/png">
+<link rel="apple-touch-icon" href="${prefix}assets/img/logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Loopky">
+<meta property="og:locale" content="${og}">
+<meta property="og:url" content="${self}">
+<meta property="og:title" content="${esc(title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:image" content="${SITE}assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="600">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(title)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${SITE}assets/img/og.png">
+
+<script>
+/* The theme a visitor picked on the home page, before the first paint. */
+(function () {
+  try {
+    var t = localStorage.getItem('loopky.theme');
+    if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { /* storage can be off */ }
+})();
+</script>
+
+<link rel="stylesheet" href="${prefix}assets/css/style.css?v=${stampFor('assets/css/style.css')}">
+
+<script type="application/ld+json">
+${JSON.stringify({ '@context': 'https://schema.org', '@graph': ld }, null, 2).replace(/</g, '\\u003c')}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="${prefix}">
+      <img src="${prefix}assets/img/logo.png" width="34" height="34" alt="Loopky">
+      <span>Loopky</span>
+    </a>
+    <div class="topright">
+      <a class="btn btn-sm" href="${PLAY}">Google Play</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="ghero">
+  <div class="wrap ghero-in">
+    <div class="ghero-copy">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <ol>
+${crumbs.map(([name, href]) => href
+    ? `          <li><a href="${href}">${esc(name)}</a></li>`
+    : `          <li aria-current="page">${esc(name)}</li>`).join('\n')}
+        </ol>
+      </nav>
+${cta}
+    </div>
+    <div class="ghero-art">
+      ${img(P('phone-study'), '', prefix, true)}
+    </div>
+  </div>
+</section>
+
+${body}
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-in">
+    <p class="foot-brand">
+      <img src="${prefix}assets/img/logo.png" width="22" height="22" alt="">
+      <span>Loopky</span>
+    </p>
+    <nav class="footlinks">
+      <a href="${prefix}">loopky.app</a>
+      <a href="${PLAY}">Google Play</a>
+      <a href="${TESTFLIGHT}">TestFlight</a>
+      <a href="${prefix}privacy/">Privacy</a>
+      <a href="${prefix}terms/">Terms</a>
+      <a href="${prefix}support/">Support</a>
+    </nav>
+  </div>
+</footer>
+</body>
+</html>
+`;
+}
+
+/* One deck as structured data: what it teaches, in which language, for free. */
+const deckLd = (deck, lang) => ({
+  '@type': 'LearningResource',
+  name: undash(deck.title),
+  description: undash(deck.description),
+  url: deckUrl(deck.id),
+  inLanguage: [lang, 'en'],
+  learningResourceType: 'Flashcards',
+  teaches: 'English',
+  isAccessibleForFree: true,
+  provider: { '@id': SITE + '#org' },
+});
+
+function learnPage(l) {
+  const decks = decksFor(snapshot, l);
+  const [lead, ...rest] = decks;
+  const self = learnUrl(l);
+  const prefix = '../../';
+  const title = `${undash(lead.title)} · Loopky`;
+  const cta = `      <p class="eyebrow">${esc(l.crumb)}</p>
+      <h1>${esc(undash(lead.title))}</h1>
+      <p class="lead">${esc(undash(lead.description))}</p>
+      <p class="fineprint">${esc(count(l, lead.card_count))}</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="${esc(deckUrl(lead.id))}"><span>${esc(l.start)}</span></a>
+        <a class="btn btn-lg btn-ios" href="${PLAY}">${PLAY_ICON}<span>Google Play</span></a>
+      </div>
+      <p class="fineprint">${esc(l.free)}</p>`;
+
+  const more = rest.length ? `<section class="section section-alt">
+  <div class="wrap">
+    <div class="grid-feat">
+${rest.map((d) => `      <article class="card feat">
+        <h2 class="h3">${esc(undash(d.title))}</h2>
+        <p>${esc(undash(d.description))}</p>
+        <p class="fineprint">${esc(count(l, d.card_count))}</p>
+        <p><a class="textlink" href="${esc(deckUrl(d.id))}">${esc(l.start)}</a></p>
+      </article>`).join('\n')}
+    </div>
+  </div>
+</section>
+
+` : '';
+
+  const others = `<section class="section">
+  <div class="wrap">
+    <h2>${esc(l.other)}</h2>
+    <nav class="guide-links" aria-label="${esc(l.other)}">
+${LEARN.filter((o) => o !== l).map((o) =>
+    `      <a class="card" href="../${o.dir}/" hreflang="${o.code}" lang="${o.code}" dir="${o.rtl ? 'rtl' : 'ltr'}">${esc(o.name)}<span>${esc(o.crumb)}</span></a>`).join('\n')}
+      <a class="card" href="../" hreflang="en" lang="en" dir="ltr">English<span>All languages</span></a>
+    </nav>
+  </div>
+</section>`;
+
+  const ld = [
+    {
+      '@type': 'WebPage', '@id': self + '#page', url: self, name: title,
+      description: undash(lead.description), inLanguage: l.code,
+      isPartOf: { '@id': SITE + '#website' }, about: { '@id': SITE + '#app' },
+      mainEntity: { '@type': 'ItemList', itemListElement: decks.map((d, i) => ({ '@type': 'ListItem', position: i + 1, item: deckLd(d, l.code) })) },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Loopky', item: SITE },
+        { '@type': 'ListItem', position: 2, name: 'Learn English', item: learnUrl() },
+        { '@type': 'ListItem', position: 3, name: l.crumb, item: self },
+      ],
+    },
+  ];
+
+  return learnShell({
+    lang: l.code, dir: l.rtl ? 'rtl' : '', title, desc: undash(lead.description), self, og: l.og,
+    prefix, ld, cta, body: more + others,
+    crumbs: [['Loopky', prefix], ['Learn English', '../'], [l.crumb]],
+  });
+}
+
+function learnHub() {
+  const self = learnUrl();
+  const prefix = '../';
+  const title = 'Learn English with free flashcards in your own language · Loopky';
+  const desc = `Free English flashcard decks written for speakers of ${LEARN.length} languages, ` +
+    'including Swahili, Hausa, Yoruba, Igbo, Amharic, Zulu, Arabic, Hindi, Urdu, Bengali, Indonesian and Thai. ' +
+    'The most useful words and phrases, with audio and pronunciation practice.';
+  const cta = `      <p class="eyebrow">Learn English</p>
+      <h1>Learn English in your own language</h1>
+      <p class="lead">${esc(desc)}</p>
+      <div class="cta-row">
+        <a class="btn btn-lg" href="${PLAY}">${PLAY_ICON}<span>Get it on Google Play</span></a>
+        <a class="btn btn-lg btn-ios" href="${TESTFLIGHT}">${APPLE_ICON}<span>iOS beta on TestFlight</span></a>
+      </div>
+      <p class="fineprint">Free. No ads. Open source.</p>`;
+  const body = `<section class="section section-alt">
+  <div class="wrap">
+    <h2>Choose your language</h2>
+    <nav class="guide-links" aria-label="Choose your language">
+${LEARN.map((l) => `      <a class="card" href="${l.dir}/" hreflang="${l.code}"><bdi lang="${l.code}">${esc(l.name)}</bdi><span>${esc(l.en)}</span></a>`).join('\n')}
+    </nav>
+  </div>
+</section>`;
+  const ld = [
+    {
+      '@type': 'CollectionPage', '@id': self + '#page', url: self, name: title, description: desc,
+      inLanguage: 'en', isPartOf: { '@id': SITE + '#website' }, about: { '@id': SITE + '#app' },
+      hasPart: LEARN.map((l) => ({ '@type': 'WebPage', url: learnUrl(l), name: l.crumb, inLanguage: l.code })),
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Loopky', item: SITE },
+        { '@type': 'ListItem', position: 2, name: 'Learn English', item: self },
+      ],
+    },
+  ];
+  return learnShell({
+    lang: 'en', dir: '', title, desc, self, og: 'en_US', prefix, ld, cta, body,
+    crumbs: [['Loopky', prefix], ['Learn English']],
+  });
+}
+
 /* ---------------------------------------------------------------- sitemap */
 
 function sitemap(lastmodOf) {
   const homeAlts = [`    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}"/>`,
-    ...LOCALES.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${homeUrl(l)}"/>`)]
+    ...LOCALES.flatMap((l) => hreflangs(l).map((h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${homeUrl(l)}"/>`))]
     .join('\n');
   const entry = (loc, alts, freq, prio, lastmod) => `  <url>
     <loc>${loc}</loc>
@@ -578,7 +841,7 @@ ${alts}
   const guides = SLUGS.flatMap((slug) => {
     const alts = [
       `    <xhtml:link rel="alternate" hreflang="x-default" href="${url(LOCALES[0], slug)}"/>`,
-      ...BUILT.map((l) => `    <xhtml:link rel="alternate" hreflang="${l.code}" href="${url(l, slug)}"/>`),
+      ...BUILT.flatMap((l) => hreflangs(l).map((h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${url(l, slug)}"/>`)),
     ].join('\n');
     return BUILT.map((l) => entry(url(l, slug), alts, 'monthly', l.code === 'en' ? '0.8' : '0.7',
       lastmodOf(guidePath(l, slug) + 'index.html')));
@@ -589,10 +852,14 @@ ${alts}
     const alts = ['x-default', 'en'].map((h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${loc}"/>`).join('\n');
     return entry(loc, alts, 'yearly', '0.3', legalLastmod(slug));
   });
+  const learnAlts = LEARN_ALTERNATES.split('\n')
+    .map((l) => '    ' + l.replace('<link ', '<xhtml:link ').replace(/>$/, '/>')).join('\n');
+  const learn = [null, ...LEARN].map((l) => entry(learnUrl(l), learnAlts, 'monthly', l ? '0.7' : '0.8',
+    lastmodOf((l ? learnPath(l) : HUB) + 'index.html')));
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${[...homes, ...guides, ...legal].join('\n')}
+${[...homes, ...guides, ...learn, ...legal].join('\n')}
 </urlset>
 `;
 }
@@ -603,6 +870,8 @@ export function build() {
   const pages = new Map();
   for (const l of BUILT) for (const s of SLUGS) pages.set(guidePath(l, s) + 'index.html', page(l, s));
   for (const l of LOCALES.filter((x) => x.dir)) pages.set(l.dir + '/index.html', homePage(l));
+  pages.set(HUB + 'index.html', learnHub());
+  for (const l of LEARN) pages.set(learnPath(l) + 'index.html', learnPage(l));
 
   /* index.html is written by hand, so it is dated from the file as it stands. */
   const known = existsSync(new URL(LASTMOD_FILE, root)) ? JSON.parse(read(LASTMOD_FILE)) : {};

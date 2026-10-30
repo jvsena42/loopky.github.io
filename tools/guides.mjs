@@ -15,7 +15,7 @@ export const SLUGS = [
    lowercased because URLs are case sensitive and people type them. */
 export const LOCALES = [
   { code: 'en', dir: '', og: 'en_US', name: 'English' },
-  { code: 'pt-BR', dir: 'pt-br', og: 'pt_BR', name: 'Português' },
+  { code: 'pt-BR', dir: 'pt-br', og: 'pt_BR', name: 'Português', also: ['pt'] },
   { code: 'es', dir: 'es', og: 'es_ES', name: 'Español' },
   { code: 'fr', dir: 'fr', og: 'fr_FR', name: 'Français' },
   { code: 'de', dir: 'de', og: 'de_DE', name: 'Deutsch' },
@@ -26,6 +26,11 @@ export const LOCALES = [
   { code: 'zh-Hans', dir: 'zh-hans', og: 'zh_CN', name: '简体中文' },
   { code: 'zh-Hant', dir: 'zh-hant', og: 'zh_TW', name: '繁體中文' },
 ];
+
+/* `also` names extra hreflang codes a page answers for. There is one Portuguese,
+   written in Brazil, and without a plain `pt` a reader in Angola, Mozambique or
+   Portugal is matched to no Portuguese page at all and gets English. */
+export const hreflangs = (locale) => [locale.code, ...(locale.also ?? [])];
 
 /* Site-relative path of one guide in one language, with the trailing slash. */
 export const guidePath = (locale, slug) => (locale.dir ? locale.dir + '/' : '') + slug + '/';

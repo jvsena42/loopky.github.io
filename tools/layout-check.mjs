@@ -36,6 +36,9 @@ const PAGES = [
      Japanese (no spaces to wrap at) and German (long compounds). */
   ...GUIDES.filter((g) => !/^(?:[a-z-]+\/){2}/.test(g) || /^(?:ja|de)\//.test(g))
     .map((g) => g.replace('index.html', '')),
+  /* The learn-English hub, a right-to-left page, and the longest titles: Oromo's
+     and Igbo's run past sixty characters. */
+  'learn-english/', 'learn-english/ar/', 'learn-english/om/', 'learn-english/ig/', 'learn-english/am/',
   /* The privacy policy carries the one wide table outside the guides. */
   ...LEGAL_FILES.map((f) => f.replace('index.html', '')),
 ];

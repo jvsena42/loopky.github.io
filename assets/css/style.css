@@ -781,7 +781,7 @@ a.feat h3 { color: var(--fg); }
 .ghero-art { display: flex; justify-content: center; }
 .crumbs { font-size: .88rem; color: var(--fg-muted); margin: 0 0 16px; }
 .crumbs ol { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 0; }
-.crumbs li + li::before { content: "/"; margin-right: 6px; color: var(--fg-muted); }
+.crumbs li + li::before { content: "/"; margin-inline-end: 6px; color: var(--fg-muted); }
 .crumbs a { color: var(--fg-2); }
 
 .shot {

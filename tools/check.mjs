@@ -11,6 +11,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { stamp, PAGES, GUIDES, ALL_PAGES } from './stamp-assets.mjs';
 import { SLUGS, LOCALES, HOME_FILES, LEGAL, LEGAL_FILES } from './guides.mjs';
+import { DECKS_FILE, LANGS, learnFiles, builtLangs } from './learn-english.mjs';
 
 const problems = [];
 const notes = [];
@@ -28,7 +29,11 @@ const guides = Object.fromEntries(GUIDES.map((p) => [p, read(p)]));
 const homes = Object.fromEntries(HOME_FILES.map((p) => [p, read(p)]));
 /* The privacy policy, the terms and the support page, English only. */
 const legal = Object.fromEntries(LEGAL_FILES.map((p) => [p, read(p)]));
-const everyPage = { ...pages, ...guides, ...homes, ...legal };
+/* The learn-English hub and one page per language with English decks, built from
+   the deck snapshot. */
+const snapshot = JSON.parse(read(DECKS_FILE));
+const learn = Object.fromEntries(learnFiles(snapshot).map((p) => [p, read(p)]));
+const everyPage = { ...pages, ...guides, ...homes, ...legal, ...learn };
 
 /* ---- 1. every script parses ---- */
 
@@ -297,8 +302,8 @@ if (upload && Number(upload[1]) >= 4 && !/include-hidden-files:\s*true/.test(wor
 }
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 /* One home page per language, one guide page per language and guide, and the three
-   English legal pages. */
-const expected = SUPPORTED.length + GUIDES.length + LEGAL_FILES.length;
+   English legal pages, and the learn-English pages. */
+const expected = SUPPORTED.length + GUIDES.length + LEGAL_FILES.length + Object.keys(learn).length;
 if (locs.length !== expected) {
   fail(`sitemap.xml lists ${locs.length} URLs, expected ${expected}`);
 }
@@ -321,7 +326,7 @@ if (!canonical) {
     ...locs.map((l) => ['sitemap.xml', l]),
     ...[...sitemap.matchAll(/<xhtml:link[^>]*href="([^"]+)"/g)].map((m) => ['sitemap.xml hreflang', m[1]]),
     ...[...read('robots.txt').matchAll(/^Sitemap:\s*(\S+)/gm)].map((m) => ['robots.txt', m[1]]),
-    ...Object.entries({ ...guides, ...legal }).flatMap(([page, src]) => [
+    ...Object.entries({ ...guides, ...legal, ...learn }).flatMap(([page, src]) => [
       ...src.matchAll(/<link rel="canonical" href="([^"]+)"/g),
       ...src.matchAll(/<meta property="og:(?:url|image)" content="([^"]+)"/g),
     ].map((m) => [page, m[1]])),
@@ -350,6 +355,30 @@ for (const [page, src] of Object.entries({ ...guides, ...legal })) {
     if (!src.includes(`hreflang="${l.code}"`)) fail(`${page} has no hreflang for "${l.code}"`);
   }
   if ((src.match(/<h1[\s>]/g) ?? []).length !== 1) fail(`${page} should have exactly one <h1>`);
+}
+
+/* The learn-English pages are held to the same: their own canonical, listed, indexable,
+   one <h1>, and an hreflang for every language that has a page. */
+const learnCodes = ['x-default', 'en', ...builtLangs(snapshot).map((l) => l.code)];
+for (const [page, src] of Object.entries(learn)) {
+  const url = canonical && canonical + page.replace('index.html', '');
+  const own = /<link rel="canonical" href="([^"]+)"/.exec(src)?.[1];
+  if (own !== url) fail(`${page} has canonical ${own}, expected ${url}`);
+  if (!locs.includes(url)) fail(`sitemap.xml does not list ${url}`);
+  if (/noindex/.test(src)) fail(`${page} must not carry noindex`);
+  if (!/<title>[^<]{10,}<\/title>/.test(src)) fail(`${page} has no real <title>`);
+  if (!/<meta name="description" content="[^"]{20,}">/.test(src)) fail(`${page} has no meta description`);
+  for (const code of learnCodes) {
+    if (!src.includes(`hreflang="${code}"`)) fail(`${page} has no hreflang for "${code}"`);
+  }
+  if ((src.match(/<h1[\s>]/g) ?? []).length !== 1) fail(`${page} should have exactly one <h1>`);
+}
+/* A deck whose language has no entry in LANGS gets no page, which is easy to miss. */
+for (const d of snapshot.decks) {
+  const front = String(d.front_lang || '').split('-')[0].toLowerCase();
+  if (/^en\b/i.test(d.back_lang || '') && !LANGS.some((l) => l.front === front)) {
+    note(`the deck ${d.id} teaches English to "${d.front_lang}" speakers, which has no entry in tools/learn-english.mjs`);
+  }
 }
 
 /* ---- 6b'. the legal pages are reachable, and the two policies name their source ---- */
