@@ -30,15 +30,20 @@ jobs:
           done
           echo "www.loopky.app:"; dig +short www.loopky.app
 
-      - name: Is the certificate valid for loopky.app for at least two more weeks?
+      # www is in the certificate too, and a visitor who types it is blocked just the same.
+      - name: Is the certificate valid for both names for at least two more weeks?
         run: |
           set -o pipefail
-          cert=$(openssl s_client -connect loopky.app:443 -servername loopky.app </dev/null 2>/dev/null \
-            | openssl x509)
-          echo "$cert" | openssl x509 -noout -subject -issuer -dates -ext subjectAltName
-          echo "$cert" | openssl x509 -noout -checkhost loopky.app | grep -q 'does match' \
-            || { echo "::error::The certificate does not name loopky.app. Pages is serving its fallback; re-add the custom domain in Settings → Pages."; exit 1; }
-          echo "$cert" | openssl x509 -noout -checkend $((14 * 24 * 3600)) \
-            || { echo "::error::The certificate for loopky.app expires within two weeks, so renewal has failed."; exit 1; }
-          # Checks the chain as a browser would, with the runner's trust store.
-          curl -fsS -o /dev/null https://loopky.app/
+          for host in loopky.app www.loopky.app; do
+            echo "== $host"
+            cert=$(openssl s_client -connect "$host:443" -servername "$host" </dev/null 2>/dev/null \
+              | openssl x509) \
+              || { echo "::error::No certificate from $host:443."; exit 1; }
+            echo "$cert" | openssl x509 -noout -subject -issuer -dates -ext subjectAltName
+            echo "$cert" | openssl x509 -noout -checkhost "$host" | grep -q 'does match' \
+              || { echo "::error::The certificate does not name $host. Pages is serving its fallback; re-add the custom domain in Settings → Pages."; exit 1; }
+            echo "$cert" | openssl x509 -noout -checkend $((14 * 24 * 3600)) \
+              || { echo "::error::The certificate for $host expires within two weeks, so renewal has failed."; exit 1; }
+            # Checks the chain as a browser would, with the runner's trust store.
+            curl -fsS -o /dev/null "https://$host/"
+          done
