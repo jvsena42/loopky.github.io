@@ -45,6 +45,7 @@ Each guide is also published in Portuguese (Brazil), Spanish, French, German, It
 - [What is spaced repetition?](https://loopky.app/spaced-repetition/): the forgetting curve, spacing and testing effects, how Loopky schedules, how to write good cards.
 - [Loopky vs Anki vs Quizlet](https://loopky.app/compare/): side by side comparison and a pick for each kind of learner, including when Anki or Quizlet fits better.
 - [FAQ](https://loopky.app/faq/): price, platforms, Anki import, privacy, sign in, offline use.
+- [Learn English in your own language](https://loopky.app/learn-english/): free English decks (about 3,000 words and 1,800 phrases, plus starter decks of about 65 cards) written for speakers of Swahili, Hausa, Yoruba, Igbo, Amharic, Oromo, Zulu, Arabic, Hindi, Urdu, Bengali, Indonesian, Thai, Vietnamese, Chinese, Japanese, Korean, Russian and Ukrainian, each with a page in that language (for example https://loopky.app/learn-english/sw/).
 
 ## For AI agents
 

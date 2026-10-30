@@ -142,6 +142,31 @@ the sitemap, indexable, has one `<h1>`, a title and a description; every JSON-LD
 block parses; every loopky.app address in the two llms files exists; and the
 prompt and topic list in the markup match `i18n.js`.
 
+## Learn English pages
+
+`/learn-english/` and one page per language under it (`/learn-english/sw/`,
+`/learn-english/ha/`, `/learn-english/ar/` …) list the English decks published for
+speakers of that language, in that language. The deck page is `noindex` and answers
+every deck through a query string, so without these a Swahili or Bengali speaker
+searching in their own language had nothing to find. Each page leads with the
+deck's own title and description, which its author wrote in the learner's
+language, and the pages point at each other with `hreflang`. Arabic and Urdu are
+right to left.
+
+The decks come from `tools/learn-english-decks.json`, a snapshot of the author's
+manifests. The build never touches the network, so refresh the snapshot by hand
+when the decks change, then rebuild:
+
+```shell
+node tools/fetch-decks.mjs
+node tools/build-guides.mjs
+```
+
+The few words a page adds around the decks (the button, the card count, "other
+languages") live in `tools/learn-english.mjs`, one entry per language. A deck in a
+language with no entry there gets no page, and `tools/check.mjs` notes it. Those
+strings were not written by native speakers; have them read before trusting them.
+
 ## Privacy, terms and support
 
 `/privacy/`, `/terms/` and `/support/` are the three addresses the app stores and the
