@@ -25,6 +25,10 @@
   --border: #F0E6D9;
   --good: #158A55;
   --bad: #D62A42;
+  --pubky: #4E8A00;
+  --pubky-bar: #A6DB12;
+  --pubky-soft: #F1FBD9;
+  --pubky-border: #CFEA8A;
   --r: 16px;
 }
 @media (prefers-color-scheme: dark) {
@@ -41,6 +45,10 @@
     --border: #3B3550;
     --good: #3DD68C;
     --bad: #FF6B7D;
+    --pubky: #C8FF00;
+    --pubky-bar: #B4E600;
+    --pubky-soft: #1E2610;
+    --pubky-border: #4A5E14;
   }
 }
 * { box-sizing: border-box; }
@@ -115,12 +123,26 @@ button:disabled { opacity: .55; cursor: default; }
   .orbit .pulse { opacity: 0; }
 }
 
-.kpis { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; margin: 20px 0; }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 20px 0; }
+.kgroup { background: var(--bg-2); border: 1px solid var(--border); border-radius: calc(var(--r) + 4px); padding: 12px; min-width: 0; }
+.kgroup h3 { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-2); margin: 2px 4px 10px; }
+.kgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
 .kpi { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 14px 16px; }
 .kpi b { display: block; font-size: 28px; line-height: 1.1; font-variant-numeric: tabular-nums; }
 .kpi span { color: var(--fg-2); font-size: 13px; }
 .kpi small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
 .kpi.hl { border-color: var(--accent); background: var(--accent-soft); }
+
+/* pubky.app gets its own section, in pubky.app's green. */
+.pubky-sec { margin: 0 0 16px; background: var(--pubky-soft); border: 1px solid var(--pubky-border); border-radius: calc(var(--r) + 4px); padding: 16px; }
+.pubky-sec > h2 { color: var(--pubky); display: flex; align-items: center; gap: 8px; }
+.pubky-sec > h2::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--pubky-bar); }
+.pubky-sec .kgrid { margin: 0 0 16px; }
+.pubky-sec .kpi { border-color: var(--pubky-border); }
+.pubky-sec .kpi.hl { border-color: var(--pubky-bar); background: var(--card); }
+.pubky-sec .kpi.hl b { color: var(--pubky); }
+.pubky-sec .panel { border-color: var(--pubky-border); }
+.pubky-sec .brow .trk i { background: var(--pubky-bar); }
 
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 16px; }
 .panel { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; min-width: 0; }
@@ -135,13 +157,18 @@ button:disabled { opacity: .55; cursor: default; }
 .brow .val { text-align: right; font-variant-numeric: tabular-nums; }
 .brow:hover .lbl, .brow:hover .val { color: var(--fg); }
 
-.cols { display: flex; align-items: flex-end; gap: 3px; height: 160px; padding-top: 18px; border-bottom: 1px solid var(--border); }
-.cols .c { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; position: relative; min-width: 0; }
-.cols .c i { display: block; background: var(--accent); border-radius: 4px 4px 0 0; min-height: 2px; }
+.colswrap { overflow-x: auto; padding-bottom: 4px; }
+.cols { display: flex; gap: 6px; min-width: 100%; width: max-content; }
+.cols .c { flex: 1 0 44px; display: flex; flex-direction: column; align-items: stretch; text-align: center; border-radius: 8px; padding: 2px 0 4px; }
+.cols .c:hover { background: var(--bg-2); }
+.cols .c .n { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; min-height: 19px; }
+.cols .c .n.zero { color: var(--muted); font-weight: 400; }
+.cols .c .area { height: 140px; display: flex; align-items: flex-end; padding: 0 6px; border-bottom: 1px solid var(--border); }
+.cols .c i { display: block; width: 100%; background: var(--accent); border-radius: 4px 4px 0 0; }
 .cols .c:hover i { filter: brightness(1.15); }
-.cols .c em { position: absolute; top: -16px; left: 50%; transform: translateX(-50%); font-style: normal; font-size: 11px; color: var(--fg-2); visibility: hidden; white-space: nowrap; }
-.cols .c:hover em { visibility: visible; }
-.xlab { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-top: 4px; }
+.cols .c .m { font-size: 12px; color: var(--fg-2); margin-top: 5px; }
+.cols .c .y { font-size: 11px; color: var(--muted); min-height: 15px; }
+.xlab { display: flex; justify-content: space-between; gap: 12px; font-size: 12px; color: var(--fg-2); margin-top: 8px; }
 
 .tablewrap { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -223,6 +250,22 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     </div>
     <div class="kpis" id="kpis"></div>
 
+    <section class="pubky-sec" aria-labelledby="pubky-title">
+      <h2 id="pubky-title">pubky.app<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
+      <div class="kgrid" id="pubkyapp-kpis"></div>
+      <div class="grid">
+        <div class="panel">
+          <h2>pubky.app use</h2>
+          <div class="bars" id="pubkyapp"></div>
+        </div>
+        <div class="panel">
+          <h2>What showed direct use</h2>
+          <div class="bars" id="pubkyapp-why"></div>
+        </div>
+      </div>
+      <p class="note">Loopky writes into <span class="mono">/pub/pubky.app/</span> itself, so none of that counts: the profile (Loopky edits its name and bio), follows (Loopky follows people), the <span class="mono">loopky-user</span> self-tag, and its own posts (deck announcements, recaps, deck requests) with the labels on them. Direct use is anything else there: a post that is not Loopky's, a tag on anything but a Loopky post, or a record Loopky never writes, such as files, bookmarks, mutes or <span class="mono">last_read</span>. An account with only Loopky's records may still read pubky.app without writing; that cannot be seen from public data.</p>
+    </section>
+
     <div class="grid">
       <div class="panel">
         <h2>Account segments<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
@@ -233,13 +276,6 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         <h2>Last review<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
         <div class="bars" id="recency"></div>
         <p class="note" id="recency-note">Derived from each card's due date minus its interval: the same arithmetic the yearly recap uses.</p>
-      </div>
-      <div class="panel">
-        <h2>pubky.app use<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
-        <div class="bars" id="pubkyapp"></div>
-        <h2 style="margin-top:16px">What showed direct use</h2>
-        <div class="bars" id="pubkyapp-why"></div>
-        <p class="note">Loopky writes into <span class="mono">/pub/pubky.app/</span> itself, so none of that counts: the profile (Loopky edits its name and bio), follows (Loopky follows people), the <span class="mono">loopky-user</span> self-tag, and its own posts (deck announcements, recaps, deck requests) with the labels on them. Direct use is anything else there: a post that is not Loopky's, a tag on anything but a Loopky post, or a record Loopky never writes, such as files, bookmarks, mutes or <span class="mono">last_read</span>. An account with only Loopky's records may still read pubky.app without writing; that cannot be seen from public data.</p>
       </div>
       <div class="panel wide">
         <h2>New accounts per month</h2>
@@ -254,7 +290,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <div class="panel wide">
         <div class="thead"><h2>Top decks</h2><input type="search" id="deck-filter" placeholder="Filter decks"></div>
         <div class="tablewrap"><table id="decks-table"></table></div>
-        <p class="note">Studiers: accounts holding review state for the deck. Followers: <span class="mono">/pub/loopky/subscriptions/</span> records found on scanned accounts. Nexus followers: the deck's <span class="mono">loopky-followed</span> tagger count.</p>
+        <p class="note">Followers: <span class="mono">/pub/loopky/subscriptions/</span> records found on scanned accounts. Nexus followers: the deck's <span class="mono">loopky-followed</span> tagger count.</p>
       </div>
 
       <div class="panel">
@@ -894,7 +930,6 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         notStudying: list.length - studying.length,
         creators: list.filter(function (a) { return a.ownedDecks > 0; }).length,
         followers: list.filter(function (a) { return a.subs.length > 0; }).length,
-        selfTagged: list.filter(function (a) { return a.selfTagged; }).length,
         withSettings: list.filter(function (a) { return a.hasSettings; }).length,
         pubkyAppDirect: list.filter(function (a) { return a.pubkyApp === 'direct'; }).length,
         pubkyAppNot: list.filter(function (a) { return a.pubkyApp === 'loopky' || a.pubkyApp === 'empty'; }).length,
@@ -970,29 +1005,43 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     var max = Math.max.apply(null, all.map(function (k) { return counts[k] || 0; })) || 1;
     var wrap = el('div', 'cols' + (chosen ? ' scoped' : ''));
     var running = 0;
-    all.forEach(function (k) {
+    var peak = all[0];
+    all.forEach(function (k, i) {
       var n = counts[k] || 0;
       running += n;
+      if (n > (counts[peak] || 0)) peak = k;
+      var at = new Date(k + '-01T00:00:00Z');
       var c = el('div', 'c' + (k === chosen ? ' on' : ''));
-      c.title = k + ': ' + fmt(n) + ' (cumulative ' + fmt(running) + ') · click to filter';
+      c.title = monthName(k) + ': ' + fmt(n) + ' (cumulative ' + fmt(running) + ') · click to filter';
       c.addEventListener('click', function () { onPick(k === chosen ? 'all' : k); });
-      c.appendChild(el('em', null, fmt(n)));
+      c.appendChild(el('span', 'n' + (n ? '' : ' zero'), fmt(n)));
+      var area = el('div', 'area');
       var bar = el('i');
-      bar.style.height = (n / max * 100) + '%';
-      c.appendChild(bar);
+      bar.style.height = n ? Math.max(n / max * 100, 2) + '%' : '0';
+      area.appendChild(bar);
+      c.appendChild(area);
+      c.appendChild(el('span', 'm', at.toLocaleDateString('en', { month: 'short', timeZone: 'UTC' })));
+      c.appendChild(el('span', 'y', i === 0 || at.getUTCMonth() === 0 ? String(at.getUTCFullYear()) : ''));
       wrap.appendChild(c);
     });
-    node.appendChild(wrap);
+    var scroller = el('div', 'colswrap');
+    scroller.appendChild(wrap);
+    node.appendChild(scroller);
     var x = el('div', 'xlab');
-    x.appendChild(el('span', null, all[0]));
-    x.appendChild(el('span', null, fmt(running) + ' total'));
-    x.appendChild(el('span', null, all[all.length - 1]));
+    x.appendChild(el('span', null, fmt(running) + ' total since ' + monthName(all[0])));
+    x.appendChild(el('span', null, 'Best month: ' + monthName(peak) + ' (' + fmt(counts[peak] || 0) + ')'));
     node.appendChild(x);
+    scroller.scrollLeft = scroller.scrollWidth;
+  }
+  function monthName(k) {
+    return new Date(k + '-01T00:00:00Z').toLocaleDateString('en', { month: 'long', year: 'numeric', timeZone: 'UTC' });
   }
 
-  /* A sortable table. cols: [{ h, v(row), num?, cell(row)? }]. */
+  /* A sortable table. cols: [{ h, v(row), num?, cell(row)? }]. Shows the top
+     TABLE_ROWS until "Show all" is pressed. */
+  var TABLE_ROWS = 10;
   function table(node, cols, rows, sortIndex, filterInput, match) {
-    var state = { by: sortIndex, desc: true, limit: 50 };
+    var state = { by: sortIndex, desc: true, limit: TABLE_ROWS };
     function draw() {
       clear(node);
       var q = filterInput ? filterInput.value.trim().toLowerCase() : '';
@@ -1026,13 +1075,14 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         tbody.appendChild(row);
       });
       node.appendChild(tbody);
-      if (shown.length > state.limit) {
+      if (shown.length > TABLE_ROWS) {
+        var expanded = state.limit === Infinity;
         var more = el('tr');
         var td = el('td', null);
         td.colSpan = cols.length;
-        var b = el('button', null, 'Show all ' + fmt(shown.length));
+        var b = el('button', null, expanded ? 'Show top ' + TABLE_ROWS : 'Show all ' + fmt(shown.length));
         b.type = 'button';
-        b.addEventListener('click', function () { state.limit = Infinity; draw(); });
+        b.addEventListener('click', function () { state.limit = expanded ? TABLE_ROWS : Infinity; draw(); });
         td.appendChild(b);
         more.appendChild(td);
         tbody.appendChild(more);
@@ -1126,38 +1176,52 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
     var k = document.getElementById('kpis');
     clear(k);
+    function group(title) {
+      var g = el('div', 'kgroup');
+      g.appendChild(el('h3', null, title));
+      var grid = el('div', 'kgrid');
+      g.appendChild(grid);
+      k.appendChild(g);
+      return grid;
+    }
     var dash = '–';
+    var ga = group('Accounts');
+    var gs = group('Study activity');
+    var gd = group('Decks');
     if (all) {
-      k.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', fmt(t.selfTagged) + ' self-tagged loopky-user' +
-        (s.unread ? ' \u00b7 ' + fmt(s.unread) + ' unreadable, a lower bound' : ''), true));
-      k.appendChild(kpi(fmt(t.studying), 'Studying', pct(t.studying, t.accounts) + ' of accounts'));
-      k.appendChild(kpi(fmt(t.notStudying), 'Study no deck', pct(t.notStudying, t.accounts) + ' of accounts', true));
-      k.appendChild(kpi(fmt(t.creators), 'Created a deck', pct(t.creators, t.accounts) + ' of accounts'));
-      k.appendChild(kpi(fmt(t.followers), 'Follow a deck', pct(t.followers, t.accounts) + ' of accounts'));
-      k.appendChild(kpi(fmt(t.pubkyAppNot), 'Not using pubky.app', pct(t.pubkyAppNot, t.accounts) + ' of accounts \u00b7 ' +
-        fmt(t.pubkyAppDirect) + ' use it directly' + (t.pubkyAppUnknown ? ' \u00b7 ' + fmt(t.pubkyAppUnknown) + ' unreadable' : ''), true));
+      ga.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', s.unread ? fmt(s.unread) + ' unreadable, a lower bound' : null, true));
+      ga.appendChild(kpi(fmt(t.creators), 'Created a deck', pct(t.creators, t.accounts) + ' of accounts'));
+      ga.appendChild(kpi(fmt(t.followers), 'Follow a deck', pct(t.followers, t.accounts) + ' of accounts'));
+      ga.appendChild(kpi(fmt(t.withSettings), 'Saved study settings', pct(t.withSettings, t.accounts) + ' of accounts'));
+      gs.appendChild(kpi(fmt(t.studying), 'Studying', pct(t.studying, t.accounts) + ' of accounts'));
+      gs.appendChild(kpi(fmt(t.notStudying), 'Study no deck', pct(t.notStudying, t.accounts) + ' of accounts', true));
       if (s.deep) {
-        k.appendChild(kpi(fmt(t.active1), 'Reviewed in 24h'));
-        k.appendChild(kpi(fmt(t.active7), 'Reviewed in 7 days', pct(t.active7, t.accounts) + ' of accounts'));
-        k.appendChild(kpi(fmt(t.active30), 'Reviewed in 30 days', pct(t.active30, t.accounts) + ' of accounts'));
+        gs.appendChild(kpi(fmt(t.active1), 'Reviewed in 24h'));
+        gs.appendChild(kpi(fmt(t.active7), 'Reviewed in 7 days', pct(t.active7, t.accounts) + ' of accounts'));
+        gs.appendChild(kpi(fmt(t.active30), 'Reviewed in 30 days', pct(t.active30, t.accounts) + ' of accounts'));
+        gs.appendChild(kpi(fmt(t.states), 'Cards with review state'));
       }
-      k.appendChild(kpi(fmt(t.decks), 'Decks', fmt(t.indexedDecks) + ' indexed by Nexus'));
-      k.appendChild(kpi(fmt(t.cards), 'Cards in decks'));
-      if (s.deep) k.appendChild(kpi(fmt(t.states), 'Cards with review state'));
-      k.appendChild(kpi(fmt(t.withSettings), 'Saved study settings', pct(t.withSettings, t.accounts) + ' of accounts'));
+      gd.appendChild(kpi(fmt(t.decks), 'Decks', fmt(t.indexedDecks) + ' indexed by Nexus', true));
+      gd.appendChild(kpi(fmt(t.cards), 'Cards in decks'));
     } else {
       var fresh = accounts.filter(function (a) { return a.firstSeen && inP(a.firstSeen); }).length;
       var creators = accounts.filter(function (a) { return a.pCreated > 0; }).length;
       var reviewed = accounts.reduce(function (n, a) { return n + a.pReviews; }, 0);
-      k.appendChild(kpi(fmt(total), endsNow ? 'Loopky accounts' : 'Accounts by end of period', null, true));
-      k.appendChild(kpi(fmt(fresh), 'New accounts', pct(fresh, total) + ' of accounts'));
-      k.appendChild(kpi(activity ? fmt(active) : dash, 'Studied', activity ? pct(active, total) + ' of accounts' : 'needs review state'));
-      k.appendChild(kpi(activity ? fmt(total - active) : dash, 'Studied no deck', activity ? pct(total - active, total) + ' of accounts' : 'needs review state', true));
-      k.appendChild(kpi(fmt(creators), 'Created a deck', pct(creators, total) + ' of accounts'));
-      k.appendChild(kpi(fmt(newDecks.length), 'Decks created', fmt(newDecks.filter(function (d) { return d.indexed; }).length) + ' indexed by Nexus'));
-      k.appendChild(kpi(fmt(newDecks.reduce(function (n, d) { return n + d.cards; }, 0)), 'Cards in new decks'));
-      k.appendChild(kpi(activity ? fmt(reviewed) : dash, 'Cards reviewed', activity ? 'latest review in period' : 'needs review state'));
+      ga.appendChild(kpi(fmt(total), endsNow ? 'Loopky accounts' : 'Accounts by end of period', null, true));
+      ga.appendChild(kpi(fmt(fresh), 'New accounts', pct(fresh, total) + ' of accounts'));
+      ga.appendChild(kpi(fmt(creators), 'Created a deck', pct(creators, total) + ' of accounts'));
+      gs.appendChild(kpi(activity ? fmt(active) : dash, 'Studied', activity ? pct(active, total) + ' of accounts' : 'needs review state'));
+      gs.appendChild(kpi(activity ? fmt(total - active) : dash, 'Studied no deck', activity ? pct(total - active, total) + ' of accounts' : 'needs review state', true));
+      gs.appendChild(kpi(activity ? fmt(reviewed) : dash, 'Cards reviewed', activity ? 'latest review in period' : 'needs review state'));
+      gd.appendChild(kpi(fmt(newDecks.length), 'Decks created', fmt(newDecks.filter(function (d) { return d.indexed; }).length) + ' indexed by Nexus', true));
+      gd.appendChild(kpi(fmt(newDecks.reduce(function (n, d) { return n + d.cards; }, 0)), 'Cards in new decks'));
     }
+
+    var pk = document.getElementById('pubkyapp-kpis');
+    clear(pk);
+    pk.appendChild(kpi(fmt(t.pubkyAppNot), 'Not using pubky.app', pct(t.pubkyAppNot, t.accounts) + ' of accounts', true));
+    pk.appendChild(kpi(fmt(t.pubkyAppDirect), 'Use it directly', pct(t.pubkyAppDirect, t.accounts) + ' of accounts'));
+    if (t.pubkyAppUnknown) pk.appendChild(kpi(fmt(t.pubkyAppUnknown), 'Could not be read', pct(t.pubkyAppUnknown, t.accounts) + ' of accounts'));
 
     var seg = {};
     s.accounts.forEach(function (a) { seg[a.segment] = (seg[a.segment] || 0) + 1; });
@@ -1209,7 +1273,6 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       { h: 'Author', v: function (d) { return names[d.author] || d.author; }, cell: function (d) {
         return link(names[d.author] || short(d.author), '../profile/?pubky=' + encodeURIComponent(d.author), names[d.author] ? null : 'mono');
       } },
-      { h: all ? 'Studiers' : 'Studiers in period', num: true, v: function (d) { return d.pStudiers; } },
       { h: 'Followers', num: true, v: function (d) { return d.followers; } },
       { h: 'Nexus followers', num: true, v: function (d) { return d.nexusFollowers; } },
       { h: 'Cards', num: true, v: function (d) { return d.cards; } },
@@ -1223,7 +1286,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       } },
       { h: 'Created', v: function (d) { return d.createdAt; }, cell: function (d) { return document.createTextNode(day(d.createdAt)); } },
       { h: 'Indexed', v: function (d) { return d.indexed ? 1 : 0; }, cell: function (d) { return el('span', d.indexed ? 'ok' : 'err', d.indexed ? 'yes' : 'no'); } },
-    ], shownDecks, 2, document.getElementById('deck-filter'), function (d) {
+    ], shownDecks, s.deep ? 5 : 2, document.getElementById('deck-filter'), function (d) {
       return d.title + ' ' + d.tags.join(' ') + ' ' + (names[d.author] || '') + ' ' + d.author;
     });
 
@@ -1299,7 +1362,6 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       { h: all ? 'Reviewed cards' : 'Reviewed in period', num: true, v: function (a) { return a.pReviews; } },
       { h: 'Last review', v: function (a) { return a.lastReview; }, cell: function (a) { return document.createTextNode(ago(a.lastReview)); } },
       { h: 'First seen', v: function (a) { return a.firstSeen; }, cell: function (a) { return document.createTextNode(day(a.firstSeen)); } },
-      { h: 'Self-tag', v: function (a) { return a.selfTagged ? 1 : 0; }, cell: function (a) { return document.createTextNode(a.selfTagged ? 'yes' : ''); } },
       { h: 'pubky.app', v: function (a) { return a.pubkyApp || ''; }, cell: function (a) {
         var words = { direct: 'yes', loopky: 'Loopky only', empty: 'nothing', unknown: '?' };
         var span = el('span', a.pubkyApp === 'direct' ? 'ok' : null, words[a.pubkyApp] || '?');
