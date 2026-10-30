@@ -134,7 +134,7 @@ The Discover tab lists decks published by people using Loopky, searchable by top
 - **Put words in a sentence.** "el perro ladra" teaches more than "perro".
 - **Say it every time.** Speak mode feels slow for a day and then becomes the part you remember best.
 - **Keep new cards small.** The default goal is 10 new cards a day. Fewer, every day, beats a big batch once a week.
-- **Kanji and Hanzi:** keep one character or one word per card, with the reading on the back and an example word or sentence.
+- **Kanji and Hanzi:** keep one character or one word per card, with the reading in brackets after it on the back, such as 猫（ねこ）, so typing the reading is accepted too. Pinyin readings need their tone marks: 学习（xuéxí）.
 
 ### Questions
 
@@ -145,7 +145,7 @@ Yes. Language decks use the phone's built in text to speech voices in 35 languag
 Yes. Speak mode passes what you say to your device's speech recognition and grades the card from the recognised text. Loopky does not store or upload the recording.
 
 **Is it good for Japanese or Chinese?**
-Yes. Japanese, Mandarin (Mainland and Taiwan) and Korean are supported for listening and speaking, and Type mode works with your phone's keyboard for kana and characters.
+Yes. Japanese, Mandarin (Mainland and Taiwan) and Korean are supported for listening and speaking, and Type mode works with your phone's keyboard for kana and characters. When a card writes the reading in brackets after the word, such as 猫（ねこ） or 学习（xuéxí）, the reading is accepted as an answer too: type the kana or the pinyin and the card counts it as correct. Pinyin without its tone marks is reported as almost right. Spaces never decide a Japanese, Chinese or Korean answer, and full-width and half-width characters count as the same. All of this needs the deck's languages to be set.
 
 **How is Loopky different from Duolingo?**
 Duolingo teaches a fixed course. Loopky is a flashcards app: you choose or build the decks, and spaced repetition decides when each card comes back. Many learners use a course and flashcards together.
