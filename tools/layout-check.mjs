@@ -41,6 +41,8 @@ const PAGES = [
 ];
 /* One chip of slack: a sub-pixel layout width rounds up and is not a broken page. */
 const TOLERANCE = 1;
+/* Pages per Chrome run. */
+const BATCH = 10;
 const PORT = 8899;
 
 const root = new URL('../', import.meta.url).pathname;
@@ -73,12 +75,17 @@ try {
   /* The whole site, since guides live in a directory per language. */
   cpSync(root, dir, { recursive: true, filter: (src) => !src.includes('/.git') });
 
-  writeFileSync(join(dir, 'probe.html'), `<!doctype html>
+  /* One probe per batch of pages. All of them in one Chrome run once took two minutes
+     on its own, which is the whole timeout, and five more pages were enough to tip it
+     over with no report at all. */
+  const batches = [];
+  for (let i = 0; i < PAGES.length; i += BATCH) batches.push(PAGES.slice(i, i + BATCH));
+  batches.forEach((pages, n) => writeFileSync(join(dir, `probe-${n}.html`), `<!doctype html>
 <meta charset="utf-8">
 <body style="margin:0">
 <script>
 var WIDTHS = ${JSON.stringify(WIDTHS)};
-var PAGES = ${JSON.stringify(PAGES)};
+var PAGES = ${JSON.stringify(pages)};
 PAGES.forEach(function (page) {
   WIDTHS.forEach(function (w) {
     var f = document.createElement('iframe');
@@ -106,7 +113,7 @@ setTimeout(function () {
   document.body.appendChild(el);
 }, 9000);
 </script>
-</body>`);
+</body>`));
 
   server = spawn('python3', ['-m', 'http.server', String(PORT), '--bind', '127.0.0.1'],
     { cwd: dir, stdio: 'ignore' });
@@ -116,20 +123,23 @@ setTimeout(function () {
   /* Give the server a moment, then let Chrome run long enough for the decks to load. */
   spawnSync('sleep', ['1']);
 
-  const run = spawnSync(chrome, [
-    '--headless', '--disable-gpu', '--no-sandbox',
-    '--virtual-time-budget=25000',
-    '--window-size=1600,1000',
-    '--dump-dom', `http://127.0.0.1:${PORT}/probe.html`,
-  ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, timeout: 120000 });
+  const results = [];
+  for (let n = 0; n < batches.length; n++) {
+    const run = spawnSync(chrome, [
+      '--headless', '--disable-gpu', '--no-sandbox',
+      '--virtual-time-budget=25000',
+      '--window-size=1600,1000',
+      '--dump-dom', `http://127.0.0.1:${PORT}/probe-${n}.html`,
+    ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, timeout: 120000 });
 
-  const m = /<div id="result">([^<]*)<\/div>/.exec(run.stdout || '');
-  if (!m) {
-    console.error('FAIL: the layout probe did not report. Chrome may have failed to start.');
-    process.exit(1);
+    const m = /<div id="result">([^<]*)<\/div>/.exec(run.stdout || '');
+    if (!m) {
+      console.error(`FAIL: the layout probe did not report for ${batches[n].join(', ')}. ` +
+        'Chrome may have failed to start, or run out of time.');
+      process.exit(1);
+    }
+    results.push(...JSON.parse(m[1]));
   }
-
-  const results = JSON.parse(m[1]);
   const bad = results.filter((r) => r.error || r.overflow > TOLERANCE);
 
   for (const r of results) {
