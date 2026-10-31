@@ -241,13 +241,18 @@
       .sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); });
   }
 
-  function matches(d) {
-    for (var i = 0; i < selected.length; i++) {
-      if (d.topics.indexOf(selected[i]) === -1) return false;
+  /* [q] is already trimmed and lowercased, the way the search box hands it over. */
+  function deckMatches(d, q, topics) {
+    for (var i = 0; i < topics.length; i++) {
+      if (d.topics.indexOf(topics[i]) === -1) return false;
     }
-    if (!query) return true;
+    if (!q) return true;
     var hay = (d.title + ' ' + d.topics.join(' ') + ' ' + (d.authorName || '')).toLowerCase();
-    return hay.indexOf(query) !== -1;
+    return hay.indexOf(q) !== -1;
+  }
+
+  function matches(d) {
+    return deckMatches(d, query, selected);
   }
 
   function skeleton() {
@@ -509,6 +514,65 @@
     ask.style.height = 'auto';
     ask.style.height = ask.scrollHeight + 2 + 'px';
   }
+
+  /* ---------------- driven by webmcp.js ---------------- */
+
+  /* A topic as a deck spells it, so "#Japanese" selects the chip "japanese". One no
+     deck carries is kept as given and simply matches nothing. */
+  function canonicalTopics(list, topics) {
+    return topics.map(function (want) {
+      var low = String(want).replace(/^#/, '').trim().toLowerCase();
+      for (var i = 0; i < list.length; i++) {
+        for (var j = 0; j < list[i].topics.length; j++) {
+          if (list[i].topics[j].toLowerCase() === low) return list[i].topics[j];
+        }
+      }
+      return low;
+    });
+  }
+
+  function scrollToSection(id) {
+    var el = document.getElementById(id);
+    if (el) el.scrollIntoView({ block: 'start' });
+  }
+
+  /* The same filter and order the grid uses, over the same objects, so a tool call
+     answers with exactly the decks the visitor would see for that search and those
+     chips. */
+  window.loopkyDiscover = {
+    find: function (q, topics) {
+      return loadDecks().then(function (list) {
+        var want = canonicalTopics(list, topics || []);
+        var needle = String(q || '').trim().toLowerCase();
+        return { topics: want, decks: list.filter(function (d) { return deckMatches(d, needle, want); }) };
+      });
+    },
+    show: function (q, topics) {
+      return loadDecks().then(function (list) {
+        selected = canonicalTopics(list, topics || []);
+        query = String(q || '').trim().toLowerCase();
+        if (search) search.value = String(q || '').trim();
+        shown = PAGE;
+        renderDiscover();
+        scrollToSection('discover');
+        return { topics: selected.slice(), decks: list.filter(matches) };
+      });
+    },
+    url: function (d) { return new URL(deckHref(d), location.href).href; },
+  };
+
+  window.loopkyPrompt = {
+    build: function (request) { return aiPrompt(request); },
+    /* An idea replaces the request box the way its chip does; a request then
+       replaces it the way typing does. */
+    fill: function (request, ideaId) {
+      if (ideaId) { idea = ideaId; paintIdea(); }
+      var ask = document.getElementById('ai-ask');
+      if (ask && request) { ask.value = request; fitAsk(); paintPrompt(); }
+      scrollToSection('cli');
+      return currentPrompt();
+    },
+  };
 
   /* ---------------- shared with the deck and profile pages ---------------- */
 
