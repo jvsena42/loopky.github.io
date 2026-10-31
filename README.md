@@ -174,7 +174,7 @@ Three rules keep it honest. The tools wrap the code the page already runs
 same state the chips do), so a tool and the grid cannot disagree. Deck text is a
 stranger's, so it comes back as JSON fields, and those tools carry
 `untrustedContentHint`. And there is no polyfill: without native
-`document.modelContext` (or the older `navigator.modelContext`) the file does
+`document.modelContext`, the only name the current draft defines, the file does
 nothing.
 
 Annotations follow the spec's IDL (`readOnlyHint`, `untrustedContentHint`,

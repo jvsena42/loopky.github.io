@@ -636,9 +636,9 @@ for (const f of ['assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js
     loopkyDiscover: {},
   };
   try {
-    new Function('document', 'navigator', 'window', 'location',
+    new Function('document', 'window', 'location',
       i18nSrc + '\n' + read('assets/js/discover.js') + '\n' + read('assets/js/webmcp.js'))(
-      { modelContext: stub }, {}, fakeWindow, { origin: 'https://loopky.app' });
+      { modelContext: stub }, fakeWindow, { origin: 'https://loopky.app' });
   } catch (e) {
     fail(`assets/js/webmcp.js threw while registering: ${e.message}`);
   }

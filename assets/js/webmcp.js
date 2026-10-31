@@ -1,10 +1,9 @@
 /* WebMCP: the home page's Discover feed and AI prompt, as tools a browser agent can
  * call instead of scraping the grid and typing into the boxes (#39).
  *
- * Built against the W3C draft (webmachinelearning/webmcp): `document.modelContext`,
- * falling back to `navigator.modelContext`, the name earlier drafts used. With
- * neither, this file does nothing. No polyfill is loaded on purpose: it would be an
- * unpinned third-party script on every visit.
+ * Built against the W3C draft (webmachinelearning/webmcp), which defines only
+ * `document.modelContext`. Without it this file does nothing. No polyfill is loaded
+ * on purpose: it would be an unpinned third-party script on every visit.
  *
  * Every tool wraps code the page already runs (`loadDecks`, `fetchDeck` in
  * discover.js, `window.loopkyDiscover` and `window.loopkyPrompt` in app.js), so a
@@ -19,8 +18,7 @@
 (function () {
   'use strict';
 
-  var mc = (typeof document !== 'undefined' && document.modelContext) ||
-    (typeof navigator !== 'undefined' && navigator.modelContext);
+  var mc = typeof document !== 'undefined' && document.modelContext;
   if (!mc || typeof mc.registerTool !== 'function') return;
 
   var MAX_LIMIT = 50;
