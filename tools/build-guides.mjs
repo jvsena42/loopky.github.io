@@ -24,6 +24,7 @@ import { SLUGS, LOCALES, LEGAL, guidePath, hreflangs } from './guides.mjs';
 import { legalPage, legalLastmod } from './legal.mjs';
 import { stampFor } from './stamp-assets.mjs';
 import { AUTHOR, DECKS_FILE, HUB, learnPath, decksFor, builtLangs } from './learn-english.mjs';
+import { FEATURED_FILE } from './fetch-featured.mjs';
 
 const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
@@ -517,8 +518,45 @@ export const HOME_ALTERNATES = [
   ...LOCALES.flatMap((l) => hreflangs(l).map((h) => `<link rel="alternate" hreflang="${h}" href="${homeUrl(l)}">`)),
 ].join('\n');
 
+/* ---------------------------------------------------------------- featured decks */
+
+/* Discover is live, so without JavaScript it used to be an empty section, and a
+   browser agent that looked before the network answered saw the same. The grid now
+   ships a snapshot of the top decks (tools/featured-decks.json, refreshed by
+   tools/fetch-featured.mjs), drawn the way app.js draws a tile, and app.js swaps in
+   the live list when it lands. */
+const featured = JSON.parse(read(FEATURED_FILE));
+
+/* app.js's tintClass, so a tile keeps its colour when the live grid replaces it. */
+const tint = (key) => {
+  let h = 0;
+  for (let i = 0; i < key.length; i++) h = (h * 31 + key.charCodeAt(i)) % 100000;
+  return 'tint-' + (h % 6);
+};
+
+function featuredTiles(code) {
+  const dict = I18N[code] || I18N.en;
+  const t = (k) => (typeof dict[k] === 'string' ? dict[k] : I18N.en[k]);
+  return featured.decks.map((d) => {
+    const count = typeof d.cards === 'number'
+      ? esc(t(d.cards === 1 ? 'disc.cards.one' : 'disc.cards.other').replace('{n}', d.cards)) + ' · '
+      : '';
+    const tags = d.topics.length
+      ? `<div class="deck-tags">${d.topics.map((x) => `<span class="deck-tag">#${esc(x)}</span>`).join('')}</div>`
+      : '';
+    return `
+      <a class="deck" href="deck/?author=${esc(d.author)}&amp;id=${esc(encodeURIComponent(d.id))}">` +
+      `<div class="deck-cover-emoji ${tint(d.author + '/' + d.id)}" aria-hidden="true">${esc(d.emoji)}</div>` +
+      `<div class="deck-body"><h3 class="deck-title">${esc(d.title)}</h3>` +
+      `<p class="deck-meta">${count}<b>${esc(d.author_name || t('disc.anon'))}</b></p>${tags}</div></a>`;
+  }).join('') + '\n    ';
+}
+
+const withFeatured = (html, code) =>
+  html.replace(/(<!-- featured -->)[\s\S]*?(<!-- \/featured -->)/, (_, a, b) => a + featuredTiles(code) + b);
+
 function homePage(locale) {
-  const master = read('index.html');
+  const master = withFeatured(read('index.html'), locale.code);
   const dict = I18N[locale.code];
   const t = (key) => {
     const v = dict[key] !== undefined ? dict[key] : I18N.en[key];
@@ -873,15 +911,18 @@ export function build() {
   pages.set(HUB + 'index.html', learnHub());
   for (const l of LEARN) pages.set(learnPath(l) + 'index.html', learnPage(l));
 
-  /* index.html is written by hand, so it is dated from the file as it stands. */
+  /* index.html is written by hand, apart from the featured decks in Discover, so it
+     is dated from the file as it stands with those filled in. */
+  const index = withFeatured(read('index.html'), 'en');
   const known = existsSync(new URL(LASTMOD_FILE, root)) ? JSON.parse(read(LASTMOD_FILE)) : {};
   const dates = {};
-  for (const [file, html] of [['index.html', read('index.html')], ...pages]) {
+  for (const [file, html] of [['index.html', index], ...pages]) {
     const hash = contentHash(html);
     dates[file] = known[file]?.hash === hash ? known[file] : { hash, date: today() };
   }
 
   const out = new Map();
+  out.set('index.html', index);
   for (const [file, html] of pages) out.set(file, html.replaceAll(DATE_TOKEN, dates[file].date));
   for (const slug of LEGAL) out.set(slug + '/index.html', legalPage(slug, SITE));
   out.set('sitemap.xml', sitemap((file) => dates[file].date));

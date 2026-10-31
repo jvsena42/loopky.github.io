@@ -35,8 +35,11 @@ tools/legal.mjs       turns that Markdown into the three pages
 tools/sync-legal.mjs  refreshes the two copies, and reports when they have drifted
 llms.txt              a summary of Loopky for language models
 llms-full.txt         every guide as plain text, for language models
+tools/featured-decks.json  the decks Discover ships in its markup, a snapshot
+tools/fetch-featured.mjs   refreshes that snapshot from the network
 tools/check.mjs       the pre-flight CI runs
 tools/layout-check.mjs  fails if the page scrolls sideways
+tools/a11y-check.mjs  accessibility, from Chrome's own accessibility tree
 tools/stamp-assets.mjs  content hashes on the asset URLs
 tools/set-site-url.mjs  moves every published URL at once
 ```
@@ -80,6 +83,20 @@ Decks are fetched six at a time and the grid fills as they land. Everything read
 was written by a stranger, so no network value reaches `innerHTML`. If the indexer is
 unreachable the section says so, offers a retry, and the rest of the page is
 unaffected.
+
+**The grid ships with decks in it.** A reader that runs no script, or a browser
+agent that looks before the indexer answers (it can take several seconds), used to
+find an empty section. The home pages are now built with a snapshot of the top
+twelve decks in `#disc-grid`, between `<!-- featured -->` markers, drawn the way
+`app.js` draws a tile. `app.js` keeps them up while the live list loads, replaces
+them when it lands, and puts them back if the network cannot be read. The snapshot is
+picked by `discover.js` itself, so it passes the same checks and the same ranking as
+the live grid. Refresh it by hand now and then:
+
+```shell
+node tools/fetch-featured.mjs
+node tools/build-guides.mjs
+```
 
 **A deck without a picture has none to find.** A cover reaches the web only when its
 author published one as an `https://` URL; an emoji cover, or a picture imported as a
@@ -280,6 +297,17 @@ from here: Apple's CDN does, and caches it for up to a day. What the CDN holds i
 at `https://app-site-association.cdn-apple.com/a/v1/loopky.app`; check that after
 changing the file, before blaming the app. `tools/check.mjs` validates it.
 
+**Read without JavaScript, these pages explain where their data is.** An assistant
+handed a deck link fetches it without running scripts, and used to get a page whose
+heading was "Loading…". The deck, profile and recap pages now carry an `#agent-note`
+section, hidden as soon as the page's script runs, that says which public JSON to
+fetch, in the owner-in-the-path form the homeserver documents:
+`https://homeserver.pubky.app/storage/{author}/pub/loopky/decks/{id}/manifest.json`,
+the cards at `…/cards/{n}.json`, and the name at Nexus. `llms.txt` gives the same
+addresses under "Reading a shared link". A plain GET needs no `pubky-host` header, which
+fetch tools cannot send. With JavaScript, a deck page also shows its first eight cards
+as a table, so an agent or a person can see what the deck is like without the app.
+
 ## The recap page
 
 Each December the app offers a "Loopky Recap" of the year, and its share buttons hand
@@ -413,7 +441,28 @@ That one loads the real pages (home, a real deck, its author's profile, every gu
 sideways. It exists because a wrapper around the topic chips once stretched that row
 to 1679px at every viewport and took the page's width with it, and no screenshot
 showed it: a cropped screenshot of an overflowing page looks exactly like a cropped
-screenshot of a correct one. It skips with a note when no Chrome is installed. Adding a string means adding it to all eleven dictionaries, and
+screenshot of a correct one. It skips with a note when no Chrome is installed.
+
+```shell
+node tools/a11y-check.mjs
+```
+
+That one reads Chrome's accessibility tree, which is what a screen reader reads and
+what a browser agent reads in place of the pixels, on fourteen pages: three home
+pages, a real deck, profile and recap, guides in English and Traditional Chinese, the
+learn-English hub and its Arabic page, and the legal pages. With JavaScript it fails
+on a control with no name, an emoji read out as text, two buttons with the same
+name, a page without exactly one `<h1>`, a heading that skips a level, a missing
+`main` landmark, a wrong `lang`, a broken skip link, and text below WCAG AA contrast
+in either theme. Without JavaScript it fails when a page has no heading or next to no
+text, when Discover ships fewer than six decks, and when a share page hides the note
+on where its data is. It needs no packages: it talks to Chrome over the DevTools
+protocol with Node's own WebSocket. Colour pairs that were already below AA when it
+was added are listed in `KNOWN_LOW_CONTRAST` with where each is drawn; a new pair
+fails, and a listed pair that stops being drawn is reported so its line can go. It
+skips with a note when no Chrome is installed.
+
+Adding a string means adding it to all eleven dictionaries, and
 forgetting one is the mistake this repo invites: the page falls back to English
 silently, so nothing looks broken. That is the check worth having.
 
@@ -461,7 +510,8 @@ only warns when it fails.
 
 ## CI and deploying
 
-`.github/workflows/pages.yml` runs `tools/check.mjs` on every push and pull request,
+`.github/workflows/pages.yml` runs `tools/check.mjs`, the recap tests, the layout
+check and the accessibility check on every push and pull request,
 then deploys `main` to Pages. It also asks the indexer the two questions the Discover
 section asks, and logs what came back. That one is a warning, never a failure: the
 network being down is not a reason to block a deploy.

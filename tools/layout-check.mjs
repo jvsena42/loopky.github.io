@@ -44,8 +44,11 @@ const PAGES = [
 ];
 /* One chip of slack: a sub-pixel layout width rounds up and is not a broken page. */
 const TOLERANCE = 1;
-/* Pages per Chrome run. */
-const BATCH = 10;
+/* Pages per Chrome run. Each home page runs the live Discover feed at every width,
+   about 190 requests each time, and ten pages to a run came to 110 seconds of the
+   120 a run is allowed, so CI failed whenever the network was a little slow. Five
+   puts the slowest run near 65 seconds; the guides after them take one second each. */
+const BATCH = 5;
 const PORT = 8899;
 
 const root = new URL('../', import.meta.url).pathname;

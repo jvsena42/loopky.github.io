@@ -164,6 +164,9 @@ function deckFromManifest(pubky, id, d) {
        and can carry anything a stranger attached. */
     allTopics: topics,
     topics: topics.slice(0, 4),
+    /* Where the cards live: one file per chunk, numbered as the manifest lists them. */
+    chunks: (Array.isArray(d.chunks) ? d.chunks : []).map(function (c) { return c && c.n; })
+      .filter(function (n) { return typeof n === 'number' && n >= 0 && n % 1 === 0; }),
     follows: 0,
     at: 0,
   };
@@ -184,6 +187,23 @@ function fetchDeck(pubky, id) {
         function (d) { return deckFromManifest(pubky, id, d); },
         function () { return null; });
     });
+}
+
+/**
+ * The cards in one chunk of a deck, as { front, back } text pairs. A card with no
+ * text on either side (a picture alone) is left out, since there is nothing here to
+ * show for it. Rejects when the chunk could not be read.
+ */
+function fetchCards(pubky, id, chunk) {
+  var url = HOMESERVER + '/pub/loopky/decks/' + encodeURIComponent(id) + '/cards/' + chunk + '.json';
+  return getJson(url, { 'pubky-host': pubky }).then(function (d) {
+    var cards = d && Array.isArray(d.cards) ? d.cards : [];
+    return cards.map(function (c) {
+      var front = c && c.front && typeof c.front.text === 'string' ? c.front.text.trim() : '';
+      var back = c && c.back && typeof c.back.text === 'string' ? c.back.text.trim() : '';
+      return { front: front, back: back };
+    }).filter(function (c) { return c.front && c.back; });
+  });
 }
 
 /**
