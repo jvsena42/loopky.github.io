@@ -92,7 +92,8 @@
       title: d.title,
       description: clip(d.description || '', MAX_DESCRIPTION),
       cards: d.cards,
-      topics: d.allTopics || d.topics,
+      /* The four the grid filters by, so any topic returned here works as a filter. */
+      topics: d.topics,
       author: d.author,
       author_name: d.authorName || null,
       id: d.id,
@@ -198,6 +199,8 @@
           return untilAborted(name, signal).then(function (p) {
             d.authorName = (p && p.name) || null;
             var view = deckView(d);
+            /* The count lives on the indexer, not the manifest; 0 here would be a guess. */
+            delete view.followers;
             view.cover_image = d.cover;
             view.note = UNTRUSTED;
             return ok(view);
