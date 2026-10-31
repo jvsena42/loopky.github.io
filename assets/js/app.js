@@ -367,7 +367,11 @@
        rows between the search box and the first deck. The busiest topics carry most
        of the value and the search box covers the rest. */
     var room = window.matchMedia('(max-width: 640px)').matches ? 6 : 14;
-    topicCounts(decks).slice(0, room).forEach(function (tag) {
+    var tags = topicCounts(decks).slice(0, room);
+    /* A selected topic stays on screen even when it is not one of the busiest, or the
+       grid is filtered by something the visitor cannot see or switch off. */
+    selected.forEach(function (tag) { if (tags.indexOf(tag) === -1) tags.push(tag); });
+    tags.forEach(function (tag) {
       var b = document.createElement('button');
       b.type = 'button';
       b.className = 'chip';
