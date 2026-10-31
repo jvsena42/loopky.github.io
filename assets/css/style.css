@@ -459,7 +459,8 @@ img { max-width: 100%; height: auto; display: block; }
   max-height: 16em; overflow: auto;
 }
 .linkcard-cta { margin: 24px 0 10px; }
-.linkcard-cta .btn[hidden] { display: none; }
+/* .btn sets a display, which beats the hidden attribute unless this says otherwise. */
+.btn[hidden] { display: none; }
 .link-status { color: var(--fg-2); margin: 0; }
 .link-about { margin-top: 10px; }
 .link-key {
@@ -807,6 +808,8 @@ a.feat h3 { color: var(--fg); }
 .dtable th { color: var(--fg); font-weight: 700; background: var(--surface-secondary); }
 .dtable td { color: var(--fg-2); }
 .dtable td:first-child { color: var(--fg); font-weight: 600; }
+/* Card text on a deck page is whatever its author typed, a long URL included. */
+.cardpreview td { overflow-wrap: anywhere; }
 .table-note { margin-top: 10px; }
 
 .cli-box.cli-hero { width: 100%; max-width: 560px; }

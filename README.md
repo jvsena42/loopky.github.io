@@ -35,6 +35,8 @@ tools/legal.mjs       turns that Markdown into the three pages
 tools/sync-legal.mjs  refreshes the two copies, and reports when they have drifted
 llms.txt              a summary of Loopky for language models
 llms-full.txt         every guide as plain text, for language models
+tools/featured-decks.json  the decks Discover ships in its markup, a snapshot
+tools/fetch-featured.mjs   refreshes that snapshot from the network
 tools/check.mjs       the pre-flight CI runs
 tools/layout-check.mjs  fails if the page scrolls sideways
 tools/stamp-assets.mjs  content hashes on the asset URLs
@@ -80,6 +82,20 @@ Decks are fetched six at a time and the grid fills as they land. Everything read
 was written by a stranger, so no network value reaches `innerHTML`. If the indexer is
 unreachable the section says so, offers a retry, and the rest of the page is
 unaffected.
+
+**The grid ships with decks in it.** A reader that runs no script, or a browser
+agent that looks before the indexer answers (it can take several seconds), used to
+find an empty section. The home pages are now built with a snapshot of the top
+twelve decks in `#disc-grid`, between `<!-- featured -->` markers, drawn the way
+`app.js` draws a tile. `app.js` keeps them up while the live list loads, replaces
+them when it lands, and puts them back if the network cannot be read. The snapshot is
+picked by `discover.js` itself, so it passes the same checks and the same ranking as
+the live grid. Refresh it by hand now and then:
+
+```shell
+node tools/fetch-featured.mjs
+node tools/build-guides.mjs
+```
 
 **A deck without a picture has none to find.** A cover reaches the web only when its
 author published one as an `https://` URL; an emoji cover, or a picture imported as a
@@ -279,6 +295,17 @@ accepts, and without a redirect, which it does not. iOS does not fetch the file
 from here: Apple's CDN does, and caches it for up to a day. What the CDN holds is
 at `https://app-site-association.cdn-apple.com/a/v1/loopky.app`; check that after
 changing the file, before blaming the app. `tools/check.mjs` validates it.
+
+**Read without JavaScript, these pages explain where their data is.** An assistant
+handed a deck link fetches it without running scripts, and used to get a page whose
+heading was "Loading…". The deck, profile and recap pages now carry an `#agent-note`
+section, hidden as soon as the page's script runs, that says which public JSON to
+fetch, in the owner-in-the-path form the homeserver documents:
+`https://homeserver.pubky.app/storage/{author}/pub/loopky/decks/{id}/manifest.json`,
+the cards at `…/cards/{n}.json`, and the name at Nexus. `llms.txt` gives the same
+addresses under "Reading a shared link". A plain GET needs no `pubky-host` header, which
+fetch tools cannot send. With JavaScript, a deck page also shows its first eight cards
+as a table, so an agent or a person can see what the deck is like without the app.
 
 ## The recap page
 

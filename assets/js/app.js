@@ -86,6 +86,7 @@
     if (sel) sel.value = lang;
 
     labelTheme();
+    labelPromptCopy();
     linkGuides();
     renderUses();
     paintIdea();
@@ -128,6 +129,13 @@
       li.textContent = item;
       ul.appendChild(li);
     });
+  }
+
+  /* The prompt's Copy button shows "Copy"; its name says what it copies, next to
+     the four command buttons that copy something else. */
+  function labelPromptCopy() {
+    var btn = document.getElementById('copy-prompt');
+    if (btn) btn.setAttribute('aria-label', tf('cli.copy', 'Copy') + ': ' + tf('cli.promptlabel', 'Prompt for your AI'));
   }
 
   /* ---------------- theme ---------------- */
@@ -207,6 +215,15 @@
   var moreBtn = document.getElementById('disc-more');
   var search = document.getElementById('disc-search');
 
+  /* The tiles the page was built with: a snapshot of the top decks, so a reader that
+     runs no script, or looks before the network answers, still sees decks. They stay
+     until the live list replaces them, and come back if the network cannot be read. */
+  var featured = grid ? [].slice.call(grid.children) : [];
+  function showFeatured() {
+    grid.textContent = '';
+    featured.forEach(function (n) { grid.appendChild(n); });
+  }
+
   /* A label that is only an emoji is a real tag in the app and stays on the cards,
      but it makes a poor filter, so it is kept out of the chip row. */
   function isWordTag(tag) {
@@ -261,6 +278,7 @@
   function emojiCover(d) {
     var box = document.createElement('div');
     box.className = 'deck-cover-emoji ' + tintClass(d.key || d.uri);
+    box.setAttribute('aria-hidden', 'true');
     box.textContent = d.emoji;
     return box;
   }
@@ -371,7 +389,6 @@
     if (!grid) return;
 
     if (failed) {
-      grid.textContent = '';
       status.hidden = false;
       status.textContent = tf('disc.error', 'Could not reach the network right now.') + ' ';
       var again = document.createElement('button');
@@ -384,6 +401,7 @@
         startDiscover();
       });
       status.appendChild(again);
+      if (featured.length) showFeatured(); else grid.textContent = '';
       if (chipbox) chipbox.textContent = '';
       if (moreBtn) moreBtn.hidden = true;
       return;
@@ -391,6 +409,7 @@
     if (decks === null) {
       status.hidden = false;
       status.textContent = tf('disc.loading', 'Loading decks…');
+      if (featured.length) { showFeatured(); return; }
       grid.textContent = '';
       grid.appendChild(skeleton());
       return;
@@ -523,7 +542,11 @@
       var done = function () {
         if (!copy) return;
         copy.textContent = tf('cli.copied', 'Copied');
-        setTimeout(function () { copy.textContent = tf('cli.copy', 'Copy'); }, 1800);
+        copy.setAttribute('aria-label', tf('cli.copied', 'Copied'));
+        setTimeout(function () {
+          copy.textContent = tf('cli.copy', 'Copy');
+          labelPromptCopy();
+        }, 1800);
       };
       var text = currentPrompt();
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -568,8 +591,12 @@
       btn.type = 'button';
       btn.className = 'cmd-copy';
       btn.appendChild(icon(COPY_PATHS, '2'));
-      btn.setAttribute('aria-label', tf('cli.copy', 'Copy'));
-      btn.title = tf('cli.copy', 'Copy');
+      /* Four of these sit side by side, so each one's name says which command it
+         copies; "Copy" alone gives a screen reader or an agent four identical buttons. */
+      var what = code.textContent.trim();
+      function copyName() { return tf('cli.copy', 'Copy') + ': ' + what; }
+      btn.setAttribute('aria-label', copyName());
+      btn.title = copyName();
       var timer;
       function done() {
         btn.replaceChildren(icon(DONE_PATHS, '2.4'));
@@ -580,8 +607,8 @@
         timer = setTimeout(function () {
           btn.replaceChildren(icon(COPY_PATHS, '2'));
           btn.classList.remove('is-done');
-          btn.setAttribute('aria-label', tf('cli.copy', 'Copy'));
-          btn.title = tf('cli.copy', 'Copy');
+          btn.setAttribute('aria-label', copyName());
+          btn.title = copyName();
         }, 1800);
       }
       function select() {

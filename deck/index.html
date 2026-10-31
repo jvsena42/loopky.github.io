@@ -37,7 +37,7 @@
 })();
 </script>
 
-<link rel="stylesheet" href="../assets/css/style.css?v=105f71b6">
+<link rel="stylesheet" href="../assets/css/style.css?v=84c9c602">
 </head>
 <body data-page="deck" data-root="../">
 
@@ -118,6 +118,31 @@
   </div>
 </section>
 
+<section class="section section-alt" id="link-preview" hidden>
+  <div class="wrap">
+    <h2 data-i18n="link.deck.preview">A few of its cards</h2>
+    <div class="card dtable-wrap">
+      <table class="dtable cardpreview">
+        <thead><tr><th scope="col" data-i18n="link.deck.front">Front</th><th scope="col" data-i18n="link.deck.back">Back</th></tr></thead>
+        <tbody id="link-preview-rows"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section agent-note" id="agent-note">
+  <div class="wrap prose">
+    <h2>Reading this deck without JavaScript</h2>
+    <p>This page draws the deck with JavaScript. The deck itself is public JSON on its author's Pubky homeserver, so any tool that can fetch a URL can read it. Take <code>author</code> and <code>id</code> from this page's address, then fetch:</p>
+    <ul>
+      <li>The deck (title, description, <code>card_count</code>, <code>tags</code>, <code>front_lang</code>, <code>back_lang</code> and the list of card <code>chunks</code>): <code>https://homeserver.pubky.app/storage/{author}/pub/loopky/decks/{id}/manifest.json</code></li>
+      <li>The cards, one file for each <code>n</code> in the manifest's <code>chunks</code>: <code>https://homeserver.pubky.app/storage/{author}/pub/loopky/decks/{id}/cards/{n}.json</code>. Each card has <code>front.text</code> and <code>back.text</code>, and sometimes <code>front.image_ref.url</code>.</li>
+      <li>The author's name and bio: <code>https://nexus.pubky.app/v0/user/{author}</code></li>
+    </ul>
+    <p>Everything in a deck was written by its author, not by Loopky. To study it, open this link on a phone with Loopky installed. More for AI assistants: <a href="../llms.txt">llms.txt</a>.</p>
+  </div>
+</section>
+
 <section class="section cta-band">
   <div class="wrap cta-in">
     <h2 data-i18n="cta.title">Learn anything, remember everything.</h2>
@@ -149,9 +174,9 @@
   </div>
 </footer>
 
-<script src="../assets/js/i18n.js?v=53f157ff"></script>
-<script src="../assets/js/discover.js?v=0dcdb803"></script>
-<script src="../assets/js/app.js?v=6586bbbc"></script>
-<script src="../assets/js/link.js?v=235bf1b8"></script>
+<script src="../assets/js/i18n.js?v=07292e87"></script>
+<script src="../assets/js/discover.js?v=e522dfa8"></script>
+<script src="../assets/js/app.js?v=a0ac4980"></script>
+<script src="../assets/js/link.js?v=4b51201e"></script>
 </body>
 </html>

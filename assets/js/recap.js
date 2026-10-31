@@ -37,6 +37,10 @@
     return;
   }
 
+  /* The note on reading this page without JavaScript is for readers that do not run it. */
+  var agentNote = document.getElementById('agent-note');
+  if (agentNote) agentNote.hidden = true;
+
   function tf(key, fallback) {
     return window.loopkyT ? window.loopkyT(key, fallback) : fallback;
   }

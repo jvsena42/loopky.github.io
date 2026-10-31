@@ -13,6 +13,8 @@
 
   var PACKAGE = 'com.github.jvsena42.loopky';
   var DECKS_ON_PROFILE = 24;
+  /* Enough cards to show what a deck is like, not so many that the page becomes it. */
+  var PREVIEW_CARDS = 8;
 
   var page = document.body.getAttribute('data-page');
   var root = document.body.getAttribute('data-root') || '';
@@ -69,6 +71,7 @@
   var deck = null;
   var profile = null;
   var profileDecks = null;
+  var preview = null;
   var pubky = null;
   var deckId = null;
 
@@ -236,8 +239,26 @@
     });
   }
 
+  /* A table, so a reader (or an agent reading the page) gets each front with its
+     back rather than a run of words. Only text: a card's picture is on someone
+     else's host, and the deck's cover already stands for it. */
+  function paintPreview() {
+    var section = document.getElementById('link-preview');
+    var rows = document.getElementById('link-preview-rows');
+    if (!section || !rows) return;
+    rows.textContent = '';
+    section.hidden = !(state === 'ready' && preview && preview.length);
+    if (section.hidden) return;
+    preview.forEach(function (c) {
+      var tr = el('tr');
+      tr.appendChild(el('td', null, c.front));
+      tr.appendChild(el('td', null, c.back));
+      rows.appendChild(tr);
+    });
+  }
+
   function paint() {
-    if (page === 'deck') paintDeck(); else paintProfile();
+    if (page === 'deck') { paintDeck(); paintPreview(); } else paintProfile();
   }
 
   /* ---------------- loading ---------------- */
@@ -252,6 +273,13 @@
         deck = d;
         state = d ? 'ready' : 'missing';
         paint();
+        if (d && d.cards !== 0) {
+          /* The preview is extra: when the cards cannot be read, the page stays as it is. */
+          fetchCards(pubky, deckId, d.chunks.length ? d.chunks[0] : 0).then(function (cards) {
+            preview = cards.slice(0, PREVIEW_CARDS);
+            paintPreview();
+          }, function () { /* no preview */ });
+        }
       }, function () {
         state = 'error';
         paint();
@@ -296,6 +324,11 @@
     location.replace(root || '/');
     return;
   }
+
+  /* The note that explains how to read this page without JavaScript is for readers
+     that do not run it; this one does, and is about to draw the real thing. */
+  var note = document.getElementById('agent-note');
+  if (note) note.hidden = true;
 
   document.addEventListener('loopky:lang', paint);
   load();

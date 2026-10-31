@@ -507,6 +507,90 @@ try {
   fail(`the guide pages are stale: ${e.stderr?.toString().trim()}`);
 }
 
+/* ---- 6d. what an agent reads: without JavaScript, and in the accessibility tree ---- */
+
+/* What a reader that runs no script gets from <main>, in visible characters: no
+   scripts, no tags, no spaces. Characters rather than words, because Japanese and
+   Chinese do not put spaces between words. */
+const mainText = (src) => (/<main\b[^>]*>([\s\S]*?)<\/main>/.exec(src)?.[1] ?? '')
+  .replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<!--[\s\S]*?-->/g, ' ')
+  .replace(/<[^>]+>/g, ' ').replace(/\s+/g, '').length;
+
+/* An assistant handed a shared link fetches it without running anything. Those pages
+   are drawn by script, so each carries a note saying where its data can be read with a
+   plain GET, and the addresses there are the ones llms.txt gives. */
+const STORAGE = 'https://homeserver.pubky.app/storage/';
+for (const page of ['deck/index.html', 'profile/index.html', 'recap/index.html']) {
+  const note = /<section[^>]*id="agent-note"[^>]*>([\s\S]*?)<\/section>/.exec(pages[page])?.[1];
+  if (!note) { fail(`${page} lacks the #agent-note section that explains how to read it without JavaScript`); continue; }
+  if (!note.includes(STORAGE)) fail(`${page}'s #agent-note does not give a ${STORAGE} address`);
+  if (!note.includes('llms.txt')) fail(`${page}'s #agent-note does not point to llms.txt`);
+}
+{
+  const deckNote = pages['deck/index.html'];
+  const manifest = `${STORAGE}{author}/pub/loopky/decks/{id}/manifest.json`;
+  if (!deckNote.includes(manifest)) fail(`deck/index.html's note no longer gives ${manifest}`);
+  if (!read('llms.txt').includes(manifest)) fail(`llms.txt does not give the deck address ${manifest} the deck page gives`);
+}
+
+/* Every indexable page says something on its own. The share pages are noindex and
+   are covered by their notes above. */
+for (const [page, src] of Object.entries({ 'index.html': html, ...homes, ...guides, ...legal, ...learn })) {
+  const n = mainText(src);
+  if (n < 300) fail(`${page} has ${n} characters in <main> without JavaScript; a crawler or an assistant reads next to nothing`);
+}
+
+/* Discover is live, so the home pages ship a snapshot of decks in the grid for
+   whoever reads them before, or without, the network. */
+{
+  const featured = JSON.parse(read('tools/featured-decks.json'));
+  if (!Array.isArray(featured.decks) || featured.decks.length < 6) {
+    fail('tools/featured-decks.json holds fewer than 6 decks; run node tools/fetch-featured.mjs');
+  }
+  for (const [page, src] of Object.entries({ 'index.html': html, ...homes })) {
+    const grid = /<!-- featured -->([\s\S]*?)<!-- \/featured -->/.exec(src)?.[1];
+    if (grid === undefined) { fail(`${page} lost the <!-- featured --> markers in #disc-grid`); continue; }
+    if ((grid.match(/<a class="deck"/g) ?? []).length < 6) fail(`${page} ships fewer than 6 featured decks in Discover`);
+  }
+}
+
+/* The accessibility tree is what a browser agent reads, and it is built from names.
+   A control with no label, an emoji icon read out as text, and two buttons with the
+   same name are all things an agent has to guess around. Only the markup is checked
+   here; app.js names the buttons it builds (the copy buttons say what they copy). */
+for (const [page, src] of Object.entries(everyPage)) {
+  const labelled = new Set([...src.matchAll(/<label\b[^>]*\bfor="([^"]+)"/g)].map((m) => m[1]));
+  for (const m of src.matchAll(/<(input|select|textarea)\b([^>]*)>/g)) {
+    const attrs = m[2];
+    if (/\btype="hidden"/.test(attrs) || /\baria-label(ledby)?="/.test(attrs)) continue;
+    const id = /\bid="([^"]+)"/.exec(attrs)?.[1];
+    /* A control inside its <label> is named by it. */
+    const before = src.slice(0, m.index);
+    const wrapped = before.lastIndexOf('<label') > before.lastIndexOf('</label>');
+    if (!wrapped && !(id && labelled.has(id))) fail(`${page} has a <${m[1]}${id ? ` id="${id}"` : ''}> with no label`);
+  }
+  for (const m of src.matchAll(/<span class="ico\b[^"]*"([^>]*)>/g)) {
+    if (!/aria-hidden="true"/.test(m[1])) { fail(`${page} has an icon <span class="ico"> that is not aria-hidden`); break; }
+  }
+  const names = {};
+  for (const m of src.matchAll(/<button\b([^>]*)>([\s\S]*?)<\/button>/g)) {
+    const name = /\baria-label="([^"]*)"/.exec(m[1])?.[1] ?? m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (!name) { fail(`${page} has a <button> with no name`); continue; }
+    if (names[name]) fail(`${page} has two buttons named "${name}"; give them aria-labels that say what each does`);
+    names[name] = true;
+  }
+}
+
+/* The connector is found in Claude's directory. A line that only says "add a custom
+   connector" sends people the long way round, and a model quotes the line it read. */
+for (const f of ['llms.txt', 'llms-full.txt']) {
+  for (const line of read(f).split('\n')) {
+    if (/custom connector/i.test(line) && !line.includes('claude.ai/directory/loopky')) {
+      fail(`${f} tells people to add a custom connector without naming the connector directory: "${line.slice(0, 80)}…"`);
+    }
+  }
+}
+
 /* ---- 7. copy rules ---- */
 
 /* Em and en dashes read as machine-written, and the app's own strings avoid them.
