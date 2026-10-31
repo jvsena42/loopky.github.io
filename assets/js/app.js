@@ -451,23 +451,31 @@
 
     loadDecks().then(function (list) {
       if (!list.length) { failed = true; renderDiscover(); return; }
-      decks = list;
-      renderDiscover();
-
-      var authors = [];
-      list.forEach(function (d) {
-        if (authors.indexOf(d.author) === -1) authors.push(d.author);
-      });
-      resolveNames(authors, function (pubky, name) {
-        var touched = false;
-        decks.forEach(function (d) {
-          if (d.author === pubky) { d.authorName = name; touched = true; }
-        });
-        if (touched) renderDiscover();
-      });
+      adoptDecks(list);
     }).catch(function () {
       failed = true;
       renderDiscover();
+    });
+  }
+
+  /* The grid takes a walk that came back, whoever started it: a tool call after a
+     failed load fetches afresh, and the grid has to leave its error for that list. */
+  function adoptDecks(list) {
+    if (decks === list) return;
+    decks = list;
+    failed = false;
+    renderDiscover();
+
+    var authors = [];
+    list.forEach(function (d) {
+      if (authors.indexOf(d.author) === -1) authors.push(d.author);
+    });
+    resolveNames(authors, function (pubky, name) {
+      var touched = false;
+      list.forEach(function (d) {
+        if (d.author === pubky) { d.authorName = name; touched = true; }
+      });
+      if (touched && decks === list) renderDiscover();
     });
   }
 
@@ -539,16 +547,26 @@
   /* The same filter and order the grid uses, over the same objects, so a tool call
      answers with exactly the decks the visitor would see for that search and those
      chips. */
+  /* An empty walk is the network failing (taggedSubjects swallows its errors), not
+     a search with no hits, so a tool reports it as one, as the grid does. */
+  function loadedDecks() {
+    return loadDecks().then(function (list) {
+      if (!list.length) throw new Error('no decks could be read');
+      if (grid) adoptDecks(list);
+      return list;
+    });
+  }
+
   window.loopkyDiscover = {
     find: function (q, topics) {
-      return loadDecks().then(function (list) {
+      return loadedDecks().then(function (list) {
         var want = canonicalTopics(list, topics || []);
         var needle = String(q || '').trim().toLowerCase();
         return { topics: want, decks: list.filter(function (d) { return deckMatches(d, needle, want); }) };
       });
     },
     show: function (q, topics) {
-      return loadDecks().then(function (list) {
+      return loadedDecks().then(function (list) {
         selected = canonicalTopics(list, topics || []);
         query = String(q || '').trim().toLowerCase();
         if (search) search.value = String(q || '').trim();
