@@ -37,7 +37,7 @@ const everyPage = { ...pages, ...guides, ...homes, ...legal, ...learn };
 
 /* ---- 1. every script parses ---- */
 
-const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js', 'tools/indexnow.mjs', 'tools/a11y-check.mjs', 'tools/fetch-featured.mjs'];
+const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/webmcp.js', 'assets/js/link.js', 'tools/indexnow.mjs', 'tools/a11y-check.mjs', 'tools/fetch-featured.mjs'];
 for (const f of scripts) {
   try {
     execFileSync(process.execPath, ['--check', new URL('../' + f, import.meta.url).pathname],
@@ -619,6 +619,76 @@ for (const f of ['assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js
   const src = read(f).replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '');
   if (/\.innerHTML\s*=/.test(src) || /insertAdjacentHTML/.test(src)) {
     fail(`${f} writes HTML from a string. Deck data comes from strangers, so it must not.`);
+  }
+}
+
+/* ---- WebMCP tools (#39) ---- */
+
+/* webmcp.js runs against a stub modelContext, which records what it registers. Every
+   tool needs the four fields an agent reads, and the calls below are the ones that
+   must be refused before anything reaches the network. */
+{
+  const registered = [];
+  const stub = { registerTool: (tool, opts) => { registered.push({ tool, opts }); return Promise.resolve(); } };
+  const fakeWindow = {
+    loopkyPlayUrl: 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky',
+    loopkyPrompt: { build: (r) => aiPrompt(r), fill: () => '' },
+    loopkyDiscover: {},
+  };
+  try {
+    new Function('document', 'window', 'location',
+      i18nSrc + '\n' + read('assets/js/discover.js') + '\n' + read('assets/js/webmcp.js'))(
+      { modelContext: stub }, fakeWindow, { origin: 'https://loopky.app' });
+  } catch (e) {
+    fail(`assets/js/webmcp.js threw while registering: ${e.message}`);
+  }
+  await new Promise((r) => setTimeout(r, 0));
+
+  const WANT = ['search_decks', 'get_deck', 'build_ai_prompt', 'get_app_links', 'show_decks', 'fill_ai_request'];
+  const byName = Object.fromEntries(registered.map(({ tool }) => [tool.name, tool]));
+  for (const name of WANT) if (!byName[name]) fail(`webmcp.js does not register ${name}`);
+  for (const { tool, opts } of registered) {
+    const n = tool.name || '(unnamed)';
+    if (!/^[a-z_]+$/.test(tool.name ?? '')) fail(`a WebMCP tool has no snake_case name: ${n}`);
+    if (typeof tool.description !== 'string' || tool.description.length < 20) fail(`WebMCP ${n} has no description`);
+    if (tool.inputSchema?.type !== 'object') fail(`WebMCP ${n} has no object inputSchema`);
+    if (!tool.annotations || typeof tool.annotations.readOnlyHint !== 'boolean') fail(`WebMCP ${n} does not say whether it is read-only`);
+    if (typeof tool.execute !== 'function') fail(`WebMCP ${n} has no execute`);
+    if (!(opts?.signal)) fail(`WebMCP ${n} is registered without an AbortSignal`);
+    if (/untrusted|strangers|Loopky users/i.test(tool.description) !== Boolean(tool.annotations?.untrustedContentHint)) {
+      fail(`WebMCP ${n}: a tool returning deck text must carry untrustedContentHint and say so in its description, and only those`);
+    }
+  }
+
+  const refused = [
+    ['get_deck', { author: 'nope', id: 'x' }],
+    ['get_deck', { author: 'y'.repeat(52), id: '..' }],
+    ['get_deck', {}],
+    ['search_decks', { limit: 51 }],
+    ['search_decks', { limit: 2.5 }],
+    ['search_decks', { topics: 'japanese' }],
+    ['search_decks', { query: 7 }],
+    ['build_ai_prompt', { request: '   ' }],
+    ['fill_ai_request', { idea: 'cooking' }],
+    ['fill_ai_request', {}],
+    ['show_decks', { topics: [''] }],
+  ];
+  for (const [name, args] of refused) {
+    if (!byName[name]) continue;
+    const r = await byName[name].execute(args, { signal: new AbortController().signal });
+    if (!r?.isError) fail(`WebMCP ${name} accepted ${JSON.stringify(args)}; it should answer isError`);
+  }
+  if (byName.build_ai_prompt) {
+    const r = await byName.build_ai_prompt.execute({ request: 'Ten Italian verbs' }, { signal: new AbortController().signal });
+    const prompt = JSON.parse(r?.content?.[0]?.text ?? '{}').prompt;
+    if (prompt !== aiPrompt('Ten Italian verbs')) fail('WebMCP build_ai_prompt does not return aiPrompt()');
+  }
+
+  /* Loaded after app.js on every home page, since it reads what app.js exposes. */
+  for (const [page, src] of Object.entries({ 'index.html': html, ...homes })) {
+    const at = src.search(/assets\/js\/webmcp\.js\?v=/);
+    if (at === -1) fail(`${page} does not load assets/js/webmcp.js`);
+    else if (at < src.search(/assets\/js\/app\.js\?v=/)) fail(`${page} loads webmcp.js before app.js`);
   }
 }
 

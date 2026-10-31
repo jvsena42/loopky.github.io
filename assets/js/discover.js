@@ -175,11 +175,11 @@ function deckFromManifest(pubky, id, d) {
 /**
  * One deck straight off its author's homeserver. Resolves to null when the
  * homeserver says there is no such deck and rejects when it could not be asked, so a
- * caller can tell a deleted deck from a dropped connection.
+ * caller can tell a deleted deck from a dropped connection. [signal] is optional.
  */
-function fetchDeck(pubky, id) {
+function fetchDeck(pubky, id, signal) {
   var url = HOMESERVER + '/pub/loopky/decks/' + encodeURIComponent(id) + '/manifest.json';
-  return fetch(url, { mode: 'cors', credentials: 'omit', headers: { 'pubky-host': pubky } })
+  return fetch(url, { mode: 'cors', credentials: 'omit', headers: { 'pubky-host': pubky }, signal: signal })
     .then(function (r) {
       if (r.status === 404) return null;
       if (!r.ok) throw new Error(url + ' -> ' + r.status);
@@ -279,14 +279,33 @@ function rank(a, b) {
     (b.at - a.at);
 }
 
+/* The one walk in flight or done, so the grid and a WebMCP tool call (webmcp.js)
+   share a fetch rather than each paging the indexer. Dropped when it fails or comes
+   back empty, which is what the grid's "Try again" retries. */
+var loadedDecks = null;
+
 /**
- * Every deck on the network.
+ * Every deck on the network, fetched once per page load.
  *
  * [onPartial] is called with the decks verified so far, each time a batch lands, so
- * the grid fills as the manifests arrive rather than after the slowest one. The
- * returned promise settles when every subject has been tried.
+ * the grid fills as the manifests arrive rather than after the slowest one. Only the
+ * caller that starts the walk gets it. The returned promise settles when every
+ * subject has been tried.
  */
 function loadDecks(onPartial) {
+  if (!loadedDecks) {
+    loadedDecks = walkDecks(onPartial).then(function (list) {
+      if (!list.length) loadedDecks = null;
+      return list;
+    }, function (e) {
+      loadedDecks = null;
+      throw e;
+    });
+  }
+  return loadedDecks;
+}
+
+function walkDecks(onPartial) {
   return loadSubjects().then(function (byUri) {
     var subjects = Object.keys(byUri).map(function (u) { return byUri[u]; });
     var decks = {};
