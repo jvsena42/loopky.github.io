@@ -159,6 +159,37 @@ the sitemap, indexable, has one `<h1>`, a title and a description; every JSON-LD
 block parses; every loopky.app address in the two llms files exists; and the
 prompt and topic list in the markup match `i18n.js`.
 
+## WebMCP
+
+The home page registers [WebMCP](https://github.com/webmachinelearning/webmcp)
+tools, so an agent running in the browser can call the page instead of scraping
+it (`assets/js/webmcp.js`, #39). Read-only: `search_decks`, `get_deck`,
+`build_ai_prompt`, `get_app_links`. Changing only what the visitor sees:
+`show_decks` (fills the Discover search and chips) and `fill_ai_request` (fills
+the For AI box). Nothing copies to the clipboard, opens another site, signs in or
+writes to the network; those stay with the visitor.
+
+Three rules keep it honest. The tools wrap the code the page already runs
+(`loadDecks` is fetched once and shared with the grid, and `show_decks` drives the
+same state the chips do), so a tool and the grid cannot disagree. Deck text is a
+stranger's, so it comes back as JSON fields, and those tools carry
+`untrustedContentHint`. And there is no polyfill: without native
+`document.modelContext` (or the older `navigator.modelContext`) the file does
+nothing.
+
+Annotations follow the spec's IDL (`readOnlyHint`, `untrustedContentHint`,
+`consequentialHint`), not MCP's `idempotentHint`/`destructiveHint`. `tools/check.mjs`
+registers the tools against a stub and calls each with inputs it must refuse. To try
+them for real, run Chrome with `--enable-features=WebMCP,WebMCPTesting` (or
+`chrome://flags/#enable-webmcp-testing`) and call
+`document.modelContext.getTools()` / `executeTool()` from DevTools.
+
+**No origin-trial token is shipped yet**, so visitors on a stock Chrome or Edge
+do not see the tools. Registering `loopky.app` for the trial gives a token for a
+`<meta http-equiv="origin-trial" content="…">` in `index.html` (Pages cannot set
+the header). Write its expiry here when it lands, or the tools vanish quietly when
+it lapses.
+
 ## Learn English pages
 
 `/learn-english/` and one page per language under it (`/learn-english/sw/`,
