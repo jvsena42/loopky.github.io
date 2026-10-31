@@ -39,6 +39,7 @@ tools/featured-decks.json  the decks Discover ships in its markup, a snapshot
 tools/fetch-featured.mjs   refreshes that snapshot from the network
 tools/check.mjs       the pre-flight CI runs
 tools/layout-check.mjs  fails if the page scrolls sideways
+tools/a11y-check.mjs  accessibility, from Chrome's own accessibility tree
 tools/stamp-assets.mjs  content hashes on the asset URLs
 tools/set-site-url.mjs  moves every published URL at once
 ```
@@ -440,7 +441,28 @@ That one loads the real pages (home, a real deck, its author's profile, every gu
 sideways. It exists because a wrapper around the topic chips once stretched that row
 to 1679px at every viewport and took the page's width with it, and no screenshot
 showed it: a cropped screenshot of an overflowing page looks exactly like a cropped
-screenshot of a correct one. It skips with a note when no Chrome is installed. Adding a string means adding it to all eleven dictionaries, and
+screenshot of a correct one. It skips with a note when no Chrome is installed.
+
+```shell
+node tools/a11y-check.mjs
+```
+
+That one reads Chrome's accessibility tree, which is what a screen reader reads and
+what a browser agent reads in place of the pixels, on fourteen pages: three home
+pages, a real deck, profile and recap, guides in English and Traditional Chinese, the
+learn-English hub and its Arabic page, and the legal pages. With JavaScript it fails
+on a control with no name, an emoji read out as text, two buttons with the same
+name, a page without exactly one `<h1>`, a heading that skips a level, a missing
+`main` landmark, a wrong `lang`, a broken skip link, and text below WCAG AA contrast
+in either theme. Without JavaScript it fails when a page has no heading or next to no
+text, when Discover ships fewer than six decks, and when a share page hides the note
+on where its data is. It needs no packages: it talks to Chrome over the DevTools
+protocol with Node's own WebSocket. Colour pairs that were already below AA when it
+was added are listed in `KNOWN_LOW_CONTRAST` with where each is drawn; a new pair
+fails, and a listed pair that stops being drawn is reported so its line can go. It
+skips with a note when no Chrome is installed.
+
+Adding a string means adding it to all eleven dictionaries, and
 forgetting one is the mistake this repo invites: the page falls back to English
 silently, so nothing looks broken. That is the check worth having.
 
@@ -488,7 +510,8 @@ only warns when it fails.
 
 ## CI and deploying
 
-`.github/workflows/pages.yml` runs `tools/check.mjs` on every push and pull request,
+`.github/workflows/pages.yml` runs `tools/check.mjs`, the recap tests, the layout
+check and the accessibility check on every push and pull request,
 then deploys `main` to Pages. It also asks the indexer the two questions the Discover
 section asks, and logs what came back. That one is a warning, never a failure: the
 network being down is not a reason to block a deploy.

@@ -43,6 +43,13 @@ jobs:
       - name: Layout
         run: node tools/layout-check.mjs
 
+      # Reads Chrome's accessibility tree, which is what a screen reader and a browser
+      # agent read. Fails on an unnamed control, two buttons with one name, an emoji
+      # read out as text, a skipped heading level, a wrong lang, new low-contrast text,
+      # and a page that says nothing without JavaScript.
+      - name: Accessibility
+        run: node tools/a11y-check.mjs
+
       # The privacy policy and the terms are copies of PRIVACY.md and TERMS.md in the
       # app repository. A warning here, so drift never blocks a deploy; legal-drift.yml
       # runs the same check weekly and fails, which is what gets noticed.

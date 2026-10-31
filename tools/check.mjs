@@ -37,7 +37,7 @@ const everyPage = { ...pages, ...guides, ...homes, ...legal, ...learn };
 
 /* ---- 1. every script parses ---- */
 
-const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js', 'tools/indexnow.mjs'];
+const scripts = ['assets/js/i18n.js', 'assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js', 'tools/indexnow.mjs', 'tools/a11y-check.mjs', 'tools/fetch-featured.mjs'];
 for (const f of scripts) {
   try {
     execFileSync(process.execPath, ['--check', new URL('../' + f, import.meta.url).pathname],
