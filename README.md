@@ -184,11 +184,18 @@ them for real, run Chrome with `--enable-features=WebMCP,WebMCPTesting` (or
 `chrome://flags/#enable-webmcp-testing`) and call
 `document.modelContext.getTools()` / `executeTool()` from DevTools.
 
-**No origin-trial token is shipped yet**, so visitors on a stock Chrome or Edge
-do not see the tools. Registering `loopky.app` for the trial gives a token for a
-`<meta http-equiv="origin-trial" content="…">` in `index.html` (Pages cannot set
-the header). Write its expiry here when it lands, or the tools vanish quietly when
-it lapses.
+**The origin-trial token expires on Mar 29, 2027** (the console's date; the
+token itself says 2027-03-30 00:00 UTC), which is when the trial ends (Chrome 149
+to 162). It is in a `<meta http-equiv="origin-trial">` in
+`index.html`'s `<head>` (Pages cannot set the header), copied to the translated home
+pages by `node tools/build-guides.mjs`. It is registered for `https://loopky.app`
+only, no subdomains and no third-party matching, so a PR preview or any other host
+does not get the tools. The token is public by design: it is signed for this origin
+and grants nothing elsewhere. When it lapses the tools stop registering with nothing
+reporting it, so `tools/check.mjs` decodes the token, notes it a month before the
+expiry and fails after. To renew, extend the registration in the [Chrome Origin
+Trials console](https://developer.chrome.com/origintrials/#/trials/active), replace
+the `content` and the date here, and rebuild.
 
 ## Learn English pages
 
