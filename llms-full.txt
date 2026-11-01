@@ -50,7 +50,7 @@ Many people search for Anki add-ons to get one of these. In Loopky they are part
 ### Big screens and the desktop
 
 Loopky is not a stretched phone app. On a tablet it switches to real two-pane layouts with a navigation rail: today's queue beside your deck grid, a deck's details beside its full card list, and a library four columns wide. Android tablets are supported now, and the iPad gets the same layouts in the iOS app, now in beta on TestFlight.
-On your computer, the **Loopky command line tool** does the heavy deck work that is tedious on any phone. It runs on Windows, macOS and Linux, and it lets you:
+On your computer, the **Loopky command line tool** does the heavy deck work that is tedious on any phone. It runs on macOS and Linux (on Windows, use the Loopky connector for Claude, or the Linux build under WSL), and it lets you:
 
 - create, edit, sync and delete decks;
 - list, add, edit and remove cards in bulk;
@@ -85,7 +85,7 @@ Yes. It imports .apkg packages, including images and cloze deletions, plus .txt 
 For most learners, yes. Import your decks once, study on your phone or tablet, and manage decks from your computer with the command line tool. Check first if you rely on audio files, LaTeX, custom card templates or FSRS scheduling, which Loopky does not have.
 
 **Can I use Loopky on a tablet or a computer?**
-Yes. Tablets get two-pane layouts built for big screens. On Windows, macOS and Linux the command line tool creates, edits, imports and bulk manages decks and cards; studying happens in the app.
+Yes. Tablets get two-pane layouts built for big screens. On macOS and Linux the command line tool creates, edits, imports and bulk manages decks and cards, and on Windows the Loopky connector for Claude does the same from the chat; studying happens in the app.
 
 **Does Loopky sync with AnkiWeb?**
 No. Loopky imports a deck once from a file. After that the deck lives in Loopky and syncs through your own Pubky homeserver, not AnkiWeb.
@@ -290,7 +290,6 @@ Not installed? Read the skill and follow it:
    https://github.com/jvsena42/loopky/blob/main/plugins/loopky/skills/loopky/SKILL.md
    Its CLI installer is published with each release:
    https://github.com/jvsena42/loopky/releases/latest/download/install.sh
-   Windows: https://github.com/jvsena42/loopky/releases/latest/download/install.ps1
 ```
 The full, always current version is on the [home page](https://loopky.app/#cli) with a copy button.
 
@@ -322,7 +321,7 @@ The agent reads the source and writes the cards, so anything it can open works: 
 
 ### Where it runs
 
-One file, no Java, no setup. Linux (x86_64), macOS (Apple Silicon), Windows (x86_64), plus Homebrew, a `.deb` package and Docker. Commands cover decks (list, create, show, edit, delete), cards (list, add, edit, remove), `import` for TSV and Anki `.apkg` files, trending tags and batch operations. [Read the CLI docs](https://github.com/jvsena42/loopky/tree/main/cli).
+One file, no Java, no setup. Linux (x86_64) and macOS (Apple Silicon), plus Homebrew, a `.deb` package and Docker. On Windows, use the Loopky connector for Claude, or run the Linux build under WSL. Commands cover decks (list, create, show, edit, delete), cards (list, add, edit, remove), `import` for TSV and Anki `.apkg` files, trending tags and batch operations. [Read the CLI docs](https://github.com/jvsena42/loopky/tree/main/cli).
 
 ### In a cloud sandbox: Claude Code on the web, Codex
 
@@ -439,7 +438,7 @@ Three good tools that suit different people. Here is what each does well, where 
 |  | Loopky | Anki | Quizlet |
 |---|---|---|---|
 | Price | Free, no ads | Free on desktop and Android; paid app on iPhone | Free tier with ads; paid plan for full features |
-| Platforms | Android phones and tablets now, iPhone and iPad in TestFlight beta; command line on Windows, macOS and Linux for deck management | Windows, macOS, Linux, Android, iOS, web | Web, iOS, Android |
+| Platforms | Android phones and tablets now, iPhone and iPad in TestFlight beta; command line on macOS and Linux for deck management (on Windows, the Loopky connector for Claude) | Windows, macOS, Linux, Android, iOS, web | Web, iOS, Android |
 | Open source | Yes, MIT | Yes | No |
 | Scheduling | Fixed intervals you set per button | FSRS or SM-2, intervals grow as you learn | Study modes; spaced review not the core |
 | Opens Anki .apkg | Yes, with images and cloze | Yes, natively | No |
@@ -500,7 +499,7 @@ Loopky is a free flashcards app with spaced repetition for Android, with iOS in 
 Yes. There is no price, no subscription, no ads and no in-app purchases. The source code is on GitHub under the MIT license.
 
 **Which platforms does it run on?**
-Android 10 and later, from Google Play. iPhone and iPad through the public TestFlight beta (https://testflight.apple.com/join/n2TzwMTu). Tablets get two-pane layouts built for big screens. On the desktop, a command line tool for Windows, macOS (Apple Silicon) and Linux manages decks and cards in bulk; studying happens in the app.
+Android 10 and later, from Google Play. iPhone and iPad through the public TestFlight beta (https://testflight.apple.com/join/n2TzwMTu). Tablets get two-pane layouts built for big screens. On the desktop, a command line tool for macOS (Apple Silicon) and Linux (x86_64) manages decks and cards in bulk, and on Windows the Loopky connector for Claude does the same; studying happens in the app.
 
 **Can I import my Anki decks?**
 Yes. Loopky imports .apkg packages with their text, images and cloze deletions, plus .txt and .csv files and pasted lists. Audio, LaTeX typesetting and Anki review history are not imported. [Details](https://loopky.app/anki-alternative/).

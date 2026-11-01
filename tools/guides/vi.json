@@ -47,7 +47,7 @@
       ],
       "sections": [
         { "h": "Làm cho màn hình lớn", "p": "Trên máy tính bảng, Loopky dùng bố cục hai khung thật sự: hàng đợi hôm nay cạnh các bộ thẻ, một bộ thẻ cạnh các thẻ của nó. Máy tính bảng Android ngay bây giờ, iPad khi có ứng dụng iOS.", "alt": "Thư viện bộ thẻ của Loopky trên máy tính bảng, rộng bốn cột" },
-        { "h": "Quản lý bộ thẻ từ máy tính", "p": "Công cụ dòng lệnh của Loopky chạy trên Windows, macOS và Linux.", "points": ["Tạo, sửa và xóa bộ thẻ", "Thêm, sửa và xóa nhiều thẻ cùng lúc", "Nhập tệp .apkg và TSV từ ổ đĩa", "Viết script, hoặc để một agent AI làm"] },
+        { "h": "Quản lý bộ thẻ từ máy tính", "p": "Công cụ dòng lệnh của Loopky chạy trên macOS và Linux. Trên Windows, hãy dùng connector Loopky cho Claude.", "points": ["Tạo, sửa và xóa bộ thẻ", "Thêm, sửa và xóa nhiều thẻ cùng lúc", "Nhập tệp .apkg và TSV từ ổ đĩa", "Viết script, hoặc để một agent AI làm"] },
         { "h": "Chuyển một bộ thẻ trong một phút", "p": "Trong Anki, xuất bộ thẻ thành .apkg kèm media. Mở nó trong Loopky và chọn trường mặt trước, mặt sau. Chỉ có một danh sách? Dán vào là được.", "alt": "Dán danh sách từ vào Loopky, dấu phân cách được tự nhận ra" }
       ],
       "table": {
@@ -171,7 +171,7 @@
       "promptP": "Dán đoạn này vào AI của bạn, rồi điền chủ đề hoặc đính kèm một tệp. Bạn duyệt đăng nhập trên điện thoại.",
       "sections": [
         { "h": "Rồi học trên điện thoại", "p": "Bộ thẻ hiện trong Loopky, sẵn sàng cho lặp lại ngắt quãng, có âm thanh với bộ thẻ ngoại ngữ. Hãy kiểm tra lỗi trong các thẻ do AI viết.", "alt": "Bộ thẻ hoàn chỉnh trong Loopky" },
-        { "h": "Bạn không phải cài gì", "p": "AI tự cài Loopky, trên Windows, macOS hay Linux, kể cả khi bạn trò chuyện với nó trên trình duyệt. Cũng có Homebrew, gói .deb và Docker.", "link": "Đọc tài liệu CLI" }
+        { "h": "Bạn không phải cài gì", "p": "AI tự cài Loopky, trên macOS hay Linux, kể cả khi bạn trò chuyện với nó trên trình duyệt. Cũng có Homebrew, gói .deb và Docker. Trên Windows, hãy dùng connector Loopky cho Claude.", "link": "Đọc tài liệu CLI" }
       ],
       "faq": [
         ["Tôi có cần biết lập trình không?", "Không. Dán prompt vào AI, thêm chủ đề hoặc tệp của bạn, và nó tự làm mọi bước. Dùng được trong các ứng dụng chat AI và với agent như Claude Code, Codex, Gemini CLI."],

@@ -241,7 +241,7 @@
           claude_connector_url: 'https://mcp.loopky.app/mcp',
           cli_docs: 'https://github.com/jvsena42/loopky/tree/main/cli',
           cli_install: 'https://github.com/jvsena42/loopky/releases/latest/download/install.sh',
-          cli_install_windows: 'https://github.com/jvsena42/loopky/releases/latest/download/install.ps1',
+          cli_platforms: 'Linux (x86_64) and macOS (Apple Silicon). On Windows, use the Loopky connector for Claude, or the Linux build under WSL.',
           agent_plugin: 'https://github.com/jvsena42/loopky/tree/main/plugins/loopky',
           source: 'https://github.com/jvsena42/loopky',
           llms_txt: new URL('llms.txt', location.origin + '/').href,

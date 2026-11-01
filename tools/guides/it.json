@@ -47,7 +47,7 @@
       ],
       "sections": [
         { "h": "Fatta per schermi grandi", "p": "Sul tablet Loopky usa veri layout a due pannelli: la coda di oggi accanto ai mazzi, un mazzo accanto alle sue carte. Tablet Android ora, iPad con l’app iOS.", "alt": "La libreria dei mazzi di Loopky su un tablet, larga quattro colonne" },
-        { "h": "Gestisci i mazzi dal computer", "p": "Lo strumento da riga di comando di Loopky funziona su Windows, macOS e Linux.", "points": ["Crea, modifica ed elimina mazzi", "Aggiungi, modifica e rimuovi carte in blocco", "Importa file .apkg e TSV dal disco", "Usalo in uno script, o lascia fare a un agente IA"] },
+        { "h": "Gestisci i mazzi dal computer", "p": "Lo strumento da riga di comando di Loopky funziona su macOS e Linux. Su Windows, usa il connettore Loopky per Claude.", "points": ["Crea, modifica ed elimina mazzi", "Aggiungi, modifica e rimuovi carte in blocco", "Importa file .apkg e TSV dal disco", "Usalo in uno script, o lascia fare a un agente IA"] },
         { "h": "Sposta un mazzo in un minuto", "p": "In Anki esporta il mazzo come .apkg con i media. Aprilo in Loopky e scegli i campi fronte e retro. Hai solo una lista? Incollala.", "alt": "Una lista di parole incollata in Loopky, con il separatore rilevato" }
       ],
       "table": {
@@ -171,7 +171,7 @@
       "promptP": "Incollalo nella tua IA e inserisci l’argomento o allega un file. Approvi l’accesso dal telefono.",
       "sections": [
         { "h": "Poi studialo sul telefono", "p": "Il mazzo compare in Loopky, pronto per la ripetizione dilazionata, con l’audio per i mazzi di lingue. Controlla che le carte scritte dall’IA non abbiano errori.", "alt": "Il mazzo finito in Loopky" },
-        { "h": "Niente da installare", "p": "La tua IA installa Loopky da sola, su Windows, macOS o Linux, anche quando ci chatti nel browser. Vanno bene anche Homebrew, un pacchetto .deb e Docker.", "link": "Leggi la documentazione della CLI" }
+        { "h": "Niente da installare", "p": "La tua IA installa Loopky da sola, su macOS o Linux, anche quando ci chatti nel browser. Vanno bene anche Homebrew, un pacchetto .deb e Docker. Su Windows, usa il connettore Loopky per Claude.", "link": "Leggi la documentazione della CLI" }
       ],
       "faq": [
         ["Devo saper programmare?", "No. Incolla il prompt nella tua IA, aggiungi l’argomento o il file, e lei fa ogni passaggio da sola. Funziona nelle app di chat con IA e con agenti come Claude Code, Codex e Gemini CLI."],

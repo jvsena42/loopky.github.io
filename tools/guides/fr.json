@@ -85,7 +85,7 @@
         },
         {
           "h": "Gérez vos paquets depuis l’ordinateur",
-          "p": "L’outil en ligne de commande de Loopky fonctionne sous Windows, macOS et Linux.",
+          "p": "L’outil en ligne de commande de Loopky fonctionne sous macOS et Linux. Sous Windows, utilisez le connecteur Loopky pour Claude.",
           "points": [
             "Créer, modifier et supprimer des paquets",
             "Ajouter, modifier et retirer des cartes en masse",
@@ -369,7 +369,7 @@
         },
         {
           "h": "Rien à installer pour vous",
-          "p": "Votre IA installe Loopky elle-même, sur Windows, macOS ou Linux, même quand vous discutez avec elle dans le navigateur. Homebrew, un paquet .deb et Docker marchent aussi.",
+          "p": "Votre IA installe Loopky elle-même, sur macOS ou Linux, même quand vous discutez avec elle dans le navigateur. Homebrew, un paquet .deb et Docker marchent aussi. Sous Windows, utilisez le connecteur Loopky pour Claude.",
           "link": "Lire la doc de la CLI"
         }
       ],

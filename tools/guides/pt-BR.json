@@ -47,7 +47,7 @@
       ],
       "sections": [
         { "h": "Feito para telas grandes", "p": "No tablet, o Loopky usa dois painéis de verdade: a fila de hoje ao lado dos baralhos, um baralho ao lado das cartas. Tablets Android agora, iPad com o app de iOS.", "alt": "A biblioteca de baralhos do Loopky num tablet, com quatro colunas" },
-        { "h": "Gerencie baralhos no computador", "p": "A ferramenta de linha de comando do Loopky roda em Windows, macOS e Linux.", "points": ["Crie, edite e apague baralhos", "Adicione, edite e remova cartas em massa", "Importe arquivos .apkg e TSV do disco", "Automatize com scripts ou deixe um agente de IA fazer"] },
+        { "h": "Gerencie baralhos no computador", "p": "A ferramenta de linha de comando do Loopky roda em macOS e Linux. No Windows, use o conector do Loopky para o Claude.", "points": ["Crie, edite e apague baralhos", "Adicione, edite e remova cartas em massa", "Importe arquivos .apkg e TSV do disco", "Automatize com scripts ou deixe um agente de IA fazer"] },
         { "h": "Mude um baralho em um minuto", "p": "No Anki, exporte o baralho como .apkg com mídia. Abra no Loopky e escolha os campos de frente e verso. Só tem uma lista? Cole.", "alt": "Colando uma lista de palavras no Loopky, com o separador detectado" }
       ],
       "table": {
@@ -171,7 +171,7 @@
       "promptP": "Cole isto na sua IA e preencha o tema ou anexe um arquivo. Você aprova o login no celular.",
       "sections": [
         { "h": "Depois é só estudar no celular", "p": "O baralho aparece no Loopky, pronto para a repetição espaçada, com áudio nos baralhos de idiomas. Revise as cartas escritas por IA para achar erros.", "alt": "O baralho pronto no Loopky" },
-        { "h": "Nada para você instalar", "p": "Sua IA instala o Loopky sozinha, no Windows, macOS ou Linux, até quando você conversa com ela pelo navegador. Homebrew, pacote .deb e Docker também funcionam.", "link": "Ler a documentação da CLI" }
+        { "h": "Nada para você instalar", "p": "Sua IA instala o Loopky sozinha, no macOS ou Linux, até quando você conversa com ela pelo navegador. Homebrew, pacote .deb e Docker também funcionam. No Windows, use o conector do Loopky para o Claude.", "link": "Ler a documentação da CLI" }
       ],
       "faq": [
         ["Preciso saber programar?", "Não. Cole o prompt na sua IA, junte o tema ou o arquivo, e ela faz todos os passos sozinha. Funciona em apps de chat com IA e em agentes como Claude Code, Codex e Gemini CLI."],
