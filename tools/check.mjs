@@ -140,7 +140,7 @@ if (AI_PROMPT) {
   for (const cmd of required) {
     if (!AI_PROMPT.includes(cmd)) fail(`the AI prompt no longer mentions \`${cmd}\``);
   }
-  if (!/install\.sh|install\.ps1/.test(AI_PROMPT)) fail('the AI prompt has no install line');
+  if (!/install\.sh/.test(AI_PROMPT)) fail('the AI prompt has no install line');
   /* aiPrompt swaps these two lines for a request; reword them and it swaps nothing. */
   if (aiPrompt && aiPrompt('x') === AI_PROMPT) fail('aiPrompt no longer finds the Topic and Cards lines in AI_PROMPT');
 }

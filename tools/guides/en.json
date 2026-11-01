@@ -47,7 +47,7 @@
       ],
       "sections": [
         { "h": "Made for big screens", "p": "On a tablet, Loopky uses real two-pane layouts: today's queue beside your decks, a deck beside its cards. Android tablets now, iPad with the iOS app.", "alt": "Loopky's deck library on a tablet, four columns wide" },
-        { "h": "Manage decks from your computer", "p": "The Loopky command line tool runs on Windows, macOS and Linux.", "points": ["Create, edit and delete decks", "Add, edit and remove cards in bulk", "Import .apkg and TSV files from disk", "Script it, or let an AI agent do it"] },
+        { "h": "Manage decks from your computer", "p": "The Loopky command line tool runs on macOS and Linux. On Windows, use the Loopky connector for Claude.", "points": ["Create, edit and delete decks", "Add, edit and remove cards in bulk", "Import .apkg and TSV files from disk", "Script it, or let an AI agent do it"] },
         { "h": "Move a deck in a minute", "p": "In Anki, export the deck as .apkg with media. Open it in Loopky and pick the front and back fields. Only have a list? Paste it.", "alt": "Pasting a word list into Loopky, with the separator detected" }
       ],
       "table": {
@@ -171,7 +171,7 @@
       "promptP": "Paste this into your AI, then fill in the topic or attach a file. You approve the sign-in on your phone.",
       "sections": [
         { "h": "Then study it on your phone", "p": "The deck shows up in Loopky, ready for spaced repetition, with audio for language decks. Check AI written cards for mistakes.", "alt": "The finished deck in Loopky" },
-        { "h": "Nothing for you to install", "p": "Your AI installs Loopky by itself, on Windows, macOS or Linux, even when you chat with it in the browser. Homebrew, a .deb package and Docker work too.", "link": "Read the CLI docs" }
+        { "h": "Nothing for you to install", "p": "Your AI installs Loopky by itself, on macOS or Linux, even when you chat with it in the browser. Homebrew, a .deb package and Docker work too. On Windows, use the Loopky connector for Claude.", "link": "Read the CLI docs" }
       ],
       "faq": [
         ["Do I need to know how to code?", "No. Paste the prompt into your AI, add your topic or file, and it does every step itself. It works in AI chat apps and in agents like Claude Code, Codex and Gemini CLI."],

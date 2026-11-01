@@ -85,7 +85,7 @@
         },
         {
           "h": "Stapel vom Computer aus verwalten",
-          "p": "Das Kommandozeilen-Tool von Loopky läuft unter Windows, macOS und Linux.",
+          "p": "Das Kommandozeilen-Tool von Loopky läuft unter macOS und Linux. Unter Windows nutzt du den Loopky-Connector für Claude.",
           "points": [
             "Stapel anlegen, bearbeiten und löschen",
             "Karten in großer Menge hinzufügen, ändern und entfernen",
@@ -369,7 +369,7 @@
         },
         {
           "h": "Du installierst nichts",
-          "p": "Deine KI installiert Loopky selbst, unter Windows, macOS oder Linux, auch wenn du im Browser mit ihr chattest. Homebrew, ein .deb-Paket und Docker gehen auch.",
+          "p": "Deine KI installiert Loopky selbst, unter macOS oder Linux, auch wenn du im Browser mit ihr chattest. Homebrew, ein .deb-Paket und Docker gehen auch. Unter Windows nutzt du den Loopky-Connector für Claude.",
           "link": "CLI-Doku lesen"
         }
       ],

@@ -20,8 +20,7 @@ var AI_PROMPT = [
   'Not installed? Read the skill and follow it:',
   '   https://github.com/jvsena42/loopky/blob/main/plugins/loopky/skills/loopky/SKILL.md',
   '   Its CLI installer is published with each release:',
-  '   https://github.com/jvsena42/loopky/releases/latest/download/install.sh',
-  '   Windows: https://github.com/jvsena42/loopky/releases/latest/download/install.ps1'
+  '   https://github.com/jvsena42/loopky/releases/latest/download/install.sh'
 ].join('\n');
 
 /* The ideas the home page offers, in the order it shows them. Each has a title and a

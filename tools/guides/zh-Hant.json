@@ -47,7 +47,7 @@
       ],
       "sections": [
         { "h": "為大螢幕而設計", "p": "在平板上，Loopky 使用真正的雙欄版面：今天的複習佇列在牌組旁邊，牌組在它的卡片旁邊。現在支援 Android 平板，iOS 應用程式推出後支援 iPad。", "alt": "平板上的 Loopky 牌組庫，四欄寬" },
-        { "h": "在電腦上管理牌組", "p": "Loopky 命令列工具可在 Windows、macOS 和 Linux 上執行。", "points": ["建立、編輯和刪除牌組", "批次新增、編輯和移除卡片", "從本機匯入 .apkg 和 TSV 檔案", "寫成腳本，或交給 AI 代理來做"] },
+        { "h": "在電腦上管理牌組", "p": "Loopky 命令列工具可在 macOS 和 Linux 上執行。在 Windows 上，請改用給 Claude 用的 Loopky 連接器。", "points": ["建立、編輯和刪除牌組", "批次新增、編輯和移除卡片", "從本機匯入 .apkg 和 TSV 檔案", "寫成腳本，或交給 AI 代理來做"] },
         { "h": "一分鐘搬走一個牌組", "p": "在 Anki 中把牌組匯出為含媒體的 .apkg。用 Loopky 開啟，選好正面和背面欄位。只有一份清單？直接貼上。", "alt": "把單字清單貼到 Loopky，自動偵測分隔符號" }
       ],
       "table": {
@@ -171,7 +171,7 @@
       "promptP": "把這段貼給你的 AI，填上主題或附上檔案。登入由你在手機上確認。",
       "sections": [
         { "h": "然後在手機上學習", "p": "牌組會出現在 Loopky 裡，可以直接用間隔重複學習，語言牌組還有語音。AI 寫的卡片請檢查一下有沒有錯誤。", "alt": "Loopky 裡做好的牌組" },
-        { "h": "什麼都不用你裝", "p": "AI 會自己安裝 Loopky，Windows、macOS、Linux 都行，在瀏覽器裡和 AI 聊天時也可以。也有 Homebrew、.deb 套件和 Docker。", "link": "查看 CLI 文件" }
+        { "h": "什麼都不用你裝", "p": "AI 會自己安裝 Loopky，macOS、Linux 都行，在瀏覽器裡和 AI 聊天時也可以。也有 Homebrew、.deb 套件和 Docker。在 Windows 上，請改用給 Claude 用的 Loopky 連接器。", "link": "查看 CLI 文件" }
       ],
       "faq": [
         ["我需要會寫程式嗎？", "不需要。把提示詞貼給 AI，加上主題或檔案，剩下的每一步它都會自己完成。AI 聊天應用，以及 Claude Code、Codex、Gemini CLI 等代理都能用。"],

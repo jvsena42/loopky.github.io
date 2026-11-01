@@ -47,7 +47,7 @@
       ],
       "sections": [
         { "h": "为大屏幕而做", "p": "在平板上，Loopky 使用真正的双栏布局：今天的复习队列在卡组旁边，卡组在它的卡片旁边。现在支持 Android 平板，iOS 应用推出后支持 iPad。", "alt": "平板上的 Loopky 卡组库，四列宽" },
-        { "h": "在电脑上管理卡组", "p": "Loopky 命令行工具可在 Windows、macOS 和 Linux 上运行。", "points": ["创建、编辑和删除卡组", "批量添加、编辑和删除卡片", "从本地导入 .apkg 和 TSV 文件", "写成脚本，或交给 AI 智能体来做"] },
+        { "h": "在电脑上管理卡组", "p": "Loopky 命令行工具可在 macOS 和 Linux 上运行。在 Windows 上，请改用给 Claude 用的 Loopky 连接器。", "points": ["创建、编辑和删除卡组", "批量添加、编辑和删除卡片", "从本地导入 .apkg 和 TSV 文件", "写成脚本，或交给 AI 智能体来做"] },
         { "h": "一分钟搬走一个卡组", "p": "在 Anki 中把卡组导出为带媒体的 .apkg。用 Loopky 打开，选好正面和背面字段。只有一份列表？直接粘贴。", "alt": "把单词列表粘贴到 Loopky，自动识别分隔符" }
       ],
       "table": {
@@ -171,7 +171,7 @@
       "promptP": "把这段粘贴给你的 AI，填上主题或附上文件。登录由你在手机上确认。",
       "sections": [
         { "h": "然后在手机上学习", "p": "卡组会出现在 Loopky 里，可以直接用间隔重复学习，语言卡组还有语音。AI 写的卡片请检查一下有没有错误。", "alt": "Loopky 里做好的卡组" },
-        { "h": "什么都不用你装", "p": "AI 会自己安装 Loopky，Windows、macOS、Linux 都行，在浏览器里和 AI 聊天时也可以。也有 Homebrew、.deb 安装包和 Docker。", "link": "查看 CLI 文档" }
+        { "h": "什么都不用你装", "p": "AI 会自己安装 Loopky，macOS、Linux 都行，在浏览器里和 AI 聊天时也可以。也有 Homebrew、.deb 安装包和 Docker。在 Windows 上，请改用给 Claude 用的 Loopky 连接器。", "link": "查看 CLI 文档" }
       ],
       "faq": [
         ["我需要会写代码吗？", "不需要。把提示词粘贴给 AI，加上主题或文件，剩下的每一步它都会自己完成。AI 聊天应用，以及 Claude Code、Codex、Gemini CLI 等智能体都能用。"],
