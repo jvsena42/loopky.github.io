@@ -684,6 +684,31 @@ for (const f of ['assets/js/discover.js', 'assets/js/app.js', 'assets/js/link.js
     if (prompt !== aiPrompt('Ten Italian verbs')) fail('WebMCP build_ai_prompt does not return aiPrompt()');
   }
 
+  /* The origin-trial token is what turns the tools on outside a flagged browser. It
+     lapses silently, so its payload is read here: one token on every home page, for
+     this site's origin and the WebMCP feature, failing once expired and noted a
+     month ahead. The payload is the JSON after the 69-byte signature header. */
+  const tokens = Object.entries({ 'index.html': html, ...homes }).map(([page, src]) =>
+    [page, /<meta http-equiv="origin-trial" content="([^"]+)">/.exec(src)?.[1]]);
+  for (const [page, t] of tokens) if (!t) fail(`${page} carries no WebMCP origin-trial token`);
+  const token = tokens[0][1];
+  if (token && tokens.some(([, t]) => t !== token)) fail('the home pages carry different origin-trial tokens; rebuild with node tools/build-guides.mjs');
+  if (token) {
+    let payload = null;
+    try { payload = JSON.parse(Buffer.from(token, 'base64').subarray(69).toString('utf8')); } catch { /* reported below */ }
+    if (!payload) fail('the origin-trial token in index.html does not decode');
+    else {
+      const days = Math.floor((payload.expiry * 1000 - Date.now()) / 86400000);
+      const when = new Date(payload.expiry * 1000).toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+      if (payload.feature !== 'WebMCP') fail(`the origin-trial token is for ${payload.feature}, not WebMCP`);
+      if (canonical && new URL(payload.origin).origin !== new URL(canonical).origin) {
+        fail(`the origin-trial token is for ${payload.origin}, not ${new URL(canonical).origin}`);
+      }
+      if (days < 0) fail(`the WebMCP origin-trial token expired on ${when}; renew it (README: WebMCP)`);
+      else if (days < 30) note(`the WebMCP origin-trial token expires on ${when}, in ${days} days; renew it (README: WebMCP)`);
+    }
+  }
+
   /* Loaded after app.js on every home page, since it reads what app.js exposes. */
   for (const [page, src] of Object.entries({ 'index.html': html, ...homes })) {
     const at = src.search(/assets\/js\/webmcp\.js\?v=/);
