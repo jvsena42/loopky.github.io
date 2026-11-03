@@ -290,7 +290,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <div class="panel wide">
         <div class="thead"><h2>Top decks</h2><input type="search" id="deck-filter" placeholder="Filter decks"></div>
         <div class="tablewrap"><table id="decks-table"></table></div>
-        <p class="note">Followers: <span class="mono">/pub/loopky/subscriptions/</span> records found on scanned accounts. Nexus followers: the deck's <span class="mono">loopky-followed</span> tagger count.</p>
+        <p class="note">Followers: <span class="mono">/pub/loopky/subscriptions/</span> records found on scanned accounts.</p>
       </div>
 
       <div class="panel">
@@ -1285,7 +1285,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         gs.appendChild(kpi(fmt(t.active30), 'Reviewed in 30 days', pct(t.active30, t.accounts) + ' of accounts'));
         gs.appendChild(kpi(fmt(t.states), 'Cards with review state'));
       }
-      gd.appendChild(kpi(fmt(t.decks), 'Decks', fmt(t.indexedDecks) + ' indexed by Nexus', true));
+      gd.appendChild(kpi(fmt(t.decks), 'Decks', null, true));
       gd.appendChild(kpi(fmt(t.cards), 'Cards in decks'));
     } else {
       var fresh = accounts.filter(function (a) { return a.firstSeen && inP(a.firstSeen); }).length;
@@ -1297,7 +1297,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       gs.appendChild(kpi(activity ? fmt(active) : dash, 'Studied', activity ? pct(active, total) + ' of accounts' : 'needs review state'));
       gs.appendChild(kpi(activity ? fmt(total - active) : dash, 'Studied no deck', activity ? pct(total - active, total) + ' of accounts' : 'needs review state', true));
       gs.appendChild(kpi(activity ? fmt(reviewed) : dash, 'Cards reviewed', activity ? 'latest review in period' : 'needs review state'));
-      gd.appendChild(kpi(fmt(newDecks.length), 'Decks created', fmt(newDecks.filter(function (d) { return d.indexed; }).length) + ' indexed by Nexus', true));
+      gd.appendChild(kpi(fmt(newDecks.length), 'Decks created', null, true));
       gd.appendChild(kpi(fmt(newDecks.reduce(function (n, d) { return n + d.cards; }, 0)), 'Cards in new decks'));
     }
 
@@ -1358,9 +1358,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         return link(names[d.author] || short(d.author), '../profile/?pubky=' + encodeURIComponent(d.author), names[d.author] ? null : 'mono');
       } },
       { h: 'Followers', num: true, v: function (d) { return d.followers; } },
-      { h: 'Nexus followers', num: true, v: function (d) { return d.nexusFollowers; } },
       { h: 'Cards', num: true, v: function (d) { return d.cards; } },
-      { h: all ? 'Reviewed cards' : 'Reviewed in period', num: true, v: function (d) { return d.pReviews; } },
       { h: 'Langs', v: function (d) { return d.frontLang && d.backLang ? d.frontLang + ' → ' + d.backLang : ''; } },
       { h: 'Tags', v: function (d) { return d.tags.join(' '); }, cls: 't', cell: function (d) {
         var f = document.createDocumentFragment();
@@ -1369,8 +1367,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         return f;
       } },
       { h: 'Created', v: function (d) { return d.createdAt; }, cell: function (d) { return document.createTextNode(day(d.createdAt)); } },
-      { h: 'Indexed', v: function (d) { return d.indexed ? 1 : 0; }, cell: function (d) { return el('span', d.indexed ? 'ok' : 'err', d.indexed ? 'yes' : 'no'); } },
-    ], shownDecks, s.deep ? 5 : 2, document.getElementById('deck-filter'), function (d) {
+    ], shownDecks, 2, document.getElementById('deck-filter'), function (d) {
       return d.title + ' ' + d.tags.join(' ') + ' ' + (names[d.author] || '') + ' ' + d.author;
     });
 
@@ -1443,7 +1440,6 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       { h: all ? 'Own decks' : 'Decks created', num: true, v: function (a) { return all ? a.ownedDecks : a.pCreated; } },
       { h: 'Following', num: true, v: function (a) { return a.liveSubs.length; } },
       { h: all ? 'Studying' : 'Studied in period', num: true, v: function (a) { return a.pStudied.length; } },
-      { h: all ? 'Reviewed cards' : 'Reviewed in period', num: true, v: function (a) { return a.pReviews; } },
       { h: 'Last review', v: function (a) { return a.lastReview; }, cell: function (a) { return document.createTextNode(ago(a.lastReview)); } },
       { h: 'First seen', v: function (a) { return a.firstSeen; }, cell: function (a) { return document.createTextNode(day(a.firstSeen)); } },
       { h: 'pubky.app', v: function (a) { return a.pubkyApp || ''; }, cell: function (a) {
@@ -1452,8 +1448,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         if (a.pubkyAppWhy && a.pubkyAppWhy.length) span.title = a.pubkyAppWhy.join(', ');
         return span;
       } },
-      { h: 'Found via', v: function (a) { return a.via.join(', '); }, cls: 't' },
-    ], accounts, s.deep ? (all ? 6 : 5) : 2, document.getElementById('acct-filter'), function (a) { return a.name + ' ' + a.pubky; });
+    ], accounts, s.deep ? (all ? 5 : 4) : 2, document.getElementById('acct-filter'), function (a) { return a.name + ' ' + a.pubky; });
 
     var src = document.getElementById('sources');
     clear(src);
