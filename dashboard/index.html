@@ -280,7 +280,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <div class="panel wide">
         <h2>New accounts per month</h2>
         <div id="signups"></div>
-        <p class="note">An account's month is its earliest trace: the oldest deck it created, deck Nexus indexed for it, Loopky post it wrote, or card it reviewed (review dates need “Read review state”; a card keeps only its latest review). Accounts with no dated record are left out.</p>
+        <p class="note">An account's month is its earliest trace: its <span class="mono">loopky-user</span> self-tag, the oldest deck it created or followed, deck Nexus indexed for it, Loopky post it wrote, study settings it saved, or card it reviewed (review dates need “Read review state”; a card keeps only its latest review).</p>
       </div>
       <div class="panel wide">
         <h2>Decks created per month</h2>
@@ -397,6 +397,11 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   function cap(what) { capped[what] = (capped[what] || 0) + 1; }
 
   /* pubky.app post ids are a microsecond timestamp, shifted left one bit, in Crockford base32. */
+  /* Loopky writes milliseconds; other pubky.app clients write microseconds. */
+  function millis(v) {
+    return typeof v !== 'number' ? 0 : v > 1e14 ? Math.floor(v / 1000) : v;
+  }
+
   function postTime(id) {
     if (!/^[0-9A-HJKMNP-TV-Z]{13}$/.test(id || '')) return 0;
     var n = 0;
@@ -734,6 +739,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         });
         a.settings = r[3];
         a.hasSettings = !!r[3];
+        if (r[3]) trace(p, millis(r[3].updated_at));
         var prof = r[4];
         if (prof && typeof prof.name === 'string' && !PUBKY_RE.test(prof.name)) a.name = prof.name.trim();
         a.any = a.decks.length > 0 || a.subs.length > 0 || a.srsChunks.length > 0 || a.hasSettings;
@@ -889,7 +895,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
                 if (LOOPKY_LABEL_RE.test(label)) { loopkyPosts[t.uri] = true; trace(p, postTime(t.uri.slice(own.length))); }
               } else if (/\/pub\/loopky\//.test(t.uri)) {
                 /* Decks were tagged in this namespace before #40. */
-              } else if (!(t.uri === 'pubky://' + p + '/pub/pubky.app/profile.json' && label === 'loopky-user')) {
+              } else if (t.uri === 'pubky://' + p + '/pub/pubky.app/profile.json' && label === 'loopky-user') {
+                trace(p, millis(t.created_at));
+              } else {
                 found('tags');
               }
             }, missed);
@@ -925,6 +933,55 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       });
     }
 
+    /* 10. Dates for accounts nothing above dated. A follow carries followed_at; an account
+       with no Loopky record at all has only its loopky-user self-tag, read when the pubky.app
+       pass stopped before reaching it. */
+    function isDated(p) {
+      var a = accounts[p];
+      return !!traces[p] || a.firstSeen > 0 || a.decks.some(function (id) {
+        var d = decks[p + '/' + id];
+        return d && d.createdAt > 0;
+      });
+    }
+    function selfTagDate(p) {
+      var self = 'pubky://' + p + '/pub/pubky.app/profile.json';
+      var done = false;
+      return listAll(p, '/pub/pubky.app/tags/', false).then(function (list) {
+        return pooled(list, 2, function (l) {
+          if (done) return;
+          return hs(p, l.slice(l.indexOf('/pub/')), true).then(function (t) {
+            if (t && t.uri === self && typeof t.label === 'string' && t.label.trim().toLowerCase() === 'loopky-user') {
+              done = true;
+              trace(p, millis(t.created_at));
+            }
+          }, function () {});
+        });
+      });
+    }
+    function datingPass() {
+      var list = Object.keys(accounts).filter(function (p) { return accounts[p].any || selfTagged[p]; });
+      var subs = [];
+      list.forEach(function (p) { accounts[p].subs.forEach(function (k) { subs.push({ p: p, k: k }); }); });
+      var done = 0;
+      return pooled(subs, CONCURRENCY, function (j) {
+        return hs(j.p, '/pub/loopky/subscriptions/' + j.k + '.json', true).then(function (r) {
+          if (r) trace(j.p, millis(r.followed_at));
+        }, function () {}).finally(function () {
+          done++;
+          progress('Homeserver: follow dates ' + done + '/' + subs.length);
+        });
+      }).then(function () {
+        var undated = list.filter(function (p) { return selfTagged[p] && !isDated(p); });
+        var n = 0;
+        return pooled(undated, CONCURRENCY, function (p) {
+          return selfTagDate(p).catch(function () {}).finally(function () {
+            n++;
+            progress('Homeserver: sign-up dates ' + n + '/' + undated.length);
+          });
+        });
+      });
+    }
+
     step('nexus');
     return Promise.all([deckStream().then(deckTaggers), userDirectory(), announcers()])
       .then(verifySelfTags)
@@ -932,6 +989,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       .then(manifests)
       .then(reviewState)
       .then(pubkyAppPass)
+      .then(datingPass)
       .then(function () {
         return { candidates: candidates, accounts: accounts, decks: decks, goneDecks: goneDecks, selfTagged: selfTagged,
           traces: traces, sources: sources, nexusDecks: nexusDecks, unread: Object.keys(unread).length };
@@ -1072,7 +1130,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   }
 
   /* Monthly columns from a list of timestamps, empty months included. */
-  function months(node, stamps, chosen, onPick) {
+  function months(node, stamps, chosen, onPick, undated) {
     clear(node);
     stamps = stamps.filter(function (t) { return t > Date.UTC(2024, 0, 1) && t <= Date.now() + DAY; });
     if (!stamps.length) { node.appendChild(el('p', 'note', 'No dated records.')); return; }
@@ -1109,7 +1167,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     scroller.appendChild(wrap);
     node.appendChild(scroller);
     var x = el('div', 'xlab');
-    x.appendChild(el('span', null, fmt(running) + ' total since ' + monthName(all[0])));
+    x.appendChild(el('span', null, fmt(running) + ' total since ' + monthName(all[0]) +
+      (undated ? ' \u00b7 ' + fmt(undated) + ' undated, not shown' : '')));
     x.appendChild(el('span', null, 'Best month: ' + monthName(peak) + ' (' + fmt(counts[peak] || 0) + ')'));
     node.appendChild(x);
     scroller.scrollLeft = scroller.scrollWidth;
@@ -1347,7 +1406,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     }));
 
     var chosen = period && period.month;
-    months(document.getElementById('signups'), s.accounts.map(function (a) { return a.firstSeen; }).filter(Boolean), chosen, setPeriod);
+    months(document.getElementById('signups'), s.accounts.map(function (a) { return a.firstSeen; }).filter(Boolean), chosen, setPeriod,
+      s.accounts.filter(function (a) { return !a.firstSeen; }).length);
     months(document.getElementById('decks-month'), s.decks.map(function (d) { return d.createdAt; }).filter(Boolean), chosen, setPeriod);
 
     table(document.getElementById('decks-table'), [
