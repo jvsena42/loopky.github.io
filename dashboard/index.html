@@ -270,7 +270,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <div class="panel">
         <h2>Account segments<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
         <div class="bars" id="segments"></div>
-        <p class="note">Each account is in exactly one segment. “Studying” means at least one review-state record under <span class="mono">/pub/loopky/srs/</span>.</p>
+        <p class="note">Each account is in exactly one segment. “Studying” means review state under <span class="mono">/pub/loopky/srs/</span> for a deck the account still owns or follows. Review state outlives an unfollow and a deleted deck; an account left with only that is “Studied before, nothing now”.</p>
       </div>
       <div class="panel">
         <h2>Last review<span class="badge" data-snapshot hidden>current, ignores the period</span></h2>
@@ -280,7 +280,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <div class="panel wide">
         <h2>New accounts per month</h2>
         <div id="signups"></div>
-        <p class="note">An account's month is its earliest trace: the oldest deck it created or card it reviewed (review dates need “Read review state”). Accounts with no dated record are left out.</p>
+        <p class="note">An account's month is its earliest trace: the oldest deck it created, deck Nexus indexed for it, Loopky post it wrote, or card it reviewed (review dates need “Read review state”; a card keeps only its latest review). Accounts with no dated record are left out.</p>
       </div>
       <div class="panel wide">
         <h2>Decks created per month</h2>
@@ -329,7 +329,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       <div class="panel wide">
         <h2>Sources and coverage</h2>
         <ul class="src" id="sources"></ul>
-        <p class="note">An account is counted when it carries a self-applied <span class="mono">loopky-user</span> profile tag, or when anything exists under its <span class="mono">/pub/loopky/</span>. Candidates come from Nexus (the user directory, deck authors, deck taggers, announcement authors) and are widened by following every deck author named in a scanned account's subscriptions and review state. An account that never published, never self-tagged and is not followed by anyone scanned cannot be found from public data. Accounts hosted on a homeserver other than the one above read as empty.</p>
+        <p class="note">An account is counted when it carries a self-applied <span class="mono">loopky-user</span> profile tag, or when anything exists under its <span class="mono">/pub/loopky/</span>. Candidates come from Nexus (the user directory, deck authors, deck followers, and authors of their own Loopky deck announcements) and are widened by following every deck author named in a scanned account's subscriptions and review state. An account that never published, never self-tagged and is not followed by anyone scanned cannot be found from public data. Accounts hosted on a homeserver other than the one above read as empty.</p>
       </div>
     </div>
   </section>
@@ -342,9 +342,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
  * pages make, run over every account that can be found:
  *
  *   Nexus        who might be a Loopky account. The `loopky-user` profile directory,
- *                the `loopky-deck` resource stream, every tagger of a deck manifest
- *                (followers write `loopky-followed`) and the authors of announcement
- *                posts. None of it is proof: anyone can tag anything.
+ *                the `loopky-deck` resource stream, a deck manifest's `loopky-followed`
+ *                taggers (its followers) and the authors of announcement posts they
+ *                labelled themselves. None of it is proof: anyone can tag anything.
  *   Homeserver   what each candidate actually holds under /pub/loopky/: decks,
  *                subscriptions, review state, settings. This is the proof, and every
  *                deck author named in a subscription or a review-state path is a new
@@ -370,6 +370,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   var PUBKY_APP_LOOPKY_ENTRIES = { 'profile.json': true, 'follows/': true, 'posts/': true, 'tags/': true };
   var LOOPKY_LABEL_RE = /^(loopky($|-)|deck-request$)/;
   var LOOPKY_LINK_RE = /^(pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/|https:\/\/(loopky\.app|jvsena42\.github\.io)\/)/;
+  /* A deck link anywhere in a post's text. Nexus returns no `embed`, so the body is all there is. */
+  var DECK_LINK_RE = /pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/decks\/|https:\/\/(loopky\.app|jvsena42\.github\.io)(\/loopky)?\/deck\/\?/;
+  var CROCKFORD = '0123456789ABCDEFGHJKMNPQRSTVWXYZ';
 
   var DAY = 86400000;
   var AGAIN_DELAY_MS = 600000;
@@ -377,6 +380,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   var LIST_PAGE = 500;
   var MAX_LIST_PAGES = 40;
   var NEXUS_WINDOW = 100;
+  var POST_WINDOW = 50;   /* the most /v0/stream/posts accepts */
   var MAX_NEXUS_PAGES = 100;
   var MAX_ACCOUNTS = 5000;
   var RETRIES = 4;
@@ -388,6 +392,18 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
   var requests = 0;
   var failures = 0;
+  /* Every limit the scan reached: a count read past one of these is a lower bound. */
+  var capped = {};
+  function cap(what) { capped[what] = (capped[what] || 0) + 1; }
+
+  /* pubky.app post ids are a microsecond timestamp, shifted left one bit, in Crockford base32. */
+  function postTime(id) {
+    if (!/^[0-9A-HJKMNP-TV-Z]{13}$/.test(id || '')) return 0;
+    var n = 0;
+    for (var i = 0; i < id.length; i++) n = n * 32 + CROCKFORD.indexOf(id[i]);
+    var ms = Math.floor(n / 2000);
+    return ms > Date.UTC(2024, 0, 1) && ms <= Date.now() + DAY ? ms : 0;
+  }
 
   /* Rate limits (429), server errors and dropped connections are retried with backoff,
      honouring Retry-After. Without this each scan lost a different few accounts to
@@ -436,7 +452,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     var all = [];
     var pages = 0;
     function page(cursor) {
-      if (pages >= MAX_LIST_PAGES) return Promise.resolve(all);
+      if (pages >= MAX_LIST_PAGES) { cap('homeserver listing pages (' + MAX_LIST_PAGES + ' × ' + LIST_PAGE + ')'); return Promise.resolve(all); }
       pages++;
       var q = '?limit=' + LIST_PAGE + (shallow ? '&shallow=true' : '') +
         (cursor ? '&cursor=' + encodeURIComponent(cursor) : '');
@@ -529,14 +545,19 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     var candidates = {};   /* pubky -> { via: {source: true} } */
     var nexusDecks = {};   /* author/id -> { uri, followers, labels } */
     var selfTagged = {};
+    var traces = {};       /* pubky -> earliest dated Loopky record seen anywhere */
 
+    function trace(pubky, at) {
+      if (!(at > Date.UTC(2024, 0, 1)) || at > Date.now() + DAY) return;
+      if (!traces[pubky] || at < traces[pubky]) traces[pubky] = at;
+    }
     function candidate(pubky, via) {
       if (!PUBKY_RE.test(pubky || '')) return;
       if (!candidates[pubky]) live.counts.candidates++;
       var c = candidates[pubky] || (candidates[pubky] = { via: {} });
       c.via[via] = true;
     }
-    function note(name, count, error) { sources[name] = { count: count, error: error || null }; }
+    function note(name, count, error, info) { sources[name] = { count: count, error: error || null, info: info || null }; }
 
     /* 1. The loopky-deck stream, paged by the window asked for (an offset into the raw set). */
     function deckStream() {
@@ -544,7 +565,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       var pages = 0;
       var found = 0;
       function more() {
-        if (pages >= MAX_NEXUS_PAGES) return Promise.resolve();
+        if (pages >= MAX_NEXUS_PAGES) { cap('Nexus loopky-deck stream pages'); return Promise.resolve(); }
         pages++;
         var at = skip;
         skip += NEXUS_WINDOW;
@@ -559,6 +580,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
             var key = m[1] + '/' + m[2];
             if (!nexusDecks[key]) { nexusDecks[key] = { uri: uri, author: m[1], id: m[2], followers: 0, indexedAt: (r.details && r.details.indexed_at) || 0 }; found++; }
             candidate(m[1], 'deck author (Nexus)');
+            trace(m[1], nexusDecks[key].indexedAt);
           });
           return more();
         });
@@ -567,7 +589,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         function (e) { note('Nexus loopky-deck stream', found, e.message); });
     }
 
-    /* 2. Every label on each deck, taggers included: followers tag loopky-followed. */
+    /* 2. The deck's followers: Loopky writes loopky-followed when someone follows. Only the
+       author puts topic labels on a deck, so anyone else's label came from another client and
+       is not a lead worth five homeserver reads. */
     function deckTaggers() {
       var keys = Object.keys(nexusDecks);
       var done = 0;
@@ -576,13 +600,17 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         var d = nexusDecks[key];
         return nexus('/v0/resource/by-uri?uri=' + encodeURIComponent(d.uri) + '&limit_tags=100&limit_taggers=100')
           .then(function (res) {
+            if ((res.tags || []).length >= 100) cap('labels per deck (100)');
             (res.tags || []).forEach(function (t) {
-              if (t.label === 'loopky-followed') d.followers = t.taggers_count || (t.taggers || []).length;
-              (t.taggers || []).forEach(function (p) { taggers[p] = true; candidate(p, 'deck tagger (Nexus)'); });
+              if (t.label !== 'loopky-followed') return;
+              var list = t.taggers || [];
+              d.followers = t.taggers_count || list.length;
+              if (list.length < d.followers) cap('followers listed per deck (100)');
+              list.forEach(function (p) { taggers[p] = true; candidate(p, 'deck follower (Nexus)'); });
             });
           })
           .finally(function () { done++; progress('Nexus: deck taggers ' + done + '/' + keys.length, done / keys.length * 0.15); });
-      }).then(function () { note('Nexus deck taggers', Object.keys(taggers).length); });
+      }).then(function () { note('Nexus deck followers', Object.keys(taggers).length); });
     }
 
     /* 3. The loopky-user profile directory. 404 on an indexer that predates the endpoint. */
@@ -591,7 +619,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       var found = 0;
       var pages = 0;
       function more() {
-        if (pages >= MAX_NEXUS_PAGES) return Promise.resolve();
+        if (pages >= MAX_NEXUS_PAGES) { cap('Nexus loopky-user directory pages'); return Promise.resolve(); }
         pages++;
         var at = skip;
         skip += 200;
@@ -613,30 +641,49 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         function (e) { note('Nexus loopky-user directory', found, e.status === 404 ? 'endpoint not deployed on this indexer (404)' : e.message); });
     }
 
-    /* 4. Authors of deck announcement posts: a post_key is {author}:{post_id}. */
+    /* 4. Authors of deck announcements. Anyone can label any post loopky-deck, so a post counts
+       only when its author labelled it and its text links a Loopky deck: what the app writes.
+       The stream returns the post itself, so this costs no read beyond the page. */
     function announcers() {
       var found = {};
+      var posts = {};
+      var skipped = 0;
       var skip = 0;
       var pages = 0;
       function more() {
-        if (pages >= 20) return Promise.resolve();
+        if (pages >= MAX_NEXUS_PAGES) { cap('Nexus announcement pages'); return Promise.resolve(); }
         pages++;
         var at = skip;
-        skip += 200;
-        return nexus('/v0/search/posts/by_tag/loopky-deck?limit=200&skip=' + at).then(function (list) {
+        skip += POST_WINDOW;
+        return nexus('/v0/stream/posts?tags=loopky-deck&limit=' + POST_WINDOW + '&skip=' + at).then(function (list) {
           if (!Array.isArray(list) || !list.length) return;
-          var before = Object.keys(found).length;
+          var fresh = 0;
           list.forEach(function (p) {
-            var author = String((p && p.post_key) || '').split(':')[0];
-            if (PUBKY_RE.test(author)) { found[author] = true; candidate(author, 'announcement author'); }
+            var d = (p && p.details) || {};
+            var author = String(d.author || '');
+            var key = author + ':' + d.id;
+            if (!PUBKY_RE.test(author) || posts[key]) return;
+            posts[key] = true;
+            fresh++;
+            var own = (p.tags || []).some(function (t) {
+              return t && t.label === 'loopky-deck' && (t.taggers || []).indexOf(author) >= 0;
+            });
+            if (!own || d.deleted || typeof d.content !== 'string' || !DECK_LINK_RE.test(d.content)) { skipped++; return; }
+            found[author] = true;
+            candidate(author, 'announcement author');
+            trace(author, postTime(d.id) || d.indexed_at);
           });
-          if (Object.keys(found).length === before || list.length < 200) return;
+          /* A page of posts already seen is the end; a page of known authors is not. */
+          if (!fresh || list.length < POST_WINDOW) return;
           return more();
         });
       }
       progress('Nexus: announcement authors');
-      return more().then(function () { note('Nexus announcement authors', Object.keys(found).length); },
-        function (e) { note('Nexus announcement authors', Object.keys(found).length, e.message); });
+      function done(e) {
+        note('Nexus announcement authors', Object.keys(found).length, e && e.message,
+          skipped ? skipped + ' labelled posts left out: not the author\u2019s own Loopky announcement' : null);
+      }
+      return more().then(function () { done(); }, done);
     }
 
     /* 5. Verify the directory: a loopky-user tag counts only when the account put it on itself. */
@@ -655,7 +702,12 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     var unread = {};
     var queue = [];
     var queued = {};
-    function enqueue(p) { if (!queued[p] && Object.keys(queued).length < MAX_ACCOUNTS) { queued[p] = true; queue.push(p); } }
+    function enqueue(p) {
+      if (queued[p]) return;
+      if (Object.keys(queued).length >= MAX_ACCOUNTS) { cap('accounts per scan (' + MAX_ACCOUNTS + ')'); return; }
+      queued[p] = true;
+      queue.push(p);
+    }
 
     function readAccount(p) {
       var a = { pubky: p, name: '', decks: [], subs: [], srsChunks: [], studied: {}, states: 0,
@@ -716,6 +768,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
 
     /* 7. Every deck any account owns, follows or studies: the manifest is the deck. */
     var decks = {};
+    /* Decks whose manifest is known not to be there (404, or not a deck): unlike a failed
+       read, this is a fact about the deck, so it may drop a subscription or a studied deck. */
+    var goneDecks = {};
     function manifests() {
       step('decks');
       var keys = {};
@@ -732,8 +787,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         var author = key.slice(0, 52);
         var id = key.slice(53);
         return hs(author, '/pub/loopky/decks/' + encodeURIComponent(id) + '/manifest.json', true).then(function (d) {
-          if (!d || typeof d.title !== 'string') return;
-          if (d.author_pubky && d.author_pubky.replace(/^pk:/, '') !== author) return;
+          if (!d || typeof d.title !== 'string') { goneDecks[key] = true; return; }
+          if (d.author_pubky && d.author_pubky.replace(/^pk:/, '') !== author) { goneDecks[key] = true; return; }
           var study = d;
           live.counts.decks++;
           decks[key] = {
@@ -804,8 +859,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       if (!post || typeof post !== 'object') return false;
       var embed = post.embed && typeof post.embed.uri === 'string' ? post.embed.uri : '';
       if (LOOPKY_LINK_RE.test(embed)) return true;
-      /* An announcement always carries its deck's URI in the body, embed or not. */
-      return typeof post.content === 'string' && /pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/decks\//.test(post.content);
+      /* An announcement links its deck in the body: the pubky URI, or the web page for a follow. */
+      return typeof post.content === 'string' && DECK_LINK_RE.test(post.content);
     }
 
     function readPubkyApp(p) {
@@ -831,7 +886,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
               var label = t.label.trim().toLowerCase();
               if (t.uri.indexOf(own) === 0) {
                 /* Topic labels on a post are judged with the post itself, below. */
-                if (LOOPKY_LABEL_RE.test(label)) loopkyPosts[t.uri] = true;
+                if (LOOPKY_LABEL_RE.test(label)) { loopkyPosts[t.uri] = true; trace(p, postTime(t.uri.slice(own.length))); }
               } else if (/\/pub\/loopky\//.test(t.uri)) {
                 /* Decks were tagged in this namespace before #40. */
               } else if (!(t.uri === 'pubky://' + p + '/pub/pubky.app/profile.json' && label === 'loopky-user')) {
@@ -849,6 +904,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
             if (Object.keys(why).length) return;
             return hs(p, u.slice(u.indexOf('/pub/')), true).then(function (post) {
               if (post && !isLoopkyPost(post)) found('posts');
+              else if (post) trace(p, postTime(u.slice(own.length)));
             }, missed);
           });
         }).then(function () {
@@ -877,7 +933,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       .then(reviewState)
       .then(pubkyAppPass)
       .then(function () {
-        return { candidates: candidates, accounts: accounts, decks: decks, selfTagged: selfTagged, sources: sources, nexusDecks: nexusDecks, unread: Object.keys(unread).length };
+        return { candidates: candidates, accounts: accounts, decks: decks, goneDecks: goneDecks, selfTagged: selfTagged,
+          traces: traces, sources: sources, nexusDecks: nexusDecks, unread: Object.keys(unread).length };
       });
   }
 
@@ -886,6 +943,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   function summarize(raw, deep) {
     var now = Date.now();
     var decks = raw.decks;
+    var gone = raw.goneDecks;
     var list = Object.keys(raw.accounts).map(function (p) { return raw.accounts[p]; })
       .filter(function (a) { return a.any || raw.selfTagged[a.pubky]; });
 
@@ -893,21 +951,37 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       a.via = Object.keys((raw.candidates[a.pubky] || { via: {} }).via);
       if (!a.via.length) a.via = ['named by another account'];
       a.selfTagged = !!raw.selfTagged[a.pubky];
-      a.ownedDecks = a.decks.filter(function (id) { return decks[a.pubky + '/' + id]; }).length || a.decks.length;
-      a.studiedDecks = Object.keys(a.studied).length;
+      /* A deck is gone only when its manifest is known missing; a failed read keeps it, so a
+         transient error cannot move an account between segments from one scan to the next. */
+      function here(k) { return !gone[k]; }
+      var own = {};
+      a.decks.forEach(function (id) { own[a.pubky + '/' + id] = true; });
+      a.ownedDecks = Object.keys(own).filter(here).length;
+      a.liveSubs = a.subs.filter(here);
+      var follows = {};
+      a.liveSubs.forEach(function (k) { follows[k] = true; });
+      /* Review state outlives an unfollow (re-following keeps progress) and a deleted deck, so
+         "studying" is review state on a deck the account still owns or follows, as the recap
+         counts it. The rest is still real history: it dates the account and its last review. */
+      a.current = Object.keys(a.studied).filter(function (k) { return here(k) && (own[k] || follows[k]); });
+      a.studiedDecks = a.current.length;
       a.isStudying = a.studiedDecks > 0;
+      a.formerOnly = !a.isStudying && Object.keys(a.studied).length > 0;
       a.decks.forEach(function (id) {
         var d = decks[a.pubky + '/' + id];
         if (d && d.createdAt && (!a.firstSeen || d.createdAt < a.firstSeen)) a.firstSeen = d.createdAt;
       });
-      a.subs.forEach(function (k) { if (decks[k]) decks[k].followers++; });
-      Object.keys(a.studied).forEach(function (k) {
+      var t0 = raw.traces[a.pubky];
+      if (t0 && (!a.firstSeen || t0 < a.firstSeen)) a.firstSeen = t0;
+      a.liveSubs.forEach(function (k) { if (decks[k]) decks[k].followers++; });
+      a.current.forEach(function (k) {
         if (!decks[k]) return;
         decks[k].studiers++;
         decks[k].states += (a.perDeckStates && a.perDeckStates[k]) || 0;
       });
       if (!a.isStudying && a.ownedDecks) a.segment = 'Creates decks, studies none';
-      else if (!a.isStudying && a.subs.length) a.segment = 'Follows decks, studies none';
+      else if (!a.isStudying && a.liveSubs.length) a.segment = 'Follows decks, studies none';
+      else if (a.formerOnly) a.segment = 'Studied before, nothing now';
       else if (!a.isStudying) a.segment = 'Signed in, nothing stored';
       else if (a.ownedDecks) a.segment = 'Studies and creates';
       else a.segment = 'Studies others’ decks only';
@@ -924,12 +998,19 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       nexus: NEXUS, homeserver: HOMESERVER, deep: deep,
       accounts: list, decks: deckList, sources: raw.sources, unread: raw.unread,
       candidates: Object.keys(raw.candidates).length,
+      /* How candidates and confirmed accounts reconcile: neither is a subset of the other. */
+      fromNexus: list.filter(function (a) { return raw.candidates[a.pubky]; }).length,
+      widened: list.filter(function (a) { return !raw.candidates[a.pubky]; }).length,
+      emptyCandidates: Object.keys(raw.candidates).filter(function (p) {
+        return raw.accounts[p] && !raw.accounts[p].any && !raw.selfTagged[p];
+      }).length,
+      capped: capped,
       totals: {
         accounts: list.length,
         studying: studying.length,
         notStudying: list.length - studying.length,
         creators: list.filter(function (a) { return a.ownedDecks > 0; }).length,
-        followers: list.filter(function (a) { return a.subs.length > 0; }).length,
+        followers: list.filter(function (a) { return a.liveSubs.length > 0; }).length,
         withSettings: list.filter(function (a) { return a.hasSettings; }).length,
         pubkyAppDirect: list.filter(function (a) { return a.pubkyApp === 'direct'; }).length,
         pubkyAppNot: list.filter(function (a) { return a.pubkyApp === 'loopky' || a.pubkyApp === 'empty'; }).length,
@@ -1146,7 +1227,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     s.decks.forEach(function (d) { deckByKey[d.key] = d; d.pStudiers = 0; d.pReviews = 0; });
     var accounts = s.accounts.filter(existed);
     accounts.forEach(function (a) {
-      a.pStudied = Object.keys(a.studied).filter(function (k) { return all ? true : reviews(a, k) > 0; });
+      /* All time is what the account studies now; a period is what it reviewed then, which
+         includes decks it has since dropped. */
+      a.pStudied = all ? a.current : Object.keys(a.studied).filter(function (k) { return reviews(a, k) > 0; });
       a.pReviews = a.pStudied.reduce(function (n, k) { return n + reviews(a, k); }, 0);
       a.pCreated = a.decks.filter(function (id) {
         var d = deckByKey[a.pubky + '/' + id];
@@ -1189,7 +1272,8 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     var gs = group('Study activity');
     var gd = group('Decks');
     if (all) {
-      ga.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', s.unread ? fmt(s.unread) + ' unreadable, a lower bound' : null, true));
+      var bound = Object.keys(s.capped).length ? 'scan limits reached, a lower bound' : null;
+      ga.appendChild(kpi(fmt(t.accounts), 'Loopky accounts', s.unread ? fmt(s.unread) + ' unreadable, a lower bound' : bound, true));
       ga.appendChild(kpi(fmt(t.creators), 'Created a deck', pct(t.creators, t.accounts) + ' of accounts'));
       ga.appendChild(kpi(fmt(t.followers), 'Follow a deck', pct(t.followers, t.accounts) + ' of accounts'));
       ga.appendChild(kpi(fmt(t.withSettings), 'Saved study settings', pct(t.withSettings, t.accounts) + ' of accounts'));
@@ -1226,7 +1310,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     var seg = {};
     s.accounts.forEach(function (a) { seg[a.segment] = (seg[a.segment] || 0) + 1; });
     bars(document.getElementById('segments'), ['Studies and creates', 'Studies others’ decks only',
-      'Creates decks, studies none', 'Follows decks, studies none', 'Signed in, nothing stored']
+      'Creates decks, studies none', 'Follows decks, studies none', 'Studied before, nothing now', 'Signed in, nothing stored']
       .map(function (n) { return [n, seg[n] || 0, n + ': ' + fmt(seg[n] || 0) + ' (' + pct(seg[n] || 0, t.accounts) + ')']; }));
 
     var recency = document.getElementById('recency');
@@ -1357,7 +1441,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       } },
       { h: 'Segment', v: function (a) { return a.segment; } },
       { h: all ? 'Own decks' : 'Decks created', num: true, v: function (a) { return all ? a.ownedDecks : a.pCreated; } },
-      { h: 'Following', num: true, v: function (a) { return a.subs.length; } },
+      { h: 'Following', num: true, v: function (a) { return a.liveSubs.length; } },
       { h: all ? 'Studying' : 'Studied in period', num: true, v: function (a) { return a.pStudied.length; } },
       { h: all ? 'Reviewed cards' : 'Reviewed in period', num: true, v: function (a) { return a.pReviews; } },
       { h: 'Last review', v: function (a) { return a.lastReview; }, cell: function (a) { return document.createTextNode(ago(a.lastReview)); } },
@@ -1379,15 +1463,21 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
       li.appendChild(el('b', null, name + ': '));
       li.appendChild(document.createTextNode(fmt(x.count) + ' '));
       if (x.error) li.appendChild(el('span', 'err', '(' + x.error + ')'));
+      if (x.info) li.appendChild(el('span', null, '(' + x.info + ')'));
       src.appendChild(li);
     });
     [['Candidates from Nexus', s.candidates],
+     ['… confirmed', s.fromNexus],
+     ['… nothing stored (left Loopky, or never used it)', s.emptyCandidates],
+     ['Found by widening, not on Nexus', s.widened],
      ['Accounts read on the homeserver', s.scanned],
      ['Accounts that could not be read', s.unread],
      ['Confirmed Loopky accounts', t.accounts],
      ['Requests made', requests],
      ['Failed requests', failures],
-     ['Scanned at', s.at]].forEach(function (r) {
+     ['Scanned at', s.at]].concat(Object.keys(s.capped).map(function (k) {
+      return ['Limit reached, counts are a lower bound', k + ' \u00d7 ' + fmt(s.capped[k])];
+    })).forEach(function (r) {
       var li = el('li');
       li.appendChild(el('b', null, r[0] + ': '));
       li.appendChild(document.createTextNode(typeof r[1] === 'number' ? fmt(r[1]) : r[1]));
@@ -1445,6 +1535,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     exportBtn.disabled = true;
     requests = 0;
     failures = 0;
+    capped = {};
     live = { step: null, fraction: 0, startedAt: Date.now(), counts: { candidates: 0, accounts: 0, decks: 0, reviews: 0 } };
     Object.keys(shown).forEach(function (k) { shown[k] = 0; });
     document.querySelectorAll('.counter b').forEach(function (b) { b.textContent = '0'; });
