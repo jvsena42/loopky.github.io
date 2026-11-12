@@ -249,7 +249,7 @@ Your profile page lists every deck you have published, so one link to your profi
 Yes. Publish the deck and send its link. Students can follow it or clone their own copy and study it with spaced repetition.
 
 **Do students need an email account?**
-No. Loopky signs in with a Pubky key through the Pubky Ring app, or by creating an account in the app. There is no email and password.
+No. Loopky signs in with a Pubky key through the Pubky Ring app, or by creating an account in the app. There is no email and password. An account created or restored in the app keeps its key in Loopky, and Loopky then approves sign-ins for other apps itself (the `loopky` CLI, the Claude connector, other Pubky apps) from Settings → Sessions, where it also lists and revokes them.
 
 **Can I see my students' progress?**
 No. Study progress belongs to each student and Loopky has no teacher dashboard.
@@ -276,7 +276,7 @@ Writing cards is the slow part of flashcards. An AI is good at it: it can turn a
 
 ### The prompt
 
-Copy this into your AI agent and fill in the topic. It points the agent to the Loopky plugin's skill, which installs the tool if needed, logs in (you approve with a QR code in Pubky Ring), writes the cards, checks them, and publishes.
+Copy this into your AI agent and fill in the topic. It points the agent to the Loopky plugin's skill, which installs the tool if needed, logs in (you approve with a QR code in Pubky Ring, or in Loopky under Settings → Sessions if your key is in Loopky), writes the cards, checks them, and publishes.
 ```
 Build me a Loopky flashcard deck with the Loopky CLI.
 
@@ -295,7 +295,7 @@ The full, always current version is on the [home page](https://loopky.app/#cli) 
 
 ### The Loopky connector for Claude
 
-For Claude in the browser, the desktop app or the phone app, and for Claude Code on the web, there is nothing to install: add the Loopky connector. It is listed in Claude's connector directory: in Settings → Connectors, find Loopky (https://claude.ai/directory/loopky) and connect it, then approve the sign-in once in Pubky Ring. Then ask Claude for flashcards.
+For Claude in the browser, the desktop app or the phone app, and for Claude Code on the web, there is nothing to install: add the Loopky connector. It is listed in Claude's connector directory: in Settings → Connectors, find Loopky (https://claude.ai/directory/loopky) and connect it, then approve the sign-in once in Pubky Ring, or in Loopky under Settings → Sessions if Loopky holds your key. Then ask Claude for flashcards.
 
 It has the CLI's deck and card commands as tools (`deck_create`, `card_add`, `import` and the rest), with dry runs. Its session can write only Loopky's own data (`/pub/loopky/:rw`), so it cannot post, follow or edit your profile. It takes the cards from the chat, at most 2,000 cards and 1 MiB per call, so it cannot read files on your computer, upload an Anki .apkg or check picture URLs; use the CLI for those. It is the one server the Loopky project runs, and the [privacy policy](https://loopky.app/privacy/) (section 6) says what it keeps.
 
@@ -345,7 +345,7 @@ Yes. Claude can, with the Loopky connector and no shell at all. Any AI agent tha
 No. In Claude, add the Loopky connector and ask. Elsewhere, you paste a prompt into an AI agent that has a terminal, such as Claude Code, ChatGPT with a shell, or Gemini CLI. The agent runs the commands.
 
 **Is there a Loopky connector for Claude?**
-Yes, for Claude in the browser, the desktop app and the phone app. Open Settings → Connectors, find Loopky in the connector directory (https://claude.ai/directory/loopky), connect it, and approve the sign-in once in Pubky Ring. It only manages Loopky decks and cards, takes the cards from the chat rather than from files on your computer, and cannot upload an Anki .apkg.
+Yes, for Claude in the browser, the desktop app and the phone app. Open Settings → Connectors, find Loopky in the connector directory (https://claude.ai/directory/loopky), connect it, and approve the sign-in once in Pubky Ring, or in Loopky under Settings → Sessions if Loopky holds your key. It only manages Loopky decks and cards, takes the cards from the chat rather than from files on your computer, and cannot upload an Anki .apkg.
 
 **Can the AI import my Anki decks?**
 Yes. loopky import deck.apkg imports an Anki package, and --dry-run shows the result first.
@@ -517,7 +517,7 @@ Yes. Publish a deck and share its link. Others can follow it or clone their own 
 No. Loopky has no private decks: what you publish can be read by anyone and is indexed for search. Your review history and settings are stored under your own key and are not published to any index.
 
 **How do I sign in?**
-With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by creating an account in the app with SMS, a Lightning payment or an invite code. There is no email and password.
+With a Pubky key, using the Pubky Ring app (by deep link or QR code), or by creating an account in the app with SMS, a Lightning payment or an invite code. There is no email and password. An account made or restored in the app can then sign in to the `loopky` CLI and the Claude connector by approving their code in Loopky itself, under Settings → Sessions.
 
 **Where is my data stored?**
 On your Pubky homeserver, under your key, not on a Loopky server. The app uses no Loopky server. By default that homeserver is the one Synonym runs for pubky.app, and you can host your own. The one server the Loopky project runs is the optional connector for Claude, which holds your public key and an encrypted Pubky session while you stay connected, and passes decks through without storing them ([privacy policy](https://loopky.app/privacy/), section 6).
