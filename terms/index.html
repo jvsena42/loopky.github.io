@@ -47,7 +47,7 @@
       "description": "The terms for the Loopky apps, command line tool, agent plugin and connector for Claude: MIT licensed with no warranty, and published decks are public.",
       "url": "https://loopky.app/terms/",
       "inLanguage": "en",
-      "dateModified": "2026-11-06",
+      "dateModified": "2026-11-12",
       "author": {
         "@type": "Person",
         "name": "João Victor Sena",
@@ -112,7 +112,7 @@
         </ol>
       </nav>
       <h1>Loopky Terms of Service</h1>
-      <p class="fineprint prose-meta">Last updated 6 November 2026. This page is in English only. It is published from <a href="https://github.com/jvsena42/loopky/blob/main/TERMS.md">TERMS.md</a> in the Loopky repository, which is the source and holds every earlier version.</p>
+      <p class="fineprint prose-meta">Last updated 12 November 2026. This page is in English only. It is published from <a href="https://github.com/jvsena42/loopky/blob/main/TERMS.md">TERMS.md</a> in the Loopky repository, which is the source and holds every earlier version.</p>
       <p>These terms cover the Loopky apps for Android and iOS, the <code>loopky</code> command line tool, the Loopky plugin for AI agents, and the website at <a href="../">loopky.app</a>. Using any of them means you accept these terms. If you do not, please do not use them.</p>
       <p>The short version: <strong>Loopky is free software with no warranty, the app runs on no Loopky server, and what you publish is public and yours to answer for.</strong> The one server the project runs is the optional connector for Claude, offered as is.</p>
       <h2 id="1-who-provides-loopky">1. Who provides Loopky</h2>
@@ -150,16 +150,17 @@
       <p>Decks, profiles and tags from other people come from their homeservers and from the Pubky indexer. Loopky does not verify or endorse them, and is not responsible for what they say or link to.</p>
       <p><strong>Report and block.</strong> Every deck and profile in the apps has a Report action. A report goes to the moderators of pubky.app, who review reports within 24 hours. Content that breaks section 5 is removed from the homeservers Synonym operates, which is where accounts created through Loopky live, and the account that published it is disabled. Reporting an account also blocks it for you, and you can block any account from its profile; Settings → Blocked accounts lists them and is where you unblock. A report also adds a public &quot;reported&quot; tag to the account, which hides it from the people who follow you.</p>
       <p>Content on a homeserver someone else runs cannot be removed by the project; Loopky can only hide it from you. To report it to whoever runs it, contact that homeserver's operator. If the problem is in Loopky itself, open an issue at <a href="https://github.com/jvsena42/loopky/issues">github.com/jvsena42/loopky/issues</a>.</p>
-      <h2 id="7-the-command-line-tool-and-ai-agents">7. The command line tool and AI agents</h2>
-      <p>The <code>loopky</code> command line tool and the agent plugin act with a session you approve, and that session is limited by design: it <strong>can write only Loopky's own data</strong> (<code>/pub/loopky/</code>). It cannot post, follow or edit your profile elsewhere on Pubky.</p>
+      <h2 id="7-the-command-line-tool-ai-agents-and-other-apps">7. The command line tool, AI agents and other apps</h2>
+      <p>The <code>loopky</code> command line tool and the agent plugin act with a session you approve, in Pubky Ring or, if Loopky holds your key, in Loopky itself. That session is limited by design: it <strong>can write only Loopky's own data</strong> (<code>/pub/loopky/</code>). It cannot post, follow or edit your profile elsewhere on Pubky.</p>
       <p>Within that limit, an agent you run acts for you. A deck an agent creates is published under your key and is public, and you are responsible for it as if you had made it by hand. The commands that import or add cards offer a dry run that reports what would be written; use it.</p>
       <p>A sign-in link shown by the tool is a login secret until you approve it. Do not paste it anywhere other people can read.</p>
+      <p><strong>Approving other apps with Loopky.</strong> If Loopky holds your key, it can approve another app's sign-in, such as the <code>loopky</code> tool, the connector for Claude or any other Pubky app, from Settings → Sessions. Approving gives that app the access its request lists, under your key, until you revoke it there. The name a request shows is chosen by the app that made it, so approve only a sign-in you started yourself, in an app you trust. What that app then does with its access is between you and the app, under its own terms, not these. Loopky refuses a request for your whole account or for every app's data; use Pubky Ring if you mean to grant one.</p>
       <h2 id="8-third-party-services">8. Third-party services</h2>
       <p>Loopky contacts a small number of services run by other parties, each under its own terms: your homeserver, the Pubky sign-in relay and indexer, Homegate when you sign up, Unsplash when you search for a picture, your device's speech services for Listen and Speak, and Google Play, the App Store or TestFlight for the app itself. The <a href="../privacy/">privacy policy</a> lists what reaches each one.</p>
       <h2 id="9-children">9. Children</h2>
       <p>Loopky is not directed at children under 13.</p>
       <h2 id="10-liability">10. Liability</h2>
-      <p>To the fullest extent the law allows, the Loopky project and its contributors are not liable for any claim, damages or other liability arising from the software or its use. That includes lost decks or study progress, a lost key or account, content published by you or by an agent acting for you, and anything a homeserver or another third-party service does or fails to do.</p>
+      <p>To the fullest extent the law allows, the Loopky project and its contributors are not liable for any claim, damages or other liability arising from the software or its use. That includes lost decks or study progress, a lost key or account, content published by you or by an agent acting for you, anything an app you approved does with its access, and anything a homeserver or another third-party service does or fails to do.</p>
       <p>Some places do not allow some of these limits. Where that is so, they apply only as far as the law permits.</p>
       <h2 id="11-changes-to-these-terms">11. Changes to these terms</h2>
       <p>Material changes will be published here with an updated date above. The revision history of this document is public in the repository, so every change is inspectable.</p>
