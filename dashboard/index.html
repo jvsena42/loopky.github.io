@@ -564,7 +564,10 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
     }
     function note(name, count, error, info) { sources[name] = { count: count, error: error || null, info: info || null }; }
 
-    /* 1. The loopky-deck stream, paged by the window asked for (an offset into the raw set). */
+    /* 1. The loopky-deck stream, paged by the window asked for (an offset into the raw set).
+       Not scoped to an app: Nexus answers `app=` with a 400 since pubky-nexus#1129, so the
+       stream carries anything labelled loopky-deck, and only deck manifests are kept. A page
+       with none is not the end; only an empty one is. */
     function deckStream() {
       var skip = 0;
       var pages = 0;
@@ -575,7 +578,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
         var at = skip;
         skip += NEXUS_WINDOW;
         progress('Nexus: loopky-deck stream, page ' + pages);
-        return nexus('/v0/stream/resources?app=loopky&tags=loopky-deck&sorting=timeline&limit=' +
+        return nexus('/v0/stream/resources?tags=loopky-deck&sorting=timeline&limit=' +
           NEXUS_WINDOW + '&skip=' + at).then(function (list) {
           if (!Array.isArray(list) || !list.length) return;
           list.forEach(function (r) {
