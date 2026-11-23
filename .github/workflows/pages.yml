@@ -59,14 +59,16 @@ jobs:
 
       # The indexer is public and read-only, so this asks it the same two questions
       # the page does. A warning and not a failure: the network being down is not a
-      # reason to block a deploy, but it is worth seeing in the log.
+      # reason to block a deploy, but it is worth seeing in the log. The stream takes
+      # no app= (a 400 since pubky-nexus#1129) and no taggers_count sorting (a 400 as
+      # well), so it is read by timeline and only deck manifests are counted.
       - name: Is the Discover feed answering?
         continue-on-error: true
         run: |
           set -o pipefail
           decks=$(curl -fsS --max-time 20 \
-            'https://nexus.pubky.app/v0/stream/resources?app=loopky&tags=loopky-deck&sorting=taggers_count&limit=50&skip=0' \
-            | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).length))')
+            'https://nexus.pubky.app/v0/stream/resources?tags=loopky-deck&sorting=timeline&limit=50&skip=0' \
+            | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).filter(r=>/^pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/decks\/[^/\s]+\/manifest\.json$/.test((r.details||{}).uri||"")).length))')
           posts=$(curl -fsS --max-time 20 \
             'https://nexus.pubky.app/v0/stream/posts?tags=loopky-deck&sorting=timeline&limit=30&skip=0' \
             | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).length))')
