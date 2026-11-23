@@ -263,7 +263,7 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
           <div class="bars" id="pubkyapp-why"></div>
         </div>
       </div>
-      <p class="note">Loopky writes into <span class="mono">/pub/pubky.app/</span> itself, and into <span class="mono">/pub/social/v1/</span> once pubky.app has migrated the account, so none of that counts in either folder: the profile (Loopky edits its name and bio), follows (Loopky follows people), the <span class="mono">loopky-user</span> self-tag, and its own posts (deck announcements, recaps, deck requests) with the labels on them. Direct use is anything else there: a post that is not Loopky's, a tag on anything but a Loopky post or deck, or a record Loopky never writes, such as files, bookmarks, mutes or <span class="mono">last_read</span>. An account with only Loopky's records may still read pubky.app without writing; that cannot be seen from public data.</p>
+      <p class="note">Loopky writes into <span class="mono">/pub/pubky.app/</span> itself, and into <span class="mono">/pub/social/v1/</span> once pubky.app has migrated the account, so none of that counts in either folder: the profile (Loopky edits its name and bio), follows (Loopky follows people), mutes (a block in Loopky is a pubky.app mute), the <span class="mono">loopky-user</span> self-tag, and its own posts (deck announcements, recaps, deck requests) with the labels on them. Direct use is anything else there: a post that is not Loopky's, a tag on anything but a Loopky post or deck, or a record Loopky never writes, such as files, bookmarks or <span class="mono">last_read</span>. An account with only Loopky's records may still read pubky.app without writing; that cannot be seen from public data.</p>
     </section>
 
     <div class="grid">
@@ -369,8 +369,9 @@ input[type=search] { font: inherit; font-size: 13px; padding: 6px 12px; border-r
   /* Where pubky.app keeps an account's records: /pub/pubky.app/, and /pub/social/v1/ once
      pubky.app has migrated the account (pubky-app#3140). A migrated account keeps both. */
   var SOCIAL_ROOTS = ['/pub/pubky.app/', '/pub/social/v1/'];
-  /* What Loopky itself writes under either. Anything else there is another client. */
-  var PUBKY_APP_LOOPKY_ENTRIES = { 'profile.json': true, 'follows/': true, 'posts/': true, 'tags/': true };
+  /* What Loopky itself writes under either, as LoopkyPubkyAppRecords.ENTRIES in the app: a block in
+     Loopky is pubky.app's mute record (loopky#577). Anything else there is another client. */
+  var PUBKY_APP_LOOPKY_ENTRIES = { 'profile.json': true, 'follows/': true, 'mutes/': true, 'posts/': true, 'tags/': true };
   var LOOPKY_LABEL_RE = /^(loopky($|-)|deck-request$)/;
   var LOOPKY_LINK_RE = /^(pubky:\/\/[a-z0-9]{52}\/pub\/loopky\/|https:\/\/(loopky\.app|jvsena42\.github\.io)\/)/;
   /* A deck link anywhere in a post's text. Nexus returns no `embed`, so the body is all there is. */
