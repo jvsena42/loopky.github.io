@@ -101,8 +101,6 @@
     var canOpen = (isAndroid || isIOS) && state !== 'missing' && !!uri;
     openBtn.hidden = !canOpen;
     if (canOpen) openBtn.href = openHref(uri);
-    /* Only one filled button: Open when it can do something, Google Play otherwise. */
-    playBtn.classList.toggle('btn-ghost', canOpen);
     /* Google Play has nothing for an iPhone; the App Store button beside it does. */
     playBtn.hidden = isIOS;
     if (isAndroid) {
