@@ -229,14 +229,14 @@
     {
       name: 'get_app_links',
       title: 'Loopky links and key facts',
-      description: 'Where to get Loopky (Android, iOS beta, the Claude connector, the CLI) and the facts ' +
+      description: 'Where to get Loopky (Android, iOS, the Claude connector, the CLI) and the facts ' +
         'people ask about: price, scheduling, privacy of decks.',
       inputSchema: { type: 'object', properties: {} },
       annotations: { readOnlyHint: true },
       execute: run(function () {
         return ok({
           android: window.loopkyPlayUrl,
-          ios_beta: 'https://testflight.apple.com/join/n2TzwMTu',
+          ios: 'https://apps.apple.com/app/id6818114611',
           claude_connector: CONNECTOR,
           claude_connector_url: 'https://mcp.loopky.app/mcp',
           cli_docs: 'https://github.com/jvsena42/loopky/tree/main/cli',
@@ -247,7 +247,7 @@
           llms_txt: new URL('llms.txt', location.origin + '/').href,
           facts: [
             'Free and open source (MIT). No ads, subscription or analytics.',
-            'Android 10+ on Google Play; iPhone and iPad in public beta on TestFlight.',
+            'Android 10+ on Google Play; iPhone and iPad (iOS 18.2+) on the App Store.',
             'Fixed intervals per grade button (Hard, Good, Easy default to 1, 3, 7 days, each 1 to 365), not SM-2 or FSRS.',
             'Imports Anki .apkg with images and cloze; not audio, LaTeX or .anki21b.',
             'Every published deck is public; there are no private decks.',

@@ -202,6 +202,7 @@
   /* ---------------- discover ---------------- */
 
   var PLAY_URL = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
+  var APP_STORE_URL = 'https://apps.apple.com/app/id6818114611';
   var PAGE = 8;
   var decks = null;
   var failed = false;
@@ -600,6 +601,22 @@
   window.loopkyPlayUrl = PLAY_URL;
 
   /* ---------------- wiring ---------------- */
+
+  /* A link that only says "get the app" goes to Google Play in the markup, and to the
+     App Store on an iPhone or iPad, where Google Play has nothing to offer; the Google
+     Play buttons in the call-to-action rows are hidden there, leaving the App Store one
+     alone. An iPad asking for the desktop site calls itself a Mac; touch points tell
+     the two apart. */
+  var ua = navigator.userAgent;
+  if (!/Android/i.test(ua) && (/iPhone|iPad|iPod/i.test(ua) ||
+      (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1))) {
+    [].forEach.call(document.querySelectorAll('a[data-get-app]'), function (a) {
+      a.href = APP_STORE_URL;
+    });
+    [].forEach.call(document.querySelectorAll('.cta-row a[href^="https://play.google.com/"]'), function (a) {
+      a.hidden = true;
+    });
+  }
 
   function debounce(fn, ms) {
     var timer;

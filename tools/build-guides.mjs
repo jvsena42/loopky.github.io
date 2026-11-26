@@ -42,7 +42,7 @@ const contentHash = (html) => createHash('sha256')
   .update(html.replace(/\?v=[0-9a-f]+/g, '')).digest('hex').slice(0, 16);
 
 const PLAY = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
-const TESTFLIGHT = 'https://testflight.apple.com/join/n2TzwMTu';
+const APP_STORE = 'https://apps.apple.com/app/id6818114611';
 const PLAY_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M22.02 13.3 18.1 15.52l-3.52-3.5 3.55-3.52 3.89 2.2a1.49 1.49 0 0 1 0 2.6ZM1.34.92a1.49 1.49 0 0 0-.11.57v21.02c0 .22.04.42.12.6l11.16-11.09L1.34.92Zm12.2 10.07 3.26-3.24L3.45.2A1.47 1.47 0 0 0 2.5.02l11.04 10.97Zm0 2.07-11 10.93c.3.04.61-.02.9-.18l13.33-7.54-3.23-3.21Z"/></svg>';
 const APPLE_ICON = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09ZM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25Z"/></svg>';
 const GH = 'https://github.com/jvsena42/loopky';
@@ -359,6 +359,7 @@ ${p.faq.map(([q, a], i) => `      <details class="card"${i === 0 ? ' open' : ''}
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6818114611">
 <link rel="canonical" href="${self}">
 ${alternates}
 <link rel="icon" href="${prefix}assets/img/logo.png" type="image/png">
@@ -414,7 +415,7 @@ ${ld}
           ${options}
         </select>
       </label>
-      <a class="btn btn-sm" href="${PLAY}">${esc(ui.get)}</a>
+      <a class="btn btn-sm" href="${PLAY}" data-get-app>${esc(ui.get)}</a>
     </div>
   </div>
 </header>
@@ -435,7 +436,7 @@ ${ld}
       <p class="lead">${esc(p.lead)}</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="${PLAY}">${PLAY_ICON}<span>${esc(ui.play)}</span></a>
-        <a class="btn btn-lg btn-ios" href="${TESTFLIGHT}">${APPLE_ICON}<span>${esc(ui.ios)}</span></a>
+        <a class="btn btn-lg btn-ios" href="${APP_STORE}">${APPLE_ICON}<span>${esc(ui.ios)}</span></a>
       </div>
       <p class="fineprint">${esc(ui.free)}</p>
     </div>
@@ -453,7 +454,7 @@ ${blocks.join('\n\n')}
     <p>${esc(ui.ctaSub)}</p>
     <div class="cta-row center">
       <a class="btn btn-lg btn-invert" href="${PLAY}">${PLAY_ICON}<span>${esc(ui.play)}</span></a>
-      <a class="btn btn-lg btn-invert btn-ios" href="${TESTFLIGHT}">${APPLE_ICON}<span>${esc(ui.ios)}</span></a>
+      <a class="btn btn-lg btn-invert btn-ios" href="${APP_STORE}">${APPLE_ICON}<span>${esc(ui.ios)}</span></a>
     </div>
   </div>
 </section>
@@ -478,7 +479,7 @@ ${others}
     <nav class="footlinks">
       <a href="${home}">${esc(ui.home)}</a>
       <a href="${PLAY}">Google Play</a>
-      <a href="${TESTFLIGHT}">TestFlight</a>
+      <a href="${APP_STORE}">App Store</a>
       <a href="${GH}">${esc(ui.source)}</a>
       <a href="${prefix}${learnHref(locale)}">${esc(tr('foot.learn'))}</a>
       <a href="${prefix}privacy/">${esc(ui.privacy)}</a>
@@ -501,6 +502,15 @@ ${others}
     try { localStorage.setItem('loopky.lang', opt.getAttribute('data-lang')); } catch (e) { /* storage can be off */ }
     location.href = opt.value;
   });
+})();
+/* "Get the app" goes to the App Store on an iPhone or iPad, where Google Play has nothing,
+   and the Google Play buttons beside the App Store ones are hidden there. */
+(function () {
+  var ua = navigator.userAgent;
+  if (/Android/i.test(ua) || !(/iPhone|iPad|iPod/i.test(ua) ||
+      (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1))) return;
+  [].forEach.call(document.querySelectorAll('a[data-get-app]'), function (a) { a.href = '${APP_STORE}'; });
+  [].forEach.call(document.querySelectorAll('.cta-row a[href^="https://play.google.com/"]'), function (a) { a.hidden = true; });
 })();
 ${L.prompt ? COPY_SCRIPT : ''}</script>
 </body>
@@ -645,6 +655,7 @@ function learnShell({ lang, dir, title, desc, self, og, prefix, ld, body, crumbs
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
 <meta name="theme-color" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0D0B11" media="(prefers-color-scheme: dark)">
+<meta name="apple-itunes-app" content="app-id=6818114611">
 <link rel="canonical" href="${self}">
 ${LEARN_ALTERNATES}
 <link rel="icon" href="${prefix}assets/img/logo.png" type="image/png">
@@ -727,7 +738,7 @@ ${body}
     <nav class="footlinks">
       <a href="${prefix}">loopky.app</a>
       <a href="${PLAY}">Google Play</a>
-      <a href="${TESTFLIGHT}">TestFlight</a>
+      <a href="${APP_STORE}">App Store</a>
       <a href="${prefix}privacy/">Privacy</a>
       <a href="${prefix}terms/">Terms</a>
       <a href="${prefix}support/">Support</a>
@@ -765,6 +776,7 @@ function learnPage(l) {
       <div class="cta-row">
         <a class="btn btn-lg" href="${esc(deckUrl(lead.id))}"><span>${esc(l.start)}</span></a>
         <a class="btn btn-lg btn-ios" href="${PLAY}">${PLAY_ICON}<span>Google Play</span></a>
+        <a class="btn btn-lg btn-ios" href="${APP_STORE}">${APPLE_ICON}<span>App Store</span></a>
       </div>
       <p class="fineprint">${esc(l.free)}</p>`;
 
@@ -830,7 +842,7 @@ function learnHub() {
       <p class="lead">${esc(desc)}</p>
       <div class="cta-row">
         <a class="btn btn-lg" href="${PLAY}">${PLAY_ICON}<span>Get it on Google Play</span></a>
-        <a class="btn btn-lg btn-ios" href="${TESTFLIGHT}">${APPLE_ICON}<span>iOS beta on TestFlight</span></a>
+        <a class="btn btn-lg btn-ios" href="${APP_STORE}">${APPLE_ICON}<span>Download on the App Store</span></a>
       </div>
       <p class="fineprint">Free. No ads. Open source.</p>`;
   const body = `<section class="section section-alt">

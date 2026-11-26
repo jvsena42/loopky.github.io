@@ -38,7 +38,7 @@
      link did not catch (an in-app browser, or Loopky installed after the page loaded),
      and a link back to this same domain never leaves Safari, so the button is the bare
      pubky:// address the app claims as a URL scheme. Without the app that tap does
-     nothing useful, which is why the hint names TestFlight.
+     nothing useful, which is why the hint names the App Store.
 
      The desktop only has the CLI, so there the button is not drawn. An iPad asking for
      the desktop site calls itself a Mac; touch points are what tell the two apart. */
@@ -103,12 +103,12 @@
     if (canOpen) openBtn.href = openHref(uri);
     /* Only one filled button: Open when it can do something, Google Play otherwise. */
     playBtn.classList.toggle('btn-ghost', canOpen);
-    /* Google Play has nothing for an iPhone; the TestFlight button beside it does. */
+    /* Google Play has nothing for an iPhone; the App Store button beside it does. */
     playBtn.hidden = isIOS;
     if (isAndroid) {
       hint.textContent = tf('link.hint', 'Opens in the app if you have it, or takes you to Google Play if you do not.');
     } else if (isIOS) {
-      hint.textContent = tf('link.hint.ios', 'Opens in the app if you have it. If not, get the iOS beta on TestFlight first.');
+      hint.textContent = tf('link.hint.ios', 'Opens in the app if you have it. If not, get Loopky on the App Store first.');
     } else {
       hint.textContent = tf('link.elsewhere', 'Loopky is on Android and iOS. Open this link on your phone to see it in the app.');
     }

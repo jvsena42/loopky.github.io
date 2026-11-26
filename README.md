@@ -282,7 +282,7 @@ browsers.
 On iOS the same button is the bare `pubky://` address, which the app claims as a URL
 scheme. There is no iOS link that falls back to a store, and a link to this same
 domain never leaves Safari, so without the app the tap does nothing useful: the hint
-under it names TestFlight, and the Google Play button is hidden. Whoever sees the
+under it names the App Store, and the Google Play button is hidden. Whoever sees the
 page on an iPhone is someone the universal link did not catch, which is an in-app
 browser or a Loopky installed after the page loaded.
 
