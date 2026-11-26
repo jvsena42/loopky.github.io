@@ -82,6 +82,13 @@
       else el.textContent = value;
     });
 
+    /* The store badges are pictures of words, one file per language. */
+    document.querySelectorAll('img[data-badge]').forEach(function (img) {
+      var name = img.getAttribute('data-badge');
+      img.setAttribute('src', img.getAttribute('src').replace(/[^/]*$/,
+        name + '-' + lang + (name === 'app-store' ? '.svg' : '.png')));
+    });
+
     var sel = document.getElementById('lang-select');
     if (sel) sel.value = lang;
 

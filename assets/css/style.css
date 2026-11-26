@@ -143,9 +143,19 @@ img { max-width: 100%; height: auto; display: block; }
 .btn-ghost:hover { background: var(--accent-2-soft); box-shadow: none; }
 .btn-invert { background: #fff; color: #FF5C00; }
 .btn-invert:hover { box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
-.btn-ios { background: #7A4CFF; }
-.btn-ios:hover { box-shadow: 0 10px 30px rgba(122, 76, 255, .28); }
-.btn-invert.btn-ios { background: #fff; color: #7A4CFF; }
+.store-badge { display: inline-block; line-height: 0; border-radius: 9px; transition: transform .12s ease; }
+.store-badge:hover { transform: translateY(-1px); }
+.store-badge:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+/* The stores' artwork at one height, so the two read as a pair; width follows each
+   language's badge. Both guidelines ask for clear space around it, which the gap gives. */
+.store-badge img { height: 52px; width: auto; display: block; }
+.store-badge[hidden] { display: none; }
+/* Small enough on a phone for both to share a row, even inside the deck card; still
+   above the 40px Apple sets as the smallest a badge may show. */
+@media (max-width: 480px) {
+  .store-badge img { height: 44px; }
+  .cta-row:has(.store-badge) { gap: 12px; }
+}
 
 /* ---------- top bar ---------- */
 .topbar {
@@ -239,8 +249,8 @@ img { max-width: 100%; height: auto; display: block; }
 .lead { font-size: clamp(1.02rem, 1.6vw, 1.18rem); color: var(--fg-2); max-width: 54ch; }
 .cta-row { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 26px 0 12px; }
 .cta-row.center { justify-content: center; }
-/* The store buttons share one width, wide enough for the longer label, so Google
-   Play and the App Store read as a pair whether they sit side by side or stack. */
+/* A button beside the store badges (Open in Loopky, Start learning) keeps a width of
+   its own rather than stretching across the row. */
 .cta-row .btn { flex: 0 1 21.5em; }
 @media (max-width: 480px) {
   .cta-row .btn { flex-basis: 100%; white-space: normal; text-align: center; }

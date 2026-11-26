@@ -29,6 +29,8 @@ pt-br/ es/ fr/ de/ it/ ja/ ko/ vi/ zh-hans/ zh-hant/
 tools/guides/*.json   the guides' words, one file per language
 tools/build-guides.mjs  builds the guide pages and sitemap.xml from them
 assets/img/guides/    app screenshots the guides show
+assets/img/badges/    the stores' own badges, one per language (Apple Marketing Tools,
+                      Google Play's badge generator); alt text is the badge's words
 privacy/ terms/ support/  the privacy policy, the terms and the support page, English only
 tools/legal/*.md      their text; privacy.md and terms.md are copies from the app repository
 tools/legal.mjs       turns that Markdown into the three pages
