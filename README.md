@@ -52,7 +52,11 @@ unauthenticated:
 
 - **[Pubky Nexus](https://nexus.pubky.app)** answers which URIs carry the
   `loopky-deck` label, via `/v0/stream/resources`. That is all it answers: a deck
-  manifest is a generic resource to the indexer, so there is no title in there.
+  manifest is a generic resource to the indexer, so there is no title in there. The
+  stream is not scoped to an app: Nexus answers `app=` with a 400 since
+  [pubky-nexus#1129](https://github.com/pubky/pubky-nexus/pull/1129), so it returns
+  anything anyone labelled `loopky-deck`, web URLs included, and the page keeps only
+  URIs shaped `pubky://{author}/pub/loopky/decks/{id}/manifest.json`.
 - **The homeserver** serves the manifest itself over plain HTTPS. A deck's `pubky://`
   address names a homeserver and a path, and the homeserver takes the pubky in a
   `pubky-host` header rather than in the URL. Title, card count, topics and cover all
@@ -64,7 +68,8 @@ Three details are carried over from the app because each one is load-bearing:
 - **`skip` advances by the window asked for, never by what came back.** It is an
   offset into the indexer's raw sorted set, and Nexus drops a subject whose details no
   longer resolve, so a page is routinely shorter than the limit with more behind it.
-  Only an empty page means the end.
+  Only an empty page means the end, and that is counted before the deck filter: a
+  page of nothing but other apps' resources has more behind it too.
 - **Paging is sorted by timeline, not by tagger count.** The tagger-count ordering
   shifts under paging.
 - **A label proves nothing.** Anyone may tag any URI `loopky-deck`, so the URI has to
@@ -357,6 +362,11 @@ on the page from the account's own public records: its deck manifests, the decks
 follows, every review-state chunk under `/pub/loopky/srs/`, and its settings record
 for where "mastered" sits. So a link cannot be edited into a better year than the
 account had, and nothing new is published to make the page work.
+
+The name on the recap comes from Nexus, or, when Nexus has none, from the account's
+own profile record: `/pub/social/v1/profile.json` for an account pubky.app has
+migrated to the social/v1 layout, `/pub/pubky.app/profile.json` otherwise. A migrated
+account keeps the old file, so the new one is read first.
 
 **The arithmetic exists twice and has to agree.** `assets/js/recap-core.js` is
 `YearRecap.from` from the app, ported. Three rules are there only to keep the two

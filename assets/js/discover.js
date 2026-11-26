@@ -5,7 +5,11 @@
  *
  *   Pubky Nexus     /v0/stream/resources answers "which URIs carry the loopky-deck
  *                   label". That is all it answers. A deck manifest is a generic
- *                   resource to the indexer, so there is no title in here.
+ *                   resource to the indexer, so there is no title in here. The
+ *                   stream is not scoped to an app (Nexus answers `app=` with a 400
+ *                   since pubky-nexus#1129), so it carries whatever else anyone
+ *                   labelled loopky-deck, web URLs included, and only deck manifests
+ *                   are kept.
  *
  *   The homeserver  the manifest itself, over plain HTTPS. A deck's pubky:// address
  *                   names a homeserver and a path, and the homeserver takes the pubky
@@ -72,13 +76,14 @@ function webCover(url) {
 /* ---------------- the indexer: which URIs claim to be decks ---------------- */
 
 /**
- * One page of subjects carrying [DECK_TAG].
+ * One page of subjects carrying [DECK_TAG], every one the indexer returned, deck or
+ * not: the caller pages on the raw count and keeps the decks.
  *
  * Sorted by timeline rather than by tagger count, because `skip` is an offset into
  * the indexer's sorted set and the tagger-count ordering shifts under paging.
  */
 function taggedSubjects(skip) {
-  var url = NEXUS + '/v0/stream/resources?app=loopky&tags=' + DECK_TAG +
+  var url = NEXUS + '/v0/stream/resources?tags=' + DECK_TAG +
     '&sorting=timeline&limit=' + WINDOW + '&skip=' + skip;
   return getJson(url).then(function (list) {
     if (!Array.isArray(list)) return [];
@@ -111,7 +116,8 @@ function taggedSubjects(skip) {
  * `skip` advances by the window **asked for**, never by what came back. Nexus drops
  * a subject whose details no longer resolve, so a page is routinely shorter than the
  * limit with more behind it, and advancing by the length received would re-read those
- * positions forever. Only an empty page means the end.
+ * positions forever. Only an empty page means the end, counted before the deck
+ * filter: a page holding nothing but other apps' resources has more behind it too.
  */
 function loadSubjects() {
   var byUri = {};
@@ -125,7 +131,7 @@ function loadSubjects() {
     skip += WINDOW;
     return taggedSubjects(at).then(function (page) {
       if (!page.length) return byUri;
-      page.forEach(function (s) { if (s.uri && !byUri[s.uri]) byUri[s.uri] = s; });
+      page.forEach(function (s) { if (DECK_URI_RE.test(s.uri) && !byUri[s.uri]) byUri[s.uri] = s; });
       return more();
     });
   }

@@ -377,13 +377,22 @@
     });
   }
 
+  /* The account's own profile record. pubky.app moves it to /pub/social/v1/ when it
+     migrates the account (pubky-app#3140) and leaves the old one behind, so the new one
+     wins and /pub/pubky.app/ is read only when there is none. The two have the same
+     `name` and `image` fields. */
+  function readOwnProfile() {
+    return read(pubky, '/pub/social/v1/profile.json', true).catch(function () { return null; })
+      .then(function (v1) { return v1 || read(pubky, '/pub/pubky.app/profile.json', true); });
+  }
+
   /* Who this is. The indexer first, since it also says whether there is a picture to
      show; then the account's own profile record, which has the name the moment it is
      written while the indexer may be minutes behind or not following this account. */
   function loadProfile() {
     return fetchProfile(pubky).then(function (indexed) {
       if (indexed && indexed.name) return indexed;
-      return read(pubky, '/pub/pubky.app/profile.json', true).then(function (own) {
+      return readOwnProfile().then(function (own) {
         var name = own && typeof own.name === 'string' && !PUBKY_RE.test(own.name) ? own.name.trim() : '';
         return {
           name: name,
