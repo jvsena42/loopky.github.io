@@ -20,7 +20,7 @@ const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
 
 const PLAY = 'https://play.google.com/store/apps/details?id=com.github.jvsena42.loopky';
-const TESTFLIGHT = 'https://testflight.apple.com/join/n2TzwMTu';
+const APP_STORE = 'https://apps.apple.com/app/id6818114611';
 const GH = 'https://github.com/jvsena42/loopky';
 /* Where the Markdown says the site lives. Links there become relative ones, so they
    follow the site wherever tools/set-site-url.mjs moves it. */
@@ -265,7 +265,7 @@ ${ld}
     <nav class="footlinks">
       <a href="../">Home</a>
       <a href="${PLAY}">Google Play</a>
-      <a href="${TESTFLIGHT}">TestFlight</a>
+      <a href="${APP_STORE}">App Store</a>
       <a href="${GH}">Source code</a>
       <a href="../faq/">FAQ</a>
       <a href="../privacy/">Privacy</a>

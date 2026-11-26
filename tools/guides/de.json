@@ -4,7 +4,7 @@
     "lang": "Sprache",
     "get": "App holen",
     "play": "Bei Google Play holen",
-    "ios": "iOS-Beta auf TestFlight",
+    "ios": "Laden im App Store",
     "free": "Kostenlos. Keine Werbung. Quelloffen.",
     "faq": "Fragen",
     "more": "Mehr über Loopky",
@@ -152,7 +152,7 @@
         ],
         [
           "Gibt es eine iPhone-App?",
-          "Ja. Die iOS-App ist als öffentliche Beta auf TestFlight verfügbar, und Loopky gibt es bei Google Play für Android."
+          "Ja. Loopky gibt es im App Store für iPhone und iPad und bei Google Play für Android."
         ]
       ]
     },
@@ -327,7 +327,7 @@
         ],
         [
           "Können Schüler mit iPhone mitmachen?",
-          "Ja. Sie können der iOS-Beta auf TestFlight beitreten oder die Stapelseite im Browser öffnen."
+          "Ja. Sie können Loopky aus dem App Store laden oder die Stapelseite im Browser öffnen."
         ]
       ]
     },
@@ -583,7 +583,7 @@
         ],
         [
           "Wo läuft es?",
-          "Ab Android 10, auf Handys und Tablets. Auf iPhone und iPad gibt es die iOS-App als öffentliche Beta auf TestFlight. Auf dem Computer verwaltet ein Kommandozeilen-Tool die Stapel."
+          "Ab Android 10, auf Handys und Tablets. Auf iPhone und iPad ab iOS 18.2, aus dem App Store. Auf dem Computer verwaltet ein Kommandozeilen-Tool die Stapel."
         ],
         [
           "Kann ich Anki-Stapel importieren?",
