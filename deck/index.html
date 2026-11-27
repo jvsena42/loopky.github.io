@@ -11,6 +11,24 @@
 <meta name="theme-color" id="tc-light" content="#FF5C00" media="(prefers-color-scheme: light)">
 <meta name="theme-color" id="tc-dark" content="#0D0B11" media="(prefers-color-scheme: dark)">
 <meta name="apple-itunes-app" content="app-id=6818114611">
+<script>
+/* Safari's banner reads this tag, and its app-argument reaches the app through
+   onOpenURL, which parses it with PubkyLinks like any shared link. The page is one
+   static file for every deck, so the argument is written here, synchronously, before
+   the parser goes past the head. Only the parameters the app reads are kept, rebuilt
+   on loopky.app: the app accepts no other host, and a stray comma would end the
+   argument early. Without them the tag stays as it is and the banner opens the app. */
+(function () {
+  var meta = document.querySelector('meta[name="apple-itunes-app"]');
+  var from = new URLSearchParams(location.search), keep = new URLSearchParams();
+  var keys = ['author', 'id'];
+  for (var i = 0; i < keys.length; i++) {
+    if (!from.get(keys[i])) return;
+    keep.set(keys[i], from.get(keys[i]));
+  }
+  meta.setAttribute('content', 'app-id=6818114611, app-argument=https://loopky.app/deck/?' + keep);
+})();
+</script>
 <link rel="icon" href="../assets/img/logo.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/img/logo.png">
 
